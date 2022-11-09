@@ -25,10 +25,17 @@ function Header() {
                             <Nav.Link className='nav-item' href="#pricing">MY EVENTS</Nav.Link>
                             <Nav.Link className='nav-item' href="#pricing">BLOG</Nav.Link>
                             <Nav.Link className='nav-item' href="#pricing">FAQ</Nav.Link>
-                            <Dropdown className="signup">
+                            <div
+                                className="nav-link signup"
+
+                            >
+                                <FaUserCircle style={{ width: "1.5rem", height: "1.5rem" }} className="mb-0.5" /> Sign up/ Login
+                            </div>
+                            {/* <Dropdown className="signup">
                                 <Dropdown.Toggle className="signup" id="dropdown-basic">
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
+                                    
                                     <Dropdown.Item>
                                         <Link to="/user-view" style={{ textDecoration: "none", color: "black", }}>
                                             Profile
@@ -40,7 +47,7 @@ function Header() {
                                         </Link>
                                     </Dropdown.Item>
                                 </Dropdown.Menu>
-                            </Dropdown>
+                            </Dropdown> */}
                         </Nav>
 
 

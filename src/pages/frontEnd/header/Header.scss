@@ -7,9 +7,11 @@
   z-index: 1;
 } 
 .navbar-light {
-  background-color: rgba(255, 255, 255, .7);
+  background-color:  rgba(255, 255, 255, 0.7);
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
   z-index: 1;
+
+
 }
 .navbar-expand-lg {
     padding: 10px !important;
@@ -23,10 +25,12 @@
     margin-right: 30px;
     padding: 10px !important;
     /* font-family: "Muli"; */
-    font-size: 12px;
     font-weight: 500;
-    color: rgb(81, 81, 81) !important;
+    color: #515151 !important;
     z-index: 190;
+    font-family: 'SF UI Display';
+    font-size: 14px;
+  line-height: 17px;
   }
   
   .nav-link {
@@ -40,12 +44,18 @@
   }
   
   .signup {
-    height: 35px;
-    width: 10rem;
+    font-family: 'SF UI Display';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: -0.017em;
+    padding: 6px 16px;
+    height: 36px;
+    width: 136px;
     color: rgb(255, 255, 255) !important;
     border: 1px #ff9700 !important;
-    background: linear-gradient(to right, #ff9700, #d97000);
-    border-radius: 15px !important;
+    background: linear-gradient(92.39deg, #FF9700 0%, #DE8300 91.96%);
+    border-radius: 14px !important;
     cursor: pointer;
     outline: none !important;
     box-shadow: none !important;
