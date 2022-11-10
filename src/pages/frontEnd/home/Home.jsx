@@ -8,7 +8,7 @@ import ReadyEvents from './components/ReadyEvents'
 import Somethingtodo from './components/Somethingtodo'
 import TopSection from './components/TopSection'
 import Vanues from './components/Vanues'
-// import Date from './components/Date'
+import Date from './components/Date'
 
 const Home = () => {
     return (
@@ -16,7 +16,7 @@ const Home = () => {
             <TopSection />
             <Vanues />
             {/* <Events /> */}
-            {/* <Date /> */}
+            <Date />
             <CFEvent />
             <ReadyEvents />
             <Somethingtodo />

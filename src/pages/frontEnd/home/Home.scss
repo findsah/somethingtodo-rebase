@@ -515,7 +515,7 @@ line-height: 17px;
 }
 
 .check {
-    margin-top: -20px !important;
+    margin-top: -50px !important;
 }
 
 
@@ -523,6 +523,78 @@ line-height: 17px;
 
 
 /* vanue card css */
+.card-img{
+    height:150px;
+    width:100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+  }
+  
+  .item{
+    padding-left:5px;
+    padding-right:5px;
+  }
+  .item-card{
+    transition:0.5s;
+    cursor:pointer;
+    border-radius: 10px;
+
+  }
+  .item-card-title{  
+    font-size:15px;
+    transition:1s;
+    cursor:pointer;
+  }
+  .item-card-title i{  
+    font-size:15px;
+    transition:1s;
+    cursor:pointer;
+    color:#ffa710
+  }
+  .card-title i:hover{
+    transform: scale(1.25) rotate(100deg); 
+    color:#18d4ca;
+    
+  }
+  .card:hover{
+    transform: scale(1.05);
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+  }
+  .card-text{
+    height:80px;  
+  }
+  
+  .card::before, .card::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: scale3d(0, 0, 1);
+    transition: transform .3s ease-out 0s;
+    background: rgba(255, 255, 255, 0.1);
+    content: '';
+    pointer-events: none;
+  }
+  .card::before {
+    transform-origin: left top;
+  }
+  .card::after {
+    transform-origin: right bottom;
+  }
+  .card:hover::before, .card:hover::after, .card:focus::before, .card:focus::after {
+    transform: scale3d(1, 1, 1);
+  }
+.main-vanue{
+    .margin{
+
+            margin-top: 5rem;
+    }
+}
+
+
+
 .vanue-color {
     background-color: #64E2FF;
     border-bottom-color: #64E2FF;
@@ -592,27 +664,26 @@ line-height: 17px;
 }
 
 .for-color {
-    background-color: #5ab8eb;
-    border-bottom-color: #5ab8eb;
+    background-color: #64E2FF;
+    border-bottom-color: #64E2FF;
     border-bottom-left-radius: 9px;
 }
 
 .cdate1 {
     color: #fff;
-    font-size: 14px;
+    font-size: 15.2953px;
     font-weight: 600;
     letter-spacing: 2px;
 }
 
 .cdate2 {
     color: #fff;
-    font-size: 11px;
+    font-size: 10.1969px;
 }
 
 .cdate3 {
     color: #fff;
-    font-size: 9px;
-}
+    font-size: 9.19156px;}
 
 .dhead {
  height: 1rem;
@@ -657,10 +728,11 @@ letter-spacing: 0.063em;
 }
 
 .cdate {
-    color: black;
-    font-size: 10px;
-    margin-right: 3px;
+    color: #515151;
+    font-size: 10.49741px;
     margin-bottom: 0 !important;
+    letter-spacing: -0.017em;
+
 }
 
 .cpaid {
@@ -677,7 +749,7 @@ letter-spacing: 0.063em;
     object-fit: cover;
     height: 35px;
     width: 35px;
-    top: 5.4rem;
+    top: 8rem;
 }
 
 .event-card-chat {
@@ -687,10 +759,10 @@ letter-spacing: 0.063em;
 
 .chatOptionDiv {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     margin: 10px 0;
-    margin-left: 30px;
+    margin-left: 70px;
 }
 
 .last-content {
@@ -1319,6 +1391,47 @@ letter-spacing: 0.063em;
 }
 
 @media (max-width: 475px) {
+    .main-vanue{
+        .vanuebg1{
+            background-image: url("../../../assets/vanuebg1.png");
+            text-align: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 227px;
+            z-index: -1;
+    
+            position: "relative"
+        }
+    }
+    .main-vanue{
+        .vanuebg2{
+            background-image: url("../../../assets/vanuebg2.png");
+            text-align: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 224px;
+            z-index: 1;
+            position: "relative"
+        }
+    }
+    .main-vanue{
+        .set-postion{
+          position: absolute;
+          margin-top: 5rem;
+        }
+    }
+    .main-vanue{
+        .margin{
+    
+                margin-top: 0rem;
+        }
+    }
+    .main-vanue{
+        .event-card-img{
+    
+               height: 14rem;
+        }
+    }
     .slick-current {
         width: 340px !important;
     }
@@ -1327,6 +1440,13 @@ letter-spacing: 0.063em;
     }
     .slick-next {
         display: none !important;
+    }
+    .main-vanue{
+        .happen {
+            text-align: center !important;
+            font-size: 20px;
+            line-height: 24px;
+        }
     }
     .happen {
         text-align: center !important;
