@@ -1,0 +1,20 @@
+.createEventTop {
+  background-image: url("../../../assets/createEventbg.png");
+  height: 632px;
+  width: 100%;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  .logo-div {
+    text-align: center;
+    height: 80px;
+    img {
+      max-width: 100%;
+      height: 80px;
+    }
+  }
+  .createEventSilder {
+    background: linear-gradient(140.6deg, #002c6d 0%, #0082cf 100%);
+    height: 485px;
+  }
+}
