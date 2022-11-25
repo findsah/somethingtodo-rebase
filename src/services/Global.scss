@@ -1,0 +1,32 @@
+.btn-main {
+  width: 245px;
+  height: 36px;
+  background: linear-gradient(92.39deg, #ff9700 0%, #de8300 91.96%);
+  border-radius: 14px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 1rem;
+  border: none;
+}
+.outlined-btn {
+  width: 245px;
+  height: 36px;
+  border: 1px solid #ff9700 !important;
+  border-radius: 14px;
+  color: #ff9700;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 1rem;
+  border: none;
+}
+
+.slick-list {
+  position: relative;
+  /* display: block; */
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}

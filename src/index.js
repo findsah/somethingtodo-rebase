@@ -1,17 +1,24 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./index.scss";
+import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 
+// bootstrap css
+import "bootstrap/dist/css/bootstrap.min.css";
 
-import { BrowserRouter } from "react-router-dom";
+// slick css
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+// custom css
+import "./index.scss";
+
+
 // store
 import { Provider } from "react-redux";
 import store from "./services/store";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
-import "./index.scss";
 
 const loadingMarkup = (
   <div className="py-4 text-center">
