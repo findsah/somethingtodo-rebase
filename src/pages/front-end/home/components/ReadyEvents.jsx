@@ -12,27 +12,31 @@ import DateCard from '../../components/DateCard'
 import StartEventCard from '../../components/StartEventCard'
 import CustomButton from "../../../../components/form/CustomButton";
 import vanueImg from '../../../../assets/Rectangle 11.jpg';
-import dateicon from '../../../../assets/dateicon.svg';
-import dollar from '../../../../assets/dollaricon.svg';
-
+import dateicon from '../../../../assets/datewhiteicon.svg';
+import currncyicon from '../../../../assets/currnecywhiteicon.svg';
+import { GrFacebook } from "react-icons/gr";
+import { ImTwitter } from "react-icons/im";
+import { SiInstagram } from "react-icons/si";
+import MobileScreenCard from "../../components/MobileScreenCard";
 export default function ReadyEvents() {
     return (
         <>
             <div className="container-fluid main-readyEvent">
-                <Row>
-                    <div className="col-lg-4 col-md-4 col-4 p-0 d-flex align-items-center ">
+                <Row >
+                    <div className="col-lg-4 col-md-4 col-4 p-0 d-flex align-items-center  ">
                         <Row className="justify-content-end">
-                            <Col lg={9} >
+                            <Col lg={9} className=" d-none d-md-block d-lg-block">
                                 <h2> READY TO GO! </h2>
                             </Col>
-                            <Col lg={9} className="align-items-start">
+                            <Col lg={9} className="align-items-start d-none d-md-block d-lg-block">
                                 <p>
                                     Don't miss these events which are <br /> starting very soon!
                                 </p>
+                                <CustomButton text="view all" />
                             </Col>
                         </Row>
                     </div>
-                    <div className="col-lg-8 col-md-8 col-8 p-0 ready-card">
+                    <div className="col-lg-8 col-md-8 col-8 p-0 ready-card   d-none d-md-block d-lg-block ">
                         <Slider {...settings3}>
                             {
                                 [1, 2, 3, 4, 5, 6].map(item => (
@@ -43,27 +47,13 @@ export default function ReadyEvents() {
                     </div>
 
                 </Row>
-                {/* <Row className='ready-togo'>
-
-                    <Col lg={4} md={2}>
-                        <h1> READY TO GO! </h1>
-                        <p>
-                            Don't miss these events which are starting very soon!
-                        </p>
-                    </Col>
-                    <Col lg={8} md={12}>
-                        <div className="start-event-card">
-                            <StartEventCard />
-                        </div>
-                    </Col>
-                </Row> */}
-                {/* <div className="col-lg-4 col-12 ready-togo">
-                        
-                        <p className="dont">
-                            Don't miss these events which are starting very soon!
-                        </p>
-                        <button className="view-but">VIEW ALL</button>
-                    </div> */}
+                <Slider {...settings3}>
+                    {
+                        [1, 2, 3, 4, 5, 6].map(item => (
+                            <MobileScreenCard />
+                        ))
+                    }
+                </Slider>
 
             </div>
             <div className="container-fluid power-up" style={{ overflowX: "hidden" }}>

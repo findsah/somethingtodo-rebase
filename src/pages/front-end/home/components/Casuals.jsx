@@ -7,13 +7,15 @@ import { settings } from '../../../../config/helper';
 
 const Casuals = () => {
     return (
-        <div className="container">
+        <div className="container" style={{
+            filter: "drop-shadow(0px 6px 24px rgba(0, 0, 0, 0.2))"
+        }}>
             <Row>
                 <div className="main-casual" style={{ marginTop: '8rem' }}>
                     <Col xs={12} lg={12} md={6}>
                         <div className="casual-text">
                             <div className="casualHighlight aos-init aos-animate" data-aos="fade-right" data-aos-duration="2000"></div>
-                            <h2>NEW IN TOWN AND DON'T <br></br> ANYONE HERE YET?</h2>
+                            <h2>NEW IN TOWN AND DON'T KNOW  <br></br> ANYONE HERE YET?</h2>
                             <p>Meet Someone who can show you around a little bit</p>
                             <CustomButton text='See All Casual' />
                         </div>

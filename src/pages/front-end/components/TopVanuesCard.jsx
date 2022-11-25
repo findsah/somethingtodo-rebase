@@ -17,7 +17,7 @@ const TopVanuesCard = () => {
                         Nunc vulputate libero et velit interdum, ac aliquet odio mattis.
                     </Card.Text>
                     <Card.Text className='address'>
-                        <MdLocationPin />Address
+                        <MdLocationPin className='loction-icon' />Address
                     </Card.Text>
                 </Card.Body>
                 <div className='blue-side'>

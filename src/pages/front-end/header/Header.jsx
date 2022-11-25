@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { BsPersonCircle } from 'react-icons/bs'
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -12,12 +13,12 @@ const Header = () => {
                 <BsPersonCircle className='profile-icon' />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="navbar-nav mobileStyle">
-                        <Nav.Link href="#features">HOME</Nav.Link>
-                        <Nav.Link href="#pricing">CREATE EVENT</Nav.Link>
-                        <Nav.Link href="#pricing">FIND EVENTS</Nav.Link>
-                        <Nav.Link href="#pricing">MY EVENTS</Nav.Link>
-                        <Nav.Link href="#pricing">BLOG</Nav.Link>
-                        <Nav.Link href="#pricing">FAQ</Nav.Link>
+                        <Link to="/">HOME</Link>
+                        <Link to="/create-event">CREATE EVENT</Link>
+                        <Link to="#pricing">FIND EVENTS</Link>
+                        <Link to="#pricing">MY EVENTS</Link>
+                        <Link to="#pricing">BLOG</Link>
+                        <Link to="#pricing">FAQ</Link>
                         <Button className='signup'>
                             <BsPersonCircle />
                             sign up/login

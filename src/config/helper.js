@@ -10,8 +10,8 @@ const ReadyPrevArrow = ({ className, onClick }) => (
       // paddingTop: "7px",
       // borderRadius: "50%",
       // border: "1px solid rgb(31, 81, 139)",
-      // height: "35px",
-      // width: "35px",
+      height: "25px",
+      width: "25px",
       // left: "0px",
       // zIndex: "1",
     }}
@@ -30,8 +30,8 @@ const ReadyNextArrow = ({ className, onClick }) => (
         // paddingTop: "7px",
         // borderRadius: "50%",
         // border: "1px solid rgb(31, 81, 139)",
-        // height: "35px",
-        // width: "35px",
+        height: "25px",
+        width: "25px",
         // right: "0px",
       }
     }
@@ -240,6 +240,7 @@ export const settings2 = {
       breakpoint: 480,
       settings: {
         slidesToShow: 4,
+        initialSlide: 2,
         slidesToScroll: 1
       }
     },
@@ -247,6 +248,7 @@ export const settings2 = {
       breakpoint: 400,
       settings: {
         slidesToShow: 4,
+        initialSlide: 2,
         slidesToScroll: 1
       }
     }

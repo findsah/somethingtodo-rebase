@@ -1,8 +1,7 @@
 import React from 'react'
 import Slider from "react-slick";
 import DateCard from '../../components/DateCard';
-import { Col, Container, Row } from 'react-bootstrap';
-import CustomButton from '../../../../components/form/CustomButton';
+import { Button, Col, Row } from 'react-bootstrap';
 import { settings } from '../../../../config/helper';
 
 
@@ -17,7 +16,7 @@ const DateSection = () => {
                     <div className="date-text">
                         <h2>looking for a date?</h2>
                         <p>Find Somethingtodo with someone who shares your interest</p>
-                        <CustomButton text='See All Date' />
+                        <Button className='btn-main'>See All Dates</Button>
                     </div>
                     <div className="date-cards">
                         <Slider {...settings}>
