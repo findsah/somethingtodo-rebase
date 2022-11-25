@@ -5,7 +5,7 @@ const CreateEvent = () => {
     return (
         <>
             <CreateEventHead />
-            <CreateEventHead />
+
         </>
     )
 }
