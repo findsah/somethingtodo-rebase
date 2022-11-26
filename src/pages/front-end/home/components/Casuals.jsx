@@ -12,7 +12,7 @@ const Casuals = () => {
         }}>
             <Row>
                 <div className="main-casual" style={{ marginTop: '8rem' }}>
-                    <Col xs={12} lg={12} md={6}>
+                    <Col xs={12} lg={12} md={12}>
                         <div className="casual-text">
                             <div className="casualHighlight aos-init aos-animate" data-aos="fade-right" data-aos-duration="2000"></div>
                             <h2>NEW IN TOWN AND DON'T KNOW  <br></br> ANYONE HERE YET?</h2>

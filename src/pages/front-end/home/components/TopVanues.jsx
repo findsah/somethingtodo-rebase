@@ -54,6 +54,7 @@ const TopVanues = () => {
                     What's  Happening Right Now <br className='d-none d-md-block d-lg-block' /> in
                     <div className="topVanueHighlight aos-init aos-animate" data-aos="fade-right" data-aos-duration="2000"></div>
                     <span> {address}</span>
+                    {/* <span> Lahore</span> */}
                 </p>
                 <Dropdown>
                     <Dropdown.Toggle variant="outlined" className="dropdown-btn">
@@ -68,18 +69,16 @@ const TopVanues = () => {
                     </Dropdown.Menu>
                 </Dropdown>
             </Col>
-            <Col xs={12} md={4} className='mobile-screen'>
-                <div className='vanuebg2'>
+            <Col xs={12} lg={4} md={6} className='mobile-screen'>
+                <div className='vanuebg'>
                     <div className="set-postion">
                         <Link to="/vanue-detail">
                             <TopVanuesCard />
                         </Link>
                     </div>
                 </div>
-                <div className='vanuebg1'></div>
-
             </Col>
-            <Col xs={12} md={4} className='d-none d-lg-block topvanue-link'>
+            <Col xs={12} lg={4} md={6} className='d-none d-lg-block topvanue-link'>
                 <Link to="/vanue-detail">
                     <TopVanuesCard />
                 </Link>

@@ -15,7 +15,7 @@ const DateCard = () => {
 
     return (
         <>
-            <Row className='d-none d-md-block d-lg-block'>
+            <Row className=''>
                 <Col lg={11} >
                     <Card className='date-card-style' >
                         <Card.Img variant="top" src={vanueImg} />
@@ -68,7 +68,7 @@ const DateCard = () => {
                     </Card>
                 </Col>
             </Row>
-            <Row className='d-sm-block d-md-none '>
+            {/* <Row className=''>
                 <Col lg={11} >
                     <Card className='top-vanues-card-style'>
                         <Card.Img variant="top" src={vanueImg} />
@@ -122,7 +122,7 @@ const DateCard = () => {
                         </div>
                     </Card>
                 </Col>
-            </Row>
+            </Row> */}
 
         </>
     )

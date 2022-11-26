@@ -13,7 +13,7 @@ const Dining = () => {
                 filter: "drop-shadow(0px 6px 24px rgba(0, 0, 0, 0.2))"
             }}>
                 <Row>
-                    <Col xs={12} lg={12} md={6}>
+                    <Col xs={12} lg={12} md={12}>
                         <div className="main-dining" style={{ marginTop: '22rem' }}>
                             <div className="dining-text">
                                 <h2>FIND WINE AND DINING  <br></br> YOUR THING ?</h2>

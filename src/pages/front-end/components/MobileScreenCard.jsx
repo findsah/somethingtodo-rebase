@@ -17,7 +17,7 @@ import { SiInstagram } from "react-icons/si";
 export default function MobileScreenCard() {
     return (
         <div>
-            <div className="row justify-content-center d-sm-block d-md-none  small-screen-start-event">
+            <div className="row justify-content-center   small-screen-start-event">
                 <div className="col-8 text-center">
                     <h2> READY TO GO! </h2>
                     <p>
@@ -26,7 +26,7 @@ export default function MobileScreenCard() {
                     <CustomButton text="view all" />
                 </div>
             </div>
-            <div className="row d-flex small-screen-start-event d-sm-block d-md-none ">
+            <div className="row d-flex small-screen-start-event  ">
                 <hr />
                 <div className="col-4" >
                     <img className="img-fluid card-img" src={readyImg} alt="simple" />
@@ -100,7 +100,7 @@ export default function MobileScreenCard() {
                     </div>
                 </div>
             </div>
-            <div className="row d-flex p-3 shareDiv d-sm-block d-md-none  ">
+            <div className="row d-flex p-3 shareDiv">
 
                 <div className="col-6 text-center">
                     <h2>Share with friends:</h2>

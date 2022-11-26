@@ -1,5 +1,5 @@
 /* TopContent css */
-
+ 
 .bg-img {
   background-image: url("../../../assets/homebg.png");
   height: 632px;
@@ -61,10 +61,7 @@
         position: absolute;
         z-index: -1;
       }
-      @media (max-width: 1290px) {
-        font-size: 35px;
-        line-height: 40px;
-      }
+   
     }
     .dropdown-btn {
       border: 1px solid #ff9700 !important;
@@ -126,6 +123,9 @@
 
 .ready-event-card {
   // background: linear-gradient(140.6deg, #002C6D 0%, #0082CF 100%);
+  .card2-img{
+    height: 26.7rem !important;
+  }
   .para-sec {
     h2 {
       margin-top: 3.5rem;
@@ -1029,9 +1029,13 @@
     right: 27.5%;
   }
   .main-readyEvent {
+    text-align: center;
+    .btn-main {
+      width: 131px !important;
+    }
     h2 {
       font-weight: 700;
-      font-size: 28px;
+       font-size: 25px;
       line-height: 81px;
       letter-spacing: 0.063em;
       color: #ffffff;
@@ -1076,13 +1080,10 @@
     }
   }
   .ready-event-card {
+    
     .box-1 {
-      button {
-        border-radius: 7px;
-        font-size: 10px;
-        font-weight: 500;
-        margin: 1px 3px;
-        margin-top: 39px;
+      .btn-main {
+        width: 131px !important;
       }
     }
   }
@@ -1106,13 +1107,17 @@
   
     }
   }
+  .power-up{
+    height: 248px;
+  }
 }
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .bg-img {
+    
     background-size: cover !important;
-    // .place {
-    //   font-size: 35px !important;
-    // }
+    .place {
+      font-size: 31px !important;
+    }
     .top-buttons {
       display: block !important;
       button {
@@ -1120,40 +1125,47 @@
       }
     }
   }
-
-  .happen-wrapper {
-    padding-top: 5rem;
-    .happen-text {
-      font-weight: 500;
-      font-size: 20px;
-      line-height: 24px;
-      color: #1f518b;
-      text-transform: uppercase;
-      span {
+  .main-top-vanue  {
+    .happen-wrapper {
+      padding-top: 5rem;
+      .happen-text {
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 51px;
+        color: #1f518b;
+        text-transform: uppercase;
+        span {
+          color: #ff9700;
+        }
+        .topVanueHighlight {
+          background: #64e2ff !important;
+          width: 54.7%;
+          height: 25px;
+          top: 15.9rem;
+          right: 19.5%;
+          position: absolute;
+          z-index: -1;
+        }
+      }
+      .dropdown-btn {
+        border: 1px solid #ff9700 !important;
+        border-radius: 14px;
         color: #ff9700;
+        text-transform: uppercase;
+        font-size: 14px;
+        width: 190px;
+        height: 36px;
       }
-      .topVanueHighlight {
-        background: #64e2ff !important;
-        width: 42.7%;
-        height: 25px;
-        top: 15.5rem;
-        right: 40.5%;
-        position: absolute;
-        z-index: -1;
-      }
-    }
-    .dropdown-btn {
-      border: 1px solid #ff9700 !important;
-      border-radius: 14px;
-      color: #ff9700;
-      text-transform: uppercase;
-      font-size: 14px;
-      width: 190px;
-      height: 36px;
     }
   }
+  
+  .date-cards {
+     .date-card-style {
+      width: 90%;
+      
+     }
+  }
   .date-events {
-    width: 100%;
     .dateHighlight {
       display: none;
     }
@@ -1192,7 +1204,7 @@
       border-top: 3px solid white;
     }
     .circle {
-      margin: 167px -35px;
+      margin: 237px -257px;
     }
   }
   .main-somethingtodo {
@@ -1322,7 +1334,34 @@
   .power-up {
     display: none;
   }
-
+  .ready-event-card{
+    .card2-img {
+      height: 21.7rem !important;      
+  }
+    .para-sec{
+      .dec{
+        display: none;
+      }
+      h2{
+        font-size: 17px;
+      }
+    }
+    .last-row{
+      margin: 0px 0px 0px -25px;
+      border-bottom-right-radius: 10px;
+      margin-top: 87px;
+      .date-host{
+        p{
+          display: none;
+        }
+      }
+      .user-imge {
+        left: -23px;
+        height: 60px;
+        width: 60px;
+      }
+    }
+  }
 
 }
 
@@ -1331,28 +1370,63 @@
       .bg-img {
       .top-text {
         .place {
-          font-size: 20px;
+          font-size: 20px !important;
           line-height: 71px;
           margin-top: 178px;
           margin-bottom: 18px;
       }
       }
     }
-    .happen-wrapper {
-      padding-top: 0rem !important;
-      .happen-text {
-        justify-content: center;
-        font-weight: 700;
-        font-size: 31px;
-        line-height: 28px;
-     
-        .topVanueHighlight {
-          background: #64e2ff !important;
-          width: 30.7%;
-          height: 16px;
-          top: 2.5rem;
-          right: 12.5%;
+    .main-top-vanue{
+      .happen-wrapper {
+        padding-top: 0rem !important;
+        text-align: center;
+        .happen-text {
+          justify-content: center;
+          font-weight: 700;
+          font-size: 25px;
+          line-height: 51px;
+          .topVanueHighlight {
+              background: #64e2ff !important;
+              width: 31.7% !important;
+              height: 25px;
+              top: 4.9rem !important;
+              right: 17.5% !important;
+          }
         }
+      }
+      .top-vanues-card-style {
+        width: 70%;
+        .card-custom-Body {
+          .card-title {
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 27px;
+            text-align: start;
+          }
+          .address {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 51px;
+            .loction-icon{
+              width: 20.96px;
+              height: 20.96px;
+            }
+          }
+         .blue-side {
+          font-weight: 600;
+          font-size: 11px;
+          line-height: 16px;
+          letter-spacing: 0.063em;
+          padding: 40px 12px;
+          color: #1F518B;
+        //   p {
+        //     margin-top: -28px;
+        //     margin-bottom: -1rem;
+        // }
+        }
+        
+      }
       }
     }
     .cf-events {
@@ -1371,75 +1445,8 @@
           margin-right: 2rem;
         } 
       } 
-      .mobile-screen{
-        .dropdown-btn{
-          width:  auto !important;
-        }
-      }
+
     }
-    .date-cards {
-      .date-card-style {
-        width: 92%;
-        margin: 20px auto;
-    }
-   
-  }
-  .mobile-screen{
-    .top-vanues-card-style {
-      width: 70%;
-      .card-custom-Body {
-        .card-title {
-          font-weight: 700;
-          font-size: 14px;
-          line-height: 27px;
-          text-align: start;
-        }
-        .address {
-          font-weight: 600;
-          font-size: 20px;
-          line-height: 24px;
-          .loction-icon{
-          width: 40.96px;
-          height: 40.96px;
-          }
-        }
-       .blue-side {
-        font-weight: 600;
-        font-size: 18px;
-        line-height: 24px;
-        letter-spacing: 0.063em;
-        color: #1F518B;
-      //   p {
-      //     margin-top: -28px;
-      //     margin-bottom: -1rem;
-      // }
-      }
-      
-    }
-    }
-    .set-postion{
-      position: absolute;
-      margin-top: 0rem;
-    }
-    .vanuebg1{
-      background-image: url("../../../assets/vanuebg11.png");
-      text-align: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 192px;
-      z-index: -1;
-      position: "relative"
-    }
-    .vanuebg2{
-      background-image: url('../../../assets/Untitled.png');
-      text-align: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 156px;
-      z-index: 1;
-      position: "relative"
-    } 
-  }
   .main-readyEvent{
     padding: 0px !important;
     .shareDiv{
@@ -1666,86 +1673,189 @@
         }
     }
   }
-
-  .date-cards{
-    .top-vanues-card-style{
-      hr {
-        border-top: 2px dashed #64e2ff;
-        margin: -2px 10px 7px 6px !important;
+  .ready-event-card{
+    .para-sec{
+      h2{
+        margin-top: 1.5rem;
+        text-align: start;
       }
-        .card-custom-Body {
-          .blue-side {
-            background: #64e2ff;
-            padding: 0.88rem 1.5rem;
-            p{
-              font-weight: 600;
-              font-size: 12px;
-              line-height: 14px;
-              letter-spacing: 0.063em;
-              color: #1F518B;
-            }
-          }
+    }
+    .last-row{
+      .usersDiv{
+        
+          margin: 2.3rem 0px 12px 2.1rem;
+        .livechat{
+          display: none;
         }
-          .date-host {
-            display: flex;
-            align-items: center;
-            .address {
-              display: flex;
-              justify-content: flex-start;
-              align-items: center;
-              font-weight: 500;
-              padding: 0px 10px;
-              font-size: 12px;
-              color: #515151;
-              img{
-                width: 12px;
-                height: 12px;
-              }
-            }
-          }
-          .profile-img {
-              position: absolute;
-              left: 0.7rem;
-              bottom: 0.5rem;
-              width: 27px;
-              height: 27px;
-              border: 1px solid #fff;
-              border-radius: 50%;
-            }
-            .event-card-chat {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              margin-left: 34px;
+      }
+      .user-imge {
+        left: -24px;
+        height: 60px;
+        width: 60px;
+      }
+    }
+    .box-1{
+      display: flex;
+      p{
+        display: none;
+      }
+      .box-2 {
+        background-color: #ffffff;
+        border-radius: 4px;
+        padding: 6px 7px;
+        width: 43.66px;
+        height: 44px;
+        span{
+          font-size: 12.9429px;
+          line-height: 13px;
+        }
+        .span-2 {
+          font-size: 7.9714px;
+          margin-top: -2px
+        }
+      }
+      button {
+        margin-top: 2px;
+        font-size: 7px;
+
+    }
+  }
+  .card2-img {
+    height: 18.2rem !important;
+}
+.date-host{
+  display: none;
+}
+  }
+  // .date-cards{
+  //   .top-vanues-card-style{
+  //     hr {
+  //       border-top: 2px dashed #64e2ff;
+  //       margin: -2px 10px 7px 6px !important;
+  //     }
+  //       .card-custom-Body {
+  //         .blue-side {
+  //           background: #64e2ff;
+  //           padding: 0.88rem 1.5rem;
+  //           p{
+  //             font-weight: 600;
+  //             font-size: 12px;
+  //             line-height: 14px;
+  //             letter-spacing: 0.063em;
+  //             color: #1F518B;
+  //           }
+  //         }
+  //       }
+  //         .date-host {
+  //           display: flex;
+  //           align-items: center;
+  //           .address {
+  //             display: flex;
+  //             justify-content: flex-start;
+  //             align-items: center;
+  //             font-weight: 500;
+  //             padding: 0px 10px;
+  //             font-size: 12px;
+  //             color: #515151;
+  //             img{
+  //               width: 12px;
+  //               height: 12px;
+  //             }
+  //           }
+  //         }
+  //         .profile-img {
+  //             position: absolute;
+  //             left: 0.7rem;
+  //             bottom: 0.5rem;
+  //             width: 27px;
+  //             height: 27px;
+  //             border: 1px solid #fff;
+  //             border-radius: 50%;
+  //           }
+  //           .event-card-chat {
+  //             display: flex;
+  //             justify-content: space-between;
+  //             align-items: center;
+  //             margin-left: 34px;
               
-              .last-content {
-                display: flex;
-                align-items: center;
-                .user-img-2 {
-                  height: 15px;
-                  width: 15px;
-                  border-radius: 50%;
-                  margin-right: -8px;
-                  border: 1px solid white;
-                }
-                .others {
-                  margin-left: 7px;
-                  font-size: 7px;
-                  margin-right: auto;
-                  margin-bottom: 0px;
-                }
-              }
-              .price-txt {
-                color: black;
-                font-size: 11px;
-                font-weight: bold;       
-                margin: -132px !important;
-              }
-            }
-  }
-  }
-  .date-events{
-    .date-text{
+  //             .last-content {
+  //               display: flex;
+  //               align-items: center;
+  //               .user-img-2 {
+  //                 height: 15px;
+  //                 width: 15px;
+  //                 border-radius: 50%;
+  //                 margin-right: -8px;
+  //                 border: 1px solid white;
+  //               }
+  //               .others {
+  //                 margin-left: 7px;
+  //                 font-size: 7px;
+  //                 margin-right: auto;
+  //                 margin-bottom: 0px;
+  //               }
+  //             }
+  //             .price-txt {
+  //               color: black;
+  //               font-size: 11px;
+  //               font-weight: bold;       
+  //               margin: -132px !important;
+  //             }
+  //           }
+  // }
+  // }
+  .date-cards {
+    .date-card-style {
+     width: 90%;
+     .card-custom-Body{
+       .card-title {
+         font-weight: 600;
+         font-size: 14px;
+         line-height: 24px;
+         text-align: start;
+     }
+       .blue-side{
+         padding: 0.88rem 1.5rem;
+         order: 2;
+         p{
+           font-weight: 600;
+           font-size: 12px;
+           line-height: 14px;
+           letter-spacing: -0.017em;
+           color: #1F518B;
+         }
+       }
+       .desc{
+         display: none;
+       }
+    .event-card-chat{
+     margin-left: 31px;
+     margin-top: 33px;
+    }
+    .profile-img {
+     left: 0.7rem;
+     bottom: 2rem;
+     width: 27px
+   }
+       .address-date-host{
+         .address {
+           font-size: 9px;
+           
+         }
+       }
+     }
+    }
+ }
+  .date-events {
+    
+    .dateHighlight {
+      display: none;
+    }
+    .date-text {
+      h2 {
+        font-size: 20px;
+        line-height: 24px;
+      }
       .btn-main{
         width: 109px;
         height: 40px;
@@ -1755,9 +1865,7 @@
         letter-spacing: 0.063em;
       }
     }
-
-
-  }
+}
   .top-vanues-card-style {
     // .slick-current {
     //   width: 39px !important;

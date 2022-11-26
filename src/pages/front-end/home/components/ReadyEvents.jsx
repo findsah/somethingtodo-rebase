@@ -22,13 +22,13 @@ export default function ReadyEvents() {
     return (
         <>
             <div className="container-fluid main-readyEvent">
-                <Row >
-                    <div className="col-lg-4 col-md-4 col-4 p-0 d-flex align-items-center  ">
+                <Row className="" >
+                    <div className="col-lg-4 col-md-12 col-sm-12 p-0 d-flex justify-content-center align-items-center  ">
                         <Row className="justify-content-end">
-                            <Col lg={9} className=" d-none d-md-block d-lg-block">
+                            <Col lg={9} md={12} sm={12} className=" ">
                                 <h2> READY TO GO! </h2>
                             </Col>
-                            <Col lg={9} className="align-items-start d-none d-md-block d-lg-block">
+                            <Col lg={9} md={12} sm={12} className="">
                                 <p>
                                     Don't miss these events which are <br /> starting very soon!
                                 </p>
@@ -36,7 +36,7 @@ export default function ReadyEvents() {
                             </Col>
                         </Row>
                     </div>
-                    <div className="col-lg-8 col-md-8 col-8 p-0 ready-card   d-none d-md-block d-lg-block ">
+                    <div className="col-lg-8 col-md-12 col-sm-12 p-0 ready-card ">
                         <Slider {...settings3}>
                             {
                                 [1, 2, 3, 4, 5, 6].map(item => (
@@ -47,14 +47,6 @@ export default function ReadyEvents() {
                     </div>
 
                 </Row>
-                <Slider {...settings3}>
-                    {
-                        [1, 2, 3, 4, 5, 6].map(item => (
-                            <MobileScreenCard />
-                        ))
-                    }
-                </Slider>
-
             </div>
             <div className="container-fluid power-up" style={{ overflowX: "hidden" }}>
                 <p data-aos="fade-right"> POWER UP! </p>
