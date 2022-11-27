@@ -14,7 +14,7 @@ const Dining = () => {
             }}>
                 <Row>
                     <Col xs={12} lg={12} md={12}>
-                        <div className="main-dining" style={{ marginTop: '22rem' }}>
+                        <div className="main-dining" style={{ marginTop: '18rem' }}>
                             <div className="dining-text">
                                 <h2>FIND WINE AND DINING  <br></br> YOUR THING ?</h2>
                                 <p>Everyone loves a nice night out, let's go!</p>
