@@ -1,7 +1,7 @@
 import React from 'react'
 import Slider from "react-slick";
 import DateCard from '../../components/DateCard';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import CustomButton from '../../../../components/form/CustomButton';
 import { settings } from '../../../../config/helper';
 
