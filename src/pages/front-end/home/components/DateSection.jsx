@@ -10,7 +10,7 @@ const DateSection = () => {
 
     return (
         <Row style={{ marginTop: '4rem' }}>
-            <Col xs={12} lg={12}>
+            <Col xs={12} lg={12} >
                 <div className="date-events">
                     <div className="dateHighlight"></div>
                     <div className="date-text">

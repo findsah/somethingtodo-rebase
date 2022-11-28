@@ -1,5 +1,5 @@
 import axios from "axios";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 import store from "../services/store";
 import { baseUrl } from "./baseUrl";
 

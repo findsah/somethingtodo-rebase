@@ -1,0 +1,274 @@
+.top-sec-img {
+    background-image: url("../../../assets/topvanue.png");
+    height: 632px;
+    width: 100%;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    .top-sec {
+      text-align: center;
+      height: 80px;
+      img {
+        max-width: 100%;
+        height: 80px;
+      }
+    }
+    .top-text {
+      text-align: center;
+      .place {
+        font-size: 49px;
+        line-height: 64px;
+        font-weight: 600;
+        letter-spacing: 0.063em;
+        margin-top: 118px;
+        margin-bottom: 30px;
+        color: #ffffff;
+        text-transform: uppercase;
+      }
+      .sub-text{
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 16.1036px;
+        line-height: 19px;
+        text-transform: uppercase;
+      }
+    }
+
+  }
+
+ .main-vanue-detail{
+    
+   .slider-section{
+    
+    .vanue-img{
+        width: 88% !important;
+        margin: 20px auto;
+        cursor: pointer;
+    }
+    .vanue-img:hover {
+        transform: scale(1.09);
+        box-shadow: 5px 5px 10px rgba(34, 33, 33, 0.3);
+      }
+      .card{
+        box-shadow: 5px 5px 10px rgba(34, 33, 33, 0.3);
+      }
+      span{
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.063em;
+        color: #515151;
+      }
+      .icon-style{
+        fill: #ff9700;
+        font-size: 23px;
+        margin-left: 9px;
+      }
+      .review{
+        margin-left: 9px;
+      }
+   } 
+   .detail-sec{
+     .card{
+      box-shadow: 5px 5px 10px rgba(34, 33, 33, 0.3);
+      span{
+        font-size: 14px;
+        line-height: 126.84%;
+        letter-spacing: -0.017em;
+        color: #515151;
+        padding: 13px;
+      }
+      .icon-style{
+        color: #1F518B;
+        font-size: 23px;
+      }
+     }
+    .eventDetailHighlight {
+      background: #64e2ff !important;
+      width: 17.7%;
+      margin-top: 22px;
+      height: 25px;
+      right: 82.2%;
+      position: absolute;
+      z-index: -1;
+      }
+    h1{
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 48px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.063em;
+        color: #1F518B;
+    }
+    h2{
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: 0.063em;
+        color: #515151;
+    }
+    p{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 126.84%;
+        display: flex;
+        align-items: center;
+        letter-spacing: -0.017em;
+        color: #515151;
+    }
+   }
+
+  .raiting-card{
+    width: 92% !important;
+    .raitng-icon{
+      fill: #ff9700;
+    }
+    .circle {
+      padding: 17px 26px !important;
+      border-radius: 50%;
+      background-color: #D9D9D9;
+    }
+   }
+ } 
+ .suggested-vanue{
+  background: linear-gradient(140.6deg, #002C6D 0%, #0082CF 100%);
+  padding: 20px;
+  a{
+    text-decoration: none !important;
+    color: #161616;
+  }
+  .happen-wrapper {
+    padding-top: 4rem;
+    .happen-text {
+      font-weight: 700;
+      font-size: 46px;
+      line-height: 60px;
+      color: #ffffff;
+      text-transform: uppercase;
+      span {
+        color: #ff9700;
+      }
+      .topVanueHighlight {
+        background: #64e2ff !important;
+        width: 42.7%;
+        height: 25px;
+        top: 15.5rem;
+        right: 40.5%;
+        position: absolute;
+        z-index: -1;
+      }
+   
+    }
+    .dropdown-btn {
+      border: 1px solid #ff9700 !important;
+      border-radius: 14px;
+      color: #ff9700;
+      text-transform: uppercase;
+      font-size: 14px;
+      width: 190px;
+      height: 36px;
+    }
+  }
+}
+.similer-vanues{
+   margin-top: 5rem;
+  h2{
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 0.063em;
+    color: #1F518B;
+  }
+  .vanueHighlight {
+    background: #64e2ff !important;
+    width: 42.7%;
+    height: 25px;
+    top: 15.5rem;
+    right: 40.5%;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+ @media (max-width:991px) {
+  .top-sec-img {
+    background-size: cover;
+    .top-text .place {
+      font-size: 28px;
+      line-height: 63px;
+      font-weight: 600;
+      letter-spacing: 0.063em;
+      margin-top: 118px;
+      margin-bottom: 30px;
+      color: #ffffff;
+      text-transform: uppercase;
+  }
+  }
+      .main-vanue-detail {
+        .detail-sec {
+          .span-2{
+            margin-top: 22px;
+           }
+          .eventDetailHighlight {
+            display: none;
+          }
+          }
+        }
+        .similer-vanues{
+          .vanueHighlight {
+            display: none;
+         }
+          h2 {
+            font-weight: 600;
+            font-size: 31px;
+            line-height: 0px;
+        }
+        }
+ }
+ @media (max-width:475px) {
+ 
+  .main-vanue-detail {
+    .detail-sec {
+      .eventDetailHighlight {
+        display: none;
+       }
+       .span-2{
+        margin-top: 22px;
+       }
+      h1 {
+        text-align: center;
+        justify-content: center;
+        font-size: 14px;
+        line-height: 17px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.063em;
+    }
+    h2{
+     
+        font-size: 15px;
+    }
+    }
+  }
+  .top-sec-img {
+    .top-text {
+      .place {
+        font-size: 17px;
+        line-height: 40px;
+      }
+    }
+  }
+  .similer-vanues {
+     .vanueHighlight {
+     display: none;
+  }
+    h2 {
+      font-size: 17px;
+      line-height: 0px;
+    
+  }
+  }
+ }

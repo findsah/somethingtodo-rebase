@@ -34,7 +34,7 @@ const FooterSection = () => {
                     </div>
                     <div className="col-6 col-sm-4 social-links">
                         <div className="links2">
-                            <h2> Useful Links </h2>
+                            {/* <h2> Useful Links </h2> */}
                             <p> <AiOutlineWhatsApp /> Insert Phone number here </p>
                             <p> <AiOutlineMail /> Insert email address here </p>
                             <p> <CiLocationOn />Insert office/shop address here </p>
