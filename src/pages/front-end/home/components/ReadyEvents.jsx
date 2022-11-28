@@ -17,7 +17,6 @@ import currncyicon from '../../../../assets/currnecywhiteicon.svg';
 import { GrFacebook } from "react-icons/gr";
 import { ImTwitter } from "react-icons/im";
 import { SiInstagram } from "react-icons/si";
-import MobileScreenCard from "../../components/MobileScreenCard";
 export default function ReadyEvents() {
     return (
         <>
