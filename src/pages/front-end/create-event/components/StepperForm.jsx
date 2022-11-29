@@ -4,6 +4,7 @@ github: https://github.com/Arman-Arzoo
 */
 import React, { useEffect, useState } from 'react'
 import Invites from './Invites'
+import TimeAndPrice from './TimeAndPrice'
 import Venue from './Venue'
 
 const StepperForm = () => {
@@ -79,7 +80,7 @@ const StepperForm = () => {
                 /*  time and price */
                 activeStepper === 4 &&
                 <>
-                    time and price
+                    <TimeAndPrice />
                 </>
             }
 

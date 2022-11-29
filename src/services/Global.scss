@@ -51,6 +51,7 @@
   color: #FFFFFF;
 }
 
+// green button
 .btn_secondary {
   background: #6FCE00;
   box-shadow: 0px 14px 24px -8px rgba(111, 206, 0, 0.4);
@@ -71,6 +72,7 @@
 
 }
 
+// blue button
 .btn_blue {
   display: flex;
   flex-direction: row;
@@ -91,6 +93,7 @@
   color: #FFFFFF;
 }
 
+// error button
 .btn_error {
 
   background: #FB0000;
@@ -109,6 +112,7 @@
   border: none;
 }
 
+// h2 which font size is 40 and color is dark blue
 h2 {
   font-family: 'SF UI Display';
   font-style: normal;
@@ -126,7 +130,7 @@ h2 {
   padding-top: 0.4rem;
 }
 
-
+// h5 which font size is 12 and color is black
 h5 {
 
   font-family: 'SF UI Display';
@@ -138,6 +142,7 @@ h5 {
 
 }
 
+// paragraph which font size is 14 and color is white
 .p_white {
   font-family: 'SF UI Display';
   font-style: normal;
@@ -147,6 +152,7 @@ h5 {
   color: #FFFFFF;
 }
 
+// paragraph which font size is 10 and color is gray
 .p_gray_10 {
   font-family: 'SF UI Display';
   font-style: normal;
@@ -154,4 +160,16 @@ h5 {
   font-size: 10px;
   line-height: 12px;
   color: #909090;
+}
+
+// paragraph which font size is 20 and dark blue
+.p_blue_size_20 {
+  color: #1F518B;
+  font-family: 'SF UI Display';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.063em;
+  margin-top: revert;
 }

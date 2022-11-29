@@ -11,9 +11,6 @@ const Venue = () => {
                     <i class="fa fa-search" aria-hidden="true"></i>
                     <input type="search" placeholder="Search City / Current Location" />
                 </div>
-
-
-
             </div>
 
             {/* filter */}
@@ -77,6 +74,7 @@ const Venue = () => {
             </div>
 
             {/* divider */}
+
             <div className='divider_container'>
                 <div className='divider'></div>
                 <button className='btn_blue'>
@@ -84,6 +82,7 @@ const Venue = () => {
                     VIEW MORE
                 </button>
             </div>
+
             {/* added venue */}
             <div className='add_venue_container'>
                 <h2>ADDED VENUES</h2>
@@ -115,8 +114,6 @@ const Venue = () => {
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     )

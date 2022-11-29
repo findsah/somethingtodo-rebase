@@ -1,4 +1,5 @@
 import React from 'react'
+import profile from '../../../../assets/armanprofile.png'
 
 const Invites = () => {
     return (
@@ -34,10 +35,44 @@ const Invites = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td></td>
+                        <td>
+                            <input type="text" placeholder='text' />
+                        </td>
+                        <td className='checkbox'>
+                            <div className='checkbox_group'>
+                                <input type="checkbox" name='male' id='male' />
+                                <label htmlFor="male">Male</label>
+                            </div>
+                            <div className='checkbox_group'>
+                                <input type="checkbox" name='Female' id='Female' />
+                                <label htmlFor="male">Female</label>
+                            </div>
+                            <div className='checkbox_group'>
+                                <input type="checkbox" name='Both' id='Both' />
+                                <label htmlFor="Both">Male</label>
+                            </div>
+                        </td>
+                        <td >
+                            <div className='age_range'>
+                                min  <input type="range" min={0} max={100} name='age' /> max
+                                {/* <label for="range" id="value"></label> */}
+                                <output for="age" onforminput="value = age.valueAsNumber;"></output>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+
+                            <div className='table_button'>
+                                <button className='btn_secondary'> <i class="fa fa-plus" aria-hidden="true"></i> ADD  </button>
+                                <button className='btn_error'><i class="fa fa-minus" aria-hidden="true"></i> RESET</button>
+                            </div>
+                        </td>
                     </tr>
 
                 </tbody>
+
             </table>
 
             {/* question */}
@@ -60,14 +95,52 @@ const Invites = () => {
             </div>
 
             {/* invite friends */}
-            <br />
-            invite frieds
-            {/* filters tag*/}
-            <br />
-            filters tag
+            <div className='invite_friends_group'>
+                <div className='invite_friends'>
+                    <h2>INVETE FRIENDS TO JOIN</h2>
+                    <select name="location" id="location">
+                        <option value="one">option one</option>
+                    </select>
+                    <button className='btn_secondary'><i class="fa fa-plus" aria-hidden="true"></i> ADD FRIEND </button>
+                </div>
+                <div className='mini_cards'>
+                    {
+                        [1, 2, 3, 4].map(item => (
+                            <div className="mini_card">
+                                <img src={profile} alt="" />
+                                <p className='p_blue_size_20'>Name</p>
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </div>
+                        ))
+                    }
+
+                </div>
+
+            </div>
+
             {/* invite friends by email */}
-            <br />
-            invite by email
+            <div className='invite_friends_group'>
+                <div className='invite_friends'>
+                    <h2>INVITE FRIENDS BY EMAIL</h2>
+                    <select name="location" id="location">
+                        <option value="one">option one</option>
+                    </select>
+                    <button className='btn_secondary'><i class="fa fa-plus" aria-hidden="true"></i>INVITE </button>
+                </div>
+                <div className='mini_cards'>
+                    {
+                        [1, 2, 3, 4].map(item => (
+                            <div className="mini_card">
+                                <img src={profile} alt="" />
+                                <p className='p_blue_size_20'>@Email</p>
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </div>
+                        ))
+                    }
+
+                </div>
+
+            </div>
 
         </div>
     )
