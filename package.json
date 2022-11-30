@@ -16,7 +16,7 @@
     "react-countdown": "^2.3.5",
     "react-dom": "^18.2.0",
     "react-geocode": "^0.2.3",
-    "react-icons": "^4.6.0",
+    "react-icons": "^4.7.1",
     "react-places-autocomplete": "^7.3.0",
     "react-range-slider-input": "^3.0.6",
     "react-redux": "^8.0.5",

@@ -252,26 +252,27 @@ h5 {
 
     }
   }
+}
 
-
-
-.similer-vanues{
+.similer-vanues {
   margin-top: 5rem;
- h2{
-   font-weight: 700;
-   font-size: 40px;
-   line-height: 48px;
-   letter-spacing: 0.063em;
-   color: #1F518B;
- }
- .vanueHighlight {
-   background: #64e2ff !important;
-   width: 42.7%;
-   height: 25px;
-   top: 15.5rem;
-   right: 40.5%;
-   position: absolute;
-   z-index: -1;
- }
+
+  h2 {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 0.063em;
+    color: #1F518B;
+  }
+
+  .vanueHighlight {
+    background: #64e2ff !important;
+    width: 42.7%;
+    height: 25px;
+    top: 15.5rem;
+    right: 40.5%;
+    position: absolute;
+    z-index: -1;
+  }
 
 }
