@@ -1,5 +1,6 @@
 import React from 'react'
 import dummy from '../../../../assets/dummy1.png'
+import Modal from '../../components/Modal'
 
 const Venue = () => {
     return (
@@ -11,9 +12,6 @@ const Venue = () => {
                     <i class="fa fa-search" aria-hidden="true"></i>
                     <input type="search" placeholder="Search City / Current Location" />
                 </div>
-
-
-
             </div>
 
             {/* filter */}
@@ -28,10 +26,40 @@ const Venue = () => {
                         <option value="1"> option one</option>
                     </select>
                 </div>
-                <button className='btn_secondary' style={{ width: "233px", height: "48px" }}>
+                <button className='btn_secondary'
+                    style={{ width: "233px", height: "48px" }}
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                     CREATE CUSTOM VENUE
                 </button>
+                {/* <Modal id="createCustomVenue" /> */}
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Launch demo modal
+                </button>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
 
             {/* card and map */}
@@ -77,6 +105,7 @@ const Venue = () => {
             </div>
 
             {/* divider */}
+
             <div className='divider_container'>
                 <div className='divider'></div>
                 <button className='btn_blue'>
@@ -84,6 +113,7 @@ const Venue = () => {
                     VIEW MORE
                 </button>
             </div>
+
             {/* added venue */}
             <div className='add_venue_container'>
                 <h2>ADDED VENUES</h2>
@@ -115,8 +145,6 @@ const Venue = () => {
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     )

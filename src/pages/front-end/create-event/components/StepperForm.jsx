@@ -4,6 +4,7 @@ github: https://github.com/Arman-Arzoo
 */
 import React, { useEffect, useState } from 'react'
 import Invites from './Invites'
+import TimeAndPrice from './TimeAndPrice'
 import Venue from './Venue'
 
 const StepperForm = () => {
@@ -22,21 +23,21 @@ const StepperForm = () => {
             {/* stepper */}
             <section className="step-wizard">
                 <ul className="step-wizard-list">
-                    <li className="step-wizard-item ">
+                    <li className="step-wizard-item " >
                         <span className="progress-label">Step 1</span>
-                        <span className={activeStepper === 1 ? "progress-count current-item" : "progress-count"}>VENUE</span>
+                        <span onClick={() => setActiveSteper(1)} className={activeStepper === 1 ? "progress-count current-item" : "progress-count"}>VENUE</span>
                     </li>
-                    <li className="step-wizard-item ">
+                    <li className="step-wizard-item "  >
                         <span className="progress-label">Step 2</span>
-                        <span className={activeStepper === 2 ? "progress-count current-item" : "progress-count"}>EVENT DESCRIPTION</span>
+                        <span onClick={() => setActiveSteper(2)} className={activeStepper === 2 ? "progress-count current-item" : "progress-count"}>EVENT DESCRIPTION</span>
                     </li>
-                    <li className="step-wizard-item">
+                    <li className="step-wizard-item"  >
                         <span className="progress-label">Step 3</span>
-                        <span className={activeStepper === 3 ? "progress-count current-item" : "progress-count"}>INVITES</span>
+                        <span onClick={() => setActiveSteper(3)} className={activeStepper === 3 ? "progress-count current-item" : "progress-count"}>INVITES</span>
                     </li>
                     <li className="step-wizard-item">
                         <span className="progress-label">Step 4</span>
-                        <span className={activeStepper === 4 ? "progress-count current-item" : "progress-count"}>TIME & PRICE</span>
+                        <span onClick={() => setActiveSteper(4)} className={activeStepper === 4 ? "progress-count current-item" : "progress-count"}>TIME & PRICE</span>
                     </li>
                 </ul>
             </section>
@@ -79,12 +80,12 @@ const StepperForm = () => {
                 /*  time and price */
                 activeStepper === 4 &&
                 <>
-                    time and price
+                    <TimeAndPrice />
                 </>
             }
 
             <div className='text-center mt-5'>
-                <button className='btn_primary' onClick={() => setActiveSteper(activeStepper + 1)}>NEXT</button>
+                <button className='btn_primary' onClick={() => setActiveSteper(activeStepper + 1)}>{activeStepper === 4 ? "FINISH" : "NEXT"}</button>
             </div>
 
         </>

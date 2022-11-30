@@ -394,6 +394,7 @@ $screen-xl-min: 1200px;
           background: #D5EAFF;
           box-shadow: 0px 14px 24px -8px rgba(0, 129, 203, 0.4);
           border-radius: 14px;
+          cursor: pointer;
           /* Inside auto layout */
 
           flex: none;
@@ -712,10 +713,13 @@ $screen-xl-min: 1200px;
 
 // create event invites
 .create_event_invites {
+  padding-top: 1rem;
+
   .question_date {
     display: flex;
     align-items: center;
     gap: 3rem;
+
 
     .question_option {
       display: flex;
@@ -746,6 +750,9 @@ $screen-xl-min: 1200px;
     border-radius: 4px;
     width: 1032px;
     height: 259px;
+    margin-top: 1rem;
+    table-layout: fixed;
+    width: 100%;
 
     thead {
       background: #1F518B;
@@ -754,6 +761,225 @@ $screen-xl-min: 1200px;
       font-weight: 700;
       font-size: 24px;
       color: #FFFFFF;
+
+      text-align: center;
+
+      tr {
+        border-style: none;
+      }
+
+
+    }
+
+    tbody {
+      text-align: center;
+
+
+      .checkbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        .checkbox_group {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+
+          label {
+            font-family: 'SF UI Display';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.063em;
+            color: #515151;
+          }
+        }
+      }
+
+      tr {
+        border-style: none;
+      }
+
+      td {
+        border-style: none;
+        padding-top: 1rem;
+      }
+
+
+
+
+    }
+
+    .table_button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+
+  }
+
+  .invite_friends_group {
+    padding-top: 1rem;
+
+    .invite_friends {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      select {
+        background: #FFFFFF;
+        /* Dark blue */
+
+        border: 1px solid #1F518B;
+        border-radius: 4px;
+        box-sizing: border-box;
+        width: 256px;
+        height: 36px;
+      }
+    }
+
+    .mini_cards {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 1rem;
+
+      .mini_card {
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 6px 16px;
+        // gap: 50px;
+
+        width: 230.94px;
+        height: 40px;
+
+        border: 1px solid #6FCE00;
+        border-radius: 14px;
+        box-sizing: border-box;
+
+        img {
+          height: 32px;
+          width: 32px;
+          border-radius: 50%;
+        }
+      }
     }
   }
+
+}
+
+// create event time and price
+.create-event-time_and_price {
+  padding-top: 2rem;
+
+  .event_label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .event_date_calender {
+    input {
+      width: 65%;
+      height: 36px;
+      /* White */
+
+      background: #FFFFFF;
+      /* Dark blue */
+
+      border: 1px solid #1F518B;
+      border-radius: 4px;
+      padding: 0 1rem;
+    }
+  }
+
+  .event_time_field {
+    input {
+      width: 65%;
+      height: 36px;
+      /* White */
+
+      background: #FFFFFF;
+      /* Dark blue */
+
+      border: 1px solid #1F518B;
+      border-radius: 4px;
+      padding: 0 1rem;
+    }
+  }
+
+  .event_cost {
+    .range_wdith {
+
+      width: 80%;
+      margin-top: 3rem;
+    }
+  }
+
+  .cost_split {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .paying {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      input[type="checkbox"] {
+
+        background: #FFFFFF;
+        /* Dark blue */
+
+        border: 1px solid #1F518B;
+        border-radius: 4px;
+        width: 20px;
+        height: 20px;
+
+      }
+
+      label {
+        font-family: 'SF UI Display';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        color: #1F518B;
+      }
+    }
+
+    .shared {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      input[type="checkbox"] {
+        background: #FFFFFF;
+        /* Dark blue */
+
+        border: 1px solid #1F518B;
+        border-radius: 4px;
+        width: 20px;
+        height: 20px;
+      }
+
+      label {
+        font-family: 'SF UI Display';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        color: #1F518B;
+      }
+
+    }
+  }
+
+
+
 }
