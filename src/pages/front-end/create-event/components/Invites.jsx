@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import profile from '../../../../assets/armanprofile.png'
+import CustomRangeSlider from '../../components/CustomRangeSlider';
 
-const Invites = () => {
+const Invites = ({ rtl }) => {
+
+    const [values, setValues] = useState([25, 75]);
+
+
     return (
         <div className='create_event_invites'>
 
@@ -52,13 +57,9 @@ const Invites = () => {
                                 <label htmlFor="Both">Male</label>
                             </div>
                         </td>
-                        <td >
-                            <div className='age_range'>
-                                min  <input type="range" min={0} max={100} name='age' /> max
-                                {/* <label for="range" id="value"></label> */}
-                                <output for="age" onforminput="value = age.valueAsNumber;"></output>
-                            </div>
-
+                        <td>
+                            {/* range */}
+                            <CustomRangeSlider values={values} setValues={setValues} min={0} max={90} step={1} />
                         </td>
                     </tr>
                     <tr>

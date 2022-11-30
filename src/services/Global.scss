@@ -130,6 +130,17 @@ h2 {
   padding-top: 0.4rem;
 }
 
+h3 {
+  font-family: 'SF UI Display';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  color: #1F518B;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
 // h5 which font size is 12 and color is black
 h5 {
 
@@ -172,4 +183,74 @@ h5 {
   line-height: 24px;
   letter-spacing: 0.063em;
   margin-top: revert;
+}
+
+// customize range slider 
+
+.custom_range_slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+  margin-top: 0.8rem;
+
+  .min {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    font-family: 'SF UI Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .max {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    font-family: 'SF UI Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .zero {
+    position: absolute;
+    top: -28px;
+    left: 6px;
+    font-family: 'SF UI Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .max_num {
+    position: absolute;
+    top: -28px;
+    right: 2px;
+    font-family: 'SF UI Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .range-slider {
+    border: 1px dashed #1F518B;
+    height: 0;
+
+    .range-slider__thumb {
+      background: #1F518B;
+      height: 20px;
+      width: 20px;
+      border: 2px solid white;
+
+    }
+  }
+
+
 }
