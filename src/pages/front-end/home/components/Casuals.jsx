@@ -1,7 +1,7 @@
 import React from 'react'
 import Slider from "react-slick";
 import DateCard from '../../components/DateCard';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import CustomButton from '../../../../components/form/CustomButton';
 import { settings } from '../../../../config/helper';
 
@@ -12,10 +12,10 @@ const Casuals = () => {
         }}>
             <Row>
                 <div className="main-casual" style={{ marginTop: '8rem' }}>
-                    <Col xs={12} lg={12} md={6}>
+                    <Col xs={12} lg={12} md={12}>
                         <div className="casual-text">
                             <div className="casualHighlight aos-init aos-animate" data-aos="fade-right" data-aos-duration="2000"></div>
-                            <h2>NEW IN TOWN AND DON'T <br></br> ANYONE HERE YET?</h2>
+                            <h2>NEW IN TOWN AND DON'T KNOW  <br></br> ANYONE HERE YET?</h2>
                             <p>Meet Someone who can show you around a little bit</p>
                             <CustomButton text='See All Casual' />
                         </div>

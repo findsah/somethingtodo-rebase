@@ -173,6 +173,7 @@ h5 {
   color: #909090;
 }
 
+
 // paragraph which font size is 20 and dark blue
 .p_blue_size_20 {
   color: #1F518B;
@@ -252,5 +253,25 @@ h5 {
     }
   }
 
+
+
+.similer-vanues{
+  margin-top: 5rem;
+ h2{
+   font-weight: 700;
+   font-size: 40px;
+   line-height: 48px;
+   letter-spacing: 0.063em;
+   color: #1F518B;
+ }
+ .vanueHighlight {
+   background: #64e2ff !important;
+   width: 42.7%;
+   height: 25px;
+   top: 15.5rem;
+   right: 40.5%;
+   position: absolute;
+   z-index: -1;
+ }
 
 }

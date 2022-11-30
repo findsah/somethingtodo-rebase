@@ -14,7 +14,7 @@ import dollar from '../../../assets/dollaricon.svg';
 const StartEventCard = () => {
     return (
         <>
-            <Row className='ready-event-card'>
+            {/* <Row className='ready-event-card'>
                 <Col lg={5}>
                     <img className="card2-img img-fluid" src={readyImg} alt="simple" />
                 </Col>
@@ -55,7 +55,6 @@ const StartEventCard = () => {
                                         </div>
                                     </div>
                                 </div>
-                                {/* <button className="join-but">JOIN NOW</button> */}
                                 <CustomButton text='JOIN NOW' />
                             </div>
                             <div className="row last-row">
@@ -96,7 +95,87 @@ const StartEventCard = () => {
                         </Col>
                     </Row>
                 </Col>
-            </Row>
+            </Row> */}
+            <div className="row ready-event-card">
+                <div className="col-lg-5 col-4">
+                    <img className="card2-img img-fluid" src={readyImg} alt="simple" />
+                </div>
+                <div className="col-lg-7 col-8">
+                    <div className="row para-sec">
+                        <div className='col-8'>
+                            <h2>
+                                LOREM IPSUM DOLOR SIT AMET
+                            </h2>
+                            <p className='dec'>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.
+                            </p>
+                        </div>
+                        <div className='col-12'>
+                            <div className="box-1">
+                                <div>
+                                    <p> Event Starts in </p>
+                                    <div className="d-flex">
+                                        <div className="box-2">
+                                            <span>0-1 </span>
+                                            <hr />
+                                            <span className="span-2"> DAYS</span>
+                                        </div>
+                                        <div className="box-2">
+                                            <span>12</span>
+                                            <hr />
+                                            <span className="span-2">HOURS</span>
+                                        </div>
+                                        <div className="box-2">
+                                            <span>22</span>
+                                            <hr />
+                                            <span className="span-2">MINUTES</span>
+                                        </div>
+                                        <div className="box-2">
+                                            <span >21</span>
+                                            <hr />
+                                            <span className="span-2">SECONDS</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <CustomButton text='JOIN NOW' />
+                            </div>
+                            <div className="row last-row">
+                                <div className="col-6 p-0">
+                                    <img className="user-imge" src={vanueImg} alt="user" />
+                                    <div className="usersDiv">
+                                        <p className="text-muted livechat">
+                                            <BsChatSquare /> Live chat
+                                        </p>
+                                        <div className="last-content">
+                                            <img className="user-img-2" src={vanueImg} alt="user" />
+                                            <img className="user-img-2" src={vanueImg} alt="user" />
+
+                                            <img className="user-img-2" src={vanueImg} alt="user" />
+                                            <p className="others text-muted">& 12 others <FcNext /></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-6">
+                                    <div className="d-flex mt-2 justify-content-between date-host">
+                                        <p>
+                                            <img src={dateicon} alt="dateicon" /> <span>Date</span>
+                                        </p>
+                                        <p>
+                                            <img src={dollar} alt="crunncyicon" />  <span>paid by host</span>
+                                        </p>
+
+                                    </div>
+                                    <div className="d-flex mt-2 justify-content-end">
+                                        <p className="price-txt">
+                                            $45.00
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

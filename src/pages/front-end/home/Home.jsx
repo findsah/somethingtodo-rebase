@@ -21,9 +21,9 @@ const Home = () => {
                 <TopVanues />
                 <DateSection />
             </Container>
-            <CFEvent />
+             <CFEvent />
             <Somethingtodo />
-            <ReadyEvents />
+           <ReadyEvents />
             <Casuals />
             <Dining />
             <Blog />
