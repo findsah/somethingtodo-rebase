@@ -35,7 +35,25 @@
     }
 
   }
+  .event_map {
+    .mapouter {
+      position: relative;
+      text-align: right;
+      width: auto;
+      height: auto;
+    }
 
+    .gmap_canvas {
+      overflow: hidden;
+      background: none !important;
+      width: 100%;
+      height: auto;
+    }
+
+    .gmap_iframe {
+      height: 300px !important;
+    }
+  }
  .main-vanue-detail{
     
    .slider-section{

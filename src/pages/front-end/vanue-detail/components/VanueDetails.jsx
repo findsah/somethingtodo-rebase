@@ -14,6 +14,7 @@ import { AiOutlineClockCircle, AiOutlineStar } from 'react-icons/ai'
 import 'aos/dist/aos.css';
 import CustomButton from "../../../../components/form/CustomButton";
 import TopVanuesCard from '../../components/TopVanuesCard'
+import SimilarVanues from '../../components/SimilarVanues'
 
 export default function VanueDetails() {
     return (
@@ -106,7 +107,17 @@ export default function VanueDetails() {
                     </div>
                     <div className="col-lg-5 col-md-8">
                         <Card className='card'>
-                            <Card.Img variant="top" src={vanueImg} />
+                            <div className='event_map'>
+                                <div class="mapouter">
+                                    <div class="gmap_canvas">
+                                        <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=346&amp;height=850&amp;hl=en&amp;q=lahore&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                                        </iframe>
+                                        {/* <a href="https://piratebay-proxys.com/">Piratebay</a> */}
+                                    </div>
+
+                                </div>
+                            </div>
+                            {/* <Card.Img variant="top" src={vanueImg} /> */}
                             <Card.Body>
                                 <div className="row">
 
@@ -238,29 +249,7 @@ export default function VanueDetails() {
                     </div>
                 </div>
             </div>
-            <div className="container">
-                <div className="row similer-vanues" >
-                    <div className="col-lg-12 text-center  ">
-                        {/* <div className="vanueHighlight aos-init aos-animate" data-aos="fade-right" data-aos-duration="2000"></div> */}
-                        <h2> OTHER SIMILAR VENUES</h2>
-
-                    </div>
-                    <div className='col-lg-12 mt-3'>
-                        <Slider {...settings} >
-                            {
-                                [1, 2, 3, 4, 5, 6, 7].map(item => (
-
-                                    <TopVanuesCard />
-
-                                ))
-                            }
-                        </Slider>
-
-                    </div>
-
-
-                </div>
-            </div>
+            <SimilarVanues />
         </>
 
 

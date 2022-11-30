@@ -1,0 +1,213 @@
+.blog-top-img {
+    background-image: url("../../../assets/blogbg.png");
+    height: 632px;
+    width: 100%;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    .top-sec {
+      text-align: center;
+      height: 80px;
+      img {
+        max-width: 100%;
+        height: 80px;
+      }
+    }
+    .top-text {
+      text-align: center;
+      overflow: hidden;
+      .toghether{
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 54px;
+        line-height: 64px;
+        letter-spacing: 0.063em;
+        color: #D5EAFF;
+      }
+      .do-it {
+        margin-top: 200px;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 54px;
+        line-height: 64px;
+        letter-spacing: 0.063em;
+        color: #D5EAFF;
+      }
+      .date-host{
+        h2{
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+            letter-spacing: 0.063em;
+            color: #D5EAFF;
+        }
+        h3{
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 17px;
+            letter-spacing: 0.063em;
+            color: #D5EAFF;
+        }
+      }
+      .btn-main{
+        width: 150px;
+        margin-top: 293px;
+        margin-bottom: 30px;
+      }
+      .arrow{
+        margin-top: 75px;
+        height: 30px;
+        width: 30px;
+        color: #1F518B;
+      }
+    }
+    .top-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .blogHighlight {
+    background: #64e2ff !important;
+    width: 42.7%;
+    height: 25px;
+    top: 15.5rem;
+    right: 40.5%;
+    // position: absolute;
+    // z-index: -1;
+  }
+.main-bloglist{
+    // background-color: #D5EAFF;
+    padding: 3rem;
+    .arrow{
+      margin-top: 34px;
+      height: 34px;
+      width: 55px;
+      color: #1F518B;
+    }
+    span{
+        color: #ff9700;
+    }
+    img{
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+    }
+    h2{
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 48px;
+        letter-spacing: 0.063em;
+        // color: #161616;
+
+    }
+    h3{
+      margin-top: 2rem;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 29px;
+      letter-spacing: -0.017em;
+      color: #1F518B;
+    }
+    p{
+      margin-top: 2rem;
+    }
+    .list-sec{
+        h2{
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+            letter-spacing: 0.063em;
+            color: #161616;
+        }
+        p{
+           
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 17px;
+            letter-spacing: -0.017em;
+            color: #909090;
+        } img{
+            width: 100%;
+        }
+    }
+    .moreblog{
+      h2{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 29px;
+        color: #161616;
+      }
+      p{
+        margin-top: 0px;
+      }
+    }
+    @media (max-width:1249px) {
+    
+        h3{
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 24px;
+            letter-spacing: 0.063em;
+            
+        }
+        h2{
+          font-weight: 700;
+          font-size: 26px;
+          line-height: 48px;
+          letter-spacing: 0.063em;
+      }
+    }
+   
+}
+.suggested-sec{
+  background-image: url("../../../assets/Ellipse.png");
+    height: 632px;
+  //   width: 33%;
+  //   background-size: 100% 100%;
+  //   background-position: center;
+    background-repeat: no-repeat;
+  // img{
+  //   position: absolute;
+  //   height: 632px;
+  //   width: 33%;
+  //   background-size: 100% 100%;
+  // }
+    .highligt{
+      height: 3rem;
+      width: 9rem;
+      background-color: #64E2FF;
+      margin-top: 61px;
+      position: absolute;
+    }
+  h2{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 29px;
+    letter-spacing: -0.017em;
+    margin-top: 50px;
+    color: #1F518B;
+    position: relative;
+  }
+  .spansomething{
+    color: #FF9700;
+  }
+}
+.similar-vanue-style{
+  background: linear-gradient(140.6deg, #002C6D 0%, #0082CF 100%);
+  .similer-vanues{
+    h2{
+      margin-top: 2rem;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 48px;
+      letter-spacing: 0.063em;
+      color: #FFFFFF;
+    }
+    .span1{
+      color: #FF9700;
+    }
+  }
+}
