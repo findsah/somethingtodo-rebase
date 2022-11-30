@@ -1,5 +1,5 @@
 /* TopContent css */
- 
+
 .bg-img {
   background-image: url("../../../assets/homebg.png");
   height: 632px;
@@ -35,9 +35,8 @@
   }
 }
 
-
-.main-top-vanue{
-  a{
+.main-top-vanue {
+  a {
     text-decoration: none !important;
     color: #161616;
   }
@@ -61,7 +60,6 @@
         position: absolute;
         z-index: -1;
       }
-   
     }
     .dropdown-btn {
       border: 1px solid #ff9700 !important;
@@ -123,7 +121,7 @@
 
 .ready-event-card {
   // background: linear-gradient(140.6deg, #002C6D 0%, #0082CF 100%);
-  .card2-img{
+  .card2-img {
     height: 26.7rem !important;
   }
   .para-sec {
@@ -278,10 +276,9 @@
   position: relative;
   background-image: url("../../../assets/dateimg.png");
   background-position: center center;
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
   height: 362px;
-  width: 1148px;
   margin: auto;
   .dateHighlight {
     background: #1f518b;
@@ -355,10 +352,9 @@
   position: relative;
   background-image: url(../../../assets/sec7.png);
   background-position: center center;
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
   height: 362px;
-  width: 1148px;
   margin: auto;
   .dining-text {
     text-align: center;
@@ -760,7 +756,6 @@
   }
 }
 .main-somethingtodo {
- 
   .somethingtodoHighlight {
     background: #64e2ff !important;
     width: 39.7%;
@@ -791,7 +786,7 @@
     font-size: 14px;
     width: 145px;
   }
-  .somethingtodoDiv { 
+  .somethingtodoDiv {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1004,18 +999,18 @@
     .bg-img-3 {
       width: 54%;
       margin-left: -8%;
-  }
-  .bg-img-2 {
-    width: 54%;
-}
-.circle {
-  right: 46%;
-}
+    }
+    .bg-img-2 {
+      width: 54%;
+    }
+    .circle {
+      right: 46%;
+    }
   }
 }
 @media (max-width: 1024px) {
   .date-events {
-    width: auto;
+    background-size: cover;
   }
   .main-casual {
     width: 930px;
@@ -1035,19 +1030,18 @@
     }
     h2 {
       font-weight: 700;
-       font-size: 25px;
+      font-size: 25px;
       line-height: 81px;
       letter-spacing: 0.063em;
       color: #ffffff;
-  }
-  p{
-    font-size: 12px;
-    line-height: 22px;
-  }
-  .card2-img{
-    height: 26.7rem;
-  }
-  
+    }
+    p {
+      font-size: 12px;
+      line-height: 22px;
+    }
+    .card2-img {
+      height: 26.7rem;
+    }
   }
   .main-somethingtodo {
     h2 {
@@ -1080,7 +1074,6 @@
     }
   }
   .ready-event-card {
-    
     .box-1 {
       .btn-main {
         width: 131px !important;
@@ -1091,29 +1084,27 @@
     .card111 {
       .search-icon {
         margin: 15px 55px -48px 55px;
-    }
-     .info{
-      h1{
-        font-size: 20px;
       }
-       p {
-        letter-spacing: 1px;
-        font-size: 13px;
-        margin-top: 68px;
-        margin-left: 37px;
-        opacity: 0;
+      .info {
+        h1 {
+          font-size: 20px;
+        }
+        p {
+          letter-spacing: 1px;
+          font-size: 13px;
+          margin-top: 68px;
+          margin-left: 37px;
+          opacity: 0;
+        }
       }
-     }
-  
     }
   }
-  .power-up{
+  .power-up {
     height: 248px;
   }
 }
 @media (max-width: 991px) {
   .bg-img {
-    
     background-size: cover !important;
     .place {
       font-size: 31px !important;
@@ -1125,7 +1116,7 @@
       }
     }
   }
-  .main-top-vanue  {
+  .main-top-vanue {
     .happen-wrapper {
       padding-top: 5rem;
       .happen-text {
@@ -1158,12 +1149,11 @@
       }
     }
   }
-  
+
   .date-cards {
-     .date-card-style {
+    .date-card-style {
       width: 90%;
-      
-     }
+    }
   }
   .date-events {
     .dateHighlight {
@@ -1196,6 +1186,7 @@
       width: 100%;
       margin-left: 0;
       border-top: 3px solid white;
+      background-position: center center;
     }
     .bg-img-2 {
       width: 100%;
@@ -1334,24 +1325,24 @@
   .power-up {
     display: none;
   }
-  .ready-event-card{
+  .ready-event-card {
     .card2-img {
-      height: 21.7rem !important;      
-  }
-    .para-sec{
-      .dec{
+      height: 21.7rem !important;
+    }
+    .para-sec {
+      .dec {
         display: none;
       }
-      h2{
+      h2 {
         font-size: 17px;
       }
     }
-    .last-row{
+    .last-row {
       margin: 0px 0px 0px -25px;
       border-bottom-right-radius: 10px;
       margin-top: 87px;
-      .date-host{
-        p{
+      .date-host {
+        p {
           display: none;
         }
       }
@@ -1362,106 +1353,105 @@
       }
     }
   }
-
 }
 
 @media (max-width: 475px) {
-
-      .bg-img {
-      .top-text {
-        .place {
-          font-size: 20px !important;
-          line-height: 71px;
-          margin-top: 178px;
-          margin-bottom: 18px;
-      }
+  .cf-events {
+    margin-top: 13rem;
+  }
+  .bg-img {
+    .top-text {
+      .place {
+        font-size: 20px !important;
+        line-height: 71px;
+        margin-top: 178px;
+        margin-bottom: 18px;
       }
     }
-    .main-top-vanue{
-      .happen-wrapper {
-        padding-top: 0rem !important;
-        text-align: center;
-        .happen-text {
-          justify-content: center;
-          font-weight: 700;
-          font-size: 25px;
-          line-height: 51px;
-          .topVanueHighlight {
-              background: #64e2ff !important;
-              width: 31.7% !important;
-              height: 25px;
-              top: 4.9rem !important;
-              right: 17.5% !important;
-          }
+  }
+  .main-top-vanue {
+    .happen-wrapper {
+      padding-top: 0rem !important;
+      text-align: center;
+      .happen-text {
+        justify-content: center;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 51px;
+        .topVanueHighlight {
+          background: #64e2ff !important;
+          width: 31.7% !important;
+          height: 25px;
+          top: 4.9rem !important;
+          right: 17.5% !important;
         }
       }
-      .top-vanues-card-style {
-        width: 70%;
-        .card-custom-Body {
-          .card-title {
-            font-weight: 700;
-            font-size: 14px;
-            line-height: 27px;
-            text-align: start;
+    }
+    .top-vanues-card-style {
+      width: 70%;
+      .card-custom-Body {
+        .card-title {
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 27px;
+          text-align: start;
+        }
+        .address {
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 51px;
+          .loction-icon {
+            width: 20.96px;
+            height: 20.96px;
           }
-          .address {
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 51px;
-            .loction-icon{
-              width: 20.96px;
-              height: 20.96px;
-            }
-          }
-         .blue-side {
+        }
+        .blue-side {
           font-weight: 600;
           font-size: 11px;
           line-height: 16px;
           letter-spacing: 0.063em;
           padding: 40px 12px;
-          color: #1F518B;
-        //   p {
-        //     margin-top: -28px;
-        //     margin-bottom: -1rem;
-        // }
+          color: #1f518b;
+          //   p {
+          //     margin-top: -28px;
+          //     margin-bottom: -1rem;
+          // }
         }
-        
-      }
       }
     }
-    .cf-events {
-      .circle {
-        margin: 241px -34px;
+  }
+  .cf-events {
+    .circle {
+      margin: 241px -34px;
     }
+  }
+  .main-somethingtodo {
+    .somethingtodoDiv {
+      // justify-content: space-between;
+      flex-wrap: wrap;
+      .dropdown-btn {
+        width: 100px;
+      }
+      .smText {
+        margin-right: 2rem;
+      }
     }
-    .main-somethingtodo  {
-      .somethingtodoDiv {
-        // justify-content: space-between;
-        flex-wrap: wrap; 
-        .dropdown-btn{
-          width: 100px;
-        }
-        .smText {
-          margin-right: 2rem;
-        } 
-      } 
-
-    }
-  .main-readyEvent{
+  }
+  .main-readyEvent {
     padding: 0px !important;
-    .shareDiv{
+    .shareDiv {
       background-color: #fff;
-      h2{
+      h2 {
         font-weight: 600;
         font-size: 16px;
         line-height: 19px;
         letter-spacing: -0.017em;
-        color: #1F518B;
+        color: #1f518b;
       }
       .btn-main {
         width: 116px;
         height: 44px;
-        background: #0081CB;
+        background: #0081cb;
         border-radius: 13px;
         color: #fff;
         text-transform: uppercase;
@@ -1490,25 +1480,24 @@
           }
         }
         .social-links {
-          a{
-              font-size: 18px;
-              display: inline-block;
-              background: #515151;
-              color: #fff;
-              line-height: 1;
-              padding: 6px 0;
-              margin-right: 9px;
-              border-radius: 50%;
-              text-align: center;
-              width: 36px;
-              height: 36px;
-              transition: 0.3s;
+          a {
+            font-size: 18px;
+            display: inline-block;
+            background: #515151;
+            color: #fff;
+            line-height: 1;
+            padding: 6px 0;
+            margin-right: 9px;
+            border-radius: 50%;
+            text-align: center;
+            width: 36px;
+            height: 36px;
+            transition: 0.3s;
           }
-          
-      }
+        }
         .usersDiv {
           margin: 2.3rem 0px 0px 4.8rem;
-        
+
           .p {
             font-size: 10px;
             margin: 0 !important;
@@ -1542,149 +1531,147 @@
         }
       }
     }
-    .small-screen-start-event{
+    .small-screen-start-event {
       padding: 0px !important;
       width: 100%;
-      .card-img{
+      .card-img {
         height: 12.5rem;
       }
       .btn-main {
-            width: 98px;
-            height: 36px;
-            border-radius: 14px;
-            font-size: 12px;
-            font-weight: 400;
-          }
-          .date-host {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .btn-main {
-              width: 70px;
-              height: 34px;
-              border-radius: 6px;
-              font-size: 10px;
-            }
-            p{
-              margin-right: 0.8rem;
-            }
-          }
-      .date-time{
-      .dot-style{
-        font-size: 17px;
-      }
-      .span-2{
-        margin-left: -13px;
-      }
-        p{
+        width: 98px;
+        height: 36px;
+        border-radius: 14px;
         font-size: 12px;
-        line-height: 7px;
-        letter-spacing: 0.063em;
-        color: #FFFFFF;
-        font-weight: 500;
+        font-weight: 400;
+      }
+      .date-host {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .btn-main {
+          width: 70px;
+          height: 34px;
+          border-radius: 6px;
+          font-size: 10px;
         }
-        .address{
-          color: #FFFFFF;
-          .loction-icon{
+        p {
+          margin-right: 0.8rem;
+        }
+      }
+      .date-time {
+        .dot-style {
+          font-size: 17px;
+        }
+        .span-2 {
+          margin-left: -13px;
+        }
+        p {
+          font-size: 12px;
+          line-height: 7px;
+          letter-spacing: 0.063em;
+          color: #ffffff;
+          font-weight: 500;
+        }
+        .address {
+          color: #ffffff;
+          .loction-icon {
             width: 24px;
-             height: 24px;
+            height: 24px;
           }
-          span{
+          span {
             font-size: 13px;
             line-height: 12px;
           }
-          img{
+          img {
             width: 15px;
             height: 16px;
           }
         }
-    
       }
-    
-          hr{
-            border-top: 2px dashed #FFFFFF;
-            margin: 20px 6px 0px 12px !important;
-            }
-        h2{
-          font-weight: 700;
-          font-size: 14px;
-          line-height: 24px;
-          letter-spacing: 0.063em;
-          color: #FFFFFF;
+
+      hr {
+        border-top: 2px dashed #ffffff;
+        margin: 20px 6px 0px 12px !important;
+      }
+      h2 {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.063em;
+        color: #ffffff;
+      }
+      .last-row {
+        position: relative;
+        background-color: #fff;
+        margin: 0px -24px 0px -24px;
+        /* border-bottom-right-radius: 10px; */
+        margin-top: -13px;
+        .user-imge {
+          left: -24px;
+          height: 51px;
+          width: 52px;
+          position: absolute;
+          border: 3px solid #fff;
+          border-radius: 50%;
         }
-        .last-row {
-          position: relative;
-          background-color: #fff;
-          margin: 0px -24px 0px -24px;
-          /* border-bottom-right-radius: 10px; */
-          margin-top: -13px;
-          .user-imge {
-            left: -24px;
-            height: 51px;
-            width: 52px;
-            position: absolute;
-            border: 3px solid #fff;
-            border-radius: 50%;
-          }
-          p {
-            span {
-              font-weight: 600;
-              font-size: 16px;
-              line-height: 19px;
-              display: flex;
-              align-items: center;
-              letter-spacing: -0.017em;
-              color: #515151;
-            }
-          }
-          .usersDiv {
-            margin: 2.3rem 0px 0px 1.4rem;
-            .p {
-              font-size: 10px;
-              margin: 0 !important;
-            }
-            .last-content {
-              display: flex;
-              align-items: center;
-              .user-img-2 {
-                height: 21px;
-                width: 21px;
-                border-radius: 50%;
-                margin-right: -6px;
-                border: 1px solid white;
-              }
-              .others {
-                margin-left: 11px;
-                font-size: 7px;
-                margin-right: auto;
-                margin-bottom: 0px;
-              }
-            }
-          }
-          .price-txt {
-            color: black;
-            font-weight: 700;
+        p {
+          span {
+            font-weight: 600;
             font-size: 16px;
             line-height: 19px;
             display: flex;
             align-items: center;
-            letter-spacing: 0.063em;
+            letter-spacing: -0.017em;
+            color: #515151;
           }
         }
+        .usersDiv {
+          margin: 2.3rem 0px 0px 1.4rem;
+          .p {
+            font-size: 10px;
+            margin: 0 !important;
+          }
+          .last-content {
+            display: flex;
+            align-items: center;
+            .user-img-2 {
+              height: 21px;
+              width: 21px;
+              border-radius: 50%;
+              margin-right: -6px;
+              border: 1px solid white;
+            }
+            .others {
+              margin-left: 11px;
+              font-size: 7px;
+              margin-right: auto;
+              margin-bottom: 0px;
+            }
+          }
+        }
+        .price-txt {
+          color: black;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 19px;
+          display: flex;
+          align-items: center;
+          letter-spacing: 0.063em;
+        }
+      }
     }
   }
-  .ready-event-card{
-    .para-sec{
-      h2{
+  .ready-event-card {
+    .para-sec {
+      h2 {
         margin-top: 1.5rem;
         text-align: start;
       }
     }
-    .last-row{
-      .usersDiv{
-        
-          margin: 2.3rem 0px 12px 2.1rem;
-        .livechat{
+    .last-row {
+      .usersDiv {
+        margin: 2.3rem 0px 12px 2.1rem;
+        .livechat {
           display: none;
         }
       }
@@ -1694,9 +1681,9 @@
         width: 60px;
       }
     }
-    .box-1{
+    .box-1 {
       display: flex;
-      p{
+      p {
         display: none;
       }
       .box-2 {
@@ -1705,27 +1692,26 @@
         padding: 6px 7px;
         width: 43.66px;
         height: 44px;
-        span{
+        span {
           font-size: 12.9429px;
           line-height: 13px;
         }
         .span-2 {
           font-size: 7.9714px;
-          margin-top: -2px
+          margin-top: -2px;
         }
       }
       button {
         margin-top: 2px;
         font-size: 7px;
-
+      }
     }
-  }
-  .card2-img {
-    height: 18.2rem !important;
-}
-.date-host{
-  display: none;
-}
+    .card2-img {
+      height: 18.2rem !important;
+    }
+    .date-host {
+      display: none;
+    }
   }
   // .date-cards{
   //   .top-vanues-card-style{
@@ -1777,7 +1763,7 @@
   //             justify-content: space-between;
   //             align-items: center;
   //             margin-left: 34px;
-              
+
   //             .last-content {
   //               display: flex;
   //               align-items: center;
@@ -1798,7 +1784,7 @@
   //             .price-txt {
   //               color: black;
   //               font-size: 11px;
-  //               font-weight: bold;       
+  //               font-weight: bold;
   //               margin: -132px !important;
   //             }
   //           }
@@ -1806,48 +1792,46 @@
   // }
   .date-cards {
     .date-card-style {
-     width: 90%;
-     .card-custom-Body{
-       .card-title {
-         font-weight: 600;
-         font-size: 14px;
-         line-height: 24px;
-         text-align: start;
-     }
-       .blue-side{
-         padding: 0.88rem 1.5rem;
-         order: 2;
-         p{
-           font-weight: 600;
-           font-size: 12px;
-           line-height: 14px;
-           letter-spacing: -0.017em;
-           color: #1F518B;
-         }
-       }
-       .desc{
-         display: none;
-       }
-    .event-card-chat{
-     margin-left: 31px;
-     margin-top: 33px;
+      width: 90%;
+      // .card-custom-Body {
+      //   .card-title {
+      //     font-weight: 600;
+      //     font-size: 14px;
+      //     line-height: 24px;
+      //     text-align: start;
+      //   }
+      //   .blue-side {
+      //     padding: 0.88rem 1.5rem;
+      //     order: 2;
+      //     p {
+      //       font-weight: 600;
+      //       font-size: 12px;
+      //       line-height: 14px;
+      //       letter-spacing: -0.017em;
+      //       color: #1f518b;
+      //     }
+      //   }
+      //   .desc {
+      //     display: none;
+      //   }
+      //   .event-card-chat {
+      //     margin-left: 31px;
+      //     margin-top: 33px;
+      //   }
+      //   .profile-img {
+      //     left: 0.7rem;
+      //     bottom: 2rem;
+      //     width: 27px;
+      //   }
+      //   .address-date-host {
+      //     .address {
+      //       font-size: 9px;
+      //     }
+      //   }
+      // }
     }
-    .profile-img {
-     left: 0.7rem;
-     bottom: 2rem;
-     width: 27px
-   }
-       .address-date-host{
-         .address {
-           font-size: 9px;
-           
-         }
-       }
-     }
-    }
- }
+  }
   .date-events {
-    
     .dateHighlight {
       display: none;
     }
@@ -1856,7 +1840,7 @@
         font-size: 20px;
         line-height: 24px;
       }
-      .btn-main{
+      .btn-main {
         width: 109px;
         height: 40px;
         font-weight: 600;
@@ -1865,7 +1849,7 @@
         letter-spacing: 0.063em;
       }
     }
-}
+  }
   .top-vanues-card-style {
     // .slick-current {
     //   width: 39px !important;
@@ -1885,12 +1869,10 @@
         font-size: 20px;
         line-height: 24px;
         letter-spacing: 0.063em;
-        color: #1F518B;
+        color: #1f518b;
       }
-      
     }
   }
- 
 
   .slick-prev {
     display: none !important;
@@ -1903,7 +1885,6 @@
   .happen {
     text-align: center !important;
   }
-
 
   .in-town-highlight {
     width: 35.7% !important;
@@ -1919,7 +1900,7 @@
     right: 6% !important;
     z-index: -2 !important;
   }
- 
+
   .sec6-para1 {
     font-size: 19px !important;
     font-weight: 600 !important;
