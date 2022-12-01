@@ -3,6 +3,7 @@ author : arman
 github: https://github.com/Arman-Arzoo
 */
 import React, { useEffect, useState } from 'react'
+import EventAndVenueDetail from './EventAndVenueDetail'
 import Invites from './Invites'
 import TimeAndPrice from './TimeAndPrice'
 import Venue from './Venue'
@@ -48,6 +49,7 @@ const StepperForm = () => {
                 activeStepper === 1 &&
                 <>
                     <Venue />
+                    <EventAndVenueDetail />
                 </>
             }
 
@@ -65,6 +67,7 @@ const StepperForm = () => {
                         <h2>EVENT DESCRIPTION</h2>
                         <textarea type="textarea" id='eventDiscription' name="eventDiscription" rows="4" cols="50" />
                     </div>
+                    <EventAndVenueDetail />
                 </>
             }
 
@@ -74,6 +77,7 @@ const StepperForm = () => {
                 activeStepper === 3 &&
                 <>
                     <Invites />
+                    <EventAndVenueDetail />
                 </>
             }
             {
@@ -81,6 +85,7 @@ const StepperForm = () => {
                 activeStepper === 4 &&
                 <>
                     <TimeAndPrice />
+                    <EventAndVenueDetail />
                 </>
             }
 

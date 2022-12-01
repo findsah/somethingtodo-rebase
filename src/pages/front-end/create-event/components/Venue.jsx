@@ -1,6 +1,6 @@
 import React from 'react'
 import dummy from '../../../../assets/dummy1.png'
-import Modal from '../../components/Modal'
+
 
 const Venue = () => {
     return (
@@ -93,9 +93,9 @@ const Venue = () => {
                 </div>
                 {/* map */}
                 <div className='event_map'>
-                    <div class="mapouter">
-                        <div class="gmap_canvas">
-                            <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=346&amp;height=850&amp;hl=en&amp;q=lahore&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                    <div className="mapouter">
+                        <div className="gmap_canvas">
+                            <iframe className="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=346&amp;height=850&amp;hl=en&amp;q=lahore&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
                             </iframe>
                             <a href="https://piratebay-proxys.com/">Piratebay</a>
                         </div>
@@ -131,7 +131,7 @@ const Venue = () => {
                                     <div className='btn-container'>
                                         <button className='btn_error'>
                                             <i class="fa fa-minus" aria-hidden="true"></i>
-                                            ADD  VENUE
+                                            REMOVE VENUE
                                         </button>
                                     </div>
 
@@ -146,6 +146,8 @@ const Venue = () => {
                     </div>
                 </div>
             </div>
+
+
         </div>
     )
 }

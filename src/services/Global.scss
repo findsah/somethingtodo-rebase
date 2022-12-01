@@ -130,6 +130,7 @@ h2 {
   padding-top: 0.4rem;
 }
 
+// h3 whcih font size is 24 and color is blue
 h3 {
   font-family: 'SF UI Display';
   font-style: normal;
@@ -153,6 +154,15 @@ h5 {
 
 }
 
+// h6 font size is 20px and color is gray
+h6 {
+  font-family: 'SF UI Display';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  color: #515151;
+}
+
 // paragraph which font size is 14 and color is white
 .p_white {
   font-family: 'SF UI Display';
@@ -173,7 +183,6 @@ h5 {
   color: #909090;
 }
 
-
 // paragraph which font size is 20 and dark blue
 .p_blue_size_20 {
   color: #1F518B;
@@ -184,6 +193,15 @@ h5 {
   line-height: 24px;
   letter-spacing: 0.063em;
   margin-top: revert;
+}
+
+//  paraggraph which font sixe is 14 and gray color
+.p_gray_14 {
+  font-family: 'SF UI Display';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #515151;
 }
 
 // customize range slider 
