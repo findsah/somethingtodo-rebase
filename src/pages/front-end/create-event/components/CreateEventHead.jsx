@@ -72,33 +72,44 @@ const CreateEventHead = () => {
                         <p className='timerStart'>Event starts in</p>
                         <Countdown date={Date.now() + 1000000} renderer={renderer} />,
                     </div>
+                    <div className='address'>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <p>Address</p>
+                    </div>
                 </div>
 
+
                 <div className='eventFooter'>
-                    <div className='left'>
-                        <div>
-                            <img src={profilegirl} alt="" />
-                        </div>
-                        <div className='liveChatContainer'>
-                            <div className='liveChat'>
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <p>live chat</p>
-                            </div>
-                            <div className='liveChatPeople'>
-                                <div>
+                    <div >
 
-                                    <img src={profilegirl} alt="" width="22px" height="22px" />
-                                    <img src={profilegirl} alt="" width="22px" height="22px" />
-                                    <img src={profilegirl} alt="" width="22px" height="22px" />
-                                    <img src={profilegirl} alt="" width="22px" height="22px" />
-                                    <img src={profilegirl} alt="" width="22px" height="22px" />
-                                </div>
-                                <div className='infoPeopleCount'>
-                                    <span>& 12 other </span> <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                </div>
 
+                        <p className='mo_share_p'>Share with friends:</p>
+                        <div className='left'>
+                            <div className='img'>
+                                <img src={profilegirl} alt="" />
+                            </div>
+                            <div className='liveChatContainer'>
+                                <div className='liveChat'>
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <p>live chat</p>
+                                </div>
+                                <div className='liveChatPeople'>
+                                    <div>
+
+                                        <img src={profilegirl} alt="" width="22px" height="22px" />
+                                        <img src={profilegirl} alt="" width="22px" height="22px" />
+                                        <img src={profilegirl} alt="" width="22px" height="22px" />
+                                        {/* <img src={profilegirl} alt="" width="22px" height="22px" />
+                                    <img src={profilegirl} alt="" width="22px" height="22px" /> */}
+                                    </div>
+                                    <div className='infoPeopleCount'>
+                                        <span>& 12 other </span> <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
+
                     </div>
                     <div className='middel'>
                         <div className='social'>
@@ -116,12 +127,17 @@ const CreateEventHead = () => {
                     </div>
                     <div className='right'>
                         <div className='rightTop'>
-                            <div> <i class="fa fa-calendar-o" aria-hidden="true"></i> Date</div>
+                            <div className='date_icon'>
+                                <i class="fa fa-calendar-o" aria-hidden="true"></i>
+
+                                <p> Date</p>
+                            </div>
                             <div className='paid'>
                                 <div className="icon">
                                     <i class="fa fa-usd" aria-hidden="true"></i>
                                 </div>
-                                Paid by host
+
+                                <p> Paid by host</p>
                             </div>
                         </div>
                         <div className='rigthBottom'>
