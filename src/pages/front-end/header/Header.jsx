@@ -17,7 +17,7 @@ const Header = () => {
                         <Link to="/create-event">CREATE EVENT</Link>
                         <Link to="#pricing">FIND EVENTS</Link>
                         <Link to="#pricing">MY EVENTS</Link>
-                        <Link to="#pricing">BLOG</Link>
+                        <Link to="/blog">BLOG</Link>
                         <Link to="#pricing">FAQ</Link>
                         <Button className='signup'>
                             <BsPersonCircle />
