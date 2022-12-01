@@ -13,7 +13,7 @@ const CreateEvent = () => {
             <CreateEventHead />
             {/* Create event Stepper  */}
             <div className='container eventStepContainer'>
-                {/* <StepperForm /> */}
+                <StepperForm />
             </div>
         </>
     )
