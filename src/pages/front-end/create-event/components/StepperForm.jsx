@@ -26,19 +26,31 @@ const StepperForm = () => {
                 <ul className="step-wizard-list">
                     <li className="step-wizard-item " >
                         <span className="progress-label">Step 1</span>
-                        <span onClick={() => setActiveSteper(1)} className={activeStepper === 1 ? "progress-count current-item" : "progress-count"}>VENUE</span>
+                        <div onClick={() => setActiveSteper(1)} className={activeStepper === 1 ? "progress-count current-item" : "progress-count"}>
+                            <span className='d_d'>VENUE</span>
+                            <span className='m_d'>{activeStepper === 1 ? "venue" : '1'}</span>
+                        </div>
                     </li>
                     <li className="step-wizard-item "  >
                         <span className="progress-label">Step 2</span>
-                        <span onClick={() => setActiveSteper(2)} className={activeStepper === 2 ? "progress-count current-item" : "progress-count"}>EVENT DESCRIPTION</span>
+                        <div onClick={() => setActiveSteper(2)} className={activeStepper === 2 ? "progress-count current-item" : "progress-count"}>
+                            <span className='d_d'>EVENT DESCRIPTION</span>
+                            <span className='m_d'>{activeStepper === 2 ? "Event Description" : '2'}</span>
+                        </div>
                     </li>
                     <li className="step-wizard-item"  >
                         <span className="progress-label">Step 3</span>
-                        <span onClick={() => setActiveSteper(3)} className={activeStepper === 3 ? "progress-count current-item" : "progress-count"}>INVITES</span>
+                        <div onClick={() => setActiveSteper(3)} className={activeStepper === 3 ? "progress-count current-item" : "progress-count"}>
+                            <span className='d_d'>INVITES</span>
+                            <span className='m_d'>{activeStepper === 3 ? "Invites" : '3'}</span>
+                        </div>
                     </li>
                     <li className="step-wizard-item">
                         <span className="progress-label">Step 4</span>
-                        <span onClick={() => setActiveSteper(4)} className={activeStepper === 4 ? "progress-count current-item" : "progress-count"}>TIME & PRICE</span>
+                        <div onClick={() => setActiveSteper(4)} className={activeStepper === 4 ? "progress-count current-item" : "progress-count"}>
+                            <span className='d_d'>TIME & PRICE</span>
+                            <span className='m_d'>{activeStepper === 4 ? "Time & Price" : '4'}</span>
+                        </div>
                     </li>
                 </ul>
             </section>

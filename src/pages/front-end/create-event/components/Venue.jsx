@@ -26,7 +26,7 @@ const Venue = () => {
                         <option value="1"> option one</option>
                     </select>
                 </div>
-                <button className='btn_secondary'
+                <button className='btn_secondary mobile_create_event '
                     style={{ width: "233px", height: "48px" }}
                     type="button"
                     data-bs-toggle="modal"
@@ -34,10 +34,7 @@ const Venue = () => {
                     <i class="fa fa-plus" aria-hidden="true"></i>
                     CREATE CUSTOM VENUE
                 </button>
-                {/* <Modal id="createCustomVenue" /> */}
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Launch demo modal
-                </button>
+
 
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -63,6 +60,11 @@ const Venue = () => {
             </div>
 
             {/* card and map */}
+
+            <div className='mobile_btn_switch_card_and_map'>
+                <button className='btn_default btn_current'>MAP VIEW</button>
+                <button className='btn_default'>LIST VIEW</button>
+            </div>
 
             <div className='card_and_map_container'>
                 {/* card */}
@@ -116,7 +118,8 @@ const Venue = () => {
 
             {/* added venue */}
             <div className='add_venue_container'>
-                <h2>ADDED VENUES</h2>
+                <h2 className='disable_mobile'>ADDED VENUES</h2>
+                <h2 className='disable_desktop'>SEARCH VENUES:</h2>
                 <div className='venue_card_container'>
 
                     <div className='venue_cards'>
@@ -129,9 +132,14 @@ const Venue = () => {
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                     </p>
                                     <div className='btn-container'>
-                                        <button className='btn_error'>
+                                        {/* while integrating api you must pass all attribute same on the button */}
+                                        <button className='btn_error desktop_btn'>
                                             <i class="fa fa-minus" aria-hidden="true"></i>
                                             REMOVE VENUE
+                                        </button>
+                                        <button className='btn_error mobile_btn'>
+                                            <i class="fa fa-minus" aria-hidden="true"></i>
+                                            REMOVE
                                         </button>
                                     </div>
 
