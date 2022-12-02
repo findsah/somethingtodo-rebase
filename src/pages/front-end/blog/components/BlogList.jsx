@@ -13,7 +13,7 @@ export default function BlogList() {
     return (
         <div className="container-fluid">
 
-            <div className="row d-flex justify-content-around main-bloglist">
+            {/* <div className="row d-flex justify-content-around main-bloglist">
                 <div className="col-4 ">
                     <div className="blogHighlight"></div>
                     <h2>SOMETHING <span>TO </span>DO </h2>
@@ -57,31 +57,16 @@ export default function BlogList() {
                 </div>
                 <RxDoubleArrowDown className='arrow' />
 
-            </div>
-            <div className="row circle-img  ">
-
-
-
-                {/* {
-                    [1, 2, 3, 4, 5, 6, 7].map(item => (
-                        <div className="col-3">
-                            <div className="date-cards">
-                                <DateCard />
-                            </div>
-                        </div>
-                    ))
-                } */}
-
-            </div>
-            <div className="row justify-content-center suggested-sec">
+            </div> */}
+            {/* <div className="row circle-img  ">
+            </div> */}
+            {/* <div className="row justify-content-center suggested-sec">
                 <div className="col-12 mt-5">
                     <div className="row first-row">
                         <div className="highligt"></div>
                         <div className="col-3">
                             <h2 className=''>SUGGESTED  EVENTS FROM <span className='spansomething'>  SOMETHINGTODO  NEARBY </span></h2>
                         </div>
-                        {/* {
-                     [1, 2, 3, 4, 5, 6, 7].map(item => ( */}
                         <div className="col-3 ">
                             <div className="date-cards">
                                 <DateCard />
@@ -97,11 +82,7 @@ export default function BlogList() {
                                 <DateCard />
                             </div>
                         </div>
-
-                        {/* ))
-                } */}
                     </div>
-
                 </div>
                 <div className="col-10">
                     <div className="row ">
@@ -130,11 +111,11 @@ export default function BlogList() {
                         </p>
                     </div>
                 </div>
-            </div>
-            <div className="row mt-5 justify-content-center">
+            </div> */}
+            {/* <div className="row mt-5 justify-content-center">
                 <div className="col-9"><hr /></div>
-            </div>
-            <div className="row  justify-content-center recent-blog">
+            </div> */}
+            {/* <div className="row  justify-content-center recent-blog">
                 <div className="recentBlogHighlight"></div>
                 <div className="col-4">
                     <div className="row ">
@@ -198,11 +179,11 @@ export default function BlogList() {
                     </div>
                 </div>
 
-            </div>
-            <div className='similar-vanue-style'>
+            </div> */}
+            {/* <div className='similar-vanue-style'>
                 <div className="similarVanueHighlight"></div>
                 <SimilarVanues />
-            </div>
+            </div> */}
         </div >
     )
 }
