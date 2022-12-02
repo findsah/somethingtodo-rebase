@@ -1,3 +1,5 @@
+@import "../breakpoint.scss";
+
 .btn-main {
   width: 245px;
   height: 36px;
@@ -293,4 +295,12 @@ h6 {
     z-index: -1;
   }
 
+}
+
+
+// global css for mobile
+@include media ('<=phone') {
+  h2 {
+    font-size: 12px;
+  }
 }
