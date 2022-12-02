@@ -61,6 +61,11 @@ const Venue = () => {
 
             {/* card and map */}
 
+            <div className='mobile_btn_switch_card_and_map'>
+                <button className='btn_default btn_current'>MAP VIEW</button>
+                <button className='btn_default'>LIST VIEW</button>
+            </div>
+
             <div className='card_and_map_container'>
                 {/* card */}
                 <div className='card_container'>

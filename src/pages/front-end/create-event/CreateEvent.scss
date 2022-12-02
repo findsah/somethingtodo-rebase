@@ -681,6 +681,10 @@
     }
   }
 
+  .mobile_btn_switch_card_and_map {
+    display: none;
+  }
+
 
 
 }
@@ -1563,6 +1567,57 @@
 
           .create {}
         }
+      }
+    }
+
+    // for only mobile
+    .mobile_btn_switch_card_and_map {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+
+      .btn_default {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 2px 10px;
+
+
+        width: 75px;
+        height: 36px;
+
+
+        border-radius: 10px;
+        font-family: 'SF UI Display';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 11px;
+
+        border: none;
+
+        line-height: 14px;
+
+        letter-spacing: -0.017em;
+
+        background: #D5EAFF;
+        /* Dark blue */
+
+        border: 1px solid #1F518B;
+        border-radius: 10px;
+        color: #1F518B;
+
+        ;
+
+      }
+
+      .btn_current {
+        background: #0081CB;
+        color: #FFFFFF;
+        border: none;
       }
     }
 
