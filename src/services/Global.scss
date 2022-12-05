@@ -303,4 +303,18 @@ h6 {
   h2 {
     font-size: 12px;
   }
+
+  h3 {
+    font-size: 12px;
+  }
+}
+
+@include media (">phone", "<=tablet") {
+  h2 {
+    font-size: 12px;
+  }
+
+  h3 {
+    font-size: 12px;
+  }
 }
