@@ -7,6 +7,8 @@
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
   .top-sec {
     text-align: center;
     height: 80px;
@@ -36,6 +38,15 @@
 }
 
 .main-top-vanue {
+  .circle-img{
+    background-image: url("../../../assets/Ellipse35.png");
+    position: absolute;
+    width: 1119px;
+    height: 1119px;
+    left: 351px;
+    top: -439px;
+    background-repeat: no-repeat;
+  }
   a {
     text-decoration: none !important;
     color: #161616;
@@ -53,10 +64,10 @@
       }
       .topVanueHighlight {
         background: #64e2ff !important;
-        width: 42.7%;
+        width: 47.7%;
         height: 25px;
-        top: 15.5rem;
-        right: 40.5%;
+        top: 17rem;
+        right: 32.5%;
         position: absolute;
         z-index: -1;
       }
@@ -122,7 +133,7 @@
 .ready-event-card {
   // background: linear-gradient(140.6deg, #002C6D 0%, #0082CF 100%);
   .card2-img {
-    height: 26.7rem !important;
+    height: 27.1rem !important;
   }
   .para-sec {
     h2 {
@@ -853,10 +864,10 @@
   margin-top: 5rem;
   .blogHighlight {
     background: #64e2ff !important;
-    width: 39.7%;
+    width: 26.7%;
     height: 25px;
     top: 24px;
-    right: -0.5%;
+    right: 13.5%;
     position: absolute;
     z-index: -1;
   }

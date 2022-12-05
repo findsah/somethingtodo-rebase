@@ -39,7 +39,7 @@ export default function BlogList() {
                 </div>
             </div>
             <div className="row d-flex justify-content-around main-bloglist">
-                <div className="col-4 d-none ">
+                <div className="col-4 ">
                     <div className="blogHighlight"></div>
                     <h2>SOMETHING <span>TO </span>DO </h2>
                     <hr />
@@ -50,10 +50,10 @@ export default function BlogList() {
                     <CustomButton text='Read More' />
 
                 </div>
-                <div className="col-4 d-none ">
+                <div className="col-4 ">
                     <img src={micImg} alt="" className='micimg' />
                 </div>
-                <div className="row mt-5 justify-content-center d-none ">
+                <div className="row mt-5 justify-content-center ">
                     <div className="col-10"><hr /></div>
                 </div>
                 <div className="row mt-5 moreblog">
@@ -155,7 +155,7 @@ export default function BlogList() {
             <div className="row mt-5 justify-content-center d-none d-sm-none d-md-block">
                 <div className="col-9"><hr /></div>
             </div>
-            <div className="row  justify-content-center recent-blog">
+            <div className="row  justify-content-center recent-blog ">
                 <div className="recentBlogHighlight"></div>
                 <div className="col-4">
                     <div className="row ">
@@ -220,10 +220,10 @@ export default function BlogList() {
                 </div>
 
             </div>
-            {/* <div className='similar-vanue-style'>
+            <div className='similar-vanue-style'>
                 <div className="similarVanueHighlight"></div>
                 <SimilarVanues />
-            </div> */}
+            </div>
         </div >
     )
 }

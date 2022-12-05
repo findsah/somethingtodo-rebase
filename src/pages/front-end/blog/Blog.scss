@@ -206,6 +206,7 @@ height: 775px;
     background-repeat: no-repeat;
 }
 .suggested-sec{
+  // margin-top: 3rem;
   .slick-next {
     display: none;
 }
@@ -356,7 +357,7 @@ height: 775px;
 .main-backgrond{
   background-color: #D5EAFF;
 }
-@include media ('<=phone'){
+@include media ('<=Lphone'){
   .blog-top-img {
     background-image: url("../../../assets/blogbgmobile.png");
     height: 586px;
@@ -420,6 +421,7 @@ height: 775px;
     .recent-blog-img2{
       background-image: url('../../../assets/mic2.png');
       height: 411px;
+      width: 85% !important;
       background-size: cover !important;
       background-position: center;
       background-repeat: no-repeat;
@@ -450,7 +452,7 @@ height: 775px;
     display: none;
   }
   .suggested-sec{
- 
+    margin-top: 0rem!important;
   
   .date-cards{
     width: 100%;
@@ -483,5 +485,28 @@ height: 775px;
     // .spansomething{
     //   color: #FF9700;
     // }
+  }
+  .recent-blog{
+    display: none;
+  }
+  .similar-vanue-style{
+    
+    margin-bottom: 0rem;
+    background: unset;
+    padding: 0 0px 0px;
+    .similarVanueHighlight {
+      display: none;
+    }
+    .similer-vanues{ 
+     
+      h2{
+        margin-top: 0rem;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: 0.063em;
+        color: #1F518B;
+      }
+    }
   }
 }

@@ -74,6 +74,8 @@ export const settings = {
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
+        // centerMode: true,
+        // centerPadding: '40px',
       },
     },
     {
@@ -82,6 +84,9 @@ export const settings = {
         slidesToShow: 1,
         slidesToScroll: 1,
         lineHeight: 0,
+        // centerMode: true,
+        // centerPadding: '40px',
+
       },
     },
   ],
