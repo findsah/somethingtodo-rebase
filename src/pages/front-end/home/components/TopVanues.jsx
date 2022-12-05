@@ -49,12 +49,13 @@ const TopVanues = () => {
 
     return (
         <Row className='justify-content-between main-top-vanue'>
+            {/* <div className="row circle-img  ">
+            </div> */}
             <Col xs={12} md={4} data-aos="fade-right" className="aos-init aos-animate happen-wrapper">
                 <p className="happen-text tex-center">
                     What's  Happening Right Now <br className='d-none d-md-block d-lg-block' /> in
                     <div className="topVanueHighlight aos-init aos-animate" data-aos="fade-right" data-aos-duration="2000"></div>
                     <span> {address}</span>
-                    {/* <span> Lahore</span> */}
                 </p>
                 <Dropdown>
                     <Dropdown.Toggle variant="outlined" className="dropdown-btn">
@@ -69,7 +70,8 @@ const TopVanues = () => {
                     </Dropdown.Menu>
                 </Dropdown>
             </Col>
-            <Col xs={12} lg={4} md={6} className='mobile-screen'>
+
+            <Col xs={12} lg={4} className='mobile-screen'>
                 <div className='vanuebg'>
                     <div className="set-postion">
                         <Link to="/vanue-detail">
@@ -83,7 +85,7 @@ const TopVanues = () => {
                     <TopVanuesCard />
                 </Link>
             </Col>
-            <Col xs={12} lg={12} >
+            <Col xs={12} lg={12} style={{ padding: '0px' }} >
                 <Slider {...settings} >
                     {
                         [1, 2, 3, 4, 5, 6, 7].map(item => (
@@ -94,7 +96,7 @@ const TopVanues = () => {
                     }
                 </Slider>
             </Col>
-            <Col xs={12} lg={12}>
+            <Col xs={12} lg={12} style={{ padding: '0px' }}>
                 <Slider {...settings} >
                     {
                         [1, 2, 3, 4, 5, 6, 7].map(item => (

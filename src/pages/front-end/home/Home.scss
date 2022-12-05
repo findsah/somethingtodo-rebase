@@ -7,6 +7,8 @@
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
   .top-sec {
     text-align: center;
     height: 80px;
@@ -36,6 +38,15 @@
 }
 
 .main-top-vanue {
+  .circle-img{
+    background-image: url("../../../assets/Ellipse35.png");
+    position: absolute;
+    width: 100%;
+    height: 1119px;
+    left: 351px;
+    top: -439px;
+    background-repeat: no-repeat;
+  }
   a {
     text-decoration: none !important;
     color: #161616;
@@ -53,10 +64,10 @@
       }
       .topVanueHighlight {
         background: #64e2ff !important;
-        width: 42.7%;
+        width: 47.7%;
         height: 25px;
-        top: 15.5rem;
-        right: 40.5%;
+        top: 17rem;
+        right: 32.5%;
         position: absolute;
         z-index: -1;
       }
@@ -122,7 +133,7 @@
 .ready-event-card {
   // background: linear-gradient(140.6deg, #002C6D 0%, #0082CF 100%);
   .card2-img {
-    height: 26.7rem !important;
+    height: 27.1rem !important;
   }
   .para-sec {
     h2 {
@@ -853,10 +864,10 @@
   margin-top: 5rem;
   .blogHighlight {
     background: #64e2ff !important;
-    width: 39.7%;
+    width: 26.7%;
     height: 25px;
     top: 24px;
-    right: -0.5%;
+    right: 13.5%;
     position: absolute;
     z-index: -1;
   }
@@ -1355,28 +1366,33 @@
   }
 }
 
-@media (max-width: 475px) {
+@media (max-width: 475px){
   .cf-events {
     margin-top: 13rem;
   }
-  .bg-img {
-    .top-text {
-      .place {
-        font-size: 20px !important;
-        line-height: 71px;
-        margin-top: 178px;
-        margin-bottom: 18px;
+
+  .main-top-vanue {
+    .mobile-screen{
+      margin-top: 2rem;
+      .vanuebg{
+        background-image: url("../../../assets/vanuebg.png");
+        width: 375px;
+        height: 288px;
+        background-size: cover !important;
+        background-position: center;
+        background-repeat: no-repeat;
+        .set-postion{
+          position: absolute;
+        }
       }
     }
-  }
-  .main-top-vanue {
     .happen-wrapper {
       padding-top: 0rem !important;
       text-align: center;
       .happen-text {
         justify-content: center;
         font-weight: 700;
-        font-size: 25px;
+        font-size: 33px;
         line-height: 51px;
         .topVanueHighlight {
           background: #64e2ff !important;
@@ -1388,7 +1404,7 @@
       }
     }
     .top-vanues-card-style {
-      width: 70%;
+      width: 60%;
       .card-custom-Body {
         .card-title {
           font-weight: 700;
@@ -1722,6 +1738,8 @@
     }
   }
   .main-dining{
+    background-size: cover !important;
+    
     .dining-text {
       h2{
         font-size: 22px;
@@ -1729,83 +1747,7 @@
       }
     }
   }
-  // .date-cards{
-  //   .top-vanues-card-style{
-  //     hr {
-  //       border-top: 2px dashed #64e2ff;
-  //       margin: -2px 10px 7px 6px !important;
-  //     }
-  //       .card-custom-Body {
-  //         .blue-side {
-  //           background: #64e2ff;
-  //           padding: 0.88rem 1.5rem;
-  //           p{
-  //             font-weight: 600;
-  //             font-size: 12px;
-  //             line-height: 14px;
-  //             letter-spacing: 0.063em;
-  //             color: #1F518B;
-  //           }
-  //         }
-  //       }
-  //         .date-host {
-  //           display: flex;
-  //           align-items: center;
-  //           .address {
-  //             display: flex;
-  //             justify-content: flex-start;
-  //             align-items: center;
-  //             font-weight: 500;
-  //             padding: 0px 10px;
-  //             font-size: 12px;
-  //             color: #515151;
-  //             img{
-  //               width: 12px;
-  //               height: 12px;
-  //             }
-  //           }
-  //         }
-  //         .profile-img {
-  //             position: absolute;
-  //             left: 0.7rem;
-  //             bottom: 0.5rem;
-  //             width: 27px;
-  //             height: 27px;
-  //             border: 1px solid #fff;
-  //             border-radius: 50%;
-  //           }
-  //           .event-card-chat {
-  //             display: flex;
-  //             justify-content: space-between;
-  //             align-items: center;
-  //             margin-left: 34px;
-
-  //             .last-content {
-  //               display: flex;
-  //               align-items: center;
-  //               .user-img-2 {
-  //                 height: 15px;
-  //                 width: 15px;
-  //                 border-radius: 50%;
-  //                 margin-right: -8px;
-  //                 border: 1px solid white;
-  //               }
-  //               .others {
-  //                 margin-left: 7px;
-  //                 font-size: 7px;
-  //                 margin-right: auto;
-  //                 margin-bottom: 0px;
-  //               }
-  //             }
-  //             .price-txt {
-  //               color: black;
-  //               font-size: 11px;
-  //               font-weight: bold;
-  //               margin: -132px !important;
-  //             }
-  //           }
-  // }
-  // }
+ 
   .date-cards {
     .date-card-style {
       width: 90%;
@@ -1867,9 +1809,7 @@
     }
   }
   .top-vanues-card-style {
-    // .slick-current {
-    //   width: 39px !important;
-    // }
+    
     .card-custom-Body {
       .desc {
         display: none;
@@ -1945,7 +1885,7 @@
   }
 
   .checkout {
-    font-size: 20px !important;
+    font-size: 16px !important;
   }
 
   .blogHighlight {
