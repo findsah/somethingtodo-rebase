@@ -73,11 +73,11 @@ const StepperForm = () => {
                     <div className="event_description">
 
                         <h2>EVENT TITLE</h2>
-                        <input type="text" />
+                        <input type="text" placeholder='Text' />
                     </div>
                     <div className="event_description">
                         <h2>EVENT DESCRIPTION</h2>
-                        <textarea type="textarea" id='eventDiscription' name="eventDiscription" rows="4" cols="50" />
+                        <textarea type="textarea" id='eventDiscription' name="eventDiscription" rows="5" cols="50" placeholder='Text' />
                     </div>
                     <EventAndVenueDetail />
                 </>
