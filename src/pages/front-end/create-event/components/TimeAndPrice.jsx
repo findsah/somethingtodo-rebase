@@ -9,7 +9,7 @@ const TimeAndPrice = () => {
 
         <div className="container create-event-time_and_price">
             <div className="row">
-                <div className="col">
+                <div className="col-sm-6 col-12 m-auto">
                     <div className='event_label'>
                         <h2>EVENT DATE</h2>
                         <img src={calenderIcon} alt="" />
@@ -19,9 +19,9 @@ const TimeAndPrice = () => {
                     </div>
                 </div>
 
-                <div className="col">
+                <div className="col-sm-6 col-12 m-auto">
                     <div className='event_label'>
-                        <h2>EVENT DATE</h2>
+                        <h2>EVENT TIME</h2>
                         <img src={clockIcon} alt="" />
                     </div>
                     <div className='event_time_field'>
@@ -31,15 +31,15 @@ const TimeAndPrice = () => {
             </div>
 
             <div className="row mt-5">
-                <div className="col event_cost">
+                <div className="col-sm-6 col-12 m-auto event_cost">
                     <h3>ESTIMATED COST FOR THIS EVENT</h3>
                     <div className='range_wdith'>
 
                         <CustomRangeSlider values={values} setValues={setValues} min={0} max={90} step={1} />
                     </div>
                 </div>
-                <div className="col ">
-                    <h3>HOW WILL THE COST BE <br /> SPLIT AMONG THE GROUP ?</h3>
+                <div className="col-sm-6 col-12 m-auto  mobile_marign">
+                    <h3>HOW WILL THE COST BE <br className='hide' /> SPLIT AMONG THE GROUP ?</h3>
                     <div className='cost_split'>
                         <div className='paying'>
                             <input type="checkbox" />

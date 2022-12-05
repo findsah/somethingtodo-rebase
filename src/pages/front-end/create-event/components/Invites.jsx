@@ -54,7 +54,7 @@ const Invites = ({ rtl }) => {
                             </div>
                             <div className='checkbox_group'>
                                 <input type="checkbox" name='Both' id='Both' />
-                                <label htmlFor="Both">Male</label>
+                                <label htmlFor="Both">Both</label>
                             </div>
                         </td>
                         <td>
@@ -99,10 +99,13 @@ const Invites = ({ rtl }) => {
             <div className='invite_friends_group'>
                 <div className='invite_friends'>
                     <h2>INVETE FRIENDS TO JOIN</h2>
-                    <select name="location" id="location">
-                        <option value="one">option one</option>
-                    </select>
-                    <button className='btn_secondary'><i class="fa fa-plus" aria-hidden="true"></i> ADD FRIEND </button>
+                    <div className='invite_friends_right'>
+                        <select name="location" id="location">
+                            <option value="one">option one</option>
+                        </select>
+                        <button className='btn_secondary'><i class="fa fa-plus" aria-hidden="true"></i> ADD FRIEND </button>
+                    </div>
+
                 </div>
                 <div className='mini_cards'>
                     {
@@ -123,10 +126,12 @@ const Invites = ({ rtl }) => {
             <div className='invite_friends_group'>
                 <div className='invite_friends'>
                     <h2>INVITE FRIENDS BY EMAIL</h2>
-                    <select name="location" id="location">
-                        <option value="one">option one</option>
-                    </select>
-                    <button className='btn_secondary'><i class="fa fa-plus" aria-hidden="true"></i>INVITE </button>
+                    <div className='invite_friends_right'>
+                        <select name="location" id="location">
+                            <option value="one">option one</option>
+                        </select>
+                        <button className='btn_secondary'><i class="fa fa-plus" aria-hidden="true"></i>INVITE </button>
+                    </div>
                 </div>
                 <div className='mini_cards'>
                     {
