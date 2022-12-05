@@ -362,16 +362,7 @@ height: 775px;
     background-image: url("../../../assets/blogbgmobile.png");
     height: 586px;
     width: 100%;
-    // background-size: cover !important;
     background-position: center;
-    // .top-sec {
-    //   text-align: center;
-    //   height: 80px;
-    //   img {
-    //     max-width: 100%;
-    //     height: 80px;
-    //   }
-    // }
     .top-text {
       text-align: center;
       overflow: hidden;
@@ -396,22 +387,9 @@ height: 775px;
       }
       .btn-main{
         margin-left: -186px;
-        // width: 150px;
-        // margin-top: 293px;
-        // margin-bottom: 30px;
       }
-      // .arrow{
-      //   margin-top: 75px;
-      //   height: 30px;
-      //   width: 30px;
-      //   color: #1F518B;
-      // }
     }
-    // .top-buttons {
-    //   display: flex;
-    //   justify-content: center;
-    //   align-items: center;
-    // }
+
   }
   .main-backgrond{
     background-color: white;
@@ -421,7 +399,7 @@ height: 775px;
     .recent-blog-img2{
       background-image: url('../../../assets/mic2.png');
       height: 411px;
-      width: 85% !important;
+      width: 96% !important;
       background-size: cover !important;
       background-position: center;
       background-repeat: no-repeat;
@@ -456,6 +434,10 @@ height: 775px;
   
   .date-cards{
     width: 100%;
+    .card{
+      box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5) !important;
+    }
+
   }
     .first-row{
       margin-top: 0rem;
@@ -490,7 +472,8 @@ height: 775px;
     display: none;
   }
   .similar-vanue-style{
-    
+    // box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+
     margin-bottom: 0rem;
     background: unset;
     padding: 0 0px 0px;
@@ -498,7 +481,10 @@ height: 775px;
       display: none;
     }
     .similer-vanues{ 
-     
+      .top-vanues-card-style {
+        box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5) !important;
+
+      }
       h2{
         margin-top: 0rem;
         font-weight: 700;
