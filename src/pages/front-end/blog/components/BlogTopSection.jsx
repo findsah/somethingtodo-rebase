@@ -9,7 +9,6 @@ export default function BlogTopSection() {
             <div className="top-sec">
                 <img className="img-fluid" src={logo} alt="logo" />
             </div>
-
             <div className="top-text">
                 <div className="row">
                     <div className="col-6">
@@ -36,15 +35,9 @@ export default function BlogTopSection() {
                             <div className="col-12" >
                                 <CustomButton text='Read More' />
                             </div>
-
                         </div>
                     </div>
                 </div>
-                {/* <p className="place">LOREM IPSUM DOLOR SIT AMET</p>
-                <div className='sub-text'>
-                   
-                    <p>LOREM IPSUM DOLOR SIT AMET</p>
-                </div> */}
                 <RxDoubleArrowDown className='arrow' />
             </div>
         </div>
