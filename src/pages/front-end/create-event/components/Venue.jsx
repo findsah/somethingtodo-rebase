@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import dummy from '../../../../assets/dummy1.png'
 
 
 const Venue = () => {
+
+    const [mapOrCarView, setMapOrCardView] = useState("mapview");
+    const [mapOrcardTap, setMapOrCardTap] = useState("mapTap")
+
     return (
         <div className='create_event_venue'>
             {/* header */}
@@ -59,50 +63,63 @@ const Venue = () => {
 
             </div>
 
-            {/* card and map */}
-
+            {/* card and map button for mobile*/}
             <div className='mobile_btn_switch_card_and_map'>
-                <button className='btn_default btn_current'>MAP VIEW</button>
-                <button className='btn_default'>LIST VIEW</button>
+                <button
+                    className={mapOrcardTap === "mapTap" ? "btn_default btn_current" : "btn_default"}
+                    onClick={() => { setMapOrCardView("mapview"); setMapOrCardTap("mapTap") }}>
+                    MAP VIEW
+                </button>
+                <button
+                    className={mapOrcardTap === "listTap" ? "btn_default btn_current" : "btn_default"}
+                    onClick={() => { setMapOrCardView("listview"); setMapOrCardTap("listTap") }}>
+                    LIST VIEW
+                </button>
             </div>
-
+            {/* card and map  */}
             <div className='card_and_map_container'>
                 {/* card */}
-                <div className='card_container'>
-                    {
-                        [1, 2, 3, 4, 5, 6].map(item => (
-                            <div className='event_card'>
-                                <img src={dummy} alt="" />
-                                <h5 >LOREM IPSUM DOLOR SIT AMET</h5>
-                                <p className='p_gray_10 '>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                </p>
-                                <div className='btn-container'>
-                                    <button className='btn_secondary '>
-                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                        ADD  VENUE
-                                    </button>
+
+                <div className={mapOrCarView === "listview" ? "" : "disable_list"}>
+                    <div className="card_container">
+                        {
+                            [1, 2, 3, 4, 5, 6].map(item => (
+                                <div className='event_card'>
+                                    <img src={dummy} alt="" />
+                                    <h5 >LOREM IPSUM DOLOR SIT AMET</h5>
+                                    <p className='p_gray_10 '>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </p>
+                                    <div className='btn-container'>
+                                        <button className='btn_secondary '>
+                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                            ADD  VENUE
+                                        </button>
+                                    </div>
+
                                 </div>
-
-                            </div>
-                        ))
-                    }
+                            ))
+                        }
 
 
 
 
-
-                </div>
-                {/* map */}
-                <div className='event_map'>
-                    <div className="mapouter">
-                        <div className="gmap_canvas">
-                            <iframe className="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=346&amp;height=850&amp;hl=en&amp;q=lahore&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-                            </iframe>
-                            <a href="https://piratebay-proxys.com/">Piratebay</a>
-                        </div>
 
                     </div>
+                </div>
+                {/* map */}
+                <div className={mapOrCarView === "mapview" ? "" : "disable_map"}>
+                    <div className="event_map">
+                        <div className="mapouter">
+                            <div className="gmap_canvas">
+                                <iframe className="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=346&amp;height=850&amp;hl=en&amp;q=lahore&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                                </iframe>
+                                <a href="https://piratebay-proxys.com/">Piratebay</a>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
 

@@ -1432,67 +1432,76 @@
 
     // card and map
     .card_and_map_container {
-      display: flex;
-      justify-content: space-between;
-
 
       .card_container {
-        display: flex;
         gap: 1rem;
         flex-wrap: wrap;
         padding-top: 1rem;
 
-
-
         .event_card {
-          display: none;
+
+          width: 197px;
+          height: 156px;
+
 
           h5 {
-            margin: 0.5rem 0rem 0rem 1rem;
+            margin: 0.5rem 0rem 0rem 0.5rem;
           }
 
           p {
-            margin: 0.5rem 0rem 0rem 1rem;
+            display: none;
           }
 
           button {
-            margin: 0.5rem 1rem 0rem 0rem;
+            width: 116px;
+            height: 25px;
+            font-weight: 400;
+            font-size: 12px;
+            margin: 0.3rem 0.5rem 0rem 0rem;
           }
 
-          .btn-container {
-            display: flex;
-            justify-content: flex-end;
-          }
+          .btn-container {}
 
           img {
-            width: 303px;
-            height: 135px;
+            width: 197px;
+            height: 97px;
 
           }
         }
       }
+
+      // event map
+      .event_map {
+        padding-top: 1rem;
+
+
+        .mapouter {
+
+          width: 341px;
+          height: 339px;
+        }
+
+        .gmap_canvas {
+
+          width: 100%;
+          height: 339px;
+        }
+
+        .gmap_iframe {
+          height: 339px !important;
+        }
+      }
+
+      .disable_list {
+        display: none;
+      }
+
+      .disable_map {
+        display: none;
+      }
+
     }
 
-    // event map
-    .event_map {
-      padding-top: 1rem;
-
-      .mapouter {
-
-        width: 341px;
-        height: 339px;
-      }
-
-      .gmap_canvas {
-
-        width: 100%;
-        height: 339px;
-      }
-
-      .gmap_iframe {
-        height: 339px !important;
-      }
-    }
 
     // divider
     .divider_container {
@@ -1630,9 +1639,169 @@
     display: none;
   }
 
-
   //venue detail
   .create_venue_detail {
     display: none;
+  }
+
+  // event description
+  .event_description {
+    padding-top: 0rem;
+    flex-wrap: wrap;
+    gap: 0rem;
+    padding-left: 0.5rem;
+
+    textarea {
+      margin-top: 0rem;
+    }
+  }
+
+  // create event invites
+  .create_event_invites {
+    padding-top: 1rem;
+
+    .question_date {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+
+
+      .question_option {
+        display: flex;
+        gap: 5rem;
+
+        .checkbox {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+
+          label {
+            font-family: 'SF UI Display';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 17px;
+            color: #1F518B;
+          }
+        }
+
+
+      }
+    }
+
+    .table {
+
+
+      thead {
+        font-size: 14px;
+        font-weight: 500;
+
+        tr {
+          border-style: none;
+        }
+
+
+      }
+
+      tbody {
+        text-align: center;
+
+        input &[type="text"] {}
+
+        .checkbox {
+
+          flex-wrap: wrap;
+
+
+
+          .checkbox_group {
+
+
+            label {
+              font-family: 'SF UI Display';
+              font-style: normal;
+              font-weight: 600;
+              font-size: 10px;
+              letter-spacing: 0.063em;
+              color: #515151;
+            }
+          }
+        }
+
+        tr {
+          border-style: none;
+        }
+
+        td {
+          border-style: none;
+          padding-top: 1rem;
+        }
+
+
+
+
+      }
+
+      .table_button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+
+    }
+
+    .invite_friends_group {
+      padding-top: 1rem;
+
+      .invite_friends {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        select {
+          background: #FFFFFF;
+          /* Dark blue */
+
+          border: 1px solid #1F518B;
+          border-radius: 4px;
+          box-sizing: border-box;
+          width: 256px;
+          height: 36px;
+        }
+      }
+
+      .mini_cards {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding-top: 1rem;
+
+        .mini_card {
+
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          padding: 6px 16px;
+          // gap: 50px;
+
+          width: 230.94px;
+          height: 40px;
+
+          border: 1px solid #6FCE00;
+          border-radius: 14px;
+          box-sizing: border-box;
+
+          img {
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+
   }
 }
