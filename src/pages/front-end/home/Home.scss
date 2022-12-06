@@ -1367,6 +1367,13 @@
 }
 
 @media (max-width: 475px){
+  .bg-img {
+    .top-text{
+      .place {
+        font-size: 24px !important;
+    }
+    }
+  }
   .cf-events {
     margin-top: 13rem;
   }
@@ -1747,46 +1754,46 @@
       }
     }
   }
- 
+
   .date-cards {
     .date-card-style {
-      width: 90%;
-      // .card-custom-Body {
-      //   .card-title {
-      //     font-weight: 600;
-      //     font-size: 14px;
-      //     line-height: 24px;
-      //     text-align: start;
-      //   }
-      //   .blue-side {
-      //     padding: 0.88rem 1.5rem;
-      //     order: 2;
-      //     p {
-      //       font-weight: 600;
-      //       font-size: 12px;
-      //       line-height: 14px;
-      //       letter-spacing: -0.017em;
-      //       color: #1f518b;
-      //     }
-      //   }
-      //   .desc {
-      //     display: none;
-      //   }
-      //   .event-card-chat {
-      //     margin-left: 31px;
-      //     margin-top: 33px;
-      //   }
-      //   .profile-img {
-      //     left: 0.7rem;
-      //     bottom: 2rem;
-      //     width: 27px;
-      //   }
-      //   .address-date-host {
-      //     .address {
-      //       font-size: 9px;
-      //     }
-      //   }
-      // }
+      width: 96%;
+      .card-custom-Body {
+        .card-title {
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 24px;
+          text-align: start;
+        }
+        .blue-side {
+          padding: 2.88rem 1.5rem;
+          order: 2;
+          p {
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 14px;
+            letter-spacing: -0.017em;
+            color: #1f518b;
+          }
+        }
+        .desc {
+          display: none;
+        }
+        .event-card-chat {
+          margin-left: 31px;
+          margin-top: 33px;
+        }
+        .profile-img {
+          left: 0.7rem;
+          bottom: 2rem;
+          width: 27px;
+        }
+        .address-date-host {
+          .address {
+            font-size: 9px;
+          }
+        }
+      }
     }
   }
   .date-events {
@@ -1809,7 +1816,6 @@
     }
   }
   .top-vanues-card-style {
-    
     .card-custom-Body {
       .desc {
         display: none;

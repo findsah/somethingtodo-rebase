@@ -10,6 +10,8 @@ import TopVanuesCard from '../../components/TopVanuesCard'
 import SimilarVanues from '../../components/SimilarVanues'
 import Slider from 'react-slick'
 import { settings } from '../../../../config/helper'
+import { Link } from 'react-router-dom'
+import BlogCard from './BlogCard'
 
 export default function BlogList() {
     return (
@@ -56,56 +58,10 @@ export default function BlogList() {
                 <div className="row mt-5 justify-content-center ">
                     <div className="col-10"><hr /></div>
                 </div>
-                <div className="row mt-5 moreblog">
-                    <Slider {...settings}>
-                        {
-                            [1, 2, 3, 4, 5, 6].map(item => (
-                                <div className="col-4 mt-5">
-                                    <div className="row ">
-                                        <div className="col-11">
-                                            <img src={blog1} alt="" />
-                                        </div>
-                                        <div className="col-11 mt-3">
-                                            <div className="row justify-content-center">
-                                                <div className="col-10">
-                                                    <h2>LOREM IPSUM DOLOR SIT AMET</h2>
-                                                </div>
-                                                <div className="col-10">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            ))
-                        }
-                    </Slider>
-                    {/* {
-                        [1, 2, 3].map(item => (
-                            <div className="col-4 mt-5">
-                                <div className="row ">
-                                    <div className="col-11">
-                                        <img src={blog1} alt="" />
-                                    </div>
-                                    <div className="col-11 mt-3">
-                                        <div className="row justify-content-center">
-                                            <div className="col-10">
-                                                <h2>LOREM IPSUM DOLOR SIT AMET</h2>
-                                            </div>
-                                            <div className="col-10">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        ))
-                    } */}
+                <div className="row mt-5">
+                    <BlogCard />
                 </div>
                 <RxDoubleArrowDown className='arrow' />
-
             </div>
             <div className="row circle-img  ">
             </div>
@@ -143,7 +99,6 @@ export default function BlogList() {
                         </div>
                     </div>
                 </div>
-
                 <div className="row justify-content-center button-style ">
                     <div className="col-12">
                         <p className='text-center'>
@@ -152,8 +107,8 @@ export default function BlogList() {
                     </div>
                 </div>
             </div>
-            <div className="row mt-5 justify-content-center d-none d-sm-none d-md-block">
-                <div className="col-9"><hr /></div>
+            <div className="row mt-5 justify-content-center ">
+                <div className="col-9 d-none d-sm-none d-md-block"><hr /></div>
             </div>
             <div className="row  justify-content-center recent-blog ">
                 <div className="recentBlogHighlight"></div>
@@ -196,10 +151,12 @@ export default function BlogList() {
                         </div>
                         <div className="col-12 mt-5 text-center">
                             <div className="row">
-                                <div className="col-8">
-                                    <img src={recentpost1} alt="" />
+                                <Link to='/blog-post'>
+                                    <div className="col-8">
+                                        <img src={recentpost1} alt="" />
 
-                                </div>
+                                    </div>
+                                </Link>
                                 <div className="col-10 mt-2">
                                     <h3>BLOG NAME</h3>
                                 </div>
