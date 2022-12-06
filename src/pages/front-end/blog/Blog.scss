@@ -156,25 +156,7 @@
             width: 100%;
         }
     }
-    .moreblog{
-      h2{
-        font-weight: 700;
-        font-size: 24px;
-        line-height: 29px;
-        color: #161616;
-      }
-      p{
-        margin-top: 0px;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 17px;
-        letter-spacing: -0.017em;
-        color: #909090;
-      }
-      img{
-        width: 94%;
-    }
-    }
+
     @media (max-width:1249px) {
     
         h3{
@@ -192,6 +174,31 @@
       }
     }
    
+}
+.blog-card{
+  .slick-next {
+    display: none;
+}
+.slick-prev {
+  display: none;
+}
+  h2{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #161616;
+  }
+  p{
+    margin-top: 0px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: -0.017em;
+    color: #909090;
+  }
+  img{
+    width: 100%;
+}
 }
 .circle-img{
   background-image: url("../../../assets/Ellipse.png");
@@ -357,6 +364,70 @@ height: 775px;
 .main-backgrond{
   background-color: #D5EAFF;
 }
+.main-blog-post{
+  .blog-top-img{
+    .top-text{
+      .arrow{
+        display: none;
+      }
+    }
+  }
+    .blog-bgImg{
+      background-image: url('../../../assets/blogpostshap.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 1297px;
+      margin-top: -630px !important;
+      z-index: -1;
+      position: relative;
+      h3{
+        margin-top: 35.9rem;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 48px;    
+        letter-spacing: 0.063em;
+        color: #D5EAFF;
+      }
+      p{
+       
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 160.34%;
+        letter-spacing: 0.063em;   
+        color: #FFFFFF;
+      }
+     
+    }
+    p{
+      margin-top: 0rem;
+      font-size: 14px;
+      line-height: auto;
+   
+ 
+    }
+    .sec-2{
+      h2{   
+        margin-top: -85px;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 29px;
+      }
+      .span1{
+        color: #ff9700;
+      }
+    }
+ 
+    .date-cards{
+      margin-top: 2rem;
+      p{
+        color: #FFFFFF;
+      }
+      span{
+        color: #FFFFFF;
+      }
+    }
+
+}
 @include media ('<=Lphone'){
   .blog-top-img {
     background-image: url("../../../assets/blogbgmobile.png");
@@ -482,7 +553,17 @@ height: 775px;
     }
     .similer-vanues{ 
       .top-vanues-card-style {
+    
+        width: 240px;
         box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5) !important;
+        .card-custom-Body {
+          .blue-side {         
+            font-size: 13px;
+            line-height: 14px;
+            background: #64e2ff;
+            padding: 2rem 1rem;
+          }
+        }
 
       }
       h2{
@@ -496,3 +577,56 @@ height: 775px;
     }
   }
 }
+// @include media (">phone", "<=tablet") {
+//   .venue_card_container {
+
+
+//     .venue_cards {
+//       overflow: hidden;
+
+//       .venue_card {
+
+//         width: 197px;
+//         height: 156px;
+
+//         h5 {
+//           margin: 0.5rem 0rem 0rem 0.2rem !important;
+//         }
+
+//         p {
+//           display: none;
+//         }
+
+//         .desktop_btn {
+//           display: none;
+//         }
+
+//         .mobile_btn {
+//           display: flex;
+//           margin: 0.8rem 0.5rem 0rem 0rem !important;
+//           width: 80px;
+//           height: 36px;
+//           font-size: 12px;
+//         }
+
+
+//         .btn-container {
+//           display: flex;
+//           justify-content: flex-end;
+//         }
+
+//         img {
+//           width: 197px;
+//           height: 74px;
+
+//         }
+//       }
+//     }
+
+//     .add_venue {
+//       display: none;
+
+//       .create {}
+//     }
+//   }
+// }
