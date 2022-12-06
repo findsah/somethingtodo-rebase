@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import dummy from '../../../../assets/dummy1.png'
+import CustoModal from '../../components/CustomModal';
 
 
 const Venue = () => {
 
     const [mapOrCarView, setMapOrCardView] = useState("mapview");
-    const [mapOrcardTap, setMapOrCardTap] = useState("mapTap")
+    const [mapOrcardTap, setMapOrCardTap] = useState("mapTap");
+    const [open, setOpen] = useState(false);
 
     return (
         <div className='create_event_venue'>
@@ -32,13 +34,15 @@ const Venue = () => {
                 </div>
                 <button className='btn_secondary mobile_create_event '
                     style={{ width: "233px", height: "48px" }}
-                    type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
+                    onClick={() => setOpen(true)}
+                >
                     <i class="fa fa-plus" aria-hidden="true"></i>
                     CREATE CUSTOM VENUE
                 </button>
-
+                {/* modal */}
+                <CustoModal open={open} close={setOpen} title="CREATE CUSTOM VENUE" >
+                    dklfjkldsj
+                </CustoModal>
 
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -80,7 +84,7 @@ const Venue = () => {
             <div className='card_and_map_container'>
                 {/* card */}
 
-                <div className={mapOrCarView === "listview" ? "" : "disable_list"}>
+                <div className={mapOrCarView === "listview" ? "width" : "disable_list"}>
                     <div className="card_container">
                         {
                             [1, 2, 3, 4, 5, 6].map(item => (
@@ -108,7 +112,7 @@ const Venue = () => {
                     </div>
                 </div>
                 {/* map */}
-                <div className={mapOrCarView === "mapview" ? "" : "disable_map"}>
+                <div className={mapOrCarView === "mapview" ? "width" : "disable_map"}>
                     <div className="event_map">
                         <div className="mapouter">
                             <div className="gmap_canvas">

@@ -9,7 +9,14 @@ import emailIcon from '../../../../assets/icons/email.svg'
 import locationIcon from '../../../../assets/icons/location.svg'
 import eventimg from '../../../../assets/imageone.svg'
 
+import { useState } from 'react'
+import MuiModal from '../../components/CustomModal'
+
+
 const EventAndVenueDetail = () => {
+    const [open, setOpen] = useState(false)
+
+
     return (
         <>
             {/* Event detail */}
@@ -173,6 +180,10 @@ const EventAndVenueDetail = () => {
                     </div>
                 </div>
             </div>
+
+
+
+
         </>
     )
 }

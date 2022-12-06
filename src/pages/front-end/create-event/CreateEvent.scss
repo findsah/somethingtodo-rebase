@@ -1116,6 +1116,8 @@
 
 
         .info {
+          margin: 0 auto;
+
           h4 {
             font-size: 20px !important;
             text-align: center;
@@ -1127,6 +1129,7 @@
         }
 
         .timer {
+          margin: 0 auto;
           background: none !important;
           box-shadow: none !important;
           padding: 0rem !important;
@@ -1497,6 +1500,10 @@
         .gmap_iframe {
           height: 339px !important;
         }
+      }
+
+      .width {
+        width: 100%;
       }
 
       .disable_list {
@@ -1863,6 +1870,8 @@
 
 
         .info {
+          margin: 0 auto;
+
           h4 {
             font-size: 20px !important;
             text-align: center;
@@ -1874,6 +1883,7 @@
         }
 
         .timer {
+          margin: 0 auto;
           background: none !important;
           box-shadow: none !important;
           padding: 0rem !important;
@@ -2035,8 +2045,8 @@
           .rightTop {
             .paid {
               position: absolute;
-              top: 108px;
-              right: -205px;
+              top: 140px;
+              right: -220px;
 
               .icon {}
             }
@@ -2046,7 +2056,7 @@
               align-items: center;
               gap: 0.5rem;
               position: absolute;
-              top: 108px;
+              top: 140px;
               right: -65px;
 
             }
@@ -2057,8 +2067,8 @@
             display: flex;
             align-items: center;
             position: absolute;
-            top: 116px;
-            left: 250px;
+            top: 149px;
+            left: 280px;
             padding: 0.4rem 0.5rem 0.4rem;
             border-radius: 5px;
 
@@ -2231,7 +2241,7 @@
 
         .mapouter {
 
-          width: 341px;
+          width: 100%;
           height: 339px;
         }
 
@@ -2248,6 +2258,10 @@
 
       .disable_list {
         display: none;
+      }
+
+      .width {
+        width: 100%;
       }
 
       .disable_map {
