@@ -309,7 +309,7 @@ h6 {
   }
 }
 
-@include media (">phone", "<=tablet") {
+@include media (">phone", "<=Lphone") {
   h2 {
     font-size: 12px;
   }

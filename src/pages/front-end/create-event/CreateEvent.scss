@@ -1851,7 +1851,7 @@
 }
 
 // create event  mobile screen less then 425
-@include media (">phone", "<=tablet") {
+@include media (">phone", "<=Lphone") {
   .createEventTop {
     .createEventSilder {
       position: relative;
