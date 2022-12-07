@@ -33,7 +33,35 @@ const DateCard = () => {
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                     Nunc vulputate libero et velit interdum, ac aliquet odio mattis.
                                 </Card.Text>
-                                <div className='address-date-host'>
+                                <div className="row">
+                                    <div className="col-12">
+                                        <div className='address-date-host'>
+                                            <div className="row">
+                                                <div className="col-lg-4 col-12">
+                                                    <p className='address'>
+                                                        <MdLocationPin />Address
+                                                    </p>
+
+                                                </div>
+                                                <div className="col-2">
+                                                    <p className='address'>
+                                                        <img src={dateicon} alt="dateicon" />Date
+                                                    </p>
+                                                </div>
+                                                <div className="col-lg-6 col-8 d-flex justify-content-end">
+                                                    <p className='address'>
+                                                        <img src={currncyicon} alt="dateicon" />paid by host
+                                                    </p>
+                                                </div>
+
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* <div className='address-date-host'>
                                     <p className='address'>
                                         <MdLocationPin />Address
                                     </p>
@@ -45,7 +73,7 @@ const DateCard = () => {
                                             <img src={currncyicon} alt="dateicon" />paid by host
                                         </p>
                                     </div>
-                                </div>
+                                </div> */}
                                 <img src={vanueImg} alt="dateicon" className='profile-img' />
                                 <div className="event-card-chat">
                                     <div>

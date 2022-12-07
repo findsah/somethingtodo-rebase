@@ -1367,6 +1367,9 @@
 }
 
 @media (max-width: 475px){
+  .slick-list {
+    padding:0 20% 0 0 !important;
+}
   .bg-img {
     .top-text{
       .place {
@@ -1411,36 +1414,21 @@
       }
     }
     .top-vanues-card-style {
-      width: 60%;
+      box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5) !important;
       .card-custom-Body {
-        .card-title {
-          font-weight: 700;
-          font-size: 14px;
-          line-height: 27px;
-          text-align: start;
-        }
-        .address {
+       .card-title {
           font-weight: 600;
-          font-size: 14px;
-          line-height: 51px;
-          .loction-icon {
-            width: 20.96px;
-            height: 20.96px;
-          }
-        }
-        .blue-side {
-          font-weight: 600;
-          font-size: 11px;
-          line-height: 16px;
-          letter-spacing: 0.063em;
-          padding: 40px 12px;
-          color: #1f518b;
-          //   p {
-          //     margin-top: -28px;
-          //     margin-bottom: -1rem;
-          // }
+          font-size: 10px;
+          line-height: 22px;
+      }
+        .blue-side {         
+          font-size: 13px;
+          line-height: 14px;
+          background: #64e2ff;
+          padding: 2rem 1rem;
         }
       }
+
     }
   }
   .cf-events {
@@ -1766,7 +1754,8 @@
           text-align: start;
         }
         .blue-side {
-          padding: 2.88rem 1.5rem;
+          padding: 0.88rem 1.5rem 29px;
+          margin-top: -77px;
           order: 2;
           p {
             font-weight: 600;

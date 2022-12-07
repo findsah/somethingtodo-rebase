@@ -16,11 +16,11 @@ import BlogCard from './BlogCard'
 export default function BlogPost() {
     return (
         <>
-            <div className="main-blog-post">
+            <div className="main-blog-post bg-color">
                 <BlogTopSection />
                 <div className="container-fluid">
                     <div className="row d-flex justify-content-around">
-                        <div className="col-5">
+                        <div className="col-lg-5 col-11">
                             <div className="blog-bgImg">
                                 <div className="row d-flex justify-content-center">
                                     <div className="col-10">
@@ -35,28 +35,34 @@ export default function BlogPost() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-4 sec-2">
+                        <div className="col-lg-4 col-12 sec-2">
                             <div className="row justify-content-center ">
-                                <div className="col-12">
-                                    <h2 className='text-centr'>SUGGESTED  EVENTS FROM <span className='span1'>  SOMETHINGTODO  NEARBY </span></h2>
+                                <div className="col-11">
+                                    <h2 className='text-ceter'>SUGGESTED  EVENTS FROM <span className='span1'>  SOMETHINGTODO  NEARBY </span></h2>
 
                                 </div>
-                                <div className="col-12">
+                                <div className="col-12 d-none d-lg-block d-md-block d-xl-blok">
                                     <div className="date-cards">
                                         <DateCard />
                                     </div>
                                 </div>
-                                <div className="col-12">
+                                <div className="col-12 d-none d-lg-block d-md-block d-xl-blok">
                                     <div className="date-cards">
                                         <DateCard />
                                     </div>
+                                </div>
+                                <div className="col-12 d-sm-block d-md-none">
+                                    <Slider {...settings}>
+                                        {
+                                            [1, 2, 3, 4, 5, 6].map(item => (
+                                                <div className="date-cards">
+                                                    <DateCard />
+                                                </div>
+                                            ))
+                                        }
+                                    </Slider>
                                 </div>
                             </div>
-
-
-
-
-                            {/* <CustomButton text='Read More' /> */}
 
                         </div>
 
@@ -65,9 +71,14 @@ export default function BlogPost() {
                         </div>
 
                     </div>
-                    <BlogCard />
+
                 </div >
             </div>
+            <div className='bg-color'>
+                <BlogCard />
+            </div>
+
+
         </>
     )
 }

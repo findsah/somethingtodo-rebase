@@ -85,7 +85,7 @@ const TopVanues = () => {
                     <TopVanuesCard />
                 </Link>
             </Col>
-            <Col xs={12} lg={12} style={{ padding: '0px' }} >
+            <Col xs={12} lg={12} className="mt-4">
                 <Slider {...settings} >
                     {
                         [1, 2, 3, 4, 5, 6, 7].map(item => (
@@ -96,17 +96,18 @@ const TopVanues = () => {
                     }
                 </Slider>
             </Col>
-            <Col xs={12} lg={12} style={{ padding: '0px' }}>
+            <Col xs={12} lg={12} >
                 <Slider {...settings} >
                     {
                         [1, 2, 3, 4, 5, 6, 7].map(item => (
-                            <Link to="/vanue-detail">
+                            <Link to="/vanue-detail" >
                                 <TopVanuesCard />
                             </Link>
                         ))
                     }
                 </Slider>
             </Col>
+
         </Row>
     )
 }
