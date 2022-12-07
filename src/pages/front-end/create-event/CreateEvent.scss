@@ -1095,6 +1095,97 @@ whatsapp: +923430048341
 
 }
 
+// create custom venue
+.create_custom_venue {
+  display: flex;
+  padding: 0rem 2rem;
+  gap: 2rem;
+
+  .form_feild {
+
+    .feild {
+      margin-top: 1.6rem;
+    }
+
+    input[type="text"] {
+      width: 256px;
+    }
+
+    select {
+      border-radius: 4px !important;
+      width: 256px;
+      height: 36px;
+    }
+
+    .checkbox_group {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .input_text_group {
+      display: flex;
+      gap: 1rem;
+
+      input[type="text"] {
+        width: 100px;
+      }
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      h3 {
+        padding-top: 9px;
+      }
+    }
+  }
+
+
+  .photo_of_venue {
+    .image_container {
+      display: flex;
+      gap: 0.5rem;
+
+      .image_preview {
+        width: 200px;
+        height: 200px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          // object-fit: contain;
+        }
+      }
+
+      .add_image {
+        position: relative;
+
+        background: rgba(224, 224, 224, 0.62);
+        width: 200px;
+        height: 200px;
+
+        .icon_cirlce {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          color: #ffffff;
+          width: 70px;
+          height: 70px;
+          left: 65px;
+          top: 65px;
+          border-radius: 50%;
+
+          background: rgba(0, 129, 203, 0.52);
+        }
+      }
+    }
+  }
+}
+
+// *********** (Media) *************
 // create event  mobile screen less then 375
 @include media ('<=phone') {
   .createEventTop {

@@ -6,6 +6,9 @@ whatsapp: +923430048341
 import React, { useState } from 'react'
 import dummy from '../../../../assets/dummy1.png'
 import CustoModal from '../../components/CustomModal';
+import websiteIcon from '../../../../assets/icons/website.svg'
+import phoneIcon from '../../../../assets/icons/phone.svg'
+import locationIcon from '../../../../assets/icons/location.svg'
 
 
 const Venue = () => {
@@ -47,8 +50,85 @@ const Venue = () => {
                     CREATE CUSTOM VENUE
                 </button>
                 {/* modal */}
-                <CustoModal open={open} close={setOpen} title="CREATE CUSTOM VENUE" >
-                    dklfjkldsj
+                <CustoModal open={open} close={setOpen} title="CREATE CUSTOM VENUE" size="lg">
+                    <div className='create_custom_venue'>
+                        <div className="form_feild">
+                            <div className='feild'>
+                                <h3>VENUE NAME</h3>
+                                <input type="text" className='text' placeholder='text' />
+                            </div>
+                            <div className='feild'>
+                                <h3>CATEGORY</h3>
+                                <select name="category" id="category" className='select'>
+                                    <option >Category</option>
+                                    <option value="catogory one">one</option>
+                                </select>
+                            </div>
+                            <div className='feild'>
+                                <h3>SET TO PRIVATE</h3>
+                                <div className='checkbox_group'>
+                                    <div className="checkbox">
+                                        <input type="checkbox" id='yes' name='yes' />
+                                        <label htmlFor="yes">Yes</label>
+                                    </div>
+                                    <div className="checkbox">
+                                        <input type="checkbox" id='no' name='no' />
+                                        <label htmlFor="no">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='feild'>
+                                <div className='icon'>
+                                    <img src={locationIcon} alt="" />
+                                    <h3>EVENT ADDRESS</h3>
+                                </div>
+                                <div className='input_text_group'>
+                                    <input type="text" name="city" id="city" placeholder='City' className='text' />
+                                    <input type="text" name="Street" id="Street" placeholder='Street' className='text' />
+                                    <input type="text" name="Buildings" id="Buildings" placeholder='Buildings' className='text' />
+                                </div>
+
+                            </div>
+                            <div className='feild'>
+                                <div className='icon'>
+                                    <img src={phoneIcon} alt="" />
+                                    <h3>PHONE NUMBER</h3>
+                                </div>
+                                <input type="text" className='text' placeholder='888-888-888' />
+                            </div>
+                            <div className='feild'>
+                                <div className='icon'>
+                                    <img src={websiteIcon} alt="" />
+                                    <h3>WEBSITE</h3>
+                                </div>
+
+                                <input type="text" className='text' placeholder='888-888-888' />
+                            </div>
+                            <div className='feild'>
+                                <h3>DESCRIPTION</h3>
+                                <textarea name="description" id="description" cols="50" rows="7"></textarea>
+                            </div>
+
+
+                        </div>
+                        <div className="photo_of_venue">
+                            <h3>Add Photos Of Your Event</h3>
+                            <div className='image_container'>
+                                <div className='image_preview'>
+                                    <img src={dummy} alt="" />
+                                </div>
+                                <div className='image_preview'>
+                                    <img src={dummy} alt="" />
+                                </div>
+                                <div className='add_image'>
+                                    <div className='icon_cirlce'>
+                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </CustoModal>
 
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
