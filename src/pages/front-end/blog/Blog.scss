@@ -364,7 +364,13 @@ height: 775px;
 .main-backgrond{
   background-color: #D5EAFF;
 }
+.bg-color{
+  background-color: #D5EAFF;
+}
 .main-blog-post{
+
+  z-index: -12;
+  position: relative;
   .blog-top-img{
     .top-text{
       .arrow{
@@ -377,11 +383,11 @@ height: 775px;
       background-size: cover;
       background-repeat: no-repeat;
       height: 1297px;
-      margin-top: -630px !important;
+      margin-top: -560px !important;
       z-index: -1;
       position: relative;
       h3{
-        margin-top: 35.9rem;
+        margin-top: 34rem;
         font-weight: 700;
         font-size: 32px;
         line-height: 48px;    
@@ -407,7 +413,7 @@ height: 775px;
     }
     .sec-2{
       h2{   
-        margin-top: -85px;
+        margin-top: -23px;
         font-weight: 700;
         font-size: 20px;
         line-height: 29px;
@@ -418,17 +424,42 @@ height: 775px;
     }
  
     .date-cards{
-      margin-top: 2rem;
+      margin-top: 1rem;
       p{
         color: #FFFFFF;
       }
-      span{
-        color: #FFFFFF;
-      }
+      // span{
+      //   color: #FFFFFF;
+      // }
     }
 
 }
 @include media ('<=Lphone'){
+  .slick-list {
+    padding:0 20% 0 0 !important;
+}
+  .date-cards{
+    .card{
+      box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5) !important;
+    }
+
+  }
+  .blog-card{
+
+    h2{
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: 0.063em;
+      color: #161616;
+      margin-top: 0px !important;
+      justify-content: unset !important;
+    }
+    p{
+  display: none;
+    }
+  
+  }
   .blog-top-img {
     background-image: url("../../../assets/blogbgmobile.png");
     height: 586px;
@@ -467,10 +498,11 @@ height: 775px;
   }
   .mobilescreenstyle{
     display: block;
+   
     .recent-blog-img2{
       background-image: url('../../../assets/mic2.png');
       height: 411px;
-      width: 96% !important;
+      width: 94% !important;
       background-size: cover !important;
       background-position: center;
       background-repeat: no-repeat;
@@ -503,13 +535,7 @@ height: 775px;
   .suggested-sec{
     margin-top: 0rem!important;
   
-  .date-cards{
-    width: 100%;
-    .card{
-      box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5) !important;
-    }
-
-  }
+  
     .first-row{
       margin-top: 0rem;
       .highligt{
@@ -553,10 +579,13 @@ height: 775px;
     }
     .similer-vanues{ 
       .top-vanues-card-style {
-    
-        width: 240px;
         box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5) !important;
         .card-custom-Body {
+         .card-title {
+            font-weight: 600;
+            font-size: 10px;
+            line-height: 22px;
+        }
           .blue-side {         
             font-size: 13px;
             line-height: 14px;
@@ -576,57 +605,77 @@ height: 775px;
       }
     }
   }
+   .bg-color{
+    background-color: unset;
+
+  }
+  .main-blog-post{
+    z-index: unset;
+    position: unset;
+    .blog-top-img{
+      .top-text{
+        .arrow{
+          display: none;
+        }
+      }
+    }
+      .blog-bgImg{
+        background-image: url('../../../assets/blogpostshap.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 900px;
+        margin-top: -520px !important;
+        z-index: -1;
+        position: relative;
+        h3{
+          margin-top: 29rem;
+          font-weight: 700;
+          font-size: 20px;
+          line-height: 24px;
+          letter-spacing: 0.063em;
+          
+        }
+        p{
+         
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 172.84%;
+          letter-spacing: -0.017em;
+        }
+       
+      }
+      // p{
+      //   margin-top: 0rem;
+      //   font-size: 14px;
+      //   line-height: auto;
+     
+   
+      // }
+      .sec-2{
+        h2{   
+          text-align: center;
+          margin-top: 2rem;
+          font-weight: 700;
+          font-size: 20px;
+          line-height: 29px;
+        }
+        .span1{
+          color: #ff9700;
+        }
+      }
+   
+      // .date-cards{
+      //   margin-top: 1rem;
+      //   p{
+      //     color: #FFFFFF;
+      //   }
+      //   span{
+      //     color: #FFFFFF;
+      //   }
+      // }
+  
+  }
 }
-// @include media (">phone", "<=tablet") {
-//   .venue_card_container {
-
-
-//     .venue_cards {
-//       overflow: hidden;
-
-//       .venue_card {
-
-//         width: 197px;
-//         height: 156px;
-
-//         h5 {
-//           margin: 0.5rem 0rem 0rem 0.2rem !important;
-//         }
-
-//         p {
-//           display: none;
-//         }
-
-//         .desktop_btn {
-//           display: none;
-//         }
-
-//         .mobile_btn {
-//           display: flex;
-//           margin: 0.8rem 0.5rem 0rem 0rem !important;
-//           width: 80px;
-//           height: 36px;
-//           font-size: 12px;
-//         }
-
-
-//         .btn-container {
-//           display: flex;
-//           justify-content: flex-end;
-//         }
-
-//         img {
-//           width: 197px;
-//           height: 74px;
-
-//         }
-//       }
-//     }
-
-//     .add_venue {
-//       display: none;
-
-//       .create {}
-//     }
-//   }
-// }
+@include media (">phone", "<=tablet") {
+ 
+}
