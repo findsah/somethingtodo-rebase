@@ -1,3 +1,8 @@
+/* 
+author: arman ali
+github: https://github.com/Arman-Arzoo
+whatsapp: +923430048341
+*/
 import * as React from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';

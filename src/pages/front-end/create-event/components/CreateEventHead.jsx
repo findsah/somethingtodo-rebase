@@ -1,3 +1,8 @@
+/* 
+author: arman ali
+github: https://github.com/Arman-Arzoo
+whatsapp: +923430048341
+*/
 import React from 'react'
 import Slider from 'react-slick';
 import logo from "../../../../assets/logo.png";

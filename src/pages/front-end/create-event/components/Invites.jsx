@@ -1,3 +1,8 @@
+/* 
+author: arman ali
+github: https://github.com/Arman-Arzoo
+whatsapp: +923430048341
+*/
 import React, { useState } from 'react'
 import profile from '../../../../assets/armanprofile.png'
 import CustomRangeSlider from '../../components/CustomRangeSlider';
@@ -41,7 +46,7 @@ const Invites = ({ rtl }) => {
                 <tbody>
                     <tr>
                         <td>
-                            <input type="text" placeholder='text' />
+                            <input type="text" placeholder='text' className='text' />
                         </td>
                         <td className='checkbox'>
                             <div className='checkbox_group'>
@@ -50,7 +55,7 @@ const Invites = ({ rtl }) => {
                             </div>
                             <div className='checkbox_group'>
                                 <input type="checkbox" name='Female' id='Female' />
-                                <label htmlFor="male">Female</label>
+                                <label htmlFor="Female">Female</label>
                             </div>
                             <div className='checkbox_group'>
                                 <input type="checkbox" name='Both' id='Both' />
@@ -66,8 +71,8 @@ const Invites = ({ rtl }) => {
                         <td colspan="3">
 
                             <div className='table_button'>
-                                <button className='btn_secondary'> <i class="fa fa-plus" aria-hidden="true"></i> ADD  </button>
-                                <button className='btn_error'><i class="fa fa-minus" aria-hidden="true"></i> RESET</button>
+                                <button className='btn_secondary'> <i className="fa fa-plus" aria-hidden="true"></i> ADD  </button>
+                                <button className='btn_error'><i className="fa fa-minus" aria-hidden="true"></i> RESET</button>
                             </div>
                         </td>
                     </tr>
@@ -100,7 +105,7 @@ const Invites = ({ rtl }) => {
                 <div className='invite_friends'>
                     <h2>INVETE FRIENDS TO JOIN</h2>
                     <div className='invite_friends_right'>
-                        <select name="location" id="location">
+                        <select name="location" id="location" className='select' placeholder='Search City / Current Location'>
                             <option value="one">option one</option>
                         </select>
                         <button className='btn_secondary'><i class="fa fa-plus" aria-hidden="true"></i> ADD FRIEND </button>
@@ -127,9 +132,7 @@ const Invites = ({ rtl }) => {
                 <div className='invite_friends'>
                     <h2>INVITE FRIENDS BY EMAIL</h2>
                     <div className='invite_friends_right'>
-                        <select name="location" id="location">
-                            <option value="one">option one</option>
-                        </select>
+                        <input type="text" name="inviteEmail" id="inviteEmail" placeholder='Text' className='text' />
                         <button className='btn_secondary'><i class="fa fa-plus" aria-hidden="true"></i>INVITE </button>
                     </div>
                 </div>

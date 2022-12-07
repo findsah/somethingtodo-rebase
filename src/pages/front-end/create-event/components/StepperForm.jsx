@@ -1,6 +1,7 @@
-/*
-author : arman
+/* 
+author: arman ali
 github: https://github.com/Arman-Arzoo
+whatsapp: +923430048341
 */
 import React, { useEffect, useState } from 'react'
 import EventAndVenueDetail from './EventAndVenueDetail'

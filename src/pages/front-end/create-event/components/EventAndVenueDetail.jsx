@@ -1,3 +1,8 @@
+/* 
+author: arman ali
+github: https://github.com/Arman-Arzoo
+whatsapp: +923430048341
+*/
 import React from 'react'
 import calendarblue from '../../../../assets/icons/calendarblue.svg'
 import dollar from '../../../../assets/icons/dollar.svg'

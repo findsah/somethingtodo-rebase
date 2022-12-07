@@ -1,3 +1,8 @@
+/* 
+author: arman ali
+github: https://github.com/Arman-Arzoo
+whatsapp: +923430048341
+*/
 import React, { useState } from 'react'
 import dummy from '../../../../assets/dummy1.png'
 import CustoModal from '../../components/CustomModal';
@@ -25,10 +30,12 @@ const Venue = () => {
             <div className='filter_group'>
                 <div className='filter_group_left'>
                     <h2>ALL</h2>
-                    <select name="catogories" id="catogories">
+                    <select name="catogories" id="catogories" className='select'>
+                        <option>Categories</option>
                         <option value="1"> option one</option>
                     </select>
-                    <select name="distance" id="distance">
+                    <select name="distance" id="distance" className='select'>
+                        <option>Distance</option>
                         <option value="1"> option one</option>
                     </select>
                 </div>

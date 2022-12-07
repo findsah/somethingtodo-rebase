@@ -1,3 +1,8 @@
+/* 
+author: arman ali
+github: https://github.com/Arman-Arzoo
+whatsapp: +923430048341
+*/
 import React, { useState } from 'react'
 import calenderIcon from '../../../../assets/icons/calendar.svg'
 import clockIcon from '../../../../assets/icons/clock.svg'
@@ -41,13 +46,13 @@ const TimeAndPrice = () => {
                 <div className="col-sm-6 col-12 m-auto  mobile_marign">
                     <h3>HOW WILL THE COST BE <br className='hide' /> SPLIT AMONG THE GROUP ?</h3>
                     <div className='cost_split'>
-                        <div className='paying'>
-                            <input type="checkbox" />
-                            <label htmlFor="">I`m Paying</label>
+                        <div className='paying checkbox'>
+                            <input type="checkbox" name='paying' id='paying' />
+                            <label htmlFor="paying">I`m Paying</label>
                         </div>
-                        <div className='shared'>
-                            <input type="checkbox" />
-                            <label htmlFor="">Evenly Shared</label>
+                        <div className='shared checkbox'>
+                            <input type="checkbox" name='shared' id='shared' />
+                            <label htmlFor="shared">Evenly Shared</label>
                         </div>
                     </div>
                 </div>
