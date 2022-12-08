@@ -86,8 +86,6 @@ const CreateEventHead = () => {
 
                 <div className='eventFooter'>
                     <div >
-
-
                         <p className='mo_share_p'>Share with friends:</p>
                         <div className='left'>
                             <div className='img'>

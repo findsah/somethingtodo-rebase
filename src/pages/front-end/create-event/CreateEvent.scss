@@ -1172,8 +1172,6 @@ whatsapp: +923430048341
   }
 }
 
-
-
 // *********** (Media) *************
 // create event  mobile screen less then 375
 @include media ('<=phone') {
@@ -1344,7 +1342,7 @@ whatsapp: +923430048341
           .social {
             order: 2;
 
-            .socialIcon {}
+
           }
 
           button {
@@ -1366,7 +1364,6 @@ whatsapp: +923430048341
               top: 108px;
               right: -205px;
 
-              .icon {}
             }
 
             .date_icon {
@@ -1486,12 +1483,9 @@ whatsapp: +923430048341
 
         padding-left: 6rem !important;
 
-        i {}
 
-        input {
-          &[type="search"] {}
 
-        }
+
       }
 
 
@@ -1513,7 +1507,7 @@ whatsapp: +923430048341
         height: 36px;
       }
 
-      .filter_group_left {}
+
     }
 
     // card and map
@@ -1547,7 +1541,7 @@ whatsapp: +923430048341
             margin: 0.3rem 0.5rem 0rem 0rem;
           }
 
-          .btn-container {}
+
 
           img {
             width: 197px;
@@ -1586,9 +1580,7 @@ whatsapp: +923430048341
       display: none;
 
 
-      .divider {}
 
-      button {}
     }
 
     // add venue
@@ -1652,7 +1644,7 @@ whatsapp: +923430048341
         .add_venue {
           display: none;
 
-          .create {}
+
         }
       }
     }
@@ -1747,11 +1739,6 @@ whatsapp: +923430048341
       .question_option {
         gap: 2rem;
 
-        .checkbox {
-
-
-          label {}
-        }
 
 
       }
@@ -1764,7 +1751,7 @@ whatsapp: +923430048341
         font-size: 14px;
         font-weight: 500;
 
-        tr {}
+
 
 
       }
@@ -1796,9 +1783,7 @@ whatsapp: +923430048341
           }
         }
 
-        tr {}
 
-        td {}
 
 
 
@@ -1847,7 +1832,6 @@ whatsapp: +923430048341
 
         }
 
-        select {}
 
       }
 
@@ -1861,7 +1845,7 @@ whatsapp: +923430048341
             font-size: 14px !important;
           }
 
-          img {}
+
         }
       }
     }
@@ -1881,13 +1865,9 @@ whatsapp: +923430048341
       }
     }
 
-    .event_date_calender {
-      input {}
-    }
 
-    .event_time_field {
-      input {}
-    }
+
+
 
     .event_cost {
       .range_wdith {
@@ -1912,21 +1892,9 @@ whatsapp: +923430048341
       align-items: flex-start;
       gap: 1.4rem;
 
-      .paying {
 
 
 
-        label {}
-      }
-
-      .shared {
-
-
-
-
-        label {}
-
-      }
     }
 
 
@@ -2164,7 +2132,6 @@ whatsapp: +923430048341
           .social {
             order: 2;
 
-            .socialIcon {}
           }
 
           button {
@@ -2186,7 +2153,7 @@ whatsapp: +923430048341
               top: 115px;
               right: -220px;
 
-              .icon {}
+
             }
 
             .date_icon {
@@ -2306,12 +2273,9 @@ whatsapp: +923430048341
 
         padding-left: 6rem !important;
 
-        i {}
 
-        input {
-          &[type="search"] {}
 
-        }
+
       }
 
 
@@ -2333,7 +2297,7 @@ whatsapp: +923430048341
         height: 36px;
       }
 
-      .filter_group_left {}
+
     }
 
     // card and map
@@ -2367,7 +2331,7 @@ whatsapp: +923430048341
             margin: 0.3rem 0.5rem 0rem 0rem;
           }
 
-          .btn-container {}
+
 
           img {
             width: 197px;
@@ -2407,9 +2371,9 @@ whatsapp: +923430048341
       display: none;
 
 
-      .divider {}
 
-      button {}
+
+
     }
 
     // add venue
@@ -2473,7 +2437,7 @@ whatsapp: +923430048341
         .add_venue {
           display: none;
 
-          .create {}
+
         }
       }
     }
@@ -2568,11 +2532,6 @@ whatsapp: +923430048341
       .question_option {
         gap: 2rem;
 
-        .checkbox {
-
-
-          label {}
-        }
 
 
       }
@@ -2585,7 +2544,6 @@ whatsapp: +923430048341
         font-size: 14px;
         font-weight: 500;
 
-        tr {}
 
 
       }
@@ -2617,9 +2575,7 @@ whatsapp: +923430048341
           }
         }
 
-        tr {}
 
-        td {}
 
 
 
@@ -2666,7 +2622,7 @@ whatsapp: +923430048341
 
         }
 
-        select {}
+
       }
 
       .mini_cards {
@@ -2679,7 +2635,7 @@ whatsapp: +923430048341
             font-size: 14px !important;
           }
 
-          img {}
+
         }
       }
     }
@@ -2699,13 +2655,9 @@ whatsapp: +923430048341
       }
     }
 
-    .event_date_calender {
-      input {}
-    }
 
-    .event_time_field {
-      input {}
-    }
+
+
 
     .event_cost {
       .range_wdith {
@@ -2730,22 +2682,7 @@ whatsapp: +923430048341
       align-items: flex-start;
       gap: 1.4rem;
 
-      .paying {
 
-
-
-
-        label {}
-      }
-
-      .shared {
-
-
-
-
-        label {}
-
-      }
     }
 
 
