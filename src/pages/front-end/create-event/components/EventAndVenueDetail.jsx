@@ -34,7 +34,7 @@ const EventAndVenueDetail = () => {
                     </h2>
                     <div className="blue_line_bar"></div>
                     <div className="col map">
-                        {/* iframe */}
+                        {/* react leftlet */}
                         <MapModal latlng={[31.5204, 74.3587]} />
                     </div>
                     <div className="col info">

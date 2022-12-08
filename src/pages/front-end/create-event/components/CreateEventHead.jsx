@@ -75,7 +75,7 @@ const CreateEventHead = () => {
                     </div>
                     <div className='timer'>
                         <p className='timerStart'>Event starts in</p>
-                        <Countdown date={Date.now() + 1000000} renderer={renderer} />,
+                        <Countdown date={Date.now() + 1000000000} renderer={renderer} />,
                     </div>
                     <div className='address'>
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
