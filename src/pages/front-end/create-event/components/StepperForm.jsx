@@ -62,7 +62,7 @@ const StepperForm = () => {
                 activeStepper === 1 &&
                 <>
                     <Venue />
-                    <EventAndVenueDetail />
+                    {/* <EventAndVenueDetail /> */}
                 </>
             }
 
@@ -80,7 +80,7 @@ const StepperForm = () => {
                         <h2>EVENT DESCRIPTION</h2>
                         <textarea type="textarea" id='eventDiscription' name="eventDiscription" rows="5" cols="50" placeholder='Text' />
                     </div>
-                    <EventAndVenueDetail />
+                    {/* <EventAndVenueDetail /> */}
                 </>
             }
 
@@ -90,7 +90,7 @@ const StepperForm = () => {
                 activeStepper === 3 &&
                 <>
                     <Invites />
-                    <EventAndVenueDetail />
+                    {/* <EventAndVenueDetail /> */}
                 </>
             }
             {
@@ -98,7 +98,7 @@ const StepperForm = () => {
                 activeStepper === 4 &&
                 <>
                     <TimeAndPrice />
-                    <EventAndVenueDetail />
+                    {/* <EventAndVenueDetail /> */}
                 </>
             }
 
