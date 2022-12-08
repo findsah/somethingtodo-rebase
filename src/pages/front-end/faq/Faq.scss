@@ -1,0 +1,53 @@
+.faq-top-img {
+    background-image: url("../../../assets/blogbg.png");
+    height: 632px;
+    width: 100%;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    .top-sec {
+      text-align: center;
+      height: 80px;
+      img {
+        max-width: 100%;
+        height: 80px;
+      }
+    }
+    .top-text {
+        text-align: center;
+        p{
+            font-size: 54px;
+            line-height: 64px;
+          font-weight: 600;
+          letter-spacing: 0.063em;
+          margin-top: 200px;
+          margin-bottom: 30px;
+          color: #ffffff;
+          text-transform: uppercase;
+        }
+      }
+  }
+  .main-faq{
+    h2{
+        text-align: center;
+        
+    }
+    .accordion-button {
+        background-color: #F5FAFF;
+        color: #1F518B;
+        height: 69px;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 29px;
+        letter-spacing: -0.017em;
+        color: #1F518B;
+      }
+     .accordion{
+        .accordion-item{
+            background-color: #F5FAFF !important;
+        }
+    }
+    .business-sec{
+        margin-top: 6rem;
+    }
+  }
