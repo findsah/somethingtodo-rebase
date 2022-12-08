@@ -1123,30 +1123,41 @@ whatsapp: +923430048341
       display: flex;
       gap: 0.5rem;
 
-      .image_preview {
-        width: 200px;
+      .image_preview_slider {
+        width: 408px;
         height: 200px;
-        position: relative;
+        overflow: hidden;
 
-        img {
-          width: 100%;
-          height: 100%;
-          // object-fit: contain;
+
+        .image_preview {
+          width: 200px;
+          height: 200px;
+          padding: 0.3rem 0.5rem 0rem 0rem;
+          position: relative;
+
+
+          img {
+            width: 100%;
+            height: 100%;
+            // object-fit: contain;
+          }
+
+          .close_icon {
+            background: linear-gradient(92.39deg, #FF9700 0%, #DE8300 91.96%);
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 0px;
+            right: 0px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
         }
 
-        .close_icon {
-          background: linear-gradient(92.39deg, #FF9700 0%, #DE8300 91.96%);
-          position: absolute;
-          width: 20px;
-          height: 20px;
-          top: -5px;
-          right: -5px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
       }
+
 
       .add_image {
 
@@ -1939,12 +1950,18 @@ whatsapp: +923430048341
       .image_container {
 
 
-        .image_preview {
 
-          width: 100px;
+        .image_preview_slider {
+          width: 208px;
           height: 100px;
 
+          .image_preview {
 
+            width: 100px;
+            height: 100px;
+
+
+          }
         }
 
         .add_image {
@@ -2725,12 +2742,17 @@ whatsapp: +923430048341
       .image_container {
 
 
-        .image_preview {
-
-          width: 100px;
+        .image_preview_slider {
+          width: 208px;
           height: 100px;
 
+          .image_preview {
 
+            width: 100px;
+            height: 100px;
+
+
+          }
         }
 
         .add_image {

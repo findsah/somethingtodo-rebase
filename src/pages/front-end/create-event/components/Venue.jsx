@@ -10,13 +10,39 @@ import websiteIcon from '../../../../assets/icons/website.svg'
 import phoneIcon from '../../../../assets/icons/phone.svg'
 import locationIcon from '../../../../assets/icons/location.svg'
 import MapModal from '../../components/MapModal';
+import Slider from 'react-slick';
 
 
 const Venue = () => {
 
+    // usestate for local state
     const [mapOrCarView, setMapOrCardView] = useState("mapview");
     const [mapOrcardTap, setMapOrCardTap] = useState("mapTap");
     const [open, setOpen] = useState(false);
+
+    // get image list
+    const [imageViewList, setImageViewList] = useState([
+        {
+            id: 1,
+            url: dummy
+        },
+        {
+            id: 2,
+            url: dummy
+        }
+    ]);
+
+    // a funtion to add image
+    const addimage = (data) => {
+        setImageViewList(prevState => [...prevState, { id: 3, url: dummy }])
+    }
+
+    // a function to delete image
+    const deleteImage = (id) => {
+        setImageViewList((current) =>
+            current.filter((img) => img.id !== id)
+        );
+    };
 
     return (
         <div className='create_event_venue'>
@@ -114,30 +140,42 @@ const Venue = () => {
                         <div className="photo_of_venue">
                             <h3>Add Photos Of Your Event</h3>
                             <div className='image_container'>
-                                <div className='image_preview'>
+
+                                <Slider
+                                    slidesToShow={2}
+                                    className='image_preview_slider'>
+                                    {
+                                        imageViewList?.map(item => (
+
+                                            <div className='image_preview' >
+                                                <img src={item?.url} alt="" />
+                                                <div className='close_icon' onClick={() => deleteImage(item?.id)}>
+                                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                        ))
+                                    }
+                                </Slider>
+
+                                {/* <div className='image_preview'>
                                     <img src={dummy} alt="" />
                                     <div className='close_icon'>
                                         <i class="fa fa-times" aria-hidden="true"></i>
                                     </div>
-                                </div>
-                                <div className='image_preview'>
-                                    <img src={dummy} alt="" />
-                                    <div className='close_icon'>
-                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                                <div className='add_image'>
+                                </div> */}
+
+                                <div className='add_image' onClick={() => addimage()} >
                                     <div className='icon_cirlce'>
                                         <i class="fa fa-plus" aria-hidden="true"></i>
                                     </div>
                                 </div>
+                                {/* <input type="file" name="imgUpload" id="imgUpload" /> */}
                             </div>
                         </div>
 
 
                     </div>
                     <div className='d-flex justify-content-center mt-4 mb-3'>
-
                         <button className='btn_primary'>CREATE</button>
                     </div>
                 </CustoModal>
