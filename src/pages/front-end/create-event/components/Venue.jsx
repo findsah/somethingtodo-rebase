@@ -104,9 +104,9 @@ const Venue = () => {
 
                                 <input type="text" className='text' placeholder='888-888-888' />
                             </div>
-                            <div className='feild'>
+                            <div className='feild form-outline mb-4 textarea_move'>
                                 <h3>DESCRIPTION</h3>
-                                <textarea name="description" id="description" cols="50" rows="7"></textarea>
+                                <textarea className='form-control' name="description" id="description" rows="6" cols="50" style={{ maxWidth: "100%" }}></textarea>
                             </div>
 
 
@@ -116,9 +116,15 @@ const Venue = () => {
                             <div className='image_container'>
                                 <div className='image_preview'>
                                     <img src={dummy} alt="" />
+                                    <div className='close_icon'>
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </div>
                                 </div>
                                 <div className='image_preview'>
                                     <img src={dummy} alt="" />
+                                    <div className='close_icon'>
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </div>
                                 </div>
                                 <div className='add_image'>
                                     <div className='icon_cirlce'>
@@ -128,6 +134,11 @@ const Venue = () => {
                             </div>
                         </div>
 
+
+                    </div>
+                    <div className='d-flex justify-content-center mt-4 mb-3'>
+
+                        <button className='btn_primary'>CREATE</button>
                     </div>
                 </CustoModal>
 

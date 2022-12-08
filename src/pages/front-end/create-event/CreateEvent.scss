@@ -1100,6 +1100,7 @@ whatsapp: +923430048341
   display: flex;
   padding: 0rem 2rem;
   gap: 2rem;
+  position: relative;
 
   .form_feild {
 
@@ -1140,6 +1141,13 @@ whatsapp: +923430048341
         padding-top: 9px;
       }
     }
+
+    .textarea_move {
+      position: absolute;
+      top: 293px;
+      right: 190px;
+
+    }
   }
 
 
@@ -1151,33 +1159,45 @@ whatsapp: +923430048341
       .image_preview {
         width: 200px;
         height: 200px;
+        position: relative;
 
         img {
           width: 100%;
           height: 100%;
           // object-fit: contain;
         }
+
+        .close_icon {
+          background: linear-gradient(92.39deg, #FF9700 0%, #DE8300 91.96%);
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          top: -5px;
+          right: -5px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
       }
 
       .add_image {
-        position: relative;
 
         background: rgba(224, 224, 224, 0.62);
         width: 200px;
         height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         .icon_cirlce {
           display: flex;
           align-items: center;
           justify-content: center;
-          position: absolute;
           color: #ffffff;
           width: 70px;
           height: 70px;
-          left: 65px;
-          top: 65px;
           border-radius: 50%;
-
           background: rgba(0, 129, 203, 0.52);
         }
       }
@@ -1957,6 +1977,66 @@ whatsapp: +923430048341
 
   }
 
+  // create custom venue
+  .create_custom_venue {
+    flex-direction: column;
+    padding: 0rem;
+
+    .form_feild {
+      .textarea {
+        width: 256px;
+        height: 36px;
+
+
+      }
+
+      .feild {
+        .icon {
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+
+      .input_text_group {
+        gap: 0.5rem;
+      }
+
+      .textarea_move {
+        position: relative;
+        top: 0%;
+        right: 0%;
+      }
+
+    }
+
+    .photo_of_venue {
+      .image_container {
+
+
+        .image_preview {
+
+          width: 100px;
+          height: 100px;
+
+
+        }
+
+        .add_image {
+          width: 100px;
+          height: 100px;
+
+          .icon_cirlce {
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
+    }
+  }
+
+
 }
 
 // create event  mobile screen less then 425
@@ -2147,7 +2227,7 @@ whatsapp: +923430048341
           .rightTop {
             .paid {
               position: absolute;
-              top: 140px;
+              top: 115px;
               right: -220px;
 
               .icon {}
@@ -2158,7 +2238,7 @@ whatsapp: +923430048341
               align-items: center;
               gap: 0.5rem;
               position: absolute;
-              top: 140px;
+              top: 115px;
               right: -65px;
 
             }
@@ -2169,7 +2249,7 @@ whatsapp: +923430048341
             display: flex;
             align-items: center;
             position: absolute;
-            top: 149px;
+            top: 120px;
             left: 280px;
             padding: 0.4rem 0.5rem 0.4rem;
             border-radius: 5px;
@@ -2727,5 +2807,65 @@ whatsapp: +923430048341
 
 
   }
+
+  // create custom venue
+  .create_custom_venue {
+    flex-direction: column;
+    padding: 0rem;
+
+    .form_feild {
+      .textarea {
+        width: 256px;
+        height: 36px;
+      }
+
+      .feild {
+        .icon {
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+
+      .input_text_group {
+        gap: 0.5rem;
+      }
+
+      .textarea_move {
+        position: relative;
+        top: 0%;
+        right: 0%;
+      }
+    }
+
+
+    .photo_of_venue {
+      .image_container {
+
+
+        .image_preview {
+
+          width: 100px;
+          height: 100px;
+
+
+        }
+
+        .add_image {
+          width: 100px;
+          height: 100px;
+
+          .icon_cirlce {
+
+            width: 50px;
+            height: 50px;
+
+          }
+        }
+      }
+    }
+  }
+
 
 }
