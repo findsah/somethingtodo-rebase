@@ -16,6 +16,7 @@ import eventimg from '../../../../assets/imageone.svg'
 
 import { useState } from 'react'
 import MuiModal from '../../components/CustomModal'
+import MapModal from '../../components/MapModal'
 
 
 const EventAndVenueDetail = () => {
@@ -34,14 +35,7 @@ const EventAndVenueDetail = () => {
                     <div className="blue_line_bar"></div>
                     <div className="col map">
                         {/* iframe */}
-                        <div className="mapouter">
-                            <div className="gmap_canvas">
-                                <iframe className="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=346&amp;height=850&amp;hl=en&amp;q=lahore&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-                                </iframe>
-                                <a href="https://piratebay-proxys.com/">Piratebay</a>
-                            </div>
-
-                        </div>
+                        <MapModal latlng={[31.5204, 74.3587]} />
                     </div>
                     <div className="col info">
                         <div className='inline'>
