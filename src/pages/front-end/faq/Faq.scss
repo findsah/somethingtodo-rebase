@@ -1,3 +1,4 @@
+@import "../../../breakpoint.scss";
 .faq-top-img {
     background-image: url("../../../assets/blogbg.png");
     height: 632px;
@@ -50,4 +51,45 @@
     .business-sec{
         margin-top: 6rem;
     }
+  }
+
+  @include media ('<=Lphone'){
+    .faq-top-img {
+      background-image: url("../../../assets/faqImg.png");
+      height: 348px;
+      // background-size: cover;
+      // width: 100%;
+      // background-size: 100% 100%;
+      // background-position: center;
+      background-repeat: no-repeat;
+      .top-text {
+          display: none; 
+        }
+    }
+    .main-faq{
+      h2{
+          text-align: center;
+          font-size: 20px;
+          line-height: 24px;
+      }
+      .accordion-button {
+        height: 32px;
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 14px;
+          letter-spacing: -0.017em;
+          span{
+            display: none;
+          }
+        }
+       .accordion{
+          .accordion-item{
+              background-color: #F5FAFF !important;
+          }
+      }
+      .business-sec{
+          margin-top: 4rem;
+      }
+    }
+
   }

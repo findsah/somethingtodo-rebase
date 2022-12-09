@@ -14,7 +14,7 @@ export default function Faq() {
                     <div className="col-8">
                         <Accordion>
                             <Accordion.Item eventKey="0">
-                                <Accordion.Header>Lorem ipsum dolor sit amet, consectetur adipiscing elit ?</Accordion.Header>
+                                <Accordion.Header>Lorem ipsum dolor sit amet <span> consectetur adipiscing elit</span> ?</Accordion.Header>
                                 <Accordion.Body>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -26,7 +26,7 @@ export default function Faq() {
                                 </Accordion.Body>
                             </Accordion.Item>
                             <Accordion.Item eventKey="1">
-                                <Accordion.Header>Lorem ipsum dolor sit amet, consectetur adipiscing elit ?</Accordion.Header>
+                                <Accordion.Header>Lorem ipsum dolor sit amet <span> consectetur adipiscing elit</span> ?</Accordion.Header>
                                 <Accordion.Body>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -47,7 +47,7 @@ export default function Faq() {
                     <div className="col-8">
                         <Accordion>
                             <Accordion.Item eventKey="0">
-                                <Accordion.Header>Lorem ipsum dolor sit amet, consectetur adipiscing elit ?</Accordion.Header>
+                                <Accordion.Header>Lorem ipsum dolor sit amet <span> consectetur adipiscing elit</span> ?</Accordion.Header>
                                 <Accordion.Body>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -59,7 +59,7 @@ export default function Faq() {
                                 </Accordion.Body>
                             </Accordion.Item>
                             <Accordion.Item eventKey="1">
-                                <Accordion.Header>Lorem ipsum dolor sit amet, consectetur adipiscing elit ?</Accordion.Header>
+                                <Accordion.Header>Lorem ipsum dolor sit amet <span> consectetur adipiscing elit</span> ?</Accordion.Header>
                                 <Accordion.Body>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad

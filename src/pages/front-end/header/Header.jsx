@@ -19,10 +19,13 @@ const Header = () => {
                         <Link to="#pricing">MY EVENTS</Link>
                         <Link to="/blog">BLOG</Link>
                         <Link to="/faq">FAQ</Link>
-                        <Button className='signup'>
-                            <BsPersonCircle />
-                            sign up/login
-                        </Button>
+                        <Link to="/login">
+
+                            <Button className='signup'>
+                                <BsPersonCircle />
+                                sign up/login
+                            </Button>
+                        </Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
