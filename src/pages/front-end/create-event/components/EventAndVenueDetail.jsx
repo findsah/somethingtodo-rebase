@@ -35,7 +35,7 @@ const EventAndVenueDetail = () => {
                     <div className="blue_line_bar"></div>
                     <div className="col map">
                         {/* react leftlet */}
-                        <MapModal latlng={[31.5204, 74.3587]} />
+                        <MapModal position={[51.505, -0.09]} />
                     </div>
                     <div className="col info">
                         <div className='inline'>

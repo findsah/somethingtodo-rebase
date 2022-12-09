@@ -11,6 +11,7 @@ import phoneIcon from '../../../../assets/icons/phone.svg'
 import locationIcon from '../../../../assets/icons/location.svg'
 import MapModal from '../../components/MapModal';
 import Slider from 'react-slick';
+import CustomUpload from '../../components/CustomUpload';
 
 
 const Venue = () => {
@@ -19,29 +20,23 @@ const Venue = () => {
     const [mapOrCarView, setMapOrCardView] = useState("mapview");
     const [mapOrcardTap, setMapOrCardTap] = useState("mapTap");
     const [open, setOpen] = useState(false);
-
-    // get image list
-    const [imageViewList, setImageViewList] = useState([
-        {
-            id: 1,
-            url: dummy
-        },
-        {
-            id: 2,
-            url: dummy
-        }
-    ]);
-
-    // a funtion to add image
-    const addimage = (data) => {
-        setImageViewList(prevState => [...prevState, { id: 3, url: dummy }])
-    }
+    const [images, setImages] = useState([])
+    const [previewImage, setPreviewImage] = useState([])
 
     // a function to delete image
     const deleteImage = (id) => {
-        setImageViewList((current) =>
-            current.filter((img) => img.id !== id)
-        );
+
+        if (id > -1) {
+            // assigning the list to temp variable
+            const tempImg = [...images];
+            const tempPrew = [...previewImage]
+            // removing the element using splice
+            tempImg.splice(id, 1);
+            tempPrew.splice(id, 1)
+            // updating the list
+            setImages(tempImg)
+            setPreviewImage(tempPrew)
+        }
     };
 
     return (
@@ -140,36 +135,30 @@ const Venue = () => {
                         <div className="photo_of_venue">
                             <h3>Add Photos Of Your Event</h3>
                             <div className='image_container'>
+                                {
+                                    previewImage?.length > 0 ?
+                                        <Slider
+                                            slidesToShow={2}
+                                            className='image_preview_slider'>
+                                            {
+                                                previewImage?.map((item, index) => (
 
-                                <Slider
-                                    slidesToShow={2}
-                                    className='image_preview_slider'>
-                                    {
-                                        imageViewList?.map(item => (
+                                                    <div className='image_preview' >
+                                                        <img src={item} alt="" />
+                                                        <div className='close_icon' onClick={() => deleteImage(index)}>
+                                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                                        </div>
+                                                    </div>
+                                                ))
+                                            }
+                                        </Slider> :
+                                        <div className='image_preview_slider d-flex justify-content-center align-items-center'>
+                                            {/* <h2>No Images To preview</h2> */}
+                                            No Images To preview
+                                        </div >
+                                }
+                                <CustomUpload setFiles={setImages} setPreview={setPreviewImage} />
 
-                                            <div className='image_preview' >
-                                                <img src={item?.url} alt="" />
-                                                <div className='close_icon' onClick={() => deleteImage(item?.id)}>
-                                                    <i class="fa fa-times" aria-hidden="true"></i>
-                                                </div>
-                                            </div>
-                                        ))
-                                    }
-                                </Slider>
-
-                                {/* <div className='image_preview'>
-                                    <img src={dummy} alt="" />
-                                    <div className='close_icon'>
-                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                    </div>
-                                </div> */}
-
-                                <div className='add_image' onClick={() => addimage()} >
-                                    <div className='icon_cirlce'>
-                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                                {/* <input type="file" name="imgUpload" id="imgUpload" /> */}
                             </div>
                         </div>
 
@@ -230,7 +219,7 @@ const Venue = () => {
                 <div className={mapOrCarView === "mapview" ? "width" : "disable_map"}>
                     <div className="event_map">
 
-                        <MapModal latlng={[31.5204, 74.3587]} />
+                        <MapModal position={[51.505, -0.09]} />
                     </div>
 
                 </div>
@@ -251,9 +240,34 @@ const Venue = () => {
                 <h2 className='disable_desktop'>SEARCH VENUES:</h2>
                 <div className='venue_card_container'>
 
-                    <div className='venue_cards'>
+                    {/* <div className='venue_cards'>
                         {
                             [1, 2].map(item => (
+                                <div className='venue_card'>
+                                    <img src={dummy} alt="" />
+                                    <h5 >LOREM IPSUM DOLOR SIT AMET</h5>
+                                    <p className='p_gray_10 '>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </p>
+                                    <div className='btn-container'>
+                                   
+                                        <button className='btn_error desktop_btn'>
+                                            <i class="fa fa-minus" aria-hidden="true"></i>
+                                            REMOVE VENUE
+                                        </button>
+                                        <button className='btn_error mobile_btn'>
+                                            <i class="fa fa-minus" aria-hidden="true"></i>
+                                            REMOVE
+                                        </button>
+                                    </div>
+
+                                </div>
+                            ))
+                        }
+                    </div> */}
+                    <Slider className='venue_cards' slidesToShow={2}>
+                        {
+                            [1, 2, 3, 4, 5].map(item => (
                                 <div className='venue_card'>
                                     <img src={dummy} alt="" />
                                     <h5 >LOREM IPSUM DOLOR SIT AMET</h5>
@@ -275,7 +289,8 @@ const Venue = () => {
                                 </div>
                             ))
                         }
-                    </div>
+                    </Slider>
+
                     <div className='add_venue'>
                         <div className='create'>
                             <i class="fa fa-plus" aria-hidden="true"></i>

@@ -1,9 +1,13 @@
-import { width } from '@mui/system'
+/* 
+author: arman ali
+github: https://github.com/Arman-Arzoo
+whatsapp: +923430048341
+*/
 import React from 'react'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 
-const MapModal = () => {
-    const position = [51.505, -0.09]
+const MapModal = ({ position }) => {
+
     return (
         <MapContainer center={position} zoom={13} scrollWheelZoom={false}
             style={{
@@ -12,7 +16,7 @@ const MapModal = () => {
             }}
         >
             <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                attribution='&copy; <a href="https://github.com/Arman-Arzoo">Arman Ali</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <Marker position={position}>
