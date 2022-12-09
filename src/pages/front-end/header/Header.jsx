@@ -18,7 +18,7 @@ const Header = () => {
                         <Link to="#pricing">FIND EVENTS</Link>
                         <Link to="#pricing">MY EVENTS</Link>
                         <Link to="/blog">BLOG</Link>
-                        <Link to="#pricing">FAQ</Link>
+                        <Link to="/faq">FAQ</Link>
                         <Button className='signup'>
                             <BsPersonCircle />
                             sign up/login
