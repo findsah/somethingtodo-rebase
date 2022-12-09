@@ -1,0 +1,24 @@
+.main-login{
+    .top-sec {
+        // text-align: start;
+        height: 80px;
+        img {
+          max-width: 100%;
+          height: 80px;
+        }
+      }
+
+      .form-sec{
+        background-color: #F5FAFF;
+        h2{
+            margin-top: 3rem;
+        }
+        input{
+            Width: 256px;
+            height: 35px;
+            // outline: 1px solid #1F518B;
+            border: 1px solid #1F518B;
+            border-radius: 4px;
+        }
+      }
+}
