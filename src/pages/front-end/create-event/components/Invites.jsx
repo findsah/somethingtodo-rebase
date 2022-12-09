@@ -4,12 +4,27 @@ github: https://github.com/Arman-Arzoo
 whatsapp: +923430048341
 */
 import React, { useState } from 'react'
+import Slider from 'react-slick';
 import profile from '../../../../assets/armanprofile.png'
 import CustomRangeSlider from '../../components/CustomRangeSlider';
 
 const Invites = ({ rtl }) => {
 
     const [values, setValues] = useState([25, 75]);
+
+    var settings = {
+        slidesToShow: 4,
+        className: "center",
+        centerMode: true,
+
+        responsive: [
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                }
+            }]
+    }
 
 
     return (
@@ -112,9 +127,10 @@ const Invites = ({ rtl }) => {
                     </div>
 
                 </div>
-                <div className='mini_cards'>
+
+                <Slider {...settings} className='mini_cards' >
                     {
-                        [1, 2, 3, 4].map(item => (
+                        [1, 2, 3, 4, , 5, 6, 7, 8, 9, 10].map(item => (
                             <div className="mini_card">
                                 <img src={profile} alt="" />
                                 <p className='p_blue_size_20'>Name</p>
@@ -122,8 +138,7 @@ const Invites = ({ rtl }) => {
                             </div>
                         ))
                     }
-
-                </div>
+                </Slider>
 
             </div>
 
@@ -136,9 +151,9 @@ const Invites = ({ rtl }) => {
                         <button className='btn_secondary'><i class="fa fa-plus" aria-hidden="true"></i>INVITE </button>
                     </div>
                 </div>
-                <div className='mini_cards'>
+                <Slider {...settings} className='mini_cards' >
                     {
-                        [1, 2, 3, 4].map(item => (
+                        [1, 2, 3, 4, , 5, 6, 7, 8, 9, 10].map(item => (
                             <div className="mini_card">
                                 <img src={profile} alt="" />
                                 <p className='p_blue_size_20'>@Email</p>
@@ -146,8 +161,7 @@ const Invites = ({ rtl }) => {
                             </div>
                         ))
                     }
-
-                </div>
+                </Slider>
 
             </div>
 
