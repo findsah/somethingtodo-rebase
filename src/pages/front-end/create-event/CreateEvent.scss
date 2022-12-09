@@ -602,14 +602,20 @@ whatsapp: +923430048341
       .venue_cards {
         display: flex;
         gap: 1rem;
+        width: 802px;
+
+        .slick-track {
+          display: flex;
+        }
 
 
         .venue_card {
           background: #FFFFFF;
           border-radius: 3.1399px;
           box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.2);
-          width: 386px;
+          width: 386px !important;
           height: 327px;
+          margin-bottom: 0.5rem;
 
           h5 {
             margin: 2.5rem 0rem 0rem 1rem;
@@ -1612,10 +1618,15 @@ whatsapp: +923430048341
 
         .venue_cards {
           overflow: hidden;
+          width: 408px;
+
+          .slick-track {
+            display: flex;
+          }
 
           .venue_card {
 
-            width: 197px;
+            width: 190px !important;
             height: 156px;
 
             h5 {
@@ -1645,7 +1656,7 @@ whatsapp: +923430048341
             }
 
             img {
-              width: 197px;
+              width: 190px;
               height: 74px;
 
             }
@@ -2411,10 +2422,15 @@ whatsapp: +923430048341
 
         .venue_cards {
           overflow: hidden;
+          width: 408px;
+
+          .slick-track {
+            display: flex;
+          }
 
           .venue_card {
 
-            width: 197px;
+            width: 190px !important;
             height: 156px;
 
             h5 {
@@ -2444,7 +2460,7 @@ whatsapp: +923430048341
             }
 
             img {
-              width: 197px;
+              width: 190px;
               height: 74px;
 
             }
