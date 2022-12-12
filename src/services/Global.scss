@@ -468,6 +468,18 @@ h6 {
   h3 {
     font-size: 12px;
   }
+
+  // custom Error poppu
+  .custom_modal_error {
+    .content_Wrapper_error {
+
+      p {
+        font-size: 18px;
+        line-height: 28px;
+      }
+    }
+  }
+
 }
 
 @include media (">phone", "<=Lphone") {
@@ -478,4 +490,15 @@ h6 {
   h3 {
     font-size: 12px;
   }
+
+  // custom Error poppu
+  .custom_modal_error {
+    .content_Wrapper_error {
+      p {
+        font-size: 18px;
+        line-height: 28px;
+      }
+    }
+  }
+
 }
