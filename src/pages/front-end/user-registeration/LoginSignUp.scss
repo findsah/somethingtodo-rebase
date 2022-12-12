@@ -1,3 +1,4 @@
+@import "../../../breakpoint.scss";
 .main-login{
     .top-sec {
         // text-align: start;
@@ -19,6 +20,70 @@
             // outline: 1px solid #1F518B;
             border: 1px solid #1F518B;
             border-radius: 4px;
+            justify-content: unset !important;
+        }
+
+        .phoneinput{
+          Width: 176px; 
+        }
+        .btn-main {
+         width: 133px;
+        }
+        .select {
+          color: #1F518B;
+          background: #FFFFFF;
+          padding: 6px 8px;
+          border: 1px solid #1F518B;
+          border-radius: 6px;
+          font-weight: 400;
+          font-size: 12px;
+          // width: 60px;
+          gap: 8px
+        }
+        
+        .pass-wrapper{
+        .icon{
+          margin-left: -30px;
+          width: 24px;
+          height: 24px;
+        }
+        .icon2{
+          margin-left: 224px;
+          margin-top: -61px;
+          width: 24px;
+          height: 24px;
+        }
         }
       }
+}
+
+@include media ('<=Lphone'){
+  .main-login{
+    .top-sec {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        height: 80px;
+        img {
+          max-width: 100%;
+          height: 80px;
+        }
+      }
+      .form-sec{
+        margin-top: 5rem;
+        h2{
+            margin-top: 2.9rem;
+            line-height: 0px;
+        }
+        input{
+            width: 100%;
+        }
+        .phoneinput{
+          Width: 100%;
+          
+        }
+     
+ 
+      }
+}
 }
