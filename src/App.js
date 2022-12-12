@@ -13,9 +13,9 @@ const App = () => {
   }, []);
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <MainRoutes />
-      {/* <FooterSection /> */}
+      <FooterSection />
     </>
   );
 };
