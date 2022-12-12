@@ -10,7 +10,37 @@ import CustomRangeSlider from '../../components/CustomRangeSlider';
 
 const Invites = ({ rtl }) => {
 
-    const [values, setValues] = useState([25, 75]);
+    // const [age, setAge] = useState([25, 75]);
+    // const [number, setNumber] = useState("")
+    // const [male, setMale] = useState(false)
+    // const [female, setFemale] = useState(false)
+    // const [both, setBoth] = useState(false)
+    const [tableList, setTableList] = useState([])
+
+    console.log(tableList)
+
+    const addList = () => {
+
+        const rowsInput = {
+            number: "",
+            male: false,
+            female: false,
+            both: false,
+            age: [23, 76]
+        }
+        setTableList([...tableList, rowsInput])
+    }
+
+    const handleChange = (index, e) => {
+        const { name, value } = e.target;
+        const rowsInput = [...tableList];
+        rowsInput[index][name] = value;
+        setTableList(rowsInput)
+
+    }
+    const resetList = () => {
+        setTableList([])
+    }
 
     var settings = {
         slidesToShow: 4,
@@ -59,35 +89,73 @@ const Invites = ({ rtl }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <input type="text" placeholder='text' className='text' />
-                        </td>
-                        <td className='checkbox'>
-                            <div className='checkbox_group'>
-                                <input type="checkbox" name='male' id='male' />
-                                <label htmlFor="male">Male</label>
-                            </div>
-                            <div className='checkbox_group'>
-                                <input type="checkbox" name='Female' id='Female' />
-                                <label htmlFor="Female">Female</label>
-                            </div>
-                            <div className='checkbox_group'>
-                                <input type="checkbox" name='Both' id='Both' />
-                                <label htmlFor="Both">Both</label>
-                            </div>
-                        </td>
-                        <td>
-                            {/* range */}
-                            <CustomRangeSlider values={values} setValues={setValues} min={0} max={90} step={1} />
-                        </td>
-                    </tr>
+
+                    {
+                        tableList?.map((item, index) => {
+
+                            return (
+                                <tr key={index}>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            placeholder='text'
+                                            className='text'
+                                            value={tableList[index]?.name}
+                                            onChange={(e) => { handleChange(index, e) }}
+
+                                        />
+                                    </td>
+                                    <td className='checkbox'>
+                                        <div className='checkbox_group'>
+                                            <input
+                                                type="checkbox"
+                                                name='male'
+                                                id='male'
+                                                value={tableList[index]?.male}
+                                                onChange={(e) => { handleChange(index, e) }}
+                                            />
+                                            <label htmlFor="male">Male</label>
+                                        </div>
+                                        <div className='checkbox_group'>
+                                            <input
+                                                type="checkbox"
+                                                name='Female'
+                                                id='Female'
+                                                value={tableList[index]?.female}
+                                                onChange={(e) => { handleChange(index, e) }}
+                                            />
+                                            <label htmlFor="Female">Female</label>
+                                        </div>
+                                        <div className='checkbox_group'>
+                                            <input
+                                                type="checkbox"
+                                                name='Both'
+                                                id='Both'
+                                                value={tableList[index]?.both}
+                                                onChange={(e) => { handleChange(index, e) }}
+                                            />
+                                            <label htmlFor="Both">Both</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        {/* range */}
+                                        <CustomRangeSlider
+                                            values={tableList[index]?.age}
+                                            // setValues={setAge}
+                                            onChange={(e) => { handleChange(index, e) }}
+                                            min={0} max={90}
+                                            step={1} />
+                                    </td>
+                                </tr>
+                            )
+                        })
+                    }
                     <tr>
                         <td colspan="3">
 
                             <div className='table_button'>
-                                <button className='btn_secondary'> <i className="fa fa-plus" aria-hidden="true"></i> ADD  </button>
-                                <button className='btn_error'><i className="fa fa-minus" aria-hidden="true"></i> RESET</button>
+                                <button className='btn_secondary' onClick={() => addList()}> <i className="fa fa-plus" aria-hidden="true"></i> ADD  </button>
+                                <button className='btn_error' onClick={() => resetList()}><i className="fa fa-minus" aria-hidden="true"></i> RESET</button>
                             </div>
                         </td>
                     </tr>

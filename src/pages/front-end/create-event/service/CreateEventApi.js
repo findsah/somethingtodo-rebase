@@ -12,7 +12,7 @@ github: https://github.com/Arman-Arzoo
 //  Create On boarding
 export const CreateEvent = createAsyncThunk("createEventsSection/createEvent", async (params) => {
 
-    let response = await apiInstance.post('api', params).then((response) => {
+    let response = await apiInstance.post('/all-events', params).then((response) => {
         toast.success("onBoarding Created successfully")
         return response
     }).catch((error) => {

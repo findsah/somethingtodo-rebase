@@ -336,6 +336,9 @@ whatsapp: +923430048341
       // padding: 20px 10px;
       position: relative;
       z-index: 10;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
 
       .step-wizard-item {
         padding: 0 10px;
@@ -349,6 +352,7 @@ whatsapp: +923430048341
         text-align: center;
         min-width: 170px;
         position: relative;
+        align-items: center;
 
 
 
