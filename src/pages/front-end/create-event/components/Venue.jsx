@@ -12,6 +12,7 @@ import locationIcon from '../../../../assets/icons/location.svg'
 import MapModal from '../../components/MapModal';
 import Slider from 'react-slick';
 import CustomUpload from '../../components/CustomUpload';
+import CustomErrorPopUp from '../../components/CustomErrorPopUp';
 
 
 const Venue = () => {
@@ -20,6 +21,7 @@ const Venue = () => {
     const [mapOrCarView, setMapOrCardView] = useState("mapview");
     const [mapOrcardTap, setMapOrCardTap] = useState("mapTap");
     const [open, setOpen] = useState(false);
+    const [openError, setOpenError] = useState(false);
     const [images, setImages] = useState([])
     const [previewImage, setPreviewImage] = useState([])
 
@@ -164,9 +166,12 @@ const Venue = () => {
 
 
                     </div>
-                    <div className='d-flex justify-content-center mt-4 mb-3'>
+                    <div className='d-flex justify-content-center mt-4 mb-3' onClick={() => {
+                        setOpenError(true)
+                    }}>
                         <button className='btn_primary'>CREATE</button>
                     </div>
+                    <CustomErrorPopUp error="Oops we missed something. Please ensure all fields are filled correctly" openError={openError} close={setOpenError} />
                 </CustoModal>
             </div>
 
@@ -240,31 +245,6 @@ const Venue = () => {
                 <h2 className='disable_desktop'>SEARCH VENUES:</h2>
                 <div className='venue_card_container'>
 
-                    {/* <div className='venue_cards'>
-                        {
-                            [1, 2].map(item => (
-                                <div className='venue_card'>
-                                    <img src={dummy} alt="" />
-                                    <h5 >LOREM IPSUM DOLOR SIT AMET</h5>
-                                    <p className='p_gray_10 '>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </p>
-                                    <div className='btn-container'>
-                                   
-                                        <button className='btn_error desktop_btn'>
-                                            <i class="fa fa-minus" aria-hidden="true"></i>
-                                            REMOVE VENUE
-                                        </button>
-                                        <button className='btn_error mobile_btn'>
-                                            <i class="fa fa-minus" aria-hidden="true"></i>
-                                            REMOVE
-                                        </button>
-                                    </div>
-
-                                </div>
-                            ))
-                        }
-                    </div> */}
                     <Slider className='venue_cards' slidesToShow={2}>
                         {
                             [1, 2, 3, 4, 5].map(item => (

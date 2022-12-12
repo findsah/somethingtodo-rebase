@@ -416,9 +416,38 @@ h6 {
   }
 }
 
+// custom Error poppu
+.custom_modal_error {
 
+  .css-tlc64q-MuiPaper-root-MuiDialog-paper {
+    background: linear-gradient(140.6deg, #002C6D 0%, #0082CF 100%);
+    border-radius: 8px;
 
+  }
 
+  .content_Wrapper_error {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      font-family: 'SF UI Display';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 48px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.063em;
+
+      /* White */
+
+      color: #FFFFFF;
+    }
+  }
+}
 
 
 
