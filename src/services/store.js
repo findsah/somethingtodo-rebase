@@ -5,9 +5,11 @@ import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
 
 // import AuthSlice from "./shared/shredSlice";
+import createEventSlice from '../pages/front-end/create-event/service/CreateEventSlice'
 
 const reducers = combineReducers({
   // AuthSlice,
+  createEventSlice
 });
 
 const persistConfig = {
