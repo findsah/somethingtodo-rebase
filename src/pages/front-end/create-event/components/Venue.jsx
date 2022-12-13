@@ -29,10 +29,12 @@ const Venue = () => {
     const [openError, setOpenError] = useState(false);
     const [images, setImages] = useState([])
     const [previewImage, setPreviewImage] = useState([])
+    const [addedVenues, setAddedVenues] = useState([])
 
     // useSlector to get State from store
     const { getVenueList } = useSelector((state) => state?.createEventSlice)
     console.log(getVenueList)
+    console.log(addedVenues)
 
     // a function to delete image
     const deleteImage = (id) => {
@@ -49,6 +51,11 @@ const Venue = () => {
             setPreviewImage(tempPrew)
         }
     };
+
+    // add venue
+    const addVenueAction = (item) => {
+        setAddedVenues((prevState) => [...prevState, item])
+    }
 
     // useEffect to call function
     useEffect(() => {
@@ -210,15 +217,21 @@ const Venue = () => {
                 <div className={mapOrCarView === "listview" ? "width" : "disable_list"}>
                     <div className="card_container">
                         {
-                            [1, 2, 3, 4, 5, 6].map(item => (
+                            getVenueList.map(item => (
                                 <div className='event_card'>
                                     <img src={dummy} alt="" />
-                                    <h5 >LOREM IPSUM DOLOR SIT AMET</h5>
+                                    <h5 >{item?.Title}</h5>
                                     <p className='p_gray_10 '>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        {
+                                            item?.Description.length > 230 ?
+                                                item?.Description?.substring(0, 230) + "..."
+                                                : item?.Description?.substring(0, 230)
+                                        }
                                     </p>
                                     <div className='btn-container'>
-                                        <button className='btn_secondary '>
+                                        <button className='btn_secondary ' onClick={() => {
+                                            addVenueAction(item)
+                                        }}>
                                             <i class="fa fa-plus" aria-hidden="true"></i>
                                             ADD  VENUE
                                         </button>
@@ -261,7 +274,7 @@ const Venue = () => {
 
                     <Slider className='venue_cards' slidesToShow={2}>
                         {
-                            [1, 2, 3, 4, 5].map(item => (
+                            addedVenues.map(item => (
                                 <div className='venue_card'>
                                     <img src={dummy} alt="" />
                                     <h5 >LOREM IPSUM DOLOR SIT AMET</h5>
