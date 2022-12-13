@@ -448,6 +448,7 @@ whatsapp: +923430048341
 
     .right-inner-icon {
       position: relative;
+
       i {
         position: absolute;
         right: 0px;
@@ -1059,7 +1060,7 @@ whatsapp: +923430048341
   .card {
     background: #FFFFFF;
     border-radius: 4.80829px;
-    width: 464px;
+    width: 464px !important;
     height: 626px;
 
     p {
@@ -2804,6 +2805,44 @@ whatsapp: +923430048341
             height: 50px;
 
           }
+        }
+      }
+    }
+  }
+
+
+}
+
+
+// create event  greater then desktop and smaller then lg
+@include media (">=1400px", "<=LGdesktop") {
+  .create_event_venue {
+    .card_and_map_container {
+      .card_container {
+        gap: 2rem;
+
+        .event_card {
+          width: 368px;
+          height: 271px;
+
+          img {
+            width: 368px;
+            height: 151px;
+          }
+        }
+      }
+
+      .event_map {
+        width: 380px;
+        height: 874px;
+      }
+    }
+
+
+    .add_venue_container {
+      .venue_card_container {
+        .venue_cards {
+          width: 940px;
         }
       }
     }

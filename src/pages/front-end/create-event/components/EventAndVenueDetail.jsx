@@ -17,12 +17,17 @@ import eventimg from '../../../../assets/imageone.svg'
 import { useState } from 'react'
 import MuiModal from '../../components/CustomModal'
 import MapModal from '../../components/MapModal'
+import Slider from 'react-slick'
 
 
 const EventAndVenueDetail = () => {
     const [open, setOpen] = useState(false)
 
-
+    var settings = {
+        slidesToShow: 2,
+        className: "center",
+        centerMode: true,
+    }
     return (
         <>
             {/* Event detail */}
@@ -94,89 +99,58 @@ const EventAndVenueDetail = () => {
                 <div className="row">
                     <h2 >VENUE DETAILS</h2>
                     <div className="blue_line_bar"></div>
-                    <div className="col ">
-                        <div className='card'>
-                            <img src={eventimg} alt="" width="464px" height="207px" />
-                            <p className='p_blue_size_20 text-center'>Insert Venue Name Here</p>
-                            <div className="row info">
-                                <div className="col d-flex align-items-center gap-4">
-                                    <img src={websiteIcon} alt="icon" width="30px" height="30px" />
-                                    <p className='p_gray_14'>www.website.com</p>
-                                </div>
-                                <div className="col d-flex align-items-center gap-4">
-                                    <img src={phoneIcon} alt="icon" width="30px" height="30px" />
-                                    <p className='p_gray_14'>888-888-888 </p>
-                                </div>
-                            </div>
+                    <Slider {...settings}>
+                        {
+                            [1, 2, 3, 4].map((item) => (
 
-                            <div className="row info">
-                                <div className="col d-flex align-items-center gap-4">
-                                    <img src={emailIcon} alt="icon" width="30px" height="30px" />
-                                    <p className='p_gray_14'>emailaddress@gmail.com</p>
-                                </div>
-                            </div>
+                                // <div className="col ">
+                                <div className='card'>
+                                    <img src={eventimg} alt="" width="464px" height="207px" />
+                                    <p className='p_blue_size_20 text-center'>Insert Venue Name Here</p>
+                                    <div className="row info">
+                                        <div className="col d-flex align-items-center gap-4">
+                                            <img src={websiteIcon} alt="icon" width="30px" height="30px" />
+                                            <p className='p_gray_14'>www.website.com</p>
+                                        </div>
+                                        <div className="col d-flex align-items-center gap-4">
+                                            <img src={phoneIcon} alt="icon" width="30px" height="30px" />
+                                            <p className='p_gray_14'>888-888-888 </p>
+                                        </div>
+                                    </div>
 
-                            <div className="row info">
-                                <div className="col d-flex align-items-center gap-4">
-                                    <img src={locationIcon} alt="icon" width="30px" height="30px" />
-                                    <p className='p_gray_14'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis</p>
-                                </div>
-                            </div>
-                            <div className="row info">
-                                <div className="col d-flex align-items-center gap-4">
-                                    <img src={clockblue} alt="icon" width="30px" height="30px" />
-                                    <p className='p_gray_14'> Monday - Sunday <br />
-                                        10 A.M. - 11.30 P.M.</p>
-                                </div>
-                                <div className="col d-flex align-items-center gap-4">
-                                    <button className='btn_primary'>MORE DETAILS</button>
-                                </div>
-                            </div>
+                                    <div className="row info">
+                                        <div className="col d-flex align-items-center gap-4">
+                                            <img src={emailIcon} alt="icon" width="30px" height="30px" />
+                                            <p className='p_gray_14'>emailaddress@gmail.com</p>
+                                        </div>
+                                    </div>
 
-                        </div>
+                                    <div className="row info">
+                                        <div className="col d-flex align-items-center gap-4">
+                                            <img src={locationIcon} alt="icon" width="30px" height="30px" />
+                                            <p className='p_gray_14'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis</p>
+                                        </div>
+                                    </div>
+                                    <div className="row info">
+                                        <div className="col d-flex align-items-center gap-4">
+                                            <img src={clockblue} alt="icon" width="30px" height="30px" />
+                                            <p className='p_gray_14'> Monday - Sunday <br />
+                                                10 A.M. - 11.30 P.M.</p>
+                                        </div>
+                                        <div className="col d-flex align-items-center gap-4">
+                                            <button className='btn_primary'>MORE DETAILS</button>
+                                        </div>
+                                    </div>
 
-                    </div>
-                    <div className="col ">
-                        <div className='card'>
-                            <img src={eventimg} alt="" width="464px" height="207px" />
-                            <p className='p_blue_size_20 text-center'>Insert Venue Name Here</p>
-                            <div className="row info">
-                                <div className="col d-flex align-items-center gap-4">
-                                    <img src={websiteIcon} alt="icon" width="30px" height="30px" />
-                                    <p className='p_gray_14'>www.website.com</p>
                                 </div>
-                                <div className="col d-flex align-items-center gap-4">
-                                    <img src={phoneIcon} alt="icon" width="30px" height="30px" />
-                                    <p className='p_gray_14'>888-888-888 </p>
-                                </div>
-                            </div>
 
-                            <div className="row info">
-                                <div className="col d-flex align-items-center gap-4">
-                                    <img src={emailIcon} alt="icon" width="30px" height="30px" />
-                                    <p className='p_gray_14'>emailaddress@gmail.com</p>
-                                </div>
-                            </div>
+                                // </div>
+                            )
+                            )}
 
-                            <div className="row info">
-                                <div className="col d-flex align-items-center gap-4">
-                                    <img src={locationIcon} alt="icon" width="30px" height="30px" />
-                                    <p className='p_gray_14'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis</p>
-                                </div>
-                            </div>
-                            <div className="row info">
-                                <div className="col d-flex align-items-center gap-4">
-                                    <img src={clockblue} alt="icon" width="30px" height="30px" />
-                                    <p className='p_gray_14'> Monday - Sunday <br />
-                                        10 A.M. - 11.30 P.M.</p>
-                                </div>
-                                <div className="col d-flex align-items-center gap-4">
-                                    <button className='btn_primary'>MORE DETAILS</button>
-                                </div>
-                            </div>
 
-                        </div>
-                    </div>
+                    </Slider>
+
                 </div>
             </div>
 
