@@ -13,9 +13,14 @@ import MapModal from '../../components/MapModal';
 import Slider from 'react-slick';
 import CustomUpload from '../../components/CustomUpload';
 import CustomErrorPopUp from '../../components/CustomErrorPopUp';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { GetVenueList } from '../service/CreateEventApi';
 
 
 const Venue = () => {
+    // hook importer
+    const dispatch = useDispatch()
 
     // usestate for local state
     const [mapOrCarView, setMapOrCardView] = useState("mapview");
@@ -24,6 +29,10 @@ const Venue = () => {
     const [openError, setOpenError] = useState(false);
     const [images, setImages] = useState([])
     const [previewImage, setPreviewImage] = useState([])
+
+    // useSlector to get State from store
+    const { getVenueList } = useSelector((state) => state?.createEventSlice)
+    console.log(getVenueList)
 
     // a function to delete image
     const deleteImage = (id) => {
@@ -40,6 +49,11 @@ const Venue = () => {
             setPreviewImage(tempPrew)
         }
     };
+
+    // useEffect to call function
+    useEffect(() => {
+        dispatch(GetVenueList())
+    }, [])
 
     return (
         <div className='create_event_venue'>
