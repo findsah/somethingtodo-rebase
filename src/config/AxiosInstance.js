@@ -5,9 +5,10 @@ import { baseUrl } from "./baseUrl";
 
 export const apiInstance = axios.create({
   baseURL: baseUrl,
-  timeout: 10000,
+  // timeout: 10000,
   headers: {
     Accept: "application/json",
+    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjcwOTEzNzYwLCJleHAiOjE2NzM1MDU3NjB9.D0kJm8v16JDIz4_176FSy8_ZwVD6CyrTik-nnPTMxFw"
     // "Content-Type": "multipart/form-data",
   },
 });

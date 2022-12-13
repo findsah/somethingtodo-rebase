@@ -75,7 +75,7 @@ const createEventSlice = createSlice({
             const { data, status } = action.payload || {}
             console.log(data)
             if (status >= 200 && status < 300) {
-                state.getVenueList = data?.data
+                state.getVenueList = data
             } else if (status >= 400 && status < 500) {
                 toast("Something went wrong in getVenueList")
             }
