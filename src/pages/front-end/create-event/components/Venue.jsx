@@ -22,6 +22,12 @@ const Venue = () => {
     // hook importer
     const dispatch = useDispatch()
 
+    // var settings = {
+    //     className: "center venue_cards",
+    //     centerMode: true,
+
+    // }
+
     // usestate for local state
     const [mapOrCarView, setMapOrCardView] = useState("mapview");
     const [mapOrcardTap, setMapOrCardTap] = useState("mapTap");
@@ -54,7 +60,15 @@ const Venue = () => {
 
     // add venue
     const addVenueAction = (item) => {
+
         setAddedVenues((prevState) => [...prevState, item])
+    }
+
+    // remove venue
+    const RemoveVenueAction = (item) => {
+        setAddedVenues((current) =>
+            current.filter((venue) => venue.id !== item?.id)
+        );
     }
 
     // useEffect to call function
@@ -272,29 +286,40 @@ const Venue = () => {
                 <h2 className='disable_desktop'>SEARCH VENUES:</h2>
                 <div className='venue_card_container'>
 
-                    <Slider className='venue_cards' slidesToShow={2}>
+                    <Slider className='venue_cards' slidesToShow={addedVenues?.length === 1 ? 1 : 2}>
                         {
-                            addedVenues.map(item => (
-                                <div className='venue_card'>
-                                    <img src={dummy} alt="" />
-                                    <h5 >LOREM IPSUM DOLOR SIT AMET</h5>
-                                    <p className='p_gray_10 '>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </p>
-                                    <div className='btn-container'>
-                                        {/* while integrating api you must pass all attribute same on the button */}
-                                        <button className='btn_error desktop_btn'>
-                                            <i class="fa fa-minus" aria-hidden="true"></i>
-                                            REMOVE VENUE
-                                        </button>
-                                        <button className='btn_error mobile_btn'>
-                                            <i class="fa fa-minus" aria-hidden="true"></i>
-                                            REMOVE
-                                        </button>
-                                    </div>
+                            addedVenues.map(item => {
+                                console.log(item?.id)
+                                return (
+                                    <div className='venue_card'>
+                                        <img src={dummy} alt="" />
+                                        <h5 >{item?.Title}</h5>
+                                        <p className='p_gray_10 '>
+                                            {
+                                                item?.Description.length > 230 ?
+                                                    item?.Description?.substring(0, 230) + "..."
+                                                    : item?.Description?.substring(0, 230)
+                                            }
+                                        </p>
+                                        <div className='btn-container'>
+                                            {/* while integrating api you must pass all attribute same on the button */}
+                                            <button className='btn_error desktop_btn'
+                                                onClick={() => RemoveVenueAction(item)}
+                                            >
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                                REMOVE VENUE
+                                            </button>
+                                            <button className='btn_error mobile_btn'
+                                                onClick={() => RemoveVenueAction(item)}
+                                            >
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                                REMOVE
+                                            </button>
+                                        </div>
 
-                                </div>
-                            ))
+                                    </div>
+                                )
+                            })
                         }
                     </Slider>
 

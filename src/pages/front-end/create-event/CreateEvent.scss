@@ -604,10 +604,12 @@ whatsapp: +923430048341
       .venue_cards {
         display: flex;
         gap: 1rem;
-        width: 802px;
+        width: 802px !important;
 
         .slick-track {
           display: flex;
+          gap: 1rem;
+          width: 802px !important;
         }
 
 
@@ -1630,6 +1632,8 @@ whatsapp: +923430048341
 
           .slick-track {
             display: flex;
+            gap: 2rem;
+            width: 408px !important;
           }
 
           .venue_card {
@@ -2443,6 +2447,8 @@ whatsapp: +923430048341
 
           .slick-track {
             display: flex;
+            gap: 2rem;
+            width: 408px !important;
           }
 
           .venue_card {
