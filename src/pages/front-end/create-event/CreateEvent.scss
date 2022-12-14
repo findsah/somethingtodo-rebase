@@ -524,6 +524,7 @@ whatsapp: +923430048341
 
 
       .event_card {
+        position: relative;
         background: #FFFFFF;
         border-radius: 3.1399px;
         box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.2);
@@ -539,7 +540,10 @@ whatsapp: +923430048341
         }
 
         button {
-          margin: 0.5rem 1rem 0rem 0rem;
+
+          position: absolute;
+          bottom: 8px;
+          right: 10px;
         }
 
         .btn-container {
@@ -620,6 +624,7 @@ whatsapp: +923430048341
           width: 386px !important;
           height: 327px;
           margin-bottom: 0.5rem;
+          position: relative;
 
           h5 {
             margin: 2.5rem 0rem 0rem 1rem;
@@ -632,7 +637,9 @@ whatsapp: +923430048341
 
 
           button {
-            margin: 0.5rem 1rem 0rem 0rem;
+            position: absolute;
+            bottom: 10px;
+            right: 12px;
           }
 
           .mobile_btn {
@@ -1565,7 +1572,7 @@ whatsapp: +923430048341
             height: 25px;
             font-weight: 400;
             font-size: 12px;
-            margin: 0.3rem 0.5rem 0rem 0rem;
+
           }
 
 
@@ -1655,7 +1662,6 @@ whatsapp: +923430048341
 
             .mobile_btn {
               display: flex;
-              margin: 0.8rem 0.5rem 0rem 0rem !important;
               width: 80px;
               height: 36px;
               font-size: 12px;
@@ -2377,7 +2383,7 @@ whatsapp: +923430048341
             height: 25px;
             font-weight: 400;
             font-size: 12px;
-            margin: 0.3rem 0.5rem 0rem 0rem;
+
           }
 
 
@@ -2470,7 +2476,7 @@ whatsapp: +923430048341
 
             .mobile_btn {
               display: flex;
-              margin: 0.8rem 0.5rem 0rem 0rem !important;
+
               width: 80px;
               height: 36px;
               font-size: 12px;
