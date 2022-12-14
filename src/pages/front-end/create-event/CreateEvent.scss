@@ -458,24 +458,6 @@ whatsapp: +923430048341
 
       input {
         &[type="search"] {
-          /* White */
-
-          background: #FFFFFF;
-          /* Dark blue */
-
-          border: 1px solid #1F518B;
-          border-radius: 4px;
-          font-family: 'SF UI Display';
-          font-style: normal;
-          font-weight: 400;
-          font-size: 12px;
-          line-height: 14px;
-          display: flex;
-          align-items: center;
-          letter-spacing: -0.017em;
-
-          /* Grey/Light */
-          color: #909090;
           width: 256px;
           height: 36px;
         }
