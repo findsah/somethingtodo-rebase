@@ -8,23 +8,15 @@ import Slider from 'react-slick';
 import profile from '../../../../assets/armanprofile.png'
 import CustomRangeSlider from '../../components/CustomRangeSlider';
 
-const Invites = ({ rtl }) => {
-
-    const [age, setAge] = useState([25, 75]);
-    const [number, setNumber] = useState("")
-    const [male, setMale] = useState(false)
-    const [female, setFemale] = useState(false)
-    const [both, setBoth] = useState(false)
+const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate, setIsthisDate,
+    whocanjoin,
+    setWhocanjoin
+}) => {
 
 
-    const data = {
-        age,
-        number,
-        male,
-        female,
-        both
-    }
-    console.log(data)
+
+
+
     // const [tableList, setTableList] = useState([])
 
     // const addList = () => {
@@ -77,12 +69,20 @@ const Invites = ({ rtl }) => {
                 <div className='question_option'>
 
                     <div className='checkbox'>
-                        <input type="checkbox" id='yes' name='yes' />
+                        <input type="checkbox" id='yes' name='yes'
+                            value={isthisDate}
+                            checked={isthisDate}
+                            onChange={() => { setIsthisDate(true) }}
+                        />
                         <label htmlFor="yes">Yes</label>
                     </div>
 
                     <div className='checkbox'>
-                        <input type="checkbox" id='no' name='no' />
+                        <input type="checkbox" id='no' name='no'
+                            value={isthisDate}
+                            checked={!isthisDate}
+                            onChange={() => { setIsthisDate(false) }}
+                        />
                         <label htmlFor="no">No</label>
                     </div>
 
@@ -125,8 +125,9 @@ const Invites = ({ rtl }) => {
                                     type="checkbox"
                                     name='male'
                                     id='male'
-                                    value={male}
-                                    onChange={(e) => setMale(e.target?.checked)}
+                                    checked={gender === "male"}
+                                    value={gender}
+                                    onChange={(e) => setGender("male")}
                                 // value={tableList[item?.id]?.male}
                                 // onChange={(e) => { handleChange(item?.id, e) }}
                                 />
@@ -137,8 +138,9 @@ const Invites = ({ rtl }) => {
                                     type="checkbox"
                                     name='female'
                                     id='Female'
-                                    value={female}
-                                    onChange={(e) => setFemale(e.target?.checked)}
+                                    value={gender}
+                                    checked={gender === "female"}
+                                    onChange={(e) => setGender("female")}
                                 // value={tableList[item?.id]?.female}
                                 // onChange={(e) => { handleChange(item?.id, e) }}
                                 />
@@ -149,8 +151,9 @@ const Invites = ({ rtl }) => {
                                     type="checkbox"
                                     name='both'
                                     id='Both'
-                                    value={both}
-                                    onChange={(e) => setBoth(e.target?.checked)}
+                                    value={gender}
+                                    checked={gender === "both"}
+                                    onChange={(e) => setGender("both")}
                                 // value={tableList[item?.id]?.both}
                                 // onChange={(e) => { handleChange(item?.id, e) }}
                                 />
@@ -185,75 +188,87 @@ const Invites = ({ rtl }) => {
                 </tbody>
 
             </table>
+            {
+                isthisDate &&
+                <>
+                    {/* question */}
+                    <div className='question_date'>
+                        <h2>WHO CAN JOIN ?</h2>
+                        <div className='question_option'>
 
-            {/* question */}
-            <div className='question_date'>
-                <h2>WHO CAN JOIN ?</h2>
-                <div className='question_option'>
-
-                    <div className='checkbox'>
-                        <input type="checkbox" id='Anyone' name='Anyone' />
-                        <label htmlFor="Anyone">Anyone can join</label>
-                    </div>
-
-                    <div className='checkbox'>
-                        <input type="checkbox" id='Request to join' name='Request to join' />
-                        <label htmlFor="Request to join">Request to join</label>
-                    </div>
-
-                </div>
-
-            </div>
-
-            {/* invite friends */}
-            <div className='invite_friends_group'>
-                <div className='invite_friends'>
-                    <h2>INVETE FRIENDS TO JOIN</h2>
-                    <div className='invite_friends_right'>
-                        <select name="location" id="location" className='select' placeholder='Search City / Current Location'>
-                            <option value="one">option one</option>
-                        </select>
-                        <button className='btn_secondary'><i class="fa fa-plus" aria-hidden="true"></i> ADD FRIEND </button>
-                    </div>
-
-                </div>
-
-                <Slider {...settings} className='mini_cards' >
-                    {
-                        [1, 2, 3, 4, , 5, 6, 7, 8, 9, 10].map(item => (
-                            <div className="mini_card">
-                                <img src={profile} alt="" />
-                                <p className='p_blue_size_20'>Name</p>
-                                <i class="fa fa-times" aria-hidden="true"></i>
+                            <div className='checkbox'>
+                                <input type="checkbox" id='Anyone' name='Anyone'
+                                    value={whocanjoin}
+                                    checked={whocanjoin === "anyone"}
+                                    onChange={() => setWhocanjoin("anyone")}
+                                />
+                                <label htmlFor="Anyone">Anyone can join</label>
                             </div>
-                        ))
-                    }
-                </Slider>
 
-            </div>
-
-            {/* invite friends by email */}
-            <div className='invite_friends_group'>
-                <div className='invite_friends'>
-                    <h2>INVITE FRIENDS BY EMAIL</h2>
-                    <div className='invite_friends_right'>
-                        <input type="text" name="inviteEmail" id="inviteEmail" placeholder='Text' className='text' />
-                        <button className='btn_secondary'><i class="fa fa-plus" aria-hidden="true"></i>INVITE </button>
-                    </div>
-                </div>
-                <Slider {...settings} className='mini_cards' >
-                    {
-                        [1, 2, 3, 4, , 5, 6, 7, 8, 9, 10].map(item => (
-                            <div className="mini_card">
-                                <img src={profile} alt="" />
-                                <p className='p_blue_size_20'>@Email</p>
-                                <i class="fa fa-times" aria-hidden="true"></i>
+                            <div className='checkbox'>
+                                <input type="checkbox" id='Request to join' name='Request to join'
+                                    value={whocanjoin}
+                                    checked={whocanjoin === "request"}
+                                    onChange={() => setWhocanjoin("request")}
+                                />
+                                <label htmlFor="Request to join">Request to join</label>
                             </div>
-                        ))
-                    }
-                </Slider>
 
-            </div>
+                        </div>
+
+                    </div>
+
+                    {/* invite friends */}
+                    <div className='invite_friends_group'>
+                        <div className='invite_friends'>
+                            <h2>INVETE FRIENDS TO JOIN</h2>
+                            <div className='invite_friends_right'>
+                                <select name="location" id="location" className='select' placeholder='Search City / Current Location'>
+                                    <option value="one">option one</option>
+                                </select>
+                                <button className='btn_secondary'><i class="fa fa-plus" aria-hidden="true"></i> ADD FRIEND </button>
+                            </div>
+
+                        </div>
+
+                        <Slider {...settings} className='mini_cards' >
+                            {
+                                [1, 2, 3, 4, , 5, 6, 7, 8, 9, 10].map(item => (
+                                    <div className="mini_card">
+                                        <img src={profile} alt="" />
+                                        <p className='p_blue_size_20'>Name</p>
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </div>
+                                ))
+                            }
+                        </Slider>
+
+                    </div>
+
+                    {/* invite friends by email */}
+                    <div className='invite_friends_group'>
+                        <div className='invite_friends'>
+                            <h2>INVITE FRIENDS BY EMAIL</h2>
+                            <div className='invite_friends_right'>
+                                <input type="text" name="inviteEmail" id="inviteEmail" placeholder='Text' className='text' />
+                                <button className='btn_secondary'><i class="fa fa-plus" aria-hidden="true"></i>INVITE </button>
+                            </div>
+                        </div>
+                        <Slider {...settings} className='mini_cards' >
+                            {
+                                [1, 2, 3, 4, , 5, 6, 7, 8, 9, 10].map(item => (
+                                    <div className="mini_card">
+                                        <img src={profile} alt="" />
+                                        <p className='p_blue_size_20'>@Email</p>
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </div>
+                                ))
+                            }
+                        </Slider>
+
+                    </div>
+                </>
+            }
 
         </div>
     )
