@@ -19,7 +19,7 @@ const Header = () => {
                         <Link to="#pricing">MY EVENTS</Link>
                         <Link to="/blog">BLOG</Link>
                         <Link to="/faq">FAQ</Link>
-                        <Link to="/signup">
+                        <Link to="/login">
 
                             <Button className='signup'>
                                 <BsPersonCircle />
