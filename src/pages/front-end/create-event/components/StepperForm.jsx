@@ -4,22 +4,78 @@ github: https://github.com/Arman-Arzoo
 whatsapp: +923430048341
 */
 import React, { useEffect, useState } from 'react'
-import EventAndVenueDetail from './EventAndVenueDetail'
 import Invites from './Invites'
 import TimeAndPrice from './TimeAndPrice'
 import Venue from './Venue'
 
 const StepperForm = () => {
 
+    // usestate to control state locally
     const [activeStepper, setActiveSteper] = useState(1)
+    // venue local state
+    const [images, setImages] = useState([])
+    const [previewImage, setPreviewImage] = useState([])
+    const [addedVenues, setAddedVenues] = useState([])
+    // event discription local state
+    const [eventTitle, setEventTitle] = useState("");
+    const [eventDescription, setEventDescription] = useState('')
+    // invite local state
+    const [age, setAge] = useState([25, 75]);
+    const [number, setNumber] = useState("")
+    const [gender, setGender] = useState("")
+    const [isthisDate, setIsthisDate] = useState(false)
+    const [whocanjoin, setWhocanjoin] = useState("")
 
 
+
+    //  active stepper to reset
     useEffect(() => {
         if (activeStepper === 5) {
             setActiveSteper(1)
         }
     }, [activeStepper])
 
+    // main state controller from parrent for venue
+    const venueData = {
+        images,
+        setImages,
+        previewImage,
+        setPreviewImage,
+        addedVenues,
+        setAddedVenues
+    }
+
+    // main state controller from parrent for invites
+    const inviteData = {
+        age,
+        gender,
+        number,
+        setAge,
+        setGender,
+        setNumber,
+        isthisDate,
+        setIsthisDate,
+        whocanjoin,
+        setWhocanjoin
+
+    }
+
+    // whole date
+    const data = {
+        all_venues: addedVenues,
+        title: eventTitle,
+        description: eventDescription,
+        IsthisDate: isthisDate,
+        age,
+        gender,
+        number,
+        time: "",
+        date: "",
+        location: "",
+        whocanjoin,
+    }
+
+    console.log(data)
     return (
         <>
             {/* stepper */}
@@ -61,8 +117,7 @@ const StepperForm = () => {
                 /* venue */
                 activeStepper === 1 &&
                 <>
-                    <Venue />
-                    {/* <EventAndVenueDetail /> */}
+                    <Venue  {...venueData} />
                 </>
             }
 
@@ -74,11 +129,17 @@ const StepperForm = () => {
                     <div className="event_description">
 
                         <h2>EVENT TITLE</h2>
-                        <input type="text" placeholder='Text' />
+                        <input type="text" placeholder='Text' className='text'
+                            value={eventTitle}
+                            onChange={(e) => setEventTitle(e.target.value)}
+                        />
                     </div>
                     <div className="event_description">
                         <h2>EVENT DESCRIPTION</h2>
-                        <textarea type="textarea" id='eventDiscription' name="eventDiscription" rows="5" cols="50" placeholder='Text' />
+                        <textarea type="textarea" id='eventDiscription' name="eventDiscription" rows="5" cols="50" placeholder='Text'
+                            value={eventDescription}
+                            onChange={(e) => setEventDescription(e.target.value)}
+                        />
                     </div>
                     {/* <EventAndVenueDetail /> */}
                 </>
@@ -89,8 +150,7 @@ const StepperForm = () => {
                 /* invites  */
                 activeStepper === 3 &&
                 <>
-                    <Invites />
-                    {/* <EventAndVenueDetail /> */}
+                    <Invites {...inviteData} />
                 </>
             }
             {
@@ -98,7 +158,6 @@ const StepperForm = () => {
                 activeStepper === 4 &&
                 <>
                     <TimeAndPrice />
-                    {/* <EventAndVenueDetail /> */}
                 </>
             }
 
