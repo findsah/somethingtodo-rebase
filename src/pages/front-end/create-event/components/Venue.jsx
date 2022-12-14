@@ -18,7 +18,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GetVenueList } from '../service/CreateEventApi';
 
 
-const Venue = () => {
+const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, setPreviewImage }) => {
     // hook importer
     const dispatch = useDispatch()
 
@@ -33,9 +33,7 @@ const Venue = () => {
     const [mapOrcardTap, setMapOrCardTap] = useState("mapTap");
     const [open, setOpen] = useState(false);
     const [openError, setOpenError] = useState(false);
-    const [images, setImages] = useState([])
-    const [previewImage, setPreviewImage] = useState([])
-    const [addedVenues, setAddedVenues] = useState([])
+
 
     // useSlector to get State from store
     const { getVenueList } = useSelector((state) => state?.createEventSlice)
@@ -88,7 +86,7 @@ const Venue = () => {
                 <h2>SEARCH VENUES: </h2>
                 <div class="right-inner-icon">
                     <i class="fa fa-search" aria-hidden="true"></i>
-                    <input type="search" placeholder="Search City / Current Location" />
+                    <input className="search" type="search" placeholder="Search City / Current Location" />
                 </div>
             </div>
 
