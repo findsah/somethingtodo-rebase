@@ -8,8 +8,15 @@ import calenderIcon from '../../../../assets/icons/calendar.svg'
 import clockIcon from '../../../../assets/icons/clock.svg'
 import CustomRangeSlider from '../../components/CustomRangeSlider'
 
-const TimeAndPrice = () => {
-    const [values, setValues] = useState([25, 75]);
+const TimeAndPrice = ({ eventDate,
+    eventCost,
+    eventTime,
+    costSplit,
+    setEventCost,
+    setEventDate,
+    setEventTime,
+    setCostSplit }) => {
+
     return (
 
         <div className="container create-event-time_and_price">
@@ -20,7 +27,10 @@ const TimeAndPrice = () => {
                         <img src={calenderIcon} alt="" />
                     </div>
                     <div className='event_date_calender'>
-                        <input type="date" />
+                        <input type="date"
+                            value={eventDate}
+                            onChange={(e) => { setEventDate(e.target.value) }}
+                        />
                     </div>
                 </div>
 
@@ -30,7 +40,10 @@ const TimeAndPrice = () => {
                         <img src={clockIcon} alt="" />
                     </div>
                     <div className='event_time_field'>
-                        <input type="time" />
+                        <input type="time"
+                            value={eventTime}
+                            onChange={(e) => { setEventTime(e.target.value); console.log(e.target) }}
+                        />
                     </div>
                 </div>
             </div>
@@ -40,18 +53,26 @@ const TimeAndPrice = () => {
                     <h3>ESTIMATED COST FOR THIS EVENT</h3>
                     <div className='range_wdith'>
 
-                        <CustomRangeSlider values={values} setValues={setValues} min={0} max={90} step={1} />
+                        <CustomRangeSlider values={eventCost} setValues={setEventCost} min={0} max={9999} step={1} />
                     </div>
                 </div>
                 <div className="col-sm-6 col-12 m-auto  mobile_marign">
                     <h3>HOW WILL THE COST BE <br className='hide' /> SPLIT AMONG THE GROUP ?</h3>
                     <div className='cost_split'>
                         <div className='paying checkbox'>
-                            <input type="checkbox" name='paying' id='paying' />
+                            <input type="checkbox" name='paying' id='paying'
+                                value={costSplit}
+                                onChange={() => setCostSplit("i am Paying")}
+                                checked={costSplit === "i am Paying"}
+                            />
                             <label htmlFor="paying">I`m Paying</label>
                         </div>
                         <div className='shared checkbox'>
-                            <input type="checkbox" name='shared' id='shared' />
+                            <input type="checkbox" name='shared' id='shared'
+                                value={costSplit}
+                                onChange={() => setCostSplit("shared")}
+                                checked={costSplit === "shared"}
+                            />
                             <label htmlFor="shared">Evenly Shared</label>
                         </div>
                     </div>

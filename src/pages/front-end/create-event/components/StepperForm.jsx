@@ -25,8 +25,11 @@ const StepperForm = () => {
     const [gender, setGender] = useState("")
     const [isthisDate, setIsthisDate] = useState(false)
     const [whocanjoin, setWhocanjoin] = useState("")
-
-
+    // time and price state
+    const [eventDate, setEventDate] = useState("")
+    const [eventTime, setEventTime] = useState("")
+    const [eventCost, setEventCost] = useState([0, 1000])
+    const [costSplit, setCostSplit] = useState("")
 
     //  active stepper to reset
     useEffect(() => {
@@ -59,6 +62,18 @@ const StepperForm = () => {
         setWhocanjoin
 
     }
+    //main state controller from prarrent for time & price
+    const timeandpriceData = {
+        eventDate,
+        eventCost,
+        eventTime,
+        costSplit,
+        setEventCost,
+        setEventDate,
+        setEventTime,
+        setCostSplit
+
+    }
 
     // whole date
     const data = {
@@ -69,10 +84,14 @@ const StepperForm = () => {
         age,
         gender,
         number,
-        time: "",
-        date: "",
+        time: eventTime,
+        date: eventDate,
         location: "",
         whocanjoin,
+        invite: "",
+        friend: "",
+        all_blogs: "",
+        eventCost
     }
 
     console.log(data)
@@ -157,7 +176,7 @@ const StepperForm = () => {
                 /*  time and price */
                 activeStepper === 4 &&
                 <>
-                    <TimeAndPrice />
+                    <TimeAndPrice {...timeandpriceData} />
                 </>
             }
 
