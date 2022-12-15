@@ -93,7 +93,7 @@ export const DeleteEventList = createAsyncThunk("createEventsSection/deleteEvent
 //  get venue list
 export const GetVenueList = createAsyncThunk("createEventsSection/getVenueList", async (params) => {
 
-    // let response = await axios.get(`${baseUrl}all-venues`, config).then((response) => {
+    // let response = await  apiInstance.get(`${baseUrl}all-venues`).then((response) => {
     let response = await axios.get(`${baseUrl}all-venues`, config).then((response) => {
         return response
     }).catch((error) => {
@@ -150,7 +150,7 @@ export const UpdateVenueList = createAsyncThunk("createEventsSection/updateVenue
 //  delete event list
 export const DeleteVenueList = createAsyncThunk("createEventsSection/deleteVenueList", async (params) => {
 
-    let response = await apiInstance.delete(`//all-venues${params}`, params).then((response) => {
+    let response = await apiInstance.delete(`all-venues${params}`, params).then((response) => {
 
         return response
     }).catch((error) => {

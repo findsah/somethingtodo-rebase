@@ -4,6 +4,8 @@ github: https://github.com/Arman-Arzoo
 whatsapp: +923430048341
 */
 import React, { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
+import CustomEventSuccessPopup from '../../components/CustomEventSuccessPopup'
 import Invites from './Invites'
 import TimeAndPrice from './TimeAndPrice'
 import Venue from './Venue'
@@ -31,12 +33,9 @@ const StepperForm = () => {
     const [eventCost, setEventCost] = useState([0, 1000])
     const [costSplit, setCostSplit] = useState("")
 
-    //  active stepper to reset
-    useEffect(() => {
-        if (activeStepper === 5) {
-            setActiveSteper(1)
-        }
-    }, [activeStepper])
+    const [openSuccess, setOpenSuccess] = useState(false)
+
+
 
     // main state controller from parrent for venue
     const venueData = {
@@ -94,7 +93,13 @@ const StepperForm = () => {
         eventCost
     }
 
-    console.log(data)
+
+    // create event action
+    const createEventAction = () => {
+        // toast.success("your event is created")
+        console.log(data)
+        setOpenSuccess(true)
+    }
     return (
         <>
             {/* stepper */}
@@ -181,8 +186,19 @@ const StepperForm = () => {
             }
 
             <div className='text-center mt-5'>
-                <button className='btn_primary' onClick={() => setActiveSteper(activeStepper + 1)}>{activeStepper === 4 ? "FINISH" : "NEXT"}</button>
+                <button className='btn_primary' onClick={() => {
+                    if (activeStepper != 4) {
+
+                        setActiveSteper(activeStepper + 1);
+                    }
+                    if (activeStepper === 4) {
+                        createEventAction()
+                    }
+
+
+                }}>{activeStepper === 4 ? "FINISH" : "NEXT"}</button>
             </div>
+            <CustomEventSuccessPopup success="GREAT, YOUR EVENT IS CREATED!" openSuccess={openSuccess} close={setOpenSuccess} />
 
         </>
     )

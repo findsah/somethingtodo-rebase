@@ -19,6 +19,8 @@ import { Provider } from "react-redux";
 import store from "./services/store";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
+import { ToastContainer, Slide } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const loadingMarkup = (
   <div className="py-4 text-center">
@@ -37,6 +39,16 @@ root.render(
         <Provider {...{ store }}>
           <PersistGate loading={null} persistor={persistor}>
             <App />
+            <ToastContainer position="top-right"
+              autoClose={4000}
+              hideProgressBar={false}
+              newestOnTop
+              closeOnClick
+              transition={Slide}
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover />
           </PersistGate>
         </Provider>
       </BrowserRouter>

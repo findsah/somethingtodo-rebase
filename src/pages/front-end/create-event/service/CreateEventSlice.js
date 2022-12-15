@@ -23,6 +23,7 @@ const createEventSlice = createSlice({
         deleteVenueList: {},
     },
     reducers: {
+
     },
     extraReducers: {
 

@@ -6,10 +6,13 @@ import thunk from "redux-thunk";
 
 // import AuthSlice from "./shared/shredSlice";
 import createEventSlice from '../pages/front-end/create-event/service/CreateEventSlice'
+import blogSlice from "../pages/front-end/blog/config/BlogSlice";
 
 const reducers = combineReducers({
   // AuthSlice,
-  createEventSlice
+  createEventSlice,
+  blogSlice
+
 });
 
 const persistConfig = {

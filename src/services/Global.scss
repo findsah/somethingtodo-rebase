@@ -453,6 +453,7 @@ h6 {
   }
 }
 
+// custom search bar
 .search {
   /* White */
 
@@ -479,6 +480,124 @@ h6 {
   padding-right: 0.5rem;
 
 }
+
+// custom success popup
+// custom Error poppu
+.custom_modal_success {
+
+  .css-tlc64q-MuiPaper-root-MuiDialog-paper {
+    background: linear-gradient(140.6deg, #002C6D 0%, #0082CF 100%);
+    border-radius: 8px;
+
+  }
+
+  .content_Wrapper_success {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    .icon_check {
+      background: #6FCE00;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-size: 3rem;
+      color: white;
+
+
+    }
+
+    p {
+      font-family: 'SF UI Display';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 48px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.063em;
+      color: #FFFFFF;
+
+    }
+
+    .social_share {
+      p {
+        font-family: 'SF UI Display';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 24px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.063em;
+
+        /* White */
+
+        color: #FFFFFF;
+      }
+
+      .social_icons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .social_icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 36px;
+          width: 36px;
+          border-radius: 50%;
+          color: white;
+          background: linear-gradient(92.39deg, #FF9700 0%, #DE8300 91.96%);
+        }
+      }
+    }
+
+    .custom_footer {
+      display: flex;
+      gap: 2rem;
+      padding-top: 3rem;
+
+      .edit_venue_btn {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 6px 16px;
+        gap: 8px;
+
+        width: 120px;
+        height: 36px;
+        background: transparent;
+        background: linear-gradient(92.39deg, #FF9700 0%, #DE8300 91.96%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+
+
+        border-radius: 14px;
+        font-family: 'SF UI Display';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        border: 1px dashed #ff9700;
+      }
+    }
+  }
+}
+
+
 
 // global css for mobile
 @include media ('<=phone') {
