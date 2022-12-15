@@ -12,8 +12,22 @@ import Slider from 'react-slick'
 import { settings } from '../../../../config/helper'
 import { Link } from 'react-router-dom'
 import BlogCard from './BlogCard'
+import { GetBlogList } from '../service/BlogApi'
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function BlogList() {
+
+    const dispatch = useDispatch()
+
+    // useSlector to get State from store
+    const { getBlogList } = useSelector((state) => state?.blogSlice);
+    console.log(getBlogList)
+
+    // useEffect to call function
+    useEffect(() => {
+        dispatch(GetBlogList())
+    }, [])
     return (
         <div className="container-fluid">
             <div className="row  justify-content-center mobilescreenstyle">

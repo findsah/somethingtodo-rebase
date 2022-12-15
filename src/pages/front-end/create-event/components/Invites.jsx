@@ -52,11 +52,19 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
 
         responsive: [
             {
-                breakpoint: 600,
+                breakpoint: 500,
                 settings: {
                     slidesToShow: 2,
                 }
-            }]
+            },
+
+            {
+                breakpoint: 700,
+                settings: {
+                    slidesToShow: 2,
+                }
+            }
+        ]
     }
 
 
@@ -189,7 +197,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
 
             </table>
             {
-                isthisDate &&
+                !isthisDate &&
                 <>
                     {/* question */}
                     <div className='question_date'>

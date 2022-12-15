@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
 import apiInstance from "../../../../config/AxiosInstance";
+import { baseUrl } from "../../../../config/baseUrl";
 
 const config = {
     headers: {

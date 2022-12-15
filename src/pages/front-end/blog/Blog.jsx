@@ -4,6 +4,8 @@ import BlogList from './components/BlogList'
 import BlogTopSection from './components/BlogTopSection'
 
 export default function Blog() {
+
+
     return (
         <div>
             <div className='main-backgrond'>
