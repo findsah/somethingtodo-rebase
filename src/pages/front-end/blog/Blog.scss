@@ -175,7 +175,19 @@
     }
    
 }
+.hoverEffect:hover {
+    
+    
+  transform: scale(1.05);
+  box-shadow: 5px 5px 10px rgba(34, 33, 33, 0.3);
+}
 .blog-card{
+  
+
+  margin: 20px auto;
+  cursor: pointer;
+  border: transparent !important;
+
   .slick-next {
     display: none;
 }
@@ -222,7 +234,12 @@ height: 775px;
 }
 
 .date-cards{
+  .date-card-style:hover{
+      transform: scale(1.05);
+      box-shadow: 5px 5px 10px rgba(34, 33, 33, 0.3);
+  }
   width: 100%;
+
 }
   .first-row{
     margin-top: 4rem;
@@ -362,10 +379,10 @@ height: 775px;
   display: none;
 }
 .main-backgrond{
-  background-color: #D5EAFF;
+  background: linear-gradient(172.82deg, #E2F4FF 2.56%, #FFFFFF 96.35%);
 }
 .bg-color{
-  background-color: #D5EAFF;
+  background: linear-gradient(172.82deg, #E2F4FF 2.56%, #FFFFFF 96.35%);
 }
 .main-blog-post{
 

@@ -10,21 +10,26 @@ export default function BlogCard() {
                     {
                         [1, 2, 3, 4, 5, 6].map(item => (
                             <div className="col-4 ">
-                                <div className="row  ">
-                                    <div className="col-11">
-                                        <img src={blog1} alt="" />
-                                    </div>
-                                    <div className="col-11 mt-3">
-                                        <div className="row justify-content-center">
-                                            <div className="col-10">
-                                                <h2>LOREM IPSUM DOLOR SIT AMET</h2>
+                                <div className="row">
+                                    <div className="col-lg-12">
+                                        <div className="row justify-content-center hoverEffect" >
+                                            <div className="col-11">
+                                                <img src={blog1} alt="" />
                                             </div>
-                                            <div className="col-10">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
+                                            <div className="col-11 mt-3">
+                                                <div className="row justify-content-center">
+                                                    <div className="col-10">
+                                                        <h2>LOREM IPSUM DOLOR SIT AMET</h2>
+                                                    </div>
+                                                    <div className="col-10">
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
-
                                     </div>
+
                                 </div>
                             </div>
                         ))
