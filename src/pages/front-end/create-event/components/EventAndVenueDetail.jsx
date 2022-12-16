@@ -20,7 +20,7 @@ import MapModal from '../../components/MapModal'
 import Slider from 'react-slick'
 
 
-const EventAndVenueDetail = () => {
+const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
     const [open, setOpen] = useState(false)
 
     var settings = {
@@ -45,16 +45,19 @@ const EventAndVenueDetail = () => {
                     <div className="col info">
                         <div className='inline'>
                             <img src={dollar} alt="" />
-                            <p className='p_gray_14'> $30/  PAX </p>
+                            <p className='p_gray_14'> ${timeandpriceData?.eventCost[1]}/  PAX </p>
                         </div>
                         <div className='inline'>
                             <img src={calendarblue} alt="" />
-                            <p className='p_gray_14'>  22 JUNE 2021 </p>
+                            <p className='p_gray_14'>  {timeandpriceData?.eventDate} </p>
 
                         </div>
                         <div className='inline'>
                             <img src={clockblue} alt="" />
-                            <p className='p_gray_14'> 7.00 P.M. - 11/30 P.M. </p>
+                            <p className='p_gray_14'>
+                                {/* 7.00 P.M. - 11/30 P.M.  */}
+                                {timeandpriceData?.eventTime}
+                            </p>
 
                         </div>
 
@@ -99,57 +102,64 @@ const EventAndVenueDetail = () => {
                 <div className="row">
                     <h2 >VENUE DETAILS</h2>
                     <div className="blue_line_bar"></div>
-                    <Slider {...settings}>
-                        {
-                            [1, 2, 3, 4].map((item) => (
+                    {
+                        addedVenues?.length > 0 ?
+                            <Slider {...settings}>
+                                {
+                                    addedVenues?.map((item) => (
 
-                                // <div className="col ">
-                                <div className='card'>
-                                    <img src={eventimg} alt="" width="464px" height="207px" />
-                                    <p className='p_blue_size_20 text-center'>Insert Venue Name Here</p>
-                                    <div className="row info">
-                                        <div className="col d-flex align-items-center gap-4">
-                                            <img src={websiteIcon} alt="icon" width="30px" height="30px" />
-                                            <p className='p_gray_14'>www.website.com</p>
+                                        // <div className="col ">
+                                        <div className='card'>
+                                            <img src={eventimg} alt="" width="464px" height="207px" />
+                                            <p className='p_blue_size_20 text-center'>{item?.Title}</p>
+                                            <div className="row info">
+                                                <div className="col d-flex align-items-center gap-4">
+                                                    <img src={websiteIcon} alt="icon" width="30px" height="30px" />
+                                                    <p className='p_gray_14'>{item?.website}</p>
+                                                </div>
+                                                <div className="col d-flex align-items-center gap-4">
+                                                    <img src={phoneIcon} alt="icon" width="30px" height="30px" />
+                                                    <p className='p_gray_14'>{item?.phone} </p>
+                                                </div>
+                                            </div>
+
+                                            <div className="row info">
+                                                <div className="col d-flex align-items-center gap-4">
+                                                    <img src={emailIcon} alt="icon" width="30px" height="30px" />
+                                                    <p className='p_gray_14'>{item?.email || "no email"}</p>
+                                                </div>
+                                            </div>
+
+                                            <div className="row info">
+                                                <div className="col d-flex align-items-center gap-4">
+                                                    <img src={locationIcon} alt="icon" width="30px" height="30px" />
+                                                    <p className='p_gray_14'> {item?.location}</p>
+                                                </div>
+                                            </div>
+                                            <div className="row info">
+                                                <div className="col d-flex align-items-center gap-4">
+                                                    <img src={clockblue} alt="icon" width="30px" height="30px" />
+                                                    <p className='p_gray_14'> {item?.openningday}<br />
+                                                        {item?.openningtimes}</p>
+                                                </div>
+                                                <div className="col d-flex align-items-center gap-4">
+                                                    <button className='btn_primary'>MORE DETAILS</button>
+                                                </div>
+                                            </div>
+
                                         </div>
-                                        <div className="col d-flex align-items-center gap-4">
-                                            <img src={phoneIcon} alt="icon" width="30px" height="30px" />
-                                            <p className='p_gray_14'>888-888-888 </p>
-                                        </div>
-                                    </div>
 
-                                    <div className="row info">
-                                        <div className="col d-flex align-items-center gap-4">
-                                            <img src={emailIcon} alt="icon" width="30px" height="30px" />
-                                            <p className='p_gray_14'>emailaddress@gmail.com</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="row info">
-                                        <div className="col d-flex align-items-center gap-4">
-                                            <img src={locationIcon} alt="icon" width="30px" height="30px" />
-                                            <p className='p_gray_14'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis</p>
-                                        </div>
-                                    </div>
-                                    <div className="row info">
-                                        <div className="col d-flex align-items-center gap-4">
-                                            <img src={clockblue} alt="icon" width="30px" height="30px" />
-                                            <p className='p_gray_14'> Monday - Sunday <br />
-                                                10 A.M. - 11.30 P.M.</p>
-                                        </div>
-                                        <div className="col d-flex align-items-center gap-4">
-                                            <button className='btn_primary'>MORE DETAILS</button>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                // </div>
-                            )
-                            )}
+                                        // </div>
+                                    )
+                                    )}
 
 
-                    </Slider>
+                            </Slider> :
+                            <div className='d-flex justify-content-center align-items-center'>
+                                No Venues Detail found add venue for detail
+                            </div>
+                    }
+
 
                 </div>
             </div>

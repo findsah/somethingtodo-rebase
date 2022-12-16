@@ -10,7 +10,7 @@ import Invites from './Invites'
 import TimeAndPrice from './TimeAndPrice'
 import Venue from './Venue'
 
-const StepperForm = ({ data, venueData, eventDescription, eventTitle, setEventDescription, setEventTitle, inviteData, timeandpriceData }) => {
+const StepperForm = ({ data, venueData, descData, inviteData, timeandpriceData }) => {
     // usestate to control state locally
     const [activeStepper, setActiveSteper] = useState(1)
     const [openSuccess, setOpenSuccess] = useState(false)
@@ -75,15 +75,15 @@ const StepperForm = ({ data, venueData, eventDescription, eventTitle, setEventDe
 
                         <h2>EVENT TITLE</h2>
                         <input type="text" placeholder='Text' className='text'
-                            value={eventTitle}
-                            onChange={(e) => setEventTitle(e.target.value)}
+                            value={descData?.eventTitle}
+                            onChange={(e) => descData?.setEventTitle(e.target.value)}
                         />
                     </div>
                     <div className="event_description">
                         <h2>EVENT DESCRIPTION</h2>
                         <textarea type="textarea" id='eventDiscription' name="eventDiscription" rows="5" cols="50" placeholder='Text'
-                            value={eventDescription}
-                            onChange={(e) => setEventDescription(e.target.value)}
+                            value={descData?.eventDescription}
+                            onChange={(e) => descData?.setEventDescription(e.target.value)}
                         />
                     </div>
                     {/* <EventAndVenueDetail /> */}

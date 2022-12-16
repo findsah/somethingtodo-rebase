@@ -11,7 +11,7 @@ import { settings } from '../../../../config/helper';
 import Countdown from 'react-countdown';
 import profilegirl from '../../../../assets/profilegirl.svg'
 
-const CreateEventHead = () => {
+const CreateEventHead = ({ previewImage, descData }) => {
 
     // Random component
     const Completionist = () => <span>You are good to go!</span>;
@@ -69,9 +69,9 @@ const CreateEventHead = () => {
 
                 <div className='createEventInfoContainer'>
                     <div className='info'>
-                        <h4>LOREM IPSUM DOLOR SIT AMET</h4>
+                        <h4>{descData?.eventTitle || "Your Event Title"}</h4>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
+                        <p>{descData?.eventDescription || "Your event Description"}</p>
                     </div>
                     <div className='timer'>
                         <p className='timerStart'>Event starts in</p>

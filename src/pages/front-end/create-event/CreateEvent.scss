@@ -40,6 +40,7 @@ whatsapp: +923430048341
 
     .createEventInfoContainer {
       display: flex;
+      justify-content: space-between;
       padding: 2rem;
 
 
@@ -1046,6 +1047,12 @@ whatsapp: +923430048341
     top: 170px;
     left: -64px;
 
+  }
+
+  .slick-track {
+
+    height: 626px;
+    overflow: hidden;
   }
 
   .card {

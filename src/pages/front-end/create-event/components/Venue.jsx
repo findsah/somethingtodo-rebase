@@ -22,12 +22,6 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     // hook importer
     const dispatch = useDispatch()
 
-    // var settings = {
-    //     className: "center venue_cards",
-    //     centerMode: true,
-
-    // }
-
     // usestate for local state
     const [mapOrCarView, setMapOrCardView] = useState("mapview");
     const [mapOrcardTap, setMapOrCardTap] = useState("mapTap");

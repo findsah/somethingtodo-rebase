@@ -91,7 +91,9 @@ const CreateEvent = () => {
     return (
         <>
             {/* Create event header */}
-            <CreateEventHead />
+            <CreateEventHead
+                previewImage={previewImage}
+                descData={descData} />
             {/* Create event Stepper  */}
             <div className='container eventStepContainer'>
                 <StepperForm
@@ -104,7 +106,12 @@ const CreateEvent = () => {
 
             </div>
             <div className='container '>
-                <EventAndVenueDetail />
+                <EventAndVenueDetail
+                    addedVenues={addedVenues}
+                    timeandpriceData={timeandpriceData}
+
+
+                />
             </div>
         </>
     )
