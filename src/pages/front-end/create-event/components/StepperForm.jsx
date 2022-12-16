@@ -10,89 +10,10 @@ import Invites from './Invites'
 import TimeAndPrice from './TimeAndPrice'
 import Venue from './Venue'
 
-const StepperForm = () => {
-
+const StepperForm = ({ data, venueData, eventDescription, eventTitle, setEventDescription, setEventTitle, inviteData, timeandpriceData }) => {
     // usestate to control state locally
     const [activeStepper, setActiveSteper] = useState(1)
-    // venue local state
-    const [images, setImages] = useState([])
-    const [previewImage, setPreviewImage] = useState([])
-    const [addedVenues, setAddedVenues] = useState([])
-    // event discription local state
-    const [eventTitle, setEventTitle] = useState("");
-    const [eventDescription, setEventDescription] = useState('')
-    // invite local state
-    const [age, setAge] = useState([25, 75]);
-    const [number, setNumber] = useState("")
-    const [gender, setGender] = useState("")
-    const [isthisDate, setIsthisDate] = useState(false)
-    const [whocanjoin, setWhocanjoin] = useState("")
-    // time and price state
-    const [eventDate, setEventDate] = useState("")
-    const [eventTime, setEventTime] = useState("")
-    const [eventCost, setEventCost] = useState([0, 1000])
-    const [costSplit, setCostSplit] = useState("")
-
     const [openSuccess, setOpenSuccess] = useState(false)
-
-
-
-    // main state controller from parrent for venue
-    const venueData = {
-        images,
-        setImages,
-        previewImage,
-        setPreviewImage,
-        addedVenues,
-        setAddedVenues
-    }
-
-    // main state controller from parrent for invites
-    const inviteData = {
-        age,
-        gender,
-        number,
-        setAge,
-        setGender,
-        setNumber,
-        isthisDate,
-        setIsthisDate,
-        whocanjoin,
-        setWhocanjoin
-
-    }
-    //main state controller from prarrent for time & price
-    const timeandpriceData = {
-        eventDate,
-        eventCost,
-        eventTime,
-        costSplit,
-        setEventCost,
-        setEventDate,
-        setEventTime,
-        setCostSplit
-
-    }
-
-    // whole date
-    const data = {
-        all_venues: addedVenues,
-        title: eventTitle,
-        description: eventDescription,
-        IsthisDate: isthisDate,
-        age,
-        gender,
-        number,
-        time: eventTime,
-        date: eventDate,
-        location: "",
-        whocanjoin,
-        invite: "",
-        friend: "",
-        all_blogs: "",
-        eventCost
-    }
-
 
     // create event action
     const createEventAction = () => {
