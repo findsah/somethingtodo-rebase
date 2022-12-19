@@ -31,14 +31,13 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
     // useSlector to get State from store
     const { getVenueList } = useSelector((state) => state?.createEventSlice)
-    console.log(getVenueList)
-    console.log(addedVenues)
+
 
     const addedVenueId = addedVenues?.map((venue) => {
         return venue?.id
     })
 
-    console.log(addedVenueId)
+
     // a function to delete image
     const deleteImage = (id) => {
 
@@ -78,8 +77,8 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             {/* header */}
             <div className='header'>
                 <h2>SEARCH VENUES: </h2>
-                <div class="right-inner-icon">
-                    <i class="fa fa-search" aria-hidden="true"></i>
+                <div className="right-inner-icon">
+                    <i className="fa fa-search" aria-hidden="true"></i>
                     <input className="search" type="search" placeholder="Search City / Current Location" />
                 </div>
             </div>
@@ -101,7 +100,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                     style={{ width: "233px", height: "48px" }}
                     onClick={() => setOpen(true)}
                 >
-                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    <i className="fa fa-plus" aria-hidden="true"></i>
                     CREATE CUSTOM VENUE
                 </button>
                 {/* modal for create cutom venue */}
@@ -177,10 +176,10 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                                             {
                                                 previewImage?.map((item, index) => (
 
-                                                    <div className='image_preview' >
+                                                    <div className='image_preview' key={index}>
                                                         <img src={item} alt="" />
                                                         <div className='close_icon' onClick={() => deleteImage(index)}>
-                                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                                            <i className="fa fa-times" aria-hidden="true"></i>
                                                         </div>
                                                     </div>
                                                 ))
@@ -229,7 +228,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                     <div className="card_container">
                         {
                             getVenueList.map(item => (
-                                <div className='event_card'>
+                                <div className='event_card' key={item?.id}>
                                     <img src={dummy} alt="" />
                                     <h5 >{item?.Title}</h5>
                                     <p className='p_gray_10 '>
@@ -250,7 +249,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                                             }}
                                             disabled={addedVenueId?.includes(item?.id)}
                                         >
-                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                            <i className="fa fa-plus" aria-hidden="true"></i>
                                             ADD  VENUE
                                         </button>
                                     </div>
@@ -279,7 +278,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             <div className='divider_container'>
                 <div className='divider'></div>
                 <button className='btn_blue'>
-                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    <i className="fa fa-plus" aria-hidden="true"></i>
                     VIEW MORE
                 </button>
             </div>
@@ -294,9 +293,9 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                             <Slider className='venue_cards' slidesToShow={addedVenues?.length === 1 ? 1 : 2}>
                                 {
                                     addedVenues.map(item => {
-                                        console.log(item?.id)
+
                                         return (
-                                            <div className='venue_card'>
+                                            <div className='venue_card' key={item?.id}>
                                                 <img src={dummy} alt="" />
                                                 <h5 >{item?.Title}</h5>
                                                 <p className='p_gray_10 '>
@@ -311,13 +310,13 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                                                     <button className='btn_error desktop_btn'
                                                         onClick={() => RemoveVenueAction(item)}
                                                     >
-                                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                                        <i className="fa fa-minus" aria-hidden="true"></i>
                                                         REMOVE VENUE
                                                     </button>
                                                     <button className='btn_error mobile_btn'
                                                         onClick={() => RemoveVenueAction(item)}
                                                     >
-                                                        <i class="fa fa-minus" aria-hidden="true"></i>
+                                                        <i className="fa fa-minus" aria-hidden="true"></i>
                                                         REMOVE
                                                     </button>
                                                 </div>
@@ -336,7 +335,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
                     <div className='add_venue'>
                         <div className='create'>
-                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            <i className="fa fa-plus" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>

@@ -17,6 +17,11 @@ const TimeAndPrice = ({ eventDate,
     setEventTime,
     setCostSplit }) => {
 
+    // to find current date and not to select past days
+    const current = new Date();
+    const today = `${current.getFullYear()}-${current.getMonth() + 1}-${current.getDate()}`;
+
+
     return (
 
         <div className="container create-event-time_and_price">
@@ -28,6 +33,7 @@ const TimeAndPrice = ({ eventDate,
                     </div>
                     <div className='event_date_calender'>
                         <input type="date"
+                            min={today}
                             value={eventDate}
                             onChange={(e) => { setEventDate(e.target.value) }}
                         />
@@ -42,7 +48,7 @@ const TimeAndPrice = ({ eventDate,
                     <div className='event_time_field'>
                         <input type="time"
                             value={eventTime}
-                            onChange={(e) => { setEventTime(e.target.value); console.log(e.target) }}
+                            onChange={(e) => { setEventTime(e.target.value); }}
                         />
                     </div>
                 </div>

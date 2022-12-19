@@ -29,9 +29,9 @@ const MapModal = ({ position }) => {
         });
         {
             return datademo?.map((venue) => {
-                console.log(venue)
+
                 return (
-                    <Marker position={venue?.position} >
+                    <Marker position={venue?.position} key={venue?.id}>
                         <Popup>
                             {venue?.Title}
                         </Popup>

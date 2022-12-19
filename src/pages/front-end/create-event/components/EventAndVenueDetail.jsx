@@ -49,14 +49,14 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                         </div>
                         <div className='inline'>
                             <img src={calendarblue} alt="" />
-                            <p className='p_gray_14'>  {timeandpriceData?.eventDate} </p>
+                            <p className='p_gray_14'>  {timeandpriceData?.eventDate || "Event Date"} </p>
 
                         </div>
                         <div className='inline'>
                             <img src={clockblue} alt="" />
                             <p className='p_gray_14'>
                                 {/* 7.00 P.M. - 11/30 P.M.  */}
-                                {timeandpriceData?.eventTime}
+                                {timeandpriceData?.eventTime || "Event Time"}
                             </p>
 
                         </div>

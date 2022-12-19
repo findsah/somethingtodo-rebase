@@ -93,7 +93,10 @@ const CreateEvent = () => {
             {/* Create event header */}
             <CreateEventHead
                 previewImage={previewImage}
-                descData={descData} />
+                descData={descData}
+                timeandpriceData={timeandpriceData}
+            />
+
             {/* Create event Stepper  */}
             <div className='container eventStepContainer'>
                 <StepperForm

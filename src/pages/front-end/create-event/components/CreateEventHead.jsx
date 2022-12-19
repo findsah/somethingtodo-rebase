@@ -3,15 +3,31 @@ author: arman ali
 github: https://github.com/Arman-Arzoo
 whatsapp: +923430048341
 */
-import React from 'react'
+import React, { useMemo } from 'react'
 import Slider from 'react-slick';
 import logo from "../../../../assets/logo.png";
 import dummy from "../../../../assets/dummy1.png"
 import { settings } from '../../../../config/helper';
 import Countdown from 'react-countdown';
 import profilegirl from '../../../../assets/profilegirl.svg'
+import moment from 'moment/moment';
 
-const CreateEventHead = ({ previewImage, descData }) => {
+const CreateEventHead = ({ previewImage, descData, timeandpriceData }) => {
+
+
+    // use meno call back function to calculate count
+    const calculateCount = (Edate, Etime) => {
+        // tell moment how to parse the input string
+        var momentObj = moment(Edate + Etime, 'YYYY-MM-DDLT');
+        // conversion
+        var dateTime = momentObj.format('YYYY-MM-DDTHH:mm:ss')
+        return dateTime
+    }
+    // calculation for count timmer base on time and date
+    const calculateTimerCount = useMemo(() => {
+        return calculateCount(timeandpriceData?.eventDate, timeandpriceData?.eventTime)
+    }, [timeandpriceData?.eventDate, timeandpriceData?.eventTime]);
+
 
     // Random component
     const Completionist = () => <span>You are good to go!</span>;
@@ -61,8 +77,8 @@ const CreateEventHead = ({ previewImage, descData }) => {
 
                 <Slider {...settings} className='sliderMain'>
                     {
-                        [1, 2, 3, 4, 5, 6].map(item => (
-                            <img className="img-fluid" src={dummy} alt="logo" />
+                        [1, 2, 3, 4, 5, 6].map((item, index) => (
+                            <img className="img-fluid" src={dummy} alt="logo" key={index} />
                         ))
                     }
                 </Slider>
@@ -75,10 +91,10 @@ const CreateEventHead = ({ previewImage, descData }) => {
                     </div>
                     <div className='timer'>
                         <p className='timerStart'>Event starts in</p>
-                        <Countdown date={Date.now() + 1000000000} renderer={renderer} />,
+                        <Countdown date={calculateTimerCount} renderer={renderer} />,
                     </div>
                     <div className='address'>
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <i className="fa fa-map-marker" aria-hidden="true"></i>
                         <p>Address</p>
                     </div>
                 </div>
@@ -93,7 +109,7 @@ const CreateEventHead = ({ previewImage, descData }) => {
                             </div>
                             <div className='liveChatContainer'>
                                 <div className='liveChat'>
-                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <i className="fa fa-envelope" aria-hidden="true"></i>
                                     <p>live chat</p>
                                 </div>
                                 <div className='liveChatPeople'>
@@ -106,7 +122,7 @@ const CreateEventHead = ({ previewImage, descData }) => {
                                     <img src={profilegirl} alt="" width="22px" height="22px" /> */}
                                     </div>
                                     <div className='infoPeopleCount'>
-                                        <span>& 12 other </span> <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                        <span>& 12 other </span> <i className="fa fa-angle-right" aria-hidden="true"></i>
                                     </div>
 
                                 </div>
@@ -117,13 +133,13 @@ const CreateEventHead = ({ previewImage, descData }) => {
                     <div className='middel'>
                         <div className='social'>
                             <div className='socialIcon'>
-                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                <i className="fa fa-twitter" aria-hidden="true"></i>
                             </div>
                             <div className='socialIcon'>
-                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                                <i className="fa fa-instagram" aria-hidden="true"></i>
                             </div>
                             <div className='socialIcon'>
-                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                                <i className="fa fa-facebook" aria-hidden="true"></i>
                             </div>
                         </div>
                         <button>INVITE FRIENDS</button>
@@ -131,13 +147,13 @@ const CreateEventHead = ({ previewImage, descData }) => {
                     <div className='right'>
                         <div className='rightTop'>
                             <div className='date_icon'>
-                                <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                <i className="fa fa-calendar-o" aria-hidden="true"></i>
 
                                 <p> Date</p>
                             </div>
                             <div className='paid'>
                                 <div className="icon">
-                                    <i class="fa fa-usd" aria-hidden="true"></i>
+                                    <i className="fa fa-usd" aria-hidden="true"></i>
                                 </div>
 
                                 <p> Paid by host</p>
@@ -145,7 +161,7 @@ const CreateEventHead = ({ previewImage, descData }) => {
                         </div>
                         <div className='rigthBottom'>
                             <h4>
-                                $45.00
+                                ${timeandpriceData?.eventCost[1]}
                             </h4>
                         </div>
 

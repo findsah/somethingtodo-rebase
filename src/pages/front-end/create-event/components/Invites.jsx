@@ -3,19 +3,23 @@ author: arman ali
 github: https://github.com/Arman-Arzoo
 whatsapp: +923430048341
 */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import Slider from 'react-slick';
 import profile from '../../../../assets/armanprofile.png'
 import CustomRangeSlider from '../../components/CustomRangeSlider';
+import { GetFriendList } from '../service/CreateEventApi';
 
 const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate, setIsthisDate,
     whocanjoin,
     setWhocanjoin
 }) => {
 
+    // hook importer
+    const dispatch = useDispatch()
 
-
-
+    // useSlector to get State from store
+    const { getVenueList } = useSelector((state) => state?.createEventSlice)
 
     // const [tableList, setTableList] = useState([])
 
@@ -67,6 +71,10 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
         ]
     }
 
+    // useEffect
+    useEffect(() => {
+        dispatch(GetFriendList())
+    }, [])
 
     return (
         <div className='create_event_invites'>
@@ -234,7 +242,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                                 <select name="location" id="location" className='select' placeholder='Search City / Current Location'>
                                     <option value="one">option one</option>
                                 </select>
-                                <button className='btn_secondary'><i class="fa fa-plus" aria-hidden="true"></i> ADD FRIEND </button>
+                                <button className='btn_secondary'><i className="fa fa-plus" aria-hidden="true"></i> ADD FRIEND </button>
                             </div>
 
                         </div>
@@ -245,7 +253,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                                     <div className="mini_card">
                                         <img src={profile} alt="" />
                                         <p className='p_blue_size_20'>Name</p>
-                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                        <i className="fa fa-times" aria-hidden="true"></i>
                                     </div>
                                 ))
                             }
@@ -259,7 +267,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                             <h2>INVITE FRIENDS BY EMAIL</h2>
                             <div className='invite_friends_right'>
                                 <input type="text" name="inviteEmail" id="inviteEmail" placeholder='Text' className='text' />
-                                <button className='btn_secondary'><i class="fa fa-plus" aria-hidden="true"></i>INVITE </button>
+                                <button className='btn_secondary'><i className="fa fa-plus" aria-hidden="true"></i>INVITE </button>
                             </div>
                         </div>
                         <Slider {...settings} className='mini_cards' >
@@ -268,7 +276,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                                     <div className="mini_card">
                                         <img src={profile} alt="" />
                                         <p className='p_blue_size_20'>@Email</p>
-                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                        <i className="fa fa-times" aria-hidden="true"></i>
                                     </div>
                                 ))
                             }

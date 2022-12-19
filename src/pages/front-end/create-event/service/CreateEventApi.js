@@ -163,6 +163,22 @@ export const DeleteVenueList = createAsyncThunk("createEventsSection/deleteVenue
 
 
 
+// **************** Friend *************//
+
+export const GetFriendList = createAsyncThunk("createEventsSection/getFriendList", async (params) => {
+
+    // let response = await  apiInstance.get(`${baseUrl}all-venues`).then((response) => {
+    let response = await axios.get(`${baseUrl}friends`, config).then((response) => {
+        return response
+    }).catch((error) => {
+        return error.response
+    })
+    const { data, status } = response;
+    return { data, status }
+
+});
+
+
 
 
 
