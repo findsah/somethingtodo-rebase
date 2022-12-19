@@ -9,11 +9,11 @@ import Login from "../pages/front-end/user-registeration/Login";
 import SignUp from "../pages/front-end/user-registeration/SignUp";
 import VanueDetail from "../pages/front-end/vanue-detail/VanueDetail";
 
-const MainRoutes = ({ currentLocation }) => {
+const MainRoutes = () => {
   return (
     <Routes>
       {/* home */}
-      <Route path="/" element={<Home currentLocation={currentLocation} />} />
+      <Route path="/" element={<Home />} />
       {/* create Event */}
       <Route path="/create-event" element={<CreateEvent />} />
       <Route path="/vanue-detail" element={<VanueDetail />} />

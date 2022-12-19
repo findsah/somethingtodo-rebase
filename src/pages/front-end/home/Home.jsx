@@ -11,14 +11,14 @@ import TopSection from './components/TopSection'
 import DateSection from './components/DateSection'
 import { Container } from 'react-bootstrap'
 
-const Home = ({ currentLocation }) => {
+const Home = () => {
     return (
         <>
             <TopSection />
             <Container style={{
                 filter: "drop-shadow(0px 6px 24px rgba(0, 0, 0, 0.2))",
             }}>
-                <TopVanues currentLocation={currentLocation} />
+                <TopVanues />
                 <DateSection />
             </Container>
             <CFEvent />
