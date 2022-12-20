@@ -58,11 +58,19 @@ export const GetCurrentLocation = createAsyncThunk("sharedSection/getCurrentLoca
 
 export const GetLocationList = createAsyncThunk("sharedSection/getCurrentLocation", async (params) => {
 
-    const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=amoeba&types=establishment&location=37.76999%2C-122.44696&radius=500&strictbounds=true&key=${apiKey}`
+    // alert("hi")
+    // const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=lahore&radius=500&key`
 
-    const result = await axios.get(url, {});
-    const data = await result.data
-    console.log(JSON.stringify(data))
+
+
+    // fetch(url)
+    //     .then(data => {
+    //         console.log(data.json())
+    //         return data.json();
+    //     })
+    //     .then(post => {
+    //         console.log(post.title);
+    //     })
 
 });
 

@@ -16,6 +16,7 @@ import CustomErrorPopUp from '../../components/CustomErrorPopUp';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetVenueList } from '../service/CreateEventApi';
+// import { Autocomplete } from '@react-google-maps/api';
 
 
 const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, setPreviewImage }) => {
@@ -79,7 +80,10 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                 <h2>SEARCH VENUES: </h2>
                 <div className="right-inner-icon">
                     <i className="fa fa-search" aria-hidden="true"></i>
+                    {/* <Autocomplete> */}
+
                     <input className="search" type="search" placeholder="Search City / Current Location" />
+                    {/* </Autocomplete> */}
                 </div>
             </div>
 
