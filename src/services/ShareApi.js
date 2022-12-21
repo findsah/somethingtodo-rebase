@@ -25,7 +25,7 @@ export const GetCurrentLocation = createAsyncThunk("sharedSection/getCurrentLoca
 
     const result = await Geocode.fromLatLng(params?.latitude, params?.longitude).then(
         (response) => {
-            console.log(response)
+            // console.log(response)
             let city;
             for (let i = 0; i < response.results[0].address_components.length; i++) {
                 for (let j = 0; j < response.results[0].address_components[i].types.length; j++) {
@@ -33,7 +33,7 @@ export const GetCurrentLocation = createAsyncThunk("sharedSection/getCurrentLoca
                         case "locality":
                             city = response.results[0].address_components[i].long_name;
                             // currentCityName.current = city;
-                            console.log(city)
+                            // console.log(city)
                             return city
                             break;
                         default:
@@ -42,7 +42,7 @@ export const GetCurrentLocation = createAsyncThunk("sharedSection/getCurrentLoca
                     }
                 }
             }
-            console.log(city.current)
+            // console.log(city.current)
             // setAddress(city.current);
             return city.current
         },
@@ -56,21 +56,42 @@ export const GetCurrentLocation = createAsyncThunk("sharedSection/getCurrentLoca
 });
 
 
-export const GetLocationList = createAsyncThunk("sharedSection/getCurrentLocation", async (params) => {
+export const GetLocationList = createAsyncThunk("sharedSection/getLocationList", async (params) => {
 
-    // alert("hi")
-    // const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=lahore&radius=500&key`
+    params.loader.load().then((google) => {
+
+        var pyrmont = new google.maps.LatLng(-33.8665433, 151.1956316);
+        let map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: -34.397, lng: 150.644 },
+            zoom: 8,
+        });
+        var service
+
+        var request = {
+            location: pyrmont,
+            radius: '500',
+            type: ['restaurant']
+        };
+
+        service = new google.maps.places.PlacesService(map);
+        service.nearbySearch(request, callback);
+
+        function callback(results, status) {
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                console.log(results)
+                params?.setPlacesList(results)
+
+            } else {
+                // console.log(status)
+                // console.log(results)
+            }
+        }
+
+    });
 
 
-
-    // fetch(url)
-    //     .then(data => {
-    //         console.log(data.json())
-    //         return data.json();
-    //     })
-    //     .then(post => {
-    //         console.log(post.title);
-    //     })
+    console.log(params.placesList)
+    return params.placesList;
 
 });
 

@@ -19,7 +19,7 @@ import { GetVenueList } from '../service/CreateEventApi';
 // import { Autocomplete } from '@react-google-maps/api';
 
 
-const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, setPreviewImage }) => {
+const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, setPreviewImage, placesList }) => {
     // hook importer
     const dispatch = useDispatch()
 
@@ -28,14 +28,20 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const [mapOrcardTap, setMapOrCardTap] = useState("mapTap");
     const [open, setOpen] = useState(false);
     const [openError, setOpenError] = useState(false);
+    const [venueList, setVenueList] = useState([])
 
 
     // useSlector to get State from store
     const { getVenueList } = useSelector((state) => state?.createEventSlice)
+    // const { getLocationList } = useSelector((state) => state?.shareSlice)
+    // console.log(getLocationList)
 
+    console.log(addedVenues)
+
+    // console.log(venueList)
 
     const addedVenueId = addedVenues?.map((venue) => {
-        return venue?.id
+        return venue?.id || venue?.place_id
     })
 
 
@@ -63,10 +69,29 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
     // remove venue
     const RemoveVenueAction = (item) => {
+        console.log(item)
         setAddedVenues((current) =>
-            current.filter((venue) => venue.id !== item?.id)
+            current.filter((venue) => {
+
+
+                if (venue.id) {
+                    return venue.id !== item?.id
+                } else {
+                    return venue?.place_id !== item?.place_id
+                }
+
+            }
+            )
         );
     }
+    // useEffect to check google event and db event
+    // useEffect(() => {
+    //     if (getLocationList != []) {
+    //         setVenueList(getLocationList)
+    //     } else {
+    //         setVenueList(getVenueList)
+    //     }
+    // }, [getLocationList?.place_id, getVenueList?.id])
 
     // useEffect to call function
     useEffect(() => {
@@ -231,35 +256,41 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                 <div className={mapOrCarView === "listview" ? "width" : "disable_list"}>
                     <div className="card_container">
                         {
-                            getVenueList.map(item => (
-                                <div className='event_card' key={item?.id}>
-                                    <img src={dummy} alt="" />
-                                    <h5 >{item?.Title}</h5>
-                                    <p className='p_gray_10 '>
-                                        {
-                                            item?.Description.length > 230 ?
-                                                item?.Description?.substring(0, 230) + "..."
-                                                : item?.Description?.substring(0, 230)
-                                        }
-                                    </p>
-                                    <div className='btn-container'>
-                                        <button className='btn_secondary ' onClick={() => {
-                                            addVenueAction(item)
+                            placesList?.length > 0 ?
+                                placesList?.map(item => (
+                                    <div className='event_card' key={item?.id}>
+                                        <img src={item?.photos[0]?.getUrl() || dummy} alt="" />
+                                        <h5 >{item?.Title || item?.name}</h5>
+                                        <p className='p_gray_10 '>
+                                            {
+                                                item?.Description?.length > 230 ?
+                                                    item?.Description?.substring(0, 230) + "..."
+                                                    : item?.Description?.substring(0, 230)
+                                                    || item?.vicinity
+                                            }
+                                        </p>
+                                        <div className='btn-container'>
+                                            <button className='btn_secondary ' onClick={() => {
+                                                addVenueAction(item)
 
-                                        }}
-                                            style={{
-                                                background: addedVenueId?.includes(item?.id) ? 'green' : '',
-                                                opacity: addedVenueId?.includes(item?.id) ? '0.45' : ''
                                             }}
-                                            disabled={addedVenueId?.includes(item?.id)}
-                                        >
-                                            <i className="fa fa-plus" aria-hidden="true"></i>
-                                            ADD  VENUE
-                                        </button>
-                                    </div>
+                                                style={{
+                                                    background: addedVenueId?.includes(item?.id || item?.place_id) ? 'green' : '',
+                                                    opacity: addedVenueId?.includes(item?.id || item?.place_id) ? '0.45' : ''
+                                                }}
+                                                disabled={addedVenueId?.includes(item?.id || item?.place_id)}
+                                            >
+                                                <i className="fa fa-plus" aria-hidden="true"></i>
+                                                ADD  VENUE
+                                            </button>
+                                        </div>
 
+                                    </div>
+                                ))
+                                :
+                                <div className='d-flex justift-content-center align-items-center'>
+                                    No Data Found
                                 </div>
-                            ))
                         }
 
 
@@ -300,13 +331,14 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
                                         return (
                                             <div className='venue_card' key={item?.id}>
-                                                <img src={dummy} alt="" />
-                                                <h5 >{item?.Title}</h5>
+                                                <img src={item?.photos[0]?.getUrl() || dummy} alt="" />
+                                                <h5 >{item?.Title || item?.name}</h5>
                                                 <p className='p_gray_10 '>
                                                     {
-                                                        item?.Description.length > 230 ?
+                                                        item?.Description?.length > 230 ?
                                                             item?.Description?.substring(0, 230) + "..."
                                                             : item?.Description?.substring(0, 230)
+                                                            || item?.vicinity
                                                     }
                                                 </p>
                                                 <div className='btn-container'>

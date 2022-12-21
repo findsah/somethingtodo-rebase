@@ -11,7 +11,8 @@ github: https://github.com/Arman-Arzoo
 const sharedSlice = createSlice({
     name: "sharedSection",
     initialState: {
-        getCurrentLocation: ""
+        getCurrentLocation: "",
+        // getLocationList: []
     },
     reducers: {
 
@@ -19,11 +20,15 @@ const sharedSlice = createSlice({
     extraReducers: {
 
         ['sharedSection/getCurrentLocation/fulfilled']: (state, action) => {
-
-
             state.getCurrentLocation = action.payload || ""
 
         },
+
+        // ['sharedSection/getLocationList/fulfilled']: (state, action) => {
+        //     state.getLocationList = action.payload || ""
+
+        // },
+
 
 
     }

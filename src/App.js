@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import FooterSection from "./pages/front-end/footer/FooterSection";
 import Header from "./pages/front-end/header/Header";
 import MainRoutes from "./routes/MainRoutes";
-import { GetCurrentLocation } from "./services/ShareApi";
+import { GetCurrentLocation, GetLocationList } from "./services/ShareApi";
 import { Loader } from "@googlemaps/js-api-loader"
 
 const App = () => {
@@ -16,9 +16,14 @@ const App = () => {
 
   });
 
+  const [currentLocation, setCurrentLocation] = useState("")
+  const [placesList, setPlacesList] = useState([])
+  const dispatch = useDispatch();
+
+  // fetch all places
   loader.load().then((google) => {
+
     var pyrmont = new google.maps.LatLng(-33.8665433, 151.1956316);
-    console.log(pyrmont)
     let map = new google.maps.Map(document.getElementById("map"), {
       center: { lat: -34.397, lng: 150.644 },
       zoom: 8,
@@ -32,32 +37,24 @@ const App = () => {
     };
 
     service = new google.maps.places.PlacesService(map);
-    console.log(service)
     service.nearbySearch(request, callback);
 
     function callback(results, status) {
-
-
       if (status == google.maps.places.PlacesServiceStatus.OK) {
-        console.log(results)
-        toast.success("places are fetch")
-        // for (var i = 0; i < results.length; i++) {
-        //   // createMarker(results[i]);
-        //   // console.log(results[i])
-        // }
+        setPlacesList(results)
+
       } else {
-        console.log(status)
-        console.log(results)
+        // console.log(status)
+        // console.log(results)
       }
     }
+
   });
 
 
-
-  const [currentLocation, setCurrentLocation] = useState("")
-  const dispatch = useDispatch();
-
-
+  // useEffect(() => {
+  //   dispatch(GetLocationList({ loader, setPlacesList, placesList }))
+  // }, [loader])
 
   useEffect(() => {
     if ("geolocation" in navigator) {
@@ -80,7 +77,7 @@ const App = () => {
     <>
 
       <Header />
-      <MainRoutes currentLocation={currentLocation} />
+      <MainRoutes placesList={placesList} />
       <FooterSection />
     </>
   );
