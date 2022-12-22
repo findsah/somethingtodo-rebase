@@ -69,23 +69,39 @@ const CreateEvent = ({ placesList }) => {
         setCostSplit
 
     }
-    // whole onSubmit date
-    const data = {
-        all_venues: addedVenues,
+    // modify createEventdata
+    const addVenues = addedVenues.map((item) => {
+        return {
+            place_id: item?.place_id,
+            image: item?.photos[0]?.getUrl(),
+            description: item?.vicinity,
+            name: item?.name,
+            location: { lat: item?.geometry?.location?.lat(), lng: item?.geometry?.location?.lng() },
+
+        }
+    })
+
+    console.log(addVenues)
+
+    // whole onSubmit date for createEvent
+    const createEventData = {
         title: eventTitle,
         description: eventDescription,
-        IsthisDate: isthisDate,
-        age,
-        gender,
-        number,
+        location: "",
         time: eventTime,
         date: eventDate,
-        location: "",
+        IsthisDate: isthisDate,
+
         whocanjoin,
         invite: "",
         friend: "",
-        all_blogs: "",
-        eventCost
+        TicketPrice: eventCost,
+        locationing: addVenues,
+        peopleinformation: [{
+            number,
+            gender,
+            age,
+        }]
     }
 
     return (
@@ -104,7 +120,7 @@ const CreateEvent = ({ placesList }) => {
                     descData={descData}
                     inviteData={inviteData}
                     timeandpriceData={timeandpriceData}
-                    data={data}
+                    data={createEventData}
                     placesList={placesList}
                 />
 

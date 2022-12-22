@@ -4,8 +4,10 @@ github: https://github.com/Arman-Arzoo
 whatsapp: +923430048341
 */
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
 import CustomEventSuccessPopup from '../../components/CustomEventSuccessPopup'
+import { CreateEvent } from '../service/CreateEventApi'
 import Invites from './Invites'
 import TimeAndPrice from './TimeAndPrice'
 import Venue from './Venue'
@@ -14,11 +16,13 @@ const StepperForm = ({ data, venueData, descData, inviteData, timeandpriceData, 
     // usestate to control state locally
     const [activeStepper, setActiveSteper] = useState(1)
     const [openSuccess, setOpenSuccess] = useState(false)
+    const dispatch = useDispatch()
 
     // create event action
     const createEventAction = () => {
         // toast.success("your event is created")
         console.log(data)
+        dispatch(CreateEvent(data))
         setOpenSuccess(true)
     }
     return (

@@ -15,7 +15,7 @@ import CustomUpload from '../../components/CustomUpload';
 import CustomErrorPopUp from '../../components/CustomErrorPopUp';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { GetVenueList } from '../service/CreateEventApi';
+import { GetEventList, GetVenueList } from '../service/CreateEventApi';
 // import { Autocomplete } from '@react-google-maps/api';
 
 
@@ -36,7 +36,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     // const { getLocationList } = useSelector((state) => state?.shareSlice)
     // console.log(getLocationList)
 
-    console.log(addedVenues)
+    // console.log(getVenueList)
 
     // console.log(venueList)
 
@@ -63,7 +63,6 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
     // add venue
     const addVenueAction = (item) => {
-
         setAddedVenues((prevState) => [...prevState, item])
     }
 
@@ -96,6 +95,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     // useEffect to call function
     useEffect(() => {
         dispatch(GetVenueList())
+        dispatch(GetEventList())
     }, [])
 
     return (
@@ -303,7 +303,12 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                 <div className={mapOrCarView === "mapview" ? "width" : "disable_map"}>
                     <div className="event_map">
 
-                        <MapModal position={[51.505, -0.09]} data={addedVenues} />
+                        <MapModal
+                            position={[51.505, -0.09]}
+                            data={placesList}
+                            setAddedVenues={setAddedVenues}
+                            addedVenues={addedVenues}
+                        />
                     </div>
 
                 </div>

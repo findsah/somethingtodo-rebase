@@ -22,18 +22,18 @@ github: https://github.com/Arman-Arzoo
 //  get event list
 export const GetEventList = createAsyncThunk("createEventsSection/getEventList", async (params) => {
 
-    let response = await apiInstance.post('/all-events', params).then((response) => {
-
+    let response = await axios.get(`${baseUrl}all-events`, config).then((response) => {
         return response
     }).catch((error) => {
         return error.response
     })
     const { data, status } = response;
+    console.log(data)
     return { data, status }
 
 });
 
-//  get venue by id
+//  get Event by id
 export const GetEventListById = createAsyncThunk("createEventsSection/getEventListById", async (params) => {
 
     let response = await apiInstance.get(`/all-events/${params}`, params).then((response) => {
@@ -49,14 +49,16 @@ export const GetEventListById = createAsyncThunk("createEventsSection/getEventLi
 //  Create  event
 export const CreateEvent = createAsyncThunk("createEventsSection/createEvent", async (params) => {
 
-    let response = await apiInstance.post('/all-events', params).then((response) => {
-        toast.success("Event Created successfully")
+    // let response = await apiInstance.post('/all-events', params).then((response) => {})
+    let response = await axios.post(`${baseUrl}all-events`, params, config,).then((response) => {
         return response
     }).catch((error) => {
         return error.response
     })
     const { data, status } = response;
     return { data, status }
+
+
 
 });
 

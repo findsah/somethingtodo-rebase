@@ -597,6 +597,32 @@ h6 {
   }
 }
 
+// custom modal map venue list card
+.map_venue_list {
+
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .leaflet-popup-content {
+    p {
+      margin: 0px;
+    }
+
+    h5 {
+      margin-top: 0.5rem;
+    }
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+}
 
 
 // global css for mobile
