@@ -22,6 +22,7 @@ const CreateEvent = ({ placesList }) => {
     const [gender, setGender] = useState("")
     const [isthisDate, setIsthisDate] = useState(false)
     const [whocanjoin, setWhocanjoin] = useState("")
+    const [peopleInfo, setpeopleInfo] = useState([])
     // time and price state
     const [eventDate, setEventDate] = useState("")
     const [eventTime, setEventTime] = useState("")
@@ -54,7 +55,9 @@ const CreateEvent = ({ placesList }) => {
         isthisDate,
         setIsthisDate,
         whocanjoin,
-        setWhocanjoin
+        setWhocanjoin,
+        peopleInfo,
+        setpeopleInfo
 
     }
     //main state controller from prarrent for time & price
@@ -91,17 +94,20 @@ const CreateEvent = ({ placesList }) => {
         time: eventTime,
         date: eventDate,
         IsthisDate: isthisDate,
-
         whocanjoin,
         invite: "",
         friend: "",
-        TicketPrice: eventCost,
-        locationing: addVenues,
-        peopleinformation: [{
-            number,
-            gender,
-            age,
-        }]
+        TicketPrice: eventCost[1],
+        locationing: [
+            {
+                "kj": "kjdhf"
+            }
+        ],
+        peopleinformation: [
+            {
+                "jfhh": "kdf"
+            }
+        ]
     }
 
     return (

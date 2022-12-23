@@ -106,51 +106,55 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                         addedVenues?.length > 0 ?
                             <Slider {...settings}>
                                 {
-                                    addedVenues?.map((item) => (
+                                    addedVenues?.map((item) => {
+                                        console.log(item)
+                                        console.log(item?.opening_hours?.isOpen())
+                                        return (
+                                            // <div className="col ">
+                                            <div className='card' id={item?.id || item?.place_id}>
+                                                <img src={item?.photos[0]?.getUrl()} alt="" width="464px" height="207px" />
+                                                <p className='p_blue_size_20 text-center'>{item?.Title}</p>
+                                                <div className="row info">
+                                                    <div className="col d-flex align-items-center gap-4">
+                                                        <img src={websiteIcon} alt="icon" width="30px" height="30px" />
+                                                        <p className='p_gray_14'>{item?.website}</p>
+                                                    </div>
+                                                    <div className="col d-flex align-items-center gap-4">
+                                                        <img src={phoneIcon} alt="icon" width="30px" height="30px" />
+                                                        <p className='p_gray_14'>{item?.phone} </p>
+                                                    </div>
+                                                </div>
 
-                                        // <div className="col ">
-                                        <div className='card'>
-                                            <img src={eventimg} alt="" width="464px" height="207px" />
-                                            <p className='p_blue_size_20 text-center'>{item?.Title}</p>
-                                            <div className="row info">
-                                                <div className="col d-flex align-items-center gap-4">
-                                                    <img src={websiteIcon} alt="icon" width="30px" height="30px" />
-                                                    <p className='p_gray_14'>{item?.website}</p>
+                                                <div className="row info">
+                                                    <div className="col d-flex align-items-center gap-4">
+                                                        <img src={emailIcon} alt="icon" width="30px" height="30px" />
+                                                        <p className='p_gray_14'>{item?.email || "no email"}</p>
+                                                    </div>
                                                 </div>
-                                                <div className="col d-flex align-items-center gap-4">
-                                                    <img src={phoneIcon} alt="icon" width="30px" height="30px" />
-                                                    <p className='p_gray_14'>{item?.phone} </p>
+
+                                                <div className="row info">
+                                                    <div className="col d-flex align-items-center gap-4">
+                                                        <img src={locationIcon} alt="icon" width="30px" height="30px" />
+                                                        <p className='p_gray_14'> {item?.location || item?.vicinity}</p>
+                                                    </div>
                                                 </div>
+                                                <div className="row info">
+                                                    <div className="col d-flex align-items-center gap-4">
+                                                        <img src={clockblue} alt="icon" width="30px" height="30px" />
+                                                        <p className='p_gray_14'> {item?.openningday || item?.opening_hours?.isOpen()}<br />
+                                                            {item?.openningtimes}</p>
+                                                    </div>
+                                                    <div className="col d-flex align-items-center gap-4">
+                                                        <button className='btn_primary'>MORE DETAILS</button>
+                                                    </div>
+                                                </div>
+
                                             </div>
 
-                                            <div className="row info">
-                                                <div className="col d-flex align-items-center gap-4">
-                                                    <img src={emailIcon} alt="icon" width="30px" height="30px" />
-                                                    <p className='p_gray_14'>{item?.email || "no email"}</p>
-                                                </div>
-                                            </div>
+                                            // </div>
+                                        )
+                                    }
 
-                                            <div className="row info">
-                                                <div className="col d-flex align-items-center gap-4">
-                                                    <img src={locationIcon} alt="icon" width="30px" height="30px" />
-                                                    <p className='p_gray_14'> {item?.location}</p>
-                                                </div>
-                                            </div>
-                                            <div className="row info">
-                                                <div className="col d-flex align-items-center gap-4">
-                                                    <img src={clockblue} alt="icon" width="30px" height="30px" />
-                                                    <p className='p_gray_14'> {item?.openningday}<br />
-                                                        {item?.openningtimes}</p>
-                                                </div>
-                                                <div className="col d-flex align-items-center gap-4">
-                                                    <button className='btn_primary'>MORE DETAILS</button>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        // </div>
-                                    )
                                     )}
 
 

@@ -18,6 +18,12 @@ const StepperForm = ({ data, venueData, descData, inviteData, timeandpriceData, 
     const [openSuccess, setOpenSuccess] = useState(false)
     const dispatch = useDispatch()
 
+    const CheckValidation = (activeBtn) => {
+
+
+    }
+
+
     // create event action
     const createEventAction = () => {
         // toast.success("your event is created")
@@ -119,6 +125,7 @@ const StepperForm = ({ data, venueData, descData, inviteData, timeandpriceData, 
                     if (activeStepper === 4) {
                         createEventAction()
                     }
+                    CheckValidation(activeStepper)
 
 
                 }}>{activeStepper === 4 ? "FINISH" : "NEXT"}</button>
