@@ -88,26 +88,16 @@ const CreateEvent = ({ placesList }) => {
 
     // whole onSubmit date for createEvent
     const createEventData = {
+        id: "1",
         title: eventTitle,
         description: eventDescription,
         location: "",
         time: eventTime,
         date: eventDate,
         IsthisDate: isthisDate,
-        whocanjoin,
-        invite: "",
-        friend: "",
         TicketPrice: eventCost[1],
-        locationing: [
-            {
-                "kj": "kjdhf"
-            }
-        ],
-        peopleinformation: [
-            {
-                "jfhh": "kdf"
-            }
-        ]
+        locationings: addedVenues,
+        peopleinformations: peopleInfo
     }
 
     return (

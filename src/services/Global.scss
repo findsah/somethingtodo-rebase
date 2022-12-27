@@ -625,6 +625,18 @@ h6 {
   }
 }
 
+.pagination {
+  background: #0081CB;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0rem 1rem;
+  border-radius: 10px;
+  color: #ffffff;
+}
+
 
 // global css for mobile
 @include media ('<=phone') {

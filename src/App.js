@@ -23,9 +23,11 @@ const App = () => {
   // fetch all places
   loader.load().then((google) => {
 
-    var pyrmont = new google.maps.LatLng(-33.8665433, 151.1956316);
+
+    var pyrmont = new google.maps.LatLng(currentLocation?.latitude, currentLocation?.longitude);
+    // var pyrmont = new google.maps.LatLng(33.1415552, 73.7476608);
     let map = new google.maps.Map(document.getElementById("map"), {
-      center: { lat: -34.397, lng: 150.644 },
+      center: { lat: currentLocation?.latitude, lng: currentLocation?.longitude },
       zoom: 8,
     });
     var service

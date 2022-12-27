@@ -57,7 +57,9 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
                             {/* {venue?.Title || venue?.name}
                              */}
 
-                            <img src={venue?.photos[0]?.getUrl() || dummy} alt="" />
+                            <img src={venue?.photos ? venue?.photos[0]?.getUrl() : dummy} alt="" />
+
+
                             <h5 >{venue?.Title || venue?.name}</h5>
                             {/* <p className='p_gray_10 '>
                                 {

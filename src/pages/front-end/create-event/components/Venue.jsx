@@ -16,6 +16,8 @@ import CustomErrorPopUp from '../../components/CustomErrorPopUp';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetEventList, GetVenueList } from '../service/CreateEventApi';
+import CustomPagination from '../../components/CustomPagination';
+import customPagination from '../../components/CustomPagination';
 // import { Autocomplete } from '@react-google-maps/api';
 
 
@@ -31,6 +33,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const [venueList, setVenueList] = useState([])
 
 
+
     // useSlector to get State from store
     const { getVenueList } = useSelector((state) => state?.createEventSlice)
     // const { getLocationList } = useSelector((state) => state?.shareSlice)
@@ -39,6 +42,9 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     // console.log(getVenueList)
 
     // console.log(venueList)
+
+
+    console.log(customPagination(placesList, 6, 2))
 
     const addedVenueId = addedVenues?.map((venue) => {
         return venue?.id || venue?.place_id
@@ -83,6 +89,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             )
         );
     }
+
     // useEffect to check google event and db event
     // useEffect(() => {
     //     if (getLocationList != []) {
@@ -97,6 +104,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
         dispatch(GetVenueList())
         dispatch(GetEventList())
     }, [])
+
 
     return (
         <div className='create_event_venue'>
@@ -259,7 +267,9 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                             placesList?.length > 0 ?
                                 placesList?.map(item => (
                                     <div className='event_card' key={item?.id}>
-                                        <img src={item?.photos[0]?.getUrl() || dummy} alt="" />
+
+                                        <img src={item?.photos ? item?.photos[0]?.getUrl() : dummy} alt="" />
+
                                         <h5 >{item?.Title || item?.name}</h5>
                                         <p className='p_gray_10 '>
                                             {
@@ -292,11 +302,6 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                                     No Data Found
                                 </div>
                         }
-
-
-
-
-
                     </div>
                 </div>
                 {/* map */}
@@ -317,10 +322,11 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             {/* divider */}
             <div className='divider_container'>
                 <div className='divider'></div>
-                <button className='btn_blue'>
+
+                {/* <button className='btn_blue'>
                     <i className="fa fa-plus" aria-hidden="true"></i>
                     VIEW MORE
-                </button>
+                </button> */}
             </div>
 
             {/* added venue */}
