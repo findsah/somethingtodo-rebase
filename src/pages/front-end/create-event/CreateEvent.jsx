@@ -117,6 +117,7 @@ const CreateEvent = ({ placesList }) => {
                 previewImage={previewImage}
                 descData={descData}
                 timeandpriceData={timeandpriceData}
+                addedVenues={addedVenues}
             />
 
             {/* Create event Stepper  */}

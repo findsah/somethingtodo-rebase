@@ -48,6 +48,7 @@ export const settings = {
   // speed: 1000,
   autoplaySpeed: 1000,
   slidesToShow: 3,
+
   nextArrow: <ReadyNextArrow />,
   prevArrow: <ReadyPrevArrow />,
   // cssEase: "linear",

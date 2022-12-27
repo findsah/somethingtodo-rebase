@@ -7,13 +7,14 @@ import React, { useMemo } from 'react'
 import Slider from 'react-slick';
 import logo from "../../../../assets/logo.png";
 import dummy from "../../../../assets/dummy1.png"
-import { settings } from '../../../../config/helper';
+// import { settings } from '../../../../config/helper';
 import Countdown from 'react-countdown';
 import profilegirl from '../../../../assets/profilegirl.svg'
 import moment from 'moment/moment';
 
-const CreateEventHead = ({ previewImage, descData, timeandpriceData }) => {
+const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues }) => {
 
+    console.log(addedVenues)
 
     // use meno call back function to calculate count
     const calculateCount = (Edate, Etime) => {
@@ -75,10 +76,14 @@ const CreateEventHead = ({ previewImage, descData, timeandpriceData }) => {
             <br />
             <div className='container createEventSilder'>
 
-                <Slider {...settings} className='sliderMain'>
+                <Slider
+                    slidesToShow={(addedVenues?.length === 1 && 1) || (addedVenues?.length === 2 && 2) || (addedVenues?.length > 2 && 3)}
+                // className="center"
+                // centerMode={true}
+                >
                     {
-                        [1, 2, 3, 4, 5, 6].map((item, index) => (
-                            <img className="img-fluid" src={dummy} alt="logo" key={index} />
+                        addedVenues?.map((item, index) => (
+                            <img className="img-fluid" src={item?.photos[0].getUrl()} alt="logo" key={index} style={{ height: "300px" }} />
                         ))
                     }
                 </Slider>
