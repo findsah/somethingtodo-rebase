@@ -21,7 +21,7 @@ import customPagination from '../../components/CustomPagination';
 // import { Autocomplete } from '@react-google-maps/api';
 
 
-const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, setPreviewImage, placesList }) => {
+const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, setPreviewImage }) => {
     // hook importer
     const dispatch = useDispatch()
 
@@ -31,6 +31,9 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const [open, setOpen] = useState(false);
     const [openError, setOpenError] = useState(false);
     const [venueList, setVenueList] = useState([])
+
+    // useSlector to get State from store
+    const { getPlacesList } = useSelector((state) => state?.googleSlice)
 
 
 
@@ -43,8 +46,6 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
     // console.log(venueList)
 
-
-    console.log(customPagination(placesList, 6, 2))
 
     const addedVenueId = addedVenues?.map((venue) => {
         return venue?.id || venue?.place_id
@@ -264,26 +265,23 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                 <div className={mapOrCarView === "listview" ? "width" : "disable_list"}>
                     <div className="card_container">
                         {
-                            placesList?.length > 0 ?
-                                placesList?.map(item => (
+                            getPlacesList?.length > 0 ?
+                                getPlacesList?.map(item => (
                                     <div className='event_card' key={item?.id}>
 
                                         <Slider slidesToShow={1} prevArrow={false} nextArrow={false} dots={false}>
+                                            {/* need to check */}
+
 
                                             {
                                                 item?.photos ?
 
                                                     item?.photos?.map(photo => {
 
-                                                        return <img src={photo?.getUrl() ? photo?.getUrl() : dummy} alt="" />
-
+                                                        return <img src={photo ? photo?.getUrl() : dummy} alt="" />
 
                                                     }) :
                                                     <img src={dummy} alt="" />
-
-
-
-
 
                                             }
                                         </Slider>
@@ -329,7 +327,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
                         <MapModal
                             position={[51.505, -0.09]}
-                            data={placesList}
+                            data={getPlacesList}
                             setAddedVenues={setAddedVenues}
                             addedVenues={addedVenues}
                         />

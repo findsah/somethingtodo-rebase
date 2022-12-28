@@ -11,7 +11,6 @@ import { settings } from '../../../../config/helper';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
-import { GetLocationList } from '../../../../services/ShareApi';
 
 const TopVanues = () => {
     const dispatch = useDispatch()
@@ -20,7 +19,7 @@ const TopVanues = () => {
     const { getCurrentLocation } = useSelector((state) => state?.shareSlice)
     useEffect(() => {
         AOS.init({ duration: 3000 });
-        dispatch(GetLocationList())
+
     }, [])
 
     return (

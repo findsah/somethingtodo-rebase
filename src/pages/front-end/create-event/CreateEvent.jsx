@@ -8,7 +8,7 @@ import CreateEventHead from './components/CreateEventHead'
 import EventAndVenueDetail from './components/EventAndVenueDetail'
 import StepperForm from './components/StepperForm'
 
-const CreateEvent = ({ placesList }) => {
+const CreateEvent = () => {
     // venue local state
     const [images, setImages] = useState([])
     const [previewImage, setPreviewImage] = useState([])
@@ -118,7 +118,7 @@ const CreateEvent = ({ placesList }) => {
                     inviteData={inviteData}
                     timeandpriceData={timeandpriceData}
                     data={createEventData}
-                    placesList={placesList}
+
                 />
 
             </div>

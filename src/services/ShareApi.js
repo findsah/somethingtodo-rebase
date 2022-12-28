@@ -4,7 +4,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import Geocode from "react-geocode";
 
-// import apiInstance from "../../../../config/AxiosInstance";
 
 
 const config = {
@@ -56,67 +55,3 @@ export const GetCurrentLocation = createAsyncThunk("sharedSection/getCurrentLoca
 
 });
 
-
-export const GetLocationList = createAsyncThunk("sharedSection/getLocationList", async (params) => {
-
-    params.loader.load().then((google) => {
-
-        var pyrmont = new google.maps.LatLng(-33.8665433, 151.1956316);
-        let map = new google.maps.Map(document.getElementById("map"), {
-            center: { lat: -34.397, lng: 150.644 },
-            zoom: 8,
-        });
-        var service
-
-        var request = {
-            location: pyrmont,
-            radius: '500',
-            type: ['restaurant']
-        };
-
-        service = new google.maps.places.PlacesService(map);
-        service.nearbySearch(request, callback);
-
-        function callback(results, status) {
-            if (status == google.maps.places.PlacesServiceStatus.OK) {
-                console.log(results)
-                params?.setPlacesList(results)
-
-            } else {
-                // console.log(status)
-                // console.log(results)
-            }
-        }
-
-    });
-
-
-    console.log(params.placesList)
-    return params.placesList;
-
-});
-
-export const GetplaceDetail = createAsyncThunk("sharedSection/getplaceDetail", async (params) => {
-
-    // // alert("hi")
-    // let response = await axios.get(`https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJj83WIGKvEmsRuQACGqZdj48&key=${apiKey}`, config).then((response) => {
-    //     return response
-    // }).catch((error) => {
-    //     console.log(error)
-    //     return error.response
-    // })
-    // const { data, status } = response;
-    // console.log(data)
-    // console.log("HIIII", response)
-    // // return { data, status }
-    axios.get('https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJj83WIGKvEmsRuQACGqZdj48&key=AIzaSyBR962qKrR2IwdYUmk8J4diZVZuV_L9pWw')
-        .then(response => console.log(response))
-        .catch(err => {
-            console.log(err)                     //Axios entire error message
-            console.log(err.response.data.error) //Google API error message 
-        })
-
-
-
-
-});

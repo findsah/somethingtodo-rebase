@@ -24,8 +24,9 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
 
 
     useEffect(() => {
-        console.log(data)
-        if (data) {
+
+        if (data != undefined) {
+            //need to check
             const setposition = [data[0]?.geometry?.location?.lat(), data[0]?.geometry?.location?.lng()]
             setPositionLocate(setposition)
             // mapRef?.current?.flyTo(setposition || [51.505, -0.09])
@@ -41,8 +42,8 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
                 map.flyTo(positionLocate, map.getZoom())
             },
 
-
         });
+
 
 
         {
@@ -52,11 +53,12 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
                     <Marker
                         // position={[51.507, -0.10]}
                         position={venue?.position || [venue?.geometry?.location?.lat(), venue?.geometry?.location?.lng()]}
+                        // (need to check)
                         key={venue?.id || venue?.place_id}>
                         <Popup className='map_venue_list' >
                             {/* {venue?.Title || venue?.name}
                              */}
-
+                            {/* //need to check */}
                             <img src={venue?.photos ? venue?.photos[0]?.getUrl() : dummy} alt="" />
 
 

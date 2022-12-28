@@ -8,12 +8,14 @@ import thunk from "redux-thunk";
 import createEventSlice from '../pages/front-end/create-event/service/CreateEventSlice'
 import blogSlice from "../pages/front-end/blog/service/BlogSlice";
 import shareSlice from '../services/ShareSlice'
+import googleSlice from "./GoogleSlice";
 
 const reducers = combineReducers({
   // AuthSlice,
   createEventSlice,
   blogSlice,
-  shareSlice
+  shareSlice,
+  googleSlice
 
 });
 
