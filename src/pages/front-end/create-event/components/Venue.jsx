@@ -268,7 +268,26 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                                 placesList?.map(item => (
                                     <div className='event_card' key={item?.id}>
 
-                                        <img src={item?.photos ? item?.photos[0]?.getUrl() : dummy} alt="" />
+                                        <Slider slidesToShow={1} prevArrow={false} nextArrow={false} dots={false}>
+
+                                            {
+                                                item?.photos ?
+
+                                                    item?.photos?.map(photo => {
+
+                                                        return <img src={photo?.getUrl() ? photo?.getUrl() : dummy} alt="" />
+
+
+                                                    }) :
+                                                    <img src={dummy} alt="" />
+
+
+
+
+
+                                            }
+                                        </Slider>
+
 
                                         <h5 >{item?.Title || item?.name}</h5>
                                         <p className='p_gray_10 '>
@@ -342,7 +361,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
                                         return (
                                             <div className='venue_card' key={item?.id}>
-                                                <img src={item?.photos[0]?.getUrl() || dummy} alt="" />
+                                                <img src={item?.photos ? item?.photos[0]?.getUrl() : dummy} alt="" />
                                                 <h5 >{item?.Title || item?.name}</h5>
                                                 <p className='p_gray_10 '>
                                                     {

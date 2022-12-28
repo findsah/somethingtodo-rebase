@@ -18,6 +18,7 @@ import { useState } from 'react'
 import MuiModal from '../../components/CustomModal'
 import MapModal from '../../components/MapModal'
 import Slider from 'react-slick'
+import dummy from '../../../../assets/dummy1.png'
 
 
 const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
@@ -112,8 +113,20 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                                         return (
                                             // <div className="col ">
                                             <div className='card' id={item?.id || item?.place_id}>
-                                                <img src={item?.photos[0]?.getUrl()} alt="" width="464px" height="207px" />
-                                                <p className='p_blue_size_20 text-center'>{item?.Title}</p>
+                                                {
+                                                    item?.photos ?
+
+                                                        item?.photos?.map(photo => {
+
+                                                            return <img src={photo?.getUrl() ? photo?.getUrl() : dummy} alt="" width="464px" height="207px" />
+
+
+                                                        }) :
+                                                        <img src={dummy} alt="" />
+                                                }
+                                                {/* <img src={item?.photos ? item?.photos?.getUrl() : dummy} alt="" width="464px" height="207px" /> */}
+                                                {/* <img src={item?.photos[0]?.getUrl()} alt="" width="464px" height="207px" /> */}
+                                                <p className='p_blue_size_20 text-center pb-3'>{item?.Title || item?.name}</p>
                                                 <div className="row info">
                                                     <div className="col d-flex align-items-center gap-4">
                                                         <img src={websiteIcon} alt="icon" width="30px" height="30px" />

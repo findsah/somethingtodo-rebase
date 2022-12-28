@@ -83,7 +83,7 @@ const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues
                 >
                     {
                         addedVenues?.map((item, index) => (
-                            <img className="img-fluid" src={item?.photos[0].getUrl()} alt="logo" key={index} style={{ height: "300px" }} />
+                            <img className="img-fluid" src={item?.photos ? item?.photos[0].getUrl() : dummy} alt="logo" key={index} style={{ height: "300px" }} />
                         ))
                     }
                 </Slider>

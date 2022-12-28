@@ -534,6 +534,16 @@ whatsapp: +923430048341
           margin: 0.5rem 0rem 0rem 1rem;
         }
 
+        .slick-prev {
+          left: 8px;
+          z-index: 2;
+        }
+
+        .slick-next {
+          right: 10px !important;
+          z-index: 1;
+        }
+
         button {
 
           position: absolute;

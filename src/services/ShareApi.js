@@ -3,14 +3,15 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Geocode from "react-geocode";
+
 // import apiInstance from "../../../../config/AxiosInstance";
 
 
 const config = {
     headers: {
         Accept: "application/json",
-        Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjcwOTEzNzYwLCJleHAiOjE2NzM1MDU3NjB9.D0kJm8v16JDIz4_176FSy8_ZwVD6CyrTik-nnPTMxFw"
-        // "Content-Type": "multipart/form-data",
+        Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjcwOTEzNzYwLCJleHAiOjE2NzM1MDU3NjB9.D0kJm8v16JDIz4_176FSy8_ZwVD6CyrTik-nnPTMxFw",
+
     },
 };
 const apiKey = "AIzaSyBR962qKrR2IwdYUmk8J4diZVZuV_L9pWw";
@@ -95,6 +96,27 @@ export const GetLocationList = createAsyncThunk("sharedSection/getLocationList",
 
 });
 
-// export const GetLocationList = createAsyncThunk("sharedSection/getCurrentLocation", async (params) => {
+export const GetplaceDetail = createAsyncThunk("sharedSection/getplaceDetail", async (params) => {
 
-// });
+    // // alert("hi")
+    // let response = await axios.get(`https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJj83WIGKvEmsRuQACGqZdj48&key=${apiKey}`, config).then((response) => {
+    //     return response
+    // }).catch((error) => {
+    //     console.log(error)
+    //     return error.response
+    // })
+    // const { data, status } = response;
+    // console.log(data)
+    // console.log("HIIII", response)
+    // // return { data, status }
+    axios.get('https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJj83WIGKvEmsRuQACGqZdj48&key=AIzaSyBR962qKrR2IwdYUmk8J4diZVZuV_L9pWw')
+        .then(response => console.log(response))
+        .catch(err => {
+            console.log(err)                     //Axios entire error message
+            console.log(err.response.data.error) //Google API error message 
+        })
+
+
+
+
+});

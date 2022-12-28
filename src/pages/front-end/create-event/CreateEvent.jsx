@@ -76,7 +76,7 @@ const CreateEvent = ({ placesList }) => {
     const addVenues = addedVenues.map((item) => {
         return {
             place_id: item?.place_id,
-            image: item?.photos[0]?.getUrl(),
+            image: item?.photos ? item?.photos[0]?.getUrl() : "",
             description: item?.vicinity,
             name: item?.name,
             location: { lat: item?.geometry?.location?.lat(), lng: item?.geometry?.location?.lng() },
