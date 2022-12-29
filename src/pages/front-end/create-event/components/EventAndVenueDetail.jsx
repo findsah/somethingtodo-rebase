@@ -108,6 +108,7 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                             <Slider {...settings}>
                                 {
                                     addedVenues?.map((item) => {
+
                                         console.log(item)
                                         console.log(item?.opening_hours?.isOpen())
                                         return (

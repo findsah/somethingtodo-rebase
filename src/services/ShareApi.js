@@ -13,7 +13,8 @@ const config = {
 
     },
 };
-const apiKey = "AIzaSyBR962qKrR2IwdYUmk8J4diZVZuV_L9pWw";
+
+const apiKey = "AIzaSyAlEQnPxaoYwZXM4aKDtwa3N7tYNvkKFkQ";
 
 export const GetCurrentLocation = createAsyncThunk("sharedSection/getCurrentLocation", async (params) => {
 
@@ -24,8 +25,9 @@ export const GetCurrentLocation = createAsyncThunk("sharedSection/getCurrentLoca
     Geocode.setApiKey(apiKey);
 
     const result = await Geocode.fromLatLng(params?.latitude, params?.longitude).then(
+        // const result = await Geocode.fromLatLng(35.3247, 75.5510).then(
         (response) => {
-            // console.log(response)
+            console.log(response)
             let city;
             for (let i = 0; i < response.results[0].address_components.length; i++) {
                 for (let j = 0; j < response.results[0].address_components[i].types.length; j++) {
@@ -33,11 +35,11 @@ export const GetCurrentLocation = createAsyncThunk("sharedSection/getCurrentLoca
                         case "locality":
                             city = response.results[0].address_components[i].long_name;
                             // currentCityName.current = city;
-                            // console.log(city)
+                            console.log(city)
                             return city
                             break;
                         default:
-                            city = "";
+                            city = "Not Found";
                             break;
                     }
                 }

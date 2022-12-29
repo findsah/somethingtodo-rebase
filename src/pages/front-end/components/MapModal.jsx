@@ -42,7 +42,10 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
                 map.flyTo(positionLocate, map.getZoom())
             },
 
+
         });
+
+        map.flyTo(positionLocate, map.getZoom())
 
 
 

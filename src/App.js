@@ -5,23 +5,23 @@ import Header from "./pages/front-end/header/Header";
 import MainRoutes from "./routes/MainRoutes";
 import { GetCurrentLocation } from "./services/ShareApi";
 import { Loader } from "@googlemaps/js-api-loader"
-import { GetPlacesDetailbyId, GetPlacesList } from "./services/GoogleSlice";
+import { GetPlacesList } from "./services/GoogleSlice";
 
 
 const App = () => {
   // loader to load api key for google
   const loader = new Loader({
-    apiKey: "AIzaSyBR962qKrR2IwdYUmk8J4diZVZuV_L9pWw",
+    apiKey: "AIzaSyAlEQnPxaoYwZXM4aKDtwa3N7tYNvkKFkQ",
     version: "weekly",
     libraries: ["places"]
 
   });
-
   const dispatch = useDispatch();
   const [currentLocation, setCurrentLocation] = useState("")
 
-  const { getPlacesList } = useSelector((state) => state?.googleSlice)
-  const { getPlacesDetailbyId } = useSelector((state) => state?.googleSlice)
+  // const { catogory } = useSelector((state) => state?.googleSlice)
+
+
   useEffect(() => {
 
     // fetch google api
@@ -37,7 +37,8 @@ const App = () => {
       var request = {
         location: pyrmont,
         radius: '500',
-        type: ['restaurant']
+        type: "restaurant"
+        // [`${catogory}` || "restaurant"]
       };
 
       var reqestplacebyid = {
@@ -70,8 +71,6 @@ const App = () => {
     });
   }, [currentLocation])
 
-  console.log(getPlacesDetailbyId)
-
   useEffect(() => {
     if ("geolocation" in navigator) {
 
@@ -80,18 +79,30 @@ const App = () => {
     }
 
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
+      navigator.geolocation.getCurrentPosition((position) => {
         console.log(position.coords)
         setCurrentLocation(position?.coords)
+        localStorage.setItem("lat", position.coords.latitude)
+        localStorage.setItem("lag", position.coords.longitude)
         dispatch(GetCurrentLocation(position.coords))
-      })
+      }
+
+      )
+
 
     }
 
   }, []);
-
-
-
+  // useEffect(() => {
+  //   maploacate.locate().on("locationfound", function (e) {
+  //     console.log(e.latlng);
+  //     map.flyTo(e.latlng, map.getZoom());
+  //     const radius = e.accuracy;
+  //     const circle = L.circle(e.latlng, radius);
+  //     circle.addTo(map);
+  //     setBbox(e.bounds.toBBoxString().split(","));
+  //   });
+  // }, [maploacate]);
 
   return (
     <>

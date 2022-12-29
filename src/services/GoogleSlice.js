@@ -3,7 +3,9 @@ const googleSlice = createSlice({
     name: "googleSlice",
     initialState: {
         getPlacesList: [],
-        getPlacesDetailbyId: {}
+        getPlacesDetailbyId: {},
+        catogory: "restaurant",
+
 
     },
     reducers: {
@@ -12,14 +14,21 @@ const googleSlice = createSlice({
             state.getPlacesList = action.payload
         },
         GetPlacesDetailbyId(state, action) {
+
             console.log(action.payload)
             state.getPlacesDetailbyId = action.payload
+        },
+        GetCatogories(state, action) {
+
+            console.log(action.payload)
+            state.catogory = action.payload
         }
+
     },
     extraReducers: {
     }
 })
 
-export const { GetPlacesList, GetPlacesDetailbyId } = googleSlice.actions;
+export const { GetPlacesList, GetPlacesDetailbyId, GetCatogories } = googleSlice.actions;
 
 export default googleSlice.reducer;

@@ -18,6 +18,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GetEventList, GetVenueList } from '../service/CreateEventApi';
 import CustomPagination from '../../components/CustomPagination';
 import customPagination from '../../components/CustomPagination';
+// import { GetCatogories } from '../../../../services/GoogleSlice';
+import { Loader } from "@googlemaps/js-api-loader"
+import { GetPlacesList } from '../../../../services/GoogleSlice';
 // import { Autocomplete } from '@react-google-maps/api';
 
 
@@ -31,11 +34,29 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const [open, setOpen] = useState(false);
     const [openError, setOpenError] = useState(false);
     const [venueList, setVenueList] = useState([])
+    const [catogory, setCatogory] = useState("")
+
+
+    const catogories = [{
+        id: 1,
+        name: 'dinning',
+
+    },
+    {
+        id: 2,
+        name: "Adventure"
+    },
+    {
+        id: 3,
+        name: 'restaurant'
+    }
+    ]
+
+    const lat = localStorage.getItem("lat");
+    const lag = localStorage.getItem("lag");
 
     // useSlector to get State from store
     const { getPlacesList } = useSelector((state) => state?.googleSlice)
-
-
 
     // useSlector to get State from store
     const { getVenueList } = useSelector((state) => state?.createEventSlice)
@@ -107,6 +128,49 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     }, [])
 
 
+    useEffect(() => {
+        const loader = new Loader({
+            apiKey: "AIzaSyAlEQnPxaoYwZXM4aKDtwa3N7tYNvkKFkQ",
+            version: "weekly",
+            libraries: ["places"]
+
+        });
+
+        // fetch google api
+        loader.load().then((google) => {
+            var pyrmont = new google.maps.LatLng(lat, lag);
+            // var pyrmont = new google.maps.LatLng(33.1415552, 73.7476608);
+            let map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 33.1415552, lng: 73.7476608 },
+                zoom: 8,
+            });
+            var service
+
+            var request = {
+                location: pyrmont,
+                radius: '500',
+                type: catogory
+                // [`${catogory}` || "restaurant"]
+            };
+
+
+            service = new google.maps.places.PlacesService(map);
+            service.nearbySearch(request, getNearPlaces);
+            // service.getDetails(reqestplacebyid, getplaceDetail)
+
+            function getNearPlaces(results, status) {
+                if (status == google.maps.places.PlacesServiceStatus.OK) {
+                    dispatch(GetPlacesList(results))
+
+                } else {
+                    // console.log(status)
+                    // console.log(results)
+                }
+            }
+
+        });
+    }, [catogory, lat, lag])
+
     return (
         <div className='create_event_venue'>
             {/* header */}
@@ -125,9 +189,25 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             <div className='filter_group'>
                 <div className='filter_group_left'>
                     <h2>ALL</h2>
-                    <select name="catogories" id="catogories" className='select'>
+                    <select
+                        name="catogories"
+                        id="catogories"
+                        className='select'
+                        value={catogory}
+                        onChange={(e) => {
+
+                            setCatogory(e.target.value)
+
+
+                        }}
+                    >
                         <option>Categories</option>
-                        <option value="1"> option one</option>
+                        {
+                            catogories?.map((item) =>
+                                <option value={item?.name}> {item?.name}</option>
+                            )
+
+                        }
                     </select>
                     <select name="distance" id="distance" className='select'>
                         <option>Distance</option>
