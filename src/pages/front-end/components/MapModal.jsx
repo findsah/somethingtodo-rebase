@@ -52,7 +52,7 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
 
         {
             return data?.map((venue) => {
-
+                console.log(venue)
                 const checkposition =
 
                     typeof venue?.geometry?.location?.lat === "function" ?
@@ -69,7 +69,7 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
                             {/* {venue?.Title || venue?.name}
                              */}
                             {/* //need to check */}
-                            <img src={typeof venue.getUrl != "undefined" ? venue?.photos[0]?.getUrl() : dummy} alt="" />
+                            <img src={venue?.photos?.length > 0 && typeof venue?.photos[0]?.getUrl === "function" ? venue?.photos[0]?.getUrl() : dummy} alt="" />
 
 
                             <h5 >{venue?.Title || venue?.name}</h5>
