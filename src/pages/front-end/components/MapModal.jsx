@@ -9,7 +9,7 @@ import dummy from '../../../assets/dummy1.png'
 
 const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
 
-    console.log("dataaaaaaa", data)
+
     const [positionLocate, setPositionLocate] = useState([51.505, -0.09])
     const mapRef = createRef();
 
@@ -18,10 +18,12 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
 
         setAddedVenues((prevState) => [...prevState, item])
     }
-
+    addedVenues = addedVenues ? addedVenues : data
     const addedVenueId = addedVenues?.map((venue) => {
         return venue?.id || venue?.place_id
     })
+
+
 
 
     useEffect(() => {
@@ -52,7 +54,7 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
 
         {
             return data?.map((venue) => {
-                console.log(venue)
+
                 const checkposition =
 
                     typeof venue?.geometry?.location?.lat === "function" ?

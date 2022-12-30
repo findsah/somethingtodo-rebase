@@ -23,12 +23,16 @@ import dummy from '../../../../assets/dummy1.png'
 
 const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
     const [open, setOpen] = useState(false)
+    console.log(addedVenues)
 
     var settings = {
         slidesToShow: 2,
         className: "center",
         centerMode: true,
     }
+
+
+
     return (
         <>
             {/* Event detail */}
@@ -41,7 +45,7 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                     <div className="blue_line_bar"></div>
                     <div className="col map">
                         {/* react leftlet */}
-                        <MapModal position={[51.505, -0.09]} data={[]} />
+                        <MapModal position={[51.505, -0.09]} data={addedVenues} />
                     </div>
                     <div className="col info">
                         <div className='inline'>
@@ -66,30 +70,78 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                             <div className="col-3">
                                 <h6>Starts at:</h6>
                             </div>
-                            <div className="col-9">
-                                <h6> Insert Venue Name Here</h6>
-                                <p className='p_gray_14'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
+                            {
+                                addedVenues?.length > 0 ?
+                                    addedVenues?.filter((_, i) => i == 0)?.map(item => {
+                                        return (
+                                            <div className="col-9">
+                                                <h6> {item?.name || "Venue Name"}</h6>
+                                                <p className='p_gray_14'>
+                                                    {item?.vicinity || "Venue Description"}
+                                                </p>
+                                            </div>
+                                        )
+                                    }) :
+                                    <div className="col-9">
+                                        <h6> {"Venue Name"}</h6>
+                                        <p className='p_gray_14'>
+                                            {"Venue Description"}
+                                        </p>
+                                    </div>
+
+                            }
+
                         </div>
 
                         <div className="row">
                             <div className="col-3">
                                 <h6>Then:</h6>
                             </div>
-                            <div className="col-9">
-                                <h6> Insert Venue Name Here</h6>
-                                <p className='p_gray_14'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
+                            {
+                                addedVenues?.length > 1 ?
+                                    addedVenues?.filter((_, i) => i == 1).map(item => {
+                                        return (
+                                            <div className="col-9">
+                                                <h6> {item?.name || "Venue Name"}</h6>
+                                                <p className='p_gray_14'>
+                                                    {item?.vicinity || "Venue Description"}
+                                                </p>
+                                            </div>
+                                        )
+                                    }) :
+                                    <div className="col-9">
+                                        <h6> {"Venue Name"}</h6>
+                                        <p className='p_gray_14'>
+                                            {"Venue Description"}
+                                        </p>
+                                    </div>
+                            }
                         </div>
 
                         <div className="row">
                             <div className="col-3">
                                 <h6>Ends at:</h6>
                             </div>
-                            <div className="col-9">
-                                <h6> Insert Venue Name Here</h6>
-                                <p className='p_gray_14'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
+                            {
+                                addedVenues?.length > 2 ?
+                                    addedVenues?.filter((_, i) => i == 2)?.map(item => {
+                                        return (
+                                            <div className="col-9">
+                                                <h6> {item?.name || "Venue Name"}</h6>
+                                                <p className='p_gray_14'>
+                                                    {item?.vicinity || "Venue Description"}
+                                                </p>
+                                            </div>
+                                        )
+                                    }) :
+                                    <div className="col-9">
+                                        <h6> {"Venue Name"}</h6>
+                                        <p className='p_gray_14'>
+                                            {"Venue Description"}
+                                        </p>
+                                    </div>
+
+                            }
                         </div>
                     </div>
                 </div>
@@ -109,8 +161,9 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                                 {
                                     addedVenues?.map((item) => {
 
-                                        console.log(item)
-                                        console.log(item?.opening_hours?.isOpen())
+                                        let phone = "1123454"
+
+
                                         return (
                                             // <div className="col ">
                                             <div className='card' id={item?.id || item?.place_id}>
@@ -135,7 +188,7 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                                                     </div>
                                                     <div className="col d-flex align-items-center gap-4">
                                                         <img src={phoneIcon} alt="icon" width="30px" height="30px" />
-                                                        <p className='p_gray_14'>{item?.phone} </p>
+                                                        <p className='p_gray_14'>{item?.phone || phone} </p>
                                                     </div>
                                                 </div>
 

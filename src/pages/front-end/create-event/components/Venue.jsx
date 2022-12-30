@@ -21,7 +21,9 @@ import customPagination from '../../components/CustomPagination';
 // import { GetCatogories } from '../../../../services/GoogleSlice';
 import { Loader } from "@googlemaps/js-api-loader"
 import { GetPlacesList } from '../../../../services/GoogleSlice';
-// import { Autocomplete } from '@react-google-maps/api';
+import Autocomplete from "react-google-autocomplete";
+import { AiOutlineConsoleSql } from 'react-icons/ai';
+
 
 
 const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, setPreviewImage }) => {
@@ -36,8 +38,9 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const [venueList, setVenueList] = useState([])
     const [catogory, setCatogory] = useState("")
     const [distance, setDistance] = useState("500")
+    const [searchLocation, setSearchLocation] = useState("")
 
-
+    console.log(searchLocation)
     // list of catogories 
     const catogories = [{
         id: 1,
@@ -72,8 +75,12 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const lat = localStorage.getItem("lat");
     const lag = localStorage.getItem("lag");
 
+    const searchlat = searchLocation?.geometry?.location?.lat();
+    const searchlng = searchLocation?.geometry?.location?.lng();
+
     // useSlector to get State from store
     const { getPlacesList } = useSelector((state) => state?.googleSlice)
+    const { getCurrentLocation } = useSelector((state) => state?.shareSlice)
 
     // useSlector to get State from store
     const { getVenueList } = useSelector((state) => state?.createEventSlice)
@@ -156,9 +163,11 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
         });
 
+        console.log(searchlat)
+        console.log(searchlng)
         // fetch google api
         loader.load().then((google) => {
-            var pyrmont = new google.maps.LatLng(lat, lag);
+            var pyrmont = new google.maps.LatLng(searchlat || lat, searchlng || lag);
             // var pyrmont = new google.maps.LatLng(33.1415552, 73.7476608);
             let map = new google.maps.Map(document.getElementById("map"), {
                 center: { lat: 33.1415552, lng: 73.7476608 },
@@ -189,7 +198,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             }
 
         });
-    }, [catogory, lat, lag, distance])
+    }, [catogory, lat, lag, distance, searchLocation?.geometry?.location?.lat, searchLocation?.geometry?.location?.lng])
 
     return (
         <div className='create_event_venue'>
@@ -198,10 +207,32 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                 <h2>SEARCH VENUES: </h2>
                 <div className="right-inner-icon">
                     <i className="fa fa-search" aria-hidden="true"></i>
-                    {/* <Autocomplete> */}
+                    {/* <Autocomplete
+                        apiKey={"AIzaSyAlEQnPxaoYwZXM4aKDtwa3N7tYNvkKFkQ"}
+                        onPlaceSelected={(place) => {
+                            console.log(place);
+                        }}
+                    >
+                        <input
+                            className="search"
+                            type="search"
+                            placeholder="Search City / Current Location" />
 
-                    <input className="search" type="search" placeholder="Search City / Current Location" />
-                    {/* </Autocomplete> */}
+                    </Autocomplete> */}
+                    <Autocomplete
+                        className='search'
+                        apiKey={"AIzaSyAlEQnPxaoYwZXM4aKDtwa3N7tYNvkKFkQ"}
+                        // style={{ width: "90%" }}
+                        onPlaceSelected={(place) => {
+                            setSearchLocation(place)
+                            console.log(place)
+                        }}
+                        // options={{
+                        //     types: ["(regions)"],
+                        //     componentRestrictions: { country: "ru" },
+                        // }}
+                        defaultValue={getCurrentLocation}
+                    />
                 </div>
             </div>
 
