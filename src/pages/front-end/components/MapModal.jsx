@@ -9,6 +9,7 @@ import dummy from '../../../assets/dummy1.png'
 
 const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
 
+    console.log("dataaaaaaa", data)
     const [positionLocate, setPositionLocate] = useState([51.505, -0.09])
     const mapRef = createRef();
 
@@ -25,7 +26,7 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
 
     useEffect(() => {
 
-        if (data != undefined) {
+        if (data?.length > 0 && typeof data[0]?.geometry?.location?.lat === "function") {
             //need to check
             const setposition = [data[0]?.geometry?.location?.lat(), data[0]?.geometry?.location?.lng()]
             setPositionLocate(setposition)
@@ -52,17 +53,24 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
         {
             return data?.map((venue) => {
 
+                console.log(typeof venue?.geometry?.location?.lat)
+                const checkposition =
+
+                    typeof venue?.geometry?.location?.lat === "function" ?
+                        [venue?.geometry?.location?.lat(), venue?.geometry?.location?.lng()] : [51.507, -0.10]
+
+                console.log(checkposition)
                 return (
                     <Marker
                         // position={[51.507, -0.10]}
-                        position={venue?.position || [venue?.geometry?.location?.lat(), venue?.geometry?.location?.lng()]}
+                        position={venue?.position || checkposition}
                         // (need to check)
                         key={venue?.id || venue?.place_id}>
                         <Popup className='map_venue_list' >
                             {/* {venue?.Title || venue?.name}
                              */}
                             {/* //need to check */}
-                            <img src={venue?.photos ? venue?.photos[0]?.getUrl() : dummy} alt="" />
+                            <img src={typeof venue.getUrl != "undefined" ? venue?.photos[0]?.getUrl() : dummy} alt="" />
 
 
                             <h5 >{venue?.Title || venue?.name}</h5>

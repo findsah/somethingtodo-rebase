@@ -35,8 +35,10 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const [openError, setOpenError] = useState(false);
     const [venueList, setVenueList] = useState([])
     const [catogory, setCatogory] = useState("")
+    const [distance, setDistance] = useState("500")
 
 
+    // list of catogories 
     const catogories = [{
         id: 1,
         name: 'dinning',
@@ -51,7 +53,22 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
         name: 'restaurant'
     }
     ]
-
+    // list of distance 
+    const distances = [
+        {
+            km: "25km"
+        },
+        {
+            km: "50km"
+        },
+        {
+            km: "75km"
+        },
+        {
+            km: "100km"
+        },
+    ]
+    // current location of user
     const lat = localStorage.getItem("lat");
     const lag = localStorage.getItem("lag");
 
@@ -127,8 +144,11 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
         dispatch(GetEventList())
     }, [])
 
-
+    // useEffect to fetch all  venus from google
     useEffect(() => {
+
+        var radias = distance.replace('km', '') * 1000
+        console.log(radias)
         const loader = new Loader({
             apiKey: "AIzaSyAlEQnPxaoYwZXM4aKDtwa3N7tYNvkKFkQ",
             version: "weekly",
@@ -148,7 +168,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
             var request = {
                 location: pyrmont,
-                radius: '500',
+                radius: radias,
                 type: catogory
                 // [`${catogory}` || "restaurant"]
             };
@@ -169,7 +189,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             }
 
         });
-    }, [catogory, lat, lag])
+    }, [catogory, lat, lag, distance])
 
     return (
         <div className='create_event_venue'>
@@ -209,9 +229,18 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
                         }
                     </select>
-                    <select name="distance" id="distance" className='select'>
+                    <select name="distance" id="distance" className='select'
+                        value={distance}
+                        onChange={(e) => {
+                            setDistance(e.target.value)
+                        }}
+                    >
                         <option>Distance</option>
-                        <option value="1"> option one</option>
+                        {
+                            distances?.map(item =>
+                                <option value={item?.km}> {item?.km}</option>
+                            )
+                        }
                     </select>
                 </div>
                 <button className='btn_secondary mobile_create_event '
@@ -354,14 +383,11 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
 
                                             {
-                                                item?.photos ?
+                                                item?.photos?.map(photo => {
 
-                                                    item?.photos?.map(photo => {
+                                                    return <img src={typeof photo.getUrl != "undefined" ? photo?.getUrl() : dummy} alt="" />
 
-                                                        return <img src={photo ? photo?.getUrl() : dummy} alt="" />
-
-                                                    }) :
-                                                    <img src={dummy} alt="" />
+                                                })
 
                                             }
                                         </Slider>
