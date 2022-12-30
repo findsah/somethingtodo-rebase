@@ -53,13 +53,12 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
         {
             return data?.map((venue) => {
 
-                console.log(typeof venue?.geometry?.location?.lat)
                 const checkposition =
 
                     typeof venue?.geometry?.location?.lat === "function" ?
                         [venue?.geometry?.location?.lat(), venue?.geometry?.location?.lng()] : [51.507, -0.10]
 
-                console.log(checkposition)
+
                 return (
                     <Marker
                         // position={[51.507, -0.10]}

@@ -381,13 +381,19 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                                         <Slider slidesToShow={1} prevArrow={false} nextArrow={false} dots={false}>
                                             {/* need to check */}
 
-
                                             {
-                                                item?.photos?.map(photo => {
+                                                item?.photos ?
+                                                    item?.photos?.map(photo => {
 
-                                                    return <img src={typeof photo.getUrl != "undefined" ? photo?.getUrl() : dummy} alt="" />
+                                                        if (typeof photo.getUrl === "function") {
+                                                            return <img src={photo.getUrl()} alt="" />
+                                                        } else {
+                                                            return <img src={dummy} alt="" />
 
-                                                })
+                                                        }
+
+                                                    }) :
+                                                    <img src={dummy} alt="" />
 
                                             }
                                         </Slider>
