@@ -23,6 +23,7 @@ import { Loader } from "@googlemaps/js-api-loader"
 import { GetPlacesList } from '../../../../services/GoogleSlice';
 import Autocomplete from "react-google-autocomplete";
 import { AiOutlineConsoleSql } from 'react-icons/ai';
+import { AddedVenueSorting } from './AddedVenueSorting';
 
 
 
@@ -494,7 +495,12 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                 <h2 className='disable_mobile'>ADDED VENUES</h2>
                 <h2 className='disable_desktop'>SEARCH VENUES:</h2>
                 <div className='venue_card_container'>
-                    {
+
+                    <AddedVenueSorting
+                        venueCard={addedVenues}
+                        setVenueCard={setAddedVenues}
+                    />
+                    {/* {
                         addedVenues?.length > 0 ?
                             <Slider className='venue_cards' slidesToShow={addedVenues?.length === 1 ? 1 : 2}>
                                 {
@@ -513,7 +519,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                                                     }
                                                 </p>
                                                 <div className='btn-container'>
-                                                    {/* while integrating api you must pass all attribute same on the button */}
+                                              
                                                     <button className='btn_error desktop_btn'
                                                         onClick={() => RemoveVenueAction(item)}
                                                     >
@@ -538,13 +544,15 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                                 No venue Added add venue to show
                             </div>
                     }
+ */}
 
 
-                    <div className='add_venue'>
+
+                    {/* <div className='add_venue'>
                         <div className='create'>
                             <i className="fa fa-plus" aria-hidden="true"></i>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 

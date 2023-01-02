@@ -15,6 +15,7 @@
     "aos": "^2.3.4",
     "axios": "^1.2.0",
     "bootstrap": "^5.2.2",
+    "immutability-helper": "^3.1.1",
     "include-media": "^1.4.10",
     "moment": "^2.29.4",
     "node-sass": "^7.0.3",

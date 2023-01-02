@@ -28,6 +28,8 @@ const CreateEvent = () => {
     const [eventTime, setEventTime] = useState("")
     const [eventCost, setEventCost] = useState([0, 1000])
     const [costSplit, setCostSplit] = useState("")
+
+    console.log(addedVenues)
     // main state controller from parrent for venue
     const venueData = {
         images,

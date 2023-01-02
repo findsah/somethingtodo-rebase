@@ -176,7 +176,7 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
 
 
                                                         }) :
-                                                        <img src={dummy} alt="" />
+                                                        <img src={dummy} alt="" width="464px" height="207px" />
                                                 }
                                                 {/* <img src={item?.photos ? item?.photos?.getUrl() : dummy} alt="" width="464px" height="207px" /> */}
                                                 {/* <img src={item?.photos[0]?.getUrl()} alt="" width="464px" height="207px" /> */}

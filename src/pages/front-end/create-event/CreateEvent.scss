@@ -613,7 +613,11 @@ whatsapp: +923430048341
       .venue_cards {
         display: flex;
         gap: 1rem;
-        width: 802px !important;
+        // width: 802px !important;
+        // this is for drag and sorting
+        width: 100% !important;
+        overflow-x: scroll;
+
 
         .slick-track {
           display: flex;
@@ -1752,7 +1756,10 @@ whatsapp: +923430048341
 
         .venue_cards {
           overflow: hidden;
-          width: 408px;
+          // width: 408px;
+          // this is for drag and sorting
+          width: 100% !important;
+          overflow-x: scroll;
 
           .slick-track {
             display: flex;
@@ -2575,7 +2582,10 @@ whatsapp: +923430048341
 
         .venue_cards {
           overflow: hidden;
-          width: 408px;
+          // width: 408px;
+          // this is for drag and sorting
+          width: 100% !important;
+          overflow-x: scroll;
 
           .slick-track {
             display: flex;
@@ -3394,7 +3404,10 @@ whatsapp: +923430048341
 
         .venue_cards {
           overflow: hidden;
-          width: 408px;
+          // width: 408px;
+          // this is for drag and sorting
+          width: 100% !important;
+          overflow-x: scroll;
 
           .slick-track {
             display: flex;
@@ -3799,7 +3812,10 @@ whatsapp: +923430048341
     .add_venue_container {
       .venue_card_container {
         .venue_cards {
-          width: 940px;
+          // width: 940px;
+          // this is for drag and sorting
+          width: 100% !important;
+          overflow-x: scroll;
         }
       }
     }
