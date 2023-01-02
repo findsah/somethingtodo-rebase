@@ -6,6 +6,8 @@ import MainRoutes from "./routes/MainRoutes";
 import { GetCurrentLocation } from "./services/ShareApi";
 import { Loader } from "@googlemaps/js-api-loader"
 import { GetPlacesList } from "./services/GoogleSlice";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { DndProvider } from "react-dnd";
 
 
 const App = () => {
@@ -106,10 +108,11 @@ const App = () => {
 
   return (
     <>
-
-      <Header />
-      <MainRoutes />
-      <FooterSection />
+      <DndProvider backend={HTML5Backend}>
+        <Header />
+        <MainRoutes />
+        <FooterSection />
+      </DndProvider>
     </>
   );
 };

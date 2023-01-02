@@ -63,6 +63,7 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
 
                 return (
                     <Marker
+                        // icon={dummy}
                         // position={[51.507, -0.10]}
                         position={venue?.position || checkposition}
                         // (need to check)
@@ -90,7 +91,7 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
                                 }}
                                     style={{
                                         background: addedVenueId?.includes(venue?.id || venue?.place_id) ? 'green' : '',
-                                        opacity: addedVenueId?.includes(venue?.id || venue?.place_id) ? '0.45' : ''
+                                        opacity: addedVenueId?.includes(venue?.id || venue?.place_id) ? '0.8' : ''
                                     }}
                                     disabled={addedVenueId?.includes(venue?.id || venue?.place_id)}
                                 >

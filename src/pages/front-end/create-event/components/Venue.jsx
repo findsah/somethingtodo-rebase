@@ -446,7 +446,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                                             }}
                                                 style={{
                                                     background: addedVenueId?.includes(item?.id || item?.place_id) ? 'green' : '',
-                                                    opacity: addedVenueId?.includes(item?.id || item?.place_id) ? '0.45' : ''
+                                                    opacity: addedVenueId?.includes(item?.id || item?.place_id) ? '0.8' : ''
                                                 }}
                                                 disabled={addedVenueId?.includes(item?.id || item?.place_id)}
                                             >
