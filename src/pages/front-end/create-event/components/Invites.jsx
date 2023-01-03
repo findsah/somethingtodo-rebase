@@ -117,10 +117,10 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
             <table className="table">
                 <thead>
                     <tr>
-                        <th >NUMBER</th>
+                        <th style={{ width: '25%' }}>NUMBER</th>
                         <th>GENDER</th>
                         <th>AGE</th>
-                        {/* <th>Action</th> */}
+                        {/* <th style={{ width: '15%' }}>Action</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -131,6 +131,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                                 <tr >
                                     <td>
                                         <input
+                                            // style={{ width: "60%" }}
                                             type="text"
                                             placeholder='text'
                                             className='text'
@@ -215,11 +216,12 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                                 name="gender"
                                 id="gender"
                                 className='select width'
-                                style={{ margin: "0 auto" }}
+                                style={{ margin: "0 auto", width: "60%" }}
                                 value={gender}
+
                                 onChange={(e) => setGender(e.target.value)}
                             >
-                                <option >Chooce Gender</option>
+                                <option >Gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                                 <option value="both">Both</option>
