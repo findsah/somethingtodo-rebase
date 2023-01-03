@@ -117,13 +117,13 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
             <table className="table">
                 <thead>
                     <tr>
-                        <th>NUMBER</th>
+                        <th >NUMBER</th>
                         <th>GENDER</th>
                         <th>AGE</th>
+                        {/* <th>Action</th> */}
                     </tr>
                 </thead>
                 <tbody>
-
                     {
                         peopleInfo?.map((item, index) => {
 
@@ -195,11 +195,101 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                             )
                         })
                     }
+
+                    <tr >
+                        <td>
+                            <input
+                                type="text"
+                                placeholder='text'
+                                className='text'
+                                name='number'
+                                value={number}
+                                onChange={(e) => setNumber(e.target?.value)}
+                            // value={tableList[item?.id]?.number}
+                            // onChange={(e) => { handleChange(item?.id, e) }}
+
+                            />
+                        </td>
+                        <td  >
+                            <select
+                                name="gender"
+                                id="gender"
+                                className='select width'
+                                style={{ margin: "0 auto" }}
+                                value={gender}
+                                onChange={(e) => setGender(e.target.value)}
+                            >
+                                <option >Chooce Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="both">Both</option>
+                            </select>
+                        </td>
+                        {/* <td className='checkbox'>
+                                <div className='checkbox_group'>
+                                    <input
+                                        type="checkbox"
+                                        name='male'
+                                        id='male'
+                                        value={gender}
+                                        checked={gender === "male"}
+                                        // onClick={setGender("male")}
+                                        onChange={(e) => setGender("male")}
+                                    // value={tableList[item?.id]?.male}
+                                    // onChange={(e) => { handleChange(item?.id, e) }}
+                                    />
+                                    <label htmlFor="male">Male</label>
+                                </div>
+                                <div className='checkbox_group'>
+                                    <input
+                                        type="checkbox"
+                                        name='female'
+                                        id='female'
+                                        checked={gender === "female"}
+                                        value={gender}
+                                    // onClick={setGender("female")}
+                                    // onChange={(e) => setGender("female")}
+                                    // value={tableList[item?.id]?.female}
+                                    // onChange={(e) => { handleChange(item?.id, e) }}
+                                    />
+                                    <label htmlFor="Female">Female</label>
+                                </div>
+                                <div className='checkbox_group'>
+                                    <input
+                                        type="checkbox"
+                                        name='both'
+                                        id='both'
+                                        checked={gender === "both"}
+                                        value={gender}
+                                        // onClick={setGender("both")}
+                                        onChange={(e) => setGender("both")}
+                                    // value={tableList[item?.id]?.both}
+                                    // onChange={(e) => { handleChange(item?.id, e) }}
+                                    />
+                                    <label htmlFor="Both">Both</label>
+                                </div>
+                            </td> */}
+                        <td>
+                            {/* range */}
+                            <CustomRangeSlider
+                                // values={tableList[item?.id]?.age}
+                                values={age}
+                                name="age"
+                                setValues={setAge}
+                                // onChange={(e) => { handleChange(item?.id, e) }}
+                                min={0} max={90}
+                                step={1} />
+                        </td>
+                    </tr>
                     <tr>
                         <td colspan="3">
 
                             <div className='table_button'>
-                                <button className='btn_secondary' onClick={() => setOpen(true)}>
+                                <button className='btn_secondary'
+                                    onClick={() => {
+                                        AddPeopleInfo();
+                                        //  setOpen(true)
+                                    }}>
                                     <i className="fa fa-plus" aria-hidden="true"></i>
                                     ADD  </button>
                                 <button className='btn_error' onClick={() => resetList()}>
@@ -295,7 +385,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                 </>
             }
 
-            <CustoModal open={open} close={setOpen} title="ADD People Information" size="md">
+            {/* <CustoModal open={open} close={setOpen} title="ADD People Information" size="md">
                 <table className="table_popup">
                     <thead>
                         <tr>
@@ -305,11 +395,6 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                         </tr>
                     </thead>
                     <tbody>
-
-                        {/* {
-                        tableList?.map((item, index) => {
-
-                            return ( */}
                         <tr >
                             <td>
                                 <input
@@ -319,8 +404,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                                     name='number'
                                     value={number}
                                     onChange={(e) => setNumber(e.target?.value)}
-                                // value={tableList[item?.id]?.number}
-                                // onChange={(e) => { handleChange(item?.id, e) }}
+                              
 
                                 />
                             </td>
@@ -339,54 +423,11 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                                     <option value="both">Both</option>
                                 </select>
                             </td>
-                            {/* <td className='checkbox'>
-                                <div className='checkbox_group'>
-                                    <input
-                                        type="checkbox"
-                                        name='male'
-                                        id='male'
-                                        value={gender}
-                                        checked={gender === "male"}
-                                        // onClick={setGender("male")}
-                                        onChange={(e) => setGender("male")}
-                                    // value={tableList[item?.id]?.male}
-                                    // onChange={(e) => { handleChange(item?.id, e) }}
-                                    />
-                                    <label htmlFor="male">Male</label>
-                                </div>
-                                <div className='checkbox_group'>
-                                    <input
-                                        type="checkbox"
-                                        name='female'
-                                        id='female'
-                                        checked={gender === "female"}
-                                        value={gender}
-                                    // onClick={setGender("female")}
-                                    // onChange={(e) => setGender("female")}
-                                    // value={tableList[item?.id]?.female}
-                                    // onChange={(e) => { handleChange(item?.id, e) }}
-                                    />
-                                    <label htmlFor="Female">Female</label>
-                                </div>
-                                <div className='checkbox_group'>
-                                    <input
-                                        type="checkbox"
-                                        name='both'
-                                        id='both'
-                                        checked={gender === "both"}
-                                        value={gender}
-                                        // onClick={setGender("both")}
-                                        onChange={(e) => setGender("both")}
-                                    // value={tableList[item?.id]?.both}
-                                    // onChange={(e) => { handleChange(item?.id, e) }}
-                                    />
-                                    <label htmlFor="Both">Both</label>
-                                </div>
-                            </td> */}
+                            
                             <td>
-                                {/* range */}
+                                
                                 <CustomRangeSlider
-                                    // values={tableList[item?.id]?.age}
+                                    
                                     values={age}
                                     name="age"
                                     setValues={setAge}
@@ -395,9 +436,6 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                                     step={1} />
                             </td>
                         </tr>
-                        {/* )
-                        })
-                    } */}
                         <tr>
                             <td colspan="3">
 
@@ -414,11 +452,9 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                                 </div>
                             </td>
                         </tr>
-
                     </tbody>
-
                 </table>
-            </CustoModal>
+            </CustoModal> */}
         </div>
     )
 }
