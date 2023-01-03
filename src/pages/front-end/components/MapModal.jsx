@@ -64,10 +64,7 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
 
                 return (
                     <Marker
-                        // icon={dummy}
-                        // position={[51.507, -0.10]}
                         position={venue?.position || checkposition}
-                        // (need to check)
                         // icon={iconBlue}
                         key={venue?.id || venue?.place_id}>
                         <Popup className='map_venue_list' >
