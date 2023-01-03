@@ -18,9 +18,13 @@ const TimeAndPrice = ({ eventDate,
     setCostSplit }) => {
 
     // to find current date and not to select past days
-    const current = new Date();
-    const today = `${current.getFullYear()}-${current.getMonth() + 1}-${current.getDate()}`;
+    // const current = new Date();
+    // const today = `${current.getFullYear()}-${current.getMonth() + 1}-${current.getDate()}`;
+    // console.log(today)
 
+    var MyDate = new Date();
+    var today;
+    today = MyDate.getFullYear() + '-' + ('0' + (MyDate.getMonth() + 1)).slice(-2) + '-' + ('0' + MyDate.getDate()).slice(-2)
 
     return (
 
