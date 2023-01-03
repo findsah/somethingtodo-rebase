@@ -90,7 +90,7 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
                                 }}
                                     style={{
                                         background: addedVenueId?.includes(venue?.id || venue?.place_id) ? 'green' : '',
-                                        opacity: addedVenueId?.includes(venue?.id || venue?.place_id) ? '0.8' : ''
+                                        opacity: addedVenueId?.includes(venue?.id || venue?.place_id) ? '0.4' : ''
                                     }}
                                     disabled={addedVenueId?.includes(venue?.id || venue?.place_id)}
                                 >
