@@ -128,7 +128,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                         peopleInfo?.map((item, index) => {
 
                             return (
-                                <tr >
+                                <tr key={index}>
                                     <td>
                                         <input
                                             // style={{ width: "60%" }}
@@ -284,7 +284,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="3">
+                        <td colSpan="3">
 
                             <div className='table_button'>
                                 <button className='btn_secondary'
@@ -439,7 +439,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="3">
+                            <td colSpan="3">
 
                                 <div className='table_button'>
                                     <button className='btn_secondary' onClick={() => {
