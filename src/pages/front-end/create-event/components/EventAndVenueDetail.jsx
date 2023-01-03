@@ -161,16 +161,9 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                                 {
                                     addedVenues?.map((item) => {
 
-                                        fetch("https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJj83WIGKvEmsRuQACGqZdj48&key=AIzaSyBR962qKrR2IwdYUmk8J4diZVZuV_L9pWw",
-                                            {
-                                                method: 'GET',
-                                                headers: { "Accept": "application/json" },
-                                                redirect: 'follow'
-                                            })
-                                            .then(response => response.json()).then(o => {
-                                                console.log(o)
-                                            })
 
+                                        // const res = fetch("https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJj83WIGKvEmsRuQACGqZdj48&key=AIzaSyBR962qKrR2IwdYUmk8J4diZVZuV_L9pWw")
+                                        // const data = res.json();
                                         return (
                                             <div className='card' id={item?.id || item?.place_id}>
                                                 {
@@ -224,6 +217,13 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
 
                                             </div>
                                         )
+
+
+
+
+
+
+
                                     }
                                     )}
 

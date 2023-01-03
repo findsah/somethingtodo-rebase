@@ -6,6 +6,7 @@ whatsapp: +923430048341
 import React, { createRef, useEffect, useState } from 'react'
 import { MapContainer, Marker, Popup, TileLayer, useMapEvent, useMap, useMapEvents } from 'react-leaflet'
 import dummy from '../../../assets/dummy1.png'
+import { iconBlue } from '../../../assets/leftletIcon/icon'
 
 const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
 
@@ -67,6 +68,7 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
                         // position={[51.507, -0.10]}
                         position={venue?.position || checkposition}
                         // (need to check)
+                        // icon={iconBlue}
                         key={venue?.id || venue?.place_id}>
                         <Popup className='map_venue_list' >
                             {/* {venue?.Title || venue?.name}
