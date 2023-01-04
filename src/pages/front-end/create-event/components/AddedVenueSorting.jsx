@@ -2,7 +2,6 @@ import update from 'immutability-helper'
 import { useCallback, useState } from 'react'
 import { VenueCard } from './VenueCard.jsx'
 const style = {
-
     display: 'flex',
 }
 export const AddedVenueSorting = ({ venueCard, setVenueCard }) => {
