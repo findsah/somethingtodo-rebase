@@ -85,6 +85,14 @@ const TimeAndPrice = ({ eventDate,
                             />
                             <label htmlFor="shared">Evenly Shared</label>
                         </div>
+                        <div className='shared checkbox'>
+                            <input type="checkbox" name='Someone Else is Paying' id='Someone Else is Paying'
+                                value={costSplit}
+                                onChange={() => setCostSplit("Someone Else is Paying")}
+                                checked={costSplit === "Someone Else is Paying"}
+                            />
+                            <label htmlFor="Someone Else is Paying">Someone Else is Paying</label>
+                        </div>
                     </div>
                 </div>
             </div>

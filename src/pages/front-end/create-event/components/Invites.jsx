@@ -6,7 +6,7 @@ whatsapp: +923430048341
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import Slider from 'react-slick';
-import profile from '../../../../assets/armanprofile.png'
+import profile from '../../../../assets/images/defaultuser.png'
 import CustoModal from '../../components/CustomModal';
 import CustomRangeSlider from '../../components/CustomRangeSlider';
 import { GetFriendList } from '../service/CreateEventApi';
@@ -338,7 +338,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                     {/* invite friends */}
                     <div className='invite_friends_group'>
                         <div className='invite_friends'>
-                            <h2>INVETE FRIENDS TO JOIN</h2>
+                            <h2>INVITE FRIENDS TO JOIN</h2>
                             <div className='invite_friends_right'>
                                 <select name="location" id="location" className='select' placeholder='Search City / Current Location'>
                                     <option value="one">option one</option>
