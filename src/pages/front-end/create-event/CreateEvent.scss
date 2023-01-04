@@ -27,8 +27,20 @@ whatsapp: +923430048341
 
   .createEventSilder {
     background: linear-gradient(140.6deg, #002c6d 0%, #0082cf 100%);
-    // height: 485px;
-    // padding: 3rem;
+    padding-top: 260px;
+    margin-top: 50px;
+
+    .move_up {
+      position: absolute;
+      top: 199px;
+      left: 103px;
+      width: 85%;
+    }
+
+    .slick-slider {
+      width: 90%;
+      margin: 0px auto;
+    }
 
     .slick-track {
       display: flex;
@@ -36,6 +48,8 @@ whatsapp: +923430048341
 
       img {
         height: 289px !important;
+        border-radius: 10px;
+        border: 3px solid white;
       }
     }
 
@@ -1324,6 +1338,15 @@ whatsapp: +923430048341
   .createEventTop {
     .createEventSilder {
       position: relative;
+      padding-top: 91px;
+      margin-top: 0px;
+
+      .move_up {
+        position: absolute;
+        width: 100%;
+        top: -29px;
+        left: 0px;
+      }
 
       .slick-track {
         display: flex;
@@ -1516,7 +1539,7 @@ whatsapp: +923430048341
           .rightTop {
             .paid {
               position: absolute;
-              top: 108px;
+              top: 68px;
               right: -205px;
 
             }
@@ -1526,7 +1549,7 @@ whatsapp: +923430048341
               align-items: center;
               gap: 0.5rem;
               position: absolute;
-              top: 108px;
+              top: 68px;
               right: -65px;
 
             }
@@ -1537,7 +1560,7 @@ whatsapp: +923430048341
             display: flex;
             align-items: center;
             position: absolute;
-            top: 116px;
+            top: 76px;
             left: 250px;
             padding: 0.4rem 0.5rem 0.4rem;
             border-radius: 5px;
@@ -2148,6 +2171,16 @@ whatsapp: +923430048341
     .createEventSilder {
       position: relative;
 
+      padding-top: 91px;
+      margin-top: 0px;
+
+      .move_up {
+        position: absolute;
+        width: 100%;
+        top: -29px;
+        left: 0px;
+      }
+
       .slick-track {
         display: flex;
         gap: 1rem;
@@ -2338,7 +2371,7 @@ whatsapp: +923430048341
           .rightTop {
             .paid {
               position: absolute;
-              top: 115px;
+              top: 74px;
               right: -220px;
 
 
@@ -2349,7 +2382,7 @@ whatsapp: +923430048341
               align-items: center;
               gap: 0.5rem;
               position: absolute;
-              top: 115px;
+              top: 74px;
               right: -65px;
 
             }
@@ -2360,7 +2393,7 @@ whatsapp: +923430048341
             display: flex;
             align-items: center;
             position: absolute;
-            top: 120px;
+            top: 80px;
             left: 280px;
             padding: 0.4rem 0.5rem 0.4rem;
             border-radius: 5px;
@@ -2978,6 +3011,19 @@ whatsapp: +923430048341
   .createEventTop {
     .createEventSilder {
       position: relative;
+      padding-top: 130px;
+      margin-top: 0px;
+
+      .move_up {
+        position: absolute;
+        width: 100%;
+        top: -29px;
+        left: 0px;
+      }
+
+      .slick-track img {
+        height: 143px !important;
+      }
 
       .createEventInfoContainer {
         flex-wrap: wrap;
@@ -3160,7 +3206,7 @@ whatsapp: +923430048341
           .rightTop {
             .paid {
               position: absolute;
-              top: 115px;
+              top: 66px;
               right: -220px;
 
 
@@ -3171,7 +3217,7 @@ whatsapp: +923430048341
               align-items: center;
               gap: 0.5rem;
               position: absolute;
-              top: 115px;
+              top: 66px;
               right: -65px;
 
             }
@@ -3182,7 +3228,7 @@ whatsapp: +923430048341
             display: flex;
             align-items: center;
             position: absolute;
-            top: 120px;
+            top: 70px;
             left: 280px;
             padding: 0.4rem 0.5rem 0.4rem;
             border-radius: 5px;

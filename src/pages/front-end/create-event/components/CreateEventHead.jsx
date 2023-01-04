@@ -75,19 +75,21 @@ const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues
             <br />
             <br />
             <div className='container createEventSilder'>
+                <div className='move_up'>
+                    <Slider
+                        slidesToShow={(addedVenues?.length === 1 && 1) || (addedVenues?.length === 2 && 2) || (addedVenues?.length > 2 && 3)}
+                    // className="center"
+                    // centerMode={true}
+                    >
+                        {
+                            addedVenues?.map((item, index) => (
 
-                <Slider
-                    slidesToShow={(addedVenues?.length === 1 && 1) || (addedVenues?.length === 2 && 2) || (addedVenues?.length > 2 && 3)}
-                // className="center"
-                // centerMode={true}
-                >
-                    {
-                        addedVenues?.map((item, index) => (
+                                <img className="img-fluid" src={item?.photos?.length > 0 && typeof item?.photos[0]?.getUrl === "function" ? item?.photos[0].getUrl() : dummy} alt="logo" key={index} style={{ height: "300px" }} />
+                            ))
+                        }
+                    </Slider>
+                </div>
 
-                            <img className="img-fluid" src={item?.photos?.length > 0 && typeof item?.photos[0]?.getUrl === "function" ? item?.photos[0].getUrl() : dummy} alt="logo" key={index} style={{ height: "300px" }} />
-                        ))
-                    }
-                </Slider>
 
                 <div className='createEventInfoContainer'>
                     <div className='info'>
