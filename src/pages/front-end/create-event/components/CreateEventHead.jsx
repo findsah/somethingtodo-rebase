@@ -108,7 +108,7 @@ const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues
                 </div>
 
 
-                <div className='eventFooter'>
+                <div className='eventFooter ' style={{ display: 'none !important' }}>
                     <div >
                         <p className='mo_share_p'>Share with friends:</p>
                         <div className='left'>
