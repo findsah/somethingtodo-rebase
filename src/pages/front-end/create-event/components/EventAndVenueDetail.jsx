@@ -161,11 +161,10 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                                 {
                                     addedVenues?.map((item) => {
 
-                                        let phone = "1123454"
 
-
+                                        // const res = fetch("https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJj83WIGKvEmsRuQACGqZdj48&key=AIzaSyBR962qKrR2IwdYUmk8J4diZVZuV_L9pWw")
+                                        // const data = res.json();
                                         return (
-                                            // <div className="col ">
                                             <div className='card' id={item?.id || item?.place_id}>
                                                 {
                                                     item?.photos ?
@@ -188,7 +187,7 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                                                     </div>
                                                     <div className="col d-flex align-items-center gap-4">
                                                         <img src={phoneIcon} alt="icon" width="30px" height="30px" />
-                                                        <p className='p_gray_14'>{item?.phone || phone} </p>
+                                                        <p className='p_gray_14'>{item?.phone} </p>
                                                     </div>
                                                 </div>
 
@@ -217,11 +216,15 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                                                 </div>
 
                                             </div>
-
-                                            // </div>
                                         )
-                                    }
 
+
+
+
+
+
+
+                                    }
                                     )}
 
 

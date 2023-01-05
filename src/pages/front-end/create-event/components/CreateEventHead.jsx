@@ -59,7 +59,7 @@ const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues
                     <p>Seconds</p>
                 </div>
 
-                <button className='btn-main'>JOIN NOW</button>
+                {/* <button className='btn-main'>JOIN NOW</button> */}
             </div>
 
         }
@@ -75,18 +75,21 @@ const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues
             <br />
             <br />
             <div className='container createEventSilder'>
+                <div className='move_up'>
+                    <Slider
+                        slidesToShow={(addedVenues?.length === 1 && 1) || (addedVenues?.length === 2 && 2) || (addedVenues?.length > 2 && 3)}
+                    // className="center"
+                    // centerMode={true}
+                    >
+                        {
+                            addedVenues?.map((item, index) => (
 
-                <Slider
-                    slidesToShow={(addedVenues?.length === 1 && 1) || (addedVenues?.length === 2 && 2) || (addedVenues?.length > 2 && 3)}
-                // className="center"
-                // centerMode={true}
-                >
-                    {
-                        addedVenues?.map((item, index) => (
-                            <img className="img-fluid" src={item?.photos ? item?.photos[0].getUrl() : dummy} alt="logo" key={index} style={{ height: "300px" }} />
-                        ))
-                    }
-                </Slider>
+                                <img className="img-fluid" src={item?.photos?.length > 0 && typeof item?.photos[0]?.getUrl === "function" ? item?.photos[0].getUrl() : dummy} alt="logo" key={index} style={{ height: "300px" }} />
+                            ))
+                        }
+                    </Slider>
+                </div>
+
 
                 <div className='createEventInfoContainer'>
                     <div className='info'>
@@ -104,8 +107,8 @@ const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues
                     </div>
                 </div>
 
-
-                <div className='eventFooter'>
+                {/* comment for temporary purpose */}
+                {/* <div className='eventFooter '>
                     <div >
                         <p className='mo_share_p'>Share with friends:</p>
                         <div className='left'>
@@ -123,8 +126,7 @@ const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues
                                         <img src={profilegirl} alt="" width="22px" height="22px" />
                                         <img src={profilegirl} alt="" width="22px" height="22px" />
                                         <img src={profilegirl} alt="" width="22px" height="22px" />
-                                        {/* <img src={profilegirl} alt="" width="22px" height="22px" />
-                                    <img src={profilegirl} alt="" width="22px" height="22px" /> */}
+                                    
                                     </div>
                                     <div className='infoPeopleCount'>
                                         <span>& 12 other </span> <i className="fa fa-angle-right" aria-hidden="true"></i>
@@ -171,7 +173,7 @@ const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues
                         </div>
 
                     </div>
-                </div>
+                </div> */}
             </div>
 
 

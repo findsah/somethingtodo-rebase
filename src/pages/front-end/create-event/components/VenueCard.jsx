@@ -2,13 +2,7 @@ import { useRef } from 'react'
 import { useDrag, useDrop } from 'react-dnd'
 import { ItemTypes } from '../../components/ItemTypes.js'
 import dummy from '../../../../assets/dummy1.png'
-const style = {
-    // border: '1px dashed gray',
-    // padding: '0.5rem 1rem',
-    // marginBottom: '.5rem',
-    // backgroundColor: 'white',
-    cursor: 'move',
-}
+
 export const VenueCard = ({ id, data, index, moveCard, setAddedVenues }) => {
 
     // remove venue
@@ -84,10 +78,21 @@ export const VenueCard = ({ id, data, index, moveCard, setAddedVenues }) => {
             isDragging: monitor.isDragging(),
         }),
     })
-    const opacity = isDragging ? 0 : 1
+    const customStyle = {
+        backgroundColor: "white",
+        opacity: isDragging ? "1 !important" : 1,
+        border: '1px dashed gray',
+        padding: '0.5rem 1rem',
+        marginBottom: '.5rem',
+        cursor: 'move',
+        opacity: isDragging ? 1 : 1
+
+    }
+    console.log(drop(ref))
+    // isDragging ? 2 : 2
     drag(drop(ref))
     return (
-        <div ref={ref} style={{ ...style, opacity }} data-handler-id={handlerId}>
+        <div ref={ref} style={{ ...customStyle }} data-handler-id={handlerId}>
             <div className='venue_card' key={data?.id}>
                 <img src={data?.photos ? data?.photos[0]?.getUrl() : dummy} alt="" />
                 <h5 >{data?.Title || data?.name}</h5>

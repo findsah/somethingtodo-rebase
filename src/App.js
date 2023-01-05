@@ -95,16 +95,30 @@ const App = () => {
     }
 
   }, []);
+  // checking
   // useEffect(() => {
-  //   maploacate.locate().on("locationfound", function (e) {
-  //     console.log(e.latlng);
-  //     map.flyTo(e.latlng, map.getZoom());
-  //     const radius = e.accuracy;
-  //     const circle = L.circle(e.latlng, radius);
-  //     circle.addTo(map);
-  //     setBbox(e.bounds.toBBoxString().split(","));
-  //   });
-  // }, [maploacate]);
+  //   var myHeaders = new Headers();
+  //   // myHeaders.append("Accept", "application/json");
+  //   myHeaders.append("Access-Control-Allow-Origin", "*");
+  //   myHeaders.append("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+  //   var requestOptions = {
+  //     method: 'GET',
+  //     headers: myHeaders,
+  //     redirect: 'follow'
+  //   };
+
+  //   try {
+  //     fetch("https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJj83WIGKvEmsRuQACGqZdj48&key=AIzaSyBR962qKrR2IwdYUmk8J4diZVZuV_L9pWw")
+  //       .then(response => response.text())
+  //       .then(result => console.log(result))
+  //       .catch(error => console.log('error', error));
+
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+
+  // }, [])
 
   return (
     <>
