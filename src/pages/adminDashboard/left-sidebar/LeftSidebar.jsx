@@ -12,49 +12,49 @@ const sidebarNavItems = [
     {
         display: 'Edit Venue',
         icon: <i className='bx bx-star'></i>,
-        to: '/edit-venue',
+        to: '/dashboard/edit-venue',
         section: 'edit-venue'
     },
     {
         display: 'Claim A Venue',
         icon: <i className='bx bx-calendar'></i>,
-        to: '/claim-venue',
+        to: '/dashboard/claim-venue',
         section: 'claim-venue'
     },
     {
         display: 'Promotions',
         icon: <i className='bx bx-user'></i>,
-        to: '/promotions',
+        to: '/dashboard/promotions',
         section: 'promotions'
     },
     {
         display: 'On-going promotions',
         icon: <i className='bx bx-receipt'></i>,
-        to: '/on-going-promotions',
+        to: '/dashboard/on-going-promotions',
         section: 'on-going-promotions'
     },
     {
         display: 'Promotion Details',
         icon: <i className='bx bx-receipt'></i>,
-        to: '/promotion-details',
+        to: '/dashboard/promotion-details',
         section: 'promotion-details'
     },
     {
         display: 'Create Event',
         icon: <i className='bx bx-receipt'></i>,
-        to: '/event-create',
+        to: '/dashboard/event-create',
         section: 'event-create'
     },
     {
         display: 'Account',
         icon: <i className='bx bx-receipt'></i>,
-        to: '/account',
+        to: '/dashboard/account',
         section: 'account'
     },
     {
         display: 'My Event',
         icon: <i className='bx bx-receipt'></i>,
-        to: '/my-event',
+        to: '/dashboard/my-event',
         section: 'my-event'
     },
     {
