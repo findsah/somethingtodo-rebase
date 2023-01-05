@@ -681,3 +681,19 @@ h6 {
   }
 
 }
+
+
+
+
+.left-sidebar {
+  position: fixed;
+  top: 0;
+  left: 12px;
+}
+
+/***** Main Content *****/
+.main-content {
+  margin-left: 350px;
+  margin-top: 3rem;
+  transition: all 0.3s ease;
+}
