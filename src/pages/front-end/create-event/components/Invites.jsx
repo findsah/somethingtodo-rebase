@@ -6,10 +6,13 @@ whatsapp: +923430048341
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import Slider from 'react-slick';
+import { toast } from 'react-toastify';
 import profile from '../../../../assets/images/defaultuser.png'
 import CustoModal from '../../components/CustomModal';
 import CustomRangeSlider from '../../components/CustomRangeSlider';
 import { GetFriendList } from '../service/CreateEventApi';
+import { AiFillDelete } from 'react-icons/ai';
+import uuid from 'react-uuid'
 
 const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate, setIsthisDate,
     whocanjoin,
@@ -38,19 +41,34 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
     const AddPeopleInfo = () => {
 
         const data = {
-            id: peopleInfo?.length + 1,
+            id: uuid(),
             number,
             gender,
             age
         }
 
-        setpeopleInfo((prevState) => [...prevState, data])
-        reset()
+        if (age?.length && gender && number) {
+            if (Number(number)) {
+                setpeopleInfo((prevState) => [...prevState, data])
+                reset()
+            } else {
+                toast.warn("number should not be a string")
+            }
+
+        } else {
+            toast.warn("Please Fill the field")
+        }
+
 
 
     }
 
-    console.log(peopleInfo)
+    const DeleteInfoById = (id) => {
+        alert(id)
+        const remove = peopleInfo?.filter(item => item.id != id)
+        setpeopleInfo(remove)
+    }
+    // console.log(peopleInfo)
 
     const resetList = () => {
         setpeopleInfo([])
@@ -120,7 +138,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                         <th style={{ width: '25%' }}>NUMBER</th>
                         <th>GENDER</th>
                         <th>AGE</th>
-                        {/* <th style={{ width: '15%' }}>Action</th> */}
+                        <th style={{ width: '10%' }}>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -191,6 +209,14 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                                             // onChange={(e) => { handleChange(item?.id, e) }}
                                             min={0} max={90}
                                             step={1} />
+                                    </td>
+                                    <td>
+                                        <AiFillDelete
+                                            className='icon_delete'
+                                            onClick={() => {
+                                                DeleteInfoById(item?.id)
+                                            }}
+                                        />
                                     </td>
                                 </tr>
                             )

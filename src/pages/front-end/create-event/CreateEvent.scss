@@ -839,6 +839,12 @@ whatsapp: +923430048341
       td {
         border-style: none;
         padding-top: 1rem;
+
+        .icon_delete {
+          color: red;
+          font-size: 1.3rem;
+          cursor: pointer;
+        }
       }
 
       input[type="text"] {
