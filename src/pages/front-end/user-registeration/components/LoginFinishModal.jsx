@@ -5,17 +5,19 @@ import done from "../../../../assets/icons/done_outline.svg";
 
 export default function LoginFinishModal({ modalShow, setModalShow }) {
     return (
-        <div size={28}>
+        <div className='login-finish-modal'>
             <Modal
+                size='sm'
                 show={modalShow} onHide={() => {
                     setModalShow(false)
                 }}
-
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >
 
-                <Modal.Body>
+                <Modal.Body
+
+                >
                     <div className="row d-flex justify-content-center">
                         <div className="col-12 d-flex- justify-content-end">
                             <IoMdClose
@@ -29,7 +31,7 @@ export default function LoginFinishModal({ modalShow, setModalShow }) {
                     <div class="row justify-content-center">
                         <div class="col-lg-9 col-md-6 col-sm-6">
                             <div class="card-title text-center">
-                                <h2 class=" login-main-heading">
+                                <h2 class="login-main-heading">
                                     You have successfully Sign In
                                     Thank you
                                 </h2>

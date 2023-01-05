@@ -14,7 +14,7 @@ export default function SignUp() {
   };
 
   return (
-    <div className='container-fluid main-login'>
+    <div className='container-fluid main-login' >
       <div className="row top-sec">
 
         <div className="col-lg-5 col-11">

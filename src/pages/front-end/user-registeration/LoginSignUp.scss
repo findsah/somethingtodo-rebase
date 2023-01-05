@@ -1,4 +1,20 @@
 @import "../../../breakpoint.scss";
+.login-main-heading{
+  font-weight: 700;
+font-size: 40px;
+line-height: 48px;
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.063em;
+
+/* Grey/ Dark */
+
+color: #515151;
+span{
+  color: #1F518B;
+}
+}
 .main-login{
     .top-sec {
         // text-align: start;
@@ -11,6 +27,7 @@
 
       .form-sec{
         background-color: #F5FAFF;
+        box-shadow: 0px 0px 6.91532px 3.31935px rgba(172, 214, 255, 0.8);
         h2{
             margin-top: 3rem;
         }
@@ -28,6 +45,7 @@
         }
         .btn-main {
          width: 133px;
+        //  margin-bottom: 3rem;
         }
         .select {
           color: #1F518B;
