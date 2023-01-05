@@ -123,9 +123,9 @@ const App = () => {
   return (
     <>
       <DndProvider backend={HTML5Backend}>
-        <Header />
+        {/* <Header /> */}
         <MainRoutes />
-        <FooterSection />
+        {/* <FooterSection /> */}
       </DndProvider>
     </>
   );
