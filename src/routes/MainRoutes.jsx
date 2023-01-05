@@ -30,6 +30,15 @@ const MainRoutes = () => {
       <Route path="/dashboard" element={<DashboardLayout />}>
         {/* sub routing */}
         <Route path="edit-venue" element={<EditVenue />} />
+        <Route path='claim-venue' element={<EditVenue />} />
+        <Route path='promotions' element={<EditVenue />} />
+        <Route path='on-going-promotions' element={<EditVenue />} />
+        <Route path='promotion-details' element={<EditVenue />} />
+        <Route path='event-create' element={<EditVenue />} />
+        <Route path='account' element={<EditVenue />} />
+        <Route path='my-event' element={<EditVenue />} />
+        {/* 
+       */}
         {/* 
       <Route path='/claim-venue' element={<Comonponet Name />} />
       <Route path='/promotions' element={<Comonponet Name />} />

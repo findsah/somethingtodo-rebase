@@ -35,7 +35,7 @@ export default function BlogPost() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-4 col-12 sec-2" style={{ border: '1px solid red' }}>
+                        <div className="col-lg-4 col-12 sec-2" >
                             <div className="row justify-content-center ">
                                 <div className="col-11 ">
                                     <h2 className='text-center'>SUGGESTED  EVENTS FROM <span className='span1'>  SOMETHINGTODO  NEARBY </span></h2>
