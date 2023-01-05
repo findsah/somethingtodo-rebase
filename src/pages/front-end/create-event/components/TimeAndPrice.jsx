@@ -63,7 +63,13 @@ const TimeAndPrice = ({ eventDate,
                     <h3>ESTIMATED COST FOR THIS EVENT</h3>
                     <div className='range_wdith'>
 
-                        <CustomRangeSlider values={eventCost} setValues={setEventCost} min={0} max={9999} step={1} />
+                        <CustomRangeSlider
+                            values={eventCost}
+                            setValues={setEventCost}
+                            min={0}
+                            max={9999}
+                            step={2}
+                            single={"single-thumb"} />
                     </div>
                 </div>
                 <div className="col-sm-6 col-12 m-auto  mobile_marign">

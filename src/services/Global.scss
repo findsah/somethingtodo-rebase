@@ -277,7 +277,14 @@ h6 {
       border: 2px solid white;
 
     }
+
   }
+
+  .single-thumb .range-slider__thumb[data-lower] {
+    width: 0;
+    border: none;
+  }
+
 }
 
 .similer-vanues {

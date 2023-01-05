@@ -59,7 +59,7 @@ const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues
                     <p>Seconds</p>
                 </div>
 
-                <button className='btn-main'>JOIN NOW</button>
+                {/* <button className='btn-main'>JOIN NOW</button> */}
             </div>
 
         }
@@ -107,8 +107,8 @@ const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues
                     </div>
                 </div>
 
-
-                <div className='eventFooter ' style={{ display: 'none !important' }}>
+                {/* comment for temporary purpose */}
+                {/* <div className='eventFooter '>
                     <div >
                         <p className='mo_share_p'>Share with friends:</p>
                         <div className='left'>
@@ -126,8 +126,7 @@ const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues
                                         <img src={profilegirl} alt="" width="22px" height="22px" />
                                         <img src={profilegirl} alt="" width="22px" height="22px" />
                                         <img src={profilegirl} alt="" width="22px" height="22px" />
-                                        {/* <img src={profilegirl} alt="" width="22px" height="22px" />
-                                    <img src={profilegirl} alt="" width="22px" height="22px" /> */}
+                                    
                                     </div>
                                     <div className='infoPeopleCount'>
                                         <span>& 12 other </span> <i className="fa fa-angle-right" aria-hidden="true"></i>
@@ -174,7 +173,7 @@ const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues
                         </div>
 
                     </div>
-                </div>
+                </div> */}
             </div>
 
 

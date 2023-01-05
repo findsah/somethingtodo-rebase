@@ -64,7 +64,6 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
     }
 
     const DeleteInfoById = (id) => {
-        alert(id)
         const remove = peopleInfo?.filter(item => item.id != id)
         setpeopleInfo(remove)
     }
@@ -369,7 +368,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                                 <select name="location" id="location" className='select' placeholder='Search City / Current Location'>
                                     <option value="one">option one</option>
                                 </select>
-                                <button className='btn_secondary'><i className="fa fa-plus" aria-hidden="true"></i> ADD FRIEND </button>
+                                {/* <button className='btn_secondary'><i className="fa fa-plus" aria-hidden="true"></i> ADD FRIEND </button> */}
                             </div>
 
                         </div>
@@ -394,7 +393,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                             <h2>INVITE FRIENDS BY EMAIL</h2>
                             <div className='invite_friends_right'>
                                 <input type="text" name="inviteEmail" id="inviteEmail" placeholder='Text' className='text' />
-                                <button className='btn_secondary'><i className="fa fa-plus" aria-hidden="true"></i>INVITE </button>
+                                {/* <button className='btn_secondary'><i className="fa fa-plus" aria-hidden="true"></i>INVITE </button> */}
                             </div>
                         </div>
                         <Slider {...settings} className='mini_cards' >
