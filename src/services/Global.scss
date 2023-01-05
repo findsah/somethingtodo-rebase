@@ -637,6 +637,28 @@ h6 {
   color: #ffffff;
 }
 
+//customize scroll bar
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #D5EAFF;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #64E2FF;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0081CB;
+}
+
 
 // global css for mobile
 @include media ('<=phone') {
