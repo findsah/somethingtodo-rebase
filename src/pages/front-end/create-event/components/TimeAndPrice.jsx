@@ -7,6 +7,11 @@ import React, { useState } from 'react'
 import calenderIcon from '../../../../assets/icons/calendar.svg'
 import clockIcon from '../../../../assets/icons/clock.svg'
 import CustomRangeSlider from '../../components/CustomRangeSlider'
+import TimePicker from 'rc-time-picker';
+import 'rc-time-picker/assets/index.css';
+const format = 'h:mm a';
+
+
 
 const TimeAndPrice = ({ eventDate,
     eventCost,
@@ -26,6 +31,10 @@ const TimeAndPrice = ({ eventDate,
     var today;
     today = MyDate.getFullYear() + '-' + ('0' + (MyDate.getMonth() + 1)).slice(-2) + '-' + ('0' + MyDate.getDate()).slice(-2)
 
+    function onChange(value) {
+        console.log(value && value.format(format));
+        setEventTime(value && value.format(format))
+    }
     return (
 
         <div className="container create-event-time_and_price">
@@ -49,10 +58,17 @@ const TimeAndPrice = ({ eventDate,
                         <h2>EVENT TIME</h2>
                         <img src={clockIcon} alt="" />
                     </div>
-                    <div className='event_time_field'>
-                        <input type="time"
+                    <div className='event_time_field' style={{ width: "100%" }}>
+                        {/* <input type="time"
                             value={eventTime}
+                            step="5"
                             onChange={(e) => { setEventTime(e.target.value); }}
+                        /> */}
+                        <TimePicker
+                            className='time_style'
+                            minuteStep={15}
+                            use12Hours
+                            onChange={onChange}
                         />
                     </div>
                 </div>
@@ -92,12 +108,12 @@ const TimeAndPrice = ({ eventDate,
                             <label htmlFor="shared">Evenly Shared</label>
                         </div>
                         <div className='shared checkbox'>
-                            <input type="checkbox" name='Someone Else is Paying' id='Someone Else is Paying'
+                            <input type="checkbox" name='They Are Paying' id='  They Are Paying'
                                 value={costSplit}
-                                onChange={() => setCostSplit("Someone Else is Paying")}
-                                checked={costSplit === "Someone Else is Paying"}
+                                onChange={() => setCostSplit("  They Are Paying")}
+                                checked={costSplit === "  They Are Paying"}
                             />
-                            <label htmlFor="Someone Else is Paying">Someone Else is Paying</label>
+                            <label htmlFor="  They Are Paying">  They Are Paying</label>
                         </div>
                     </div>
                 </div>
