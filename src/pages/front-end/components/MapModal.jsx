@@ -8,7 +8,7 @@ import { MapContainer, Marker, Popup, TileLayer, useMapEvent, useMap, useMapEven
 import dummy from '../../../assets/dummy1.png'
 import { iconBlue, iconGreen } from '../../../assets/leftletIcon/icon'
 
-const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
+const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogory }) => {
 
 
     const [positionLocate, setPositionLocate] = useState([51.505, -0.09])
@@ -54,28 +54,151 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
 
 
         {
-            return data?.map((venue) => {
+            return data?.filter(entry => Object?.values(entry)?.some(val => typeof val === "string" && val?.match(keyword)))
+                ?.filter(item => {
+                    if (catogory == "dining") {
 
-                const checkposition =
+                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("bar") ||
+                            val.includes("bakery") ||
+                            val.includes("cafe") ||
+                            val.includes("restaurant"))
+                    }
+                    else if (catogory == "nightlife") {
 
-                    typeof venue?.geometry?.location?.lat === "function" ?
-                        [venue?.geometry?.location?.lat(), venue?.geometry?.location?.lng()] : [51.507, -0.10]
+                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("bar") ||
+                            val.includes("night_club") ||
+
+                            val.includes("casino"))
+                    }
+                    else if (catogory == "adventure") {
+
+                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("airport") ||
+                            val.includes("amusement_park") ||
+                            val.includes("aquarium") ||
+                            val.includes("campground") ||
+                            val.includes("park") ||
+                            val.includes("tourist_attraction") ||
+                            val.includes("zoo") ||
+
+                            val.includes("bus_station") ||
+                            val.includes("light_rail_station") ||
+                            val.includes("natural_feature") ||
+                            val.includes("point_of_interest"))
+                    }
+                    else if (catogory == "art") {
+
+                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("art_gallery") ||
 
 
-                return (
-                    <Marker
-                        position={venue?.position || checkposition}
-                        icon={addedVenueId?.includes(venue?.id || venue?.place_id) ? iconGreen : iconBlue}
-                        key={venue?.id || venue?.place_id}>
-                        <Popup className='map_venue_list' >
-                            {/* {venue?.Title || venue?.name}
+                            val.includes("museum"))
+                    }
+                    else if (catogory == "entertainment") {
+
+                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("bar") ||
+                            val.includes("movie_theater") ||
+                            val.includes("stadium") ||
+                            val.includes("tourist_attraction") ||
+                            val.includes("museum") ||
+                            val.includes("night_club") ||
+
+                            val.includes("amusement_park") ||
+                            val.includes("book_store") ||
+
+                            val.includes("museum"))
+                    }
+                    else if (catogory == "music") {
+
+                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("stadium") ||
+                            val.includes("bar") ||
+                            val.includes("casino") ||
+                            val.includes("night_club"))
+                    }
+                    else if (catogory == "casual") {
+
+                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("spa") ||
+                            val.includes("aquarium") ||
+                            val.includes("art_gallery") ||
+                            val.includes("beauty_salon") ||
+                            val.includes("book_store") ||
+                            val.includes("book_store") ||
+                            val.includes("park") ||
+                            val.includes("shopping_mall") ||
+                            val.includes("tourist_attraction") ||
+                            val.includes("university"))
+                    }
+                    else if (catogory == "celebrations") {
+
+                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("spa") ||
+                            val.includes("night_club") ||
+                            val.includes("bar") ||
+                            val.includes("casino") ||
+                            val.includes("amusement_park") ||
+                            val.includes("church") ||
+                            val.includes("hindu_temple") ||
+                            val.includes("lodging") ||
+                            val.includes("mosque") ||
+                            val.includes("stadium") ||
+                            val.includes("stadium") ||
+                            val.includes("tourist_attraction") ||
+                            val.includes("place_of_worship") ||
+                            val.includes("restaurant"))
+                    }
+                    else if (catogory == "gaming") {
+
+                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("stadium"))
+
+                    }
+                    else if (catogory == "education") {
+
+                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("art_gallery") ||
+                            val.includes("book_store") ||
+                            val.includes("library") ||
+                            val.includes("museum") ||
+                            val.includes("university") ||
+                            val.includes("zoo") ||
+                            val.includes("hindu_temple") ||
+                            val.includes("lodging") ||
+                            val.includes("mosque") ||
+                            val.includes("stadium") ||
+                            val.includes("stadium") ||
+                            val.includes("tourist_attraction") ||
+                            val.includes("place_of_worship") ||
+                            val.includes("restaurant"))
+                    }
+                    else if (catogory == "sports") {
+
+                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("stadium") ||
+                            val.includes("bowling_alley") ||
+                            val.includes("gym") ||
+                            val.includes("park") ||
+                            val.includes("university"))
+
+                    }
+                    else {
+                        return item
+                    }
+                })?.map((venue) => {
+
+                    const checkposition =
+
+                        typeof venue?.geometry?.location?.lat === "function" ?
+                            [venue?.geometry?.location?.lat(), venue?.geometry?.location?.lng()] : [51.507, -0.10]
+
+
+                    return (
+                        <Marker
+                            position={venue?.position || checkposition}
+                            icon={addedVenueId?.includes(venue?.id || venue?.place_id) ? iconGreen : iconBlue}
+                            key={venue?.id || venue?.place_id}>
+                            <Popup className='map_venue_list' >
+                                {/* {venue?.Title || venue?.name}
                              */}
-                            {/* //need to check */}
-                            <img src={venue?.photos?.length > 0 && typeof venue?.photos[0]?.getUrl === "function" ? venue?.photos[0]?.getUrl() : dummy} alt="" />
+                                {/* //need to check */}
+                                <img src={venue?.photos?.length > 0 && typeof venue?.photos[0]?.getUrl === "function" ? venue?.photos[0]?.getUrl() : dummy} alt="" />
 
 
-                            <h5 >{venue?.Title || venue?.name}</h5>
-                            {/* <p className='p_gray_10 '>
+                                <h5 >{venue?.Title || venue?.name}</h5>
+                                {/* <p className='p_gray_10 '>
                                 {
                                     venue?.Description?.length > 230 ?
                                         venue?.Description?.substring(0, 230) + "..."
@@ -83,27 +206,27 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues }) => {
                                         || venue?.vicinity
                                 }
                             </p> */}
-                            <div className='btn-container'>
-                                <button className='btn_secondary ' onClick={() => {
-                                    addVenueAction(venue)
+                                <div className='btn-container'>
+                                    <button className='btn_secondary ' onClick={() => {
+                                        addVenueAction(venue)
 
-                                }}
-                                    style={{
-                                        background: addedVenueId?.includes(venue?.id || venue?.place_id) ? 'green' : '',
-                                        opacity: addedVenueId?.includes(venue?.id || venue?.place_id) ? '0.4' : ''
                                     }}
-                                    disabled={addedVenueId?.includes(venue?.id || venue?.place_id)}
-                                >
-                                    <i className="fa fa-plus" aria-hidden="true"></i>
-                                    ADD  VENUE
-                                </button>
-                            </div>
+                                        style={{
+                                            background: addedVenueId?.includes(venue?.id || venue?.place_id) ? 'green' : '',
+                                            opacity: addedVenueId?.includes(venue?.id || venue?.place_id) ? '0.4' : ''
+                                        }}
+                                        disabled={addedVenueId?.includes(venue?.id || venue?.place_id)}
+                                    >
+                                        <i className="fa fa-plus" aria-hidden="true"></i>
+                                        ADD  VENUE
+                                    </button>
+                                </div>
 
 
-                        </Popup>
-                    </Marker>
-                )
-            })
+                            </Popup>
+                        </Marker>
+                    )
+                })
         }
 
 

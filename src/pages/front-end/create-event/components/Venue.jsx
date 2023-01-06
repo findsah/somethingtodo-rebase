@@ -40,22 +40,60 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const [catogory, setCatogory] = useState("")
     const [distance, setDistance] = useState("500")
     const [searchLocation, setSearchLocation] = useState("")
-
-    console.log(searchLocation)
+    const [searchBy, setSearchBy] = useState("")
+    console.log("hhhhhhhhh", catogory)
     // list of catogories 
     const catogories = [{
         id: 1,
-        name: 'dinning',
+        name: 'dining',
 
     },
     {
         id: 2,
-        name: "Adventure"
+        name: "nightlife"
     },
     {
         id: 3,
-        name: 'restaurant'
+        name: 'adventure'
+    },
+    {
+        id: 4,
+        name: 'art'
     }
+        ,
+    {
+        id: 5,
+        name: 'entertainment'
+    }
+        ,
+    {
+        id: 6,
+        name: 'music'
+    }
+        ,
+    {
+        id: 7,
+        name: 'casual'
+    }
+        ,
+    {
+        id: 8,
+        name: 'celebrations'
+    }
+        ,
+    {
+        id: 9,
+        name: 'gaming'
+    },
+    {
+        id: 10,
+        name: 'education'
+    },
+    {
+        id: 11,
+        name: 'sports'
+    }
+
     ]
     // list of distance 
     const distances = [
@@ -75,6 +113,8 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     // current location of user
     const lat = localStorage.getItem("lat");
     const lag = localStorage.getItem("lag");
+    //search case insensitibe
+    const keyword = new RegExp(searchBy, 'i');
 
     const searchlat = searchLocation?.geometry?.location?.lat();
     const searchlng = searchLocation?.geometry?.location?.lng();
@@ -156,20 +196,16 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     useEffect(() => {
 
         var radias = distance.replace('km', '') * 1000
-        console.log(radias)
         const loader = new Loader({
             apiKey: "AIzaSyAlEQnPxaoYwZXM4aKDtwa3N7tYNvkKFkQ",
             version: "weekly",
             libraries: ["places"]
 
         });
-
-        console.log(searchlat)
-        console.log(searchlng)
         // fetch google api
         loader.load().then((google) => {
             var pyrmont = new google.maps.LatLng(searchlat || lat, searchlng || lag);
-            // var pyrmont = new google.maps.LatLng(33.1415552, 73.7476608);
+            // var pyrmont = new google.maps.LatLng(51.509865, -0.118092);
             let map = new google.maps.Map(document.getElementById("map"), {
                 center: { lat: 33.1415552, lng: 73.7476608 },
                 zoom: 8,
@@ -199,7 +235,15 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             }
 
         });
-    }, [catogory, lat, lag, distance, searchLocation?.geometry?.location?.lat, searchLocation?.geometry?.location?.lng])
+    }, [
+        catogory,
+        keyword,
+        lat,
+        lag,
+        distance,
+        searchLocation?.geometry?.location?.lat,
+        searchLocation?.geometry?.location?.lng
+    ])
 
     return (
         <div className='create_event_venue'>
@@ -213,14 +257,17 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                         onPlaceSelected={(place) => {
                             console.log(place);
                         }}
-                    >
-                        <input
-                            className="search"
-                            type="search"
-                            placeholder="Search City / Current Location" />
+                    > */}
+                    <input
+                        className="search"
+                        type="search"
+                        placeholder="Search City / Current Location"
+                        value={searchBy}
+                        onChange={(e) => setSearchBy(e.target.value)}
+                    />
 
-                    </Autocomplete> */}
-                    <Autocomplete
+                    {/* </Autocomplete>  */}
+                    {/* <Autocomplete
                         className='search'
                         apiKey={"AIzaSyAlEQnPxaoYwZXM4aKDtwa3N7tYNvkKFkQ"}
                         // style={{ width: "90%" }}
@@ -233,7 +280,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                         //     componentRestrictions: { country: "ru" },
                         // }}
                         defaultValue={getCurrentLocation}
-                    />
+                    />  */}
                 </div>
             </div>
 
@@ -407,57 +454,184 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                     <div className="card_container">
                         {
                             getPlacesList?.length > 0 ?
-                                getPlacesList?.map(item => (
-                                    <div className='event_card' key={item?.id}>
+                                getPlacesList?.filter(entry => Object?.values(entry)?.some(val => typeof val === "string" && val?.match(keyword)))
+                                    ?.filter(item => {
+                                        if (catogory == "dining") {
 
-                                        <Slider slidesToShow={1} prevArrow={false} nextArrow={false} dots={false}>
-                                            {/* need to check */}
+                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("bar") ||
+                                                val.includes("bakery") ||
+                                                val.includes("cafe") ||
+                                                val.includes("restaurant"))
+                                        }
+                                        else if (catogory == "nightlife") {
 
-                                            {
-                                                item?.photos ?
-                                                    item?.photos?.map(photo => {
+                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("bar") ||
+                                                val.includes("night_club") ||
 
-                                                        if (typeof photo.getUrl === "function") {
-                                                            return <img src={photo.getUrl()} alt="" />
-                                                        } else {
-                                                            return <img src={dummy} alt="" />
+                                                val.includes("casino"))
+                                        }
+                                        else if (catogory == "adventure") {
 
-                                                        }
+                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("airport") ||
+                                                val.includes("amusement_park") ||
+                                                val.includes("aquarium") ||
+                                                val.includes("campground") ||
+                                                val.includes("park") ||
+                                                val.includes("tourist_attraction") ||
+                                                val.includes("zoo") ||
 
-                                                    }) :
-                                                    <img src={dummy} alt="" />
+                                                val.includes("bus_station") ||
+                                                val.includes("light_rail_station") ||
+                                                val.includes("natural_feature") ||
+                                                val.includes("point_of_interest"))
+                                        }
+                                        else if (catogory == "art") {
 
-                                            }
-                                        </Slider>
+                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("art_gallery") ||
 
 
-                                        <h5 >{item?.Title || item?.name}</h5>
-                                        <p className='p_gray_10 '>
-                                            {
-                                                item?.Description?.length > 230 ?
-                                                    item?.Description?.substring(0, 230) + "..."
-                                                    : item?.Description?.substring(0, 230)
-                                                    || item?.vicinity
-                                            }
-                                        </p>
-                                        <div className='btn-container'>
-                                            <button className='btn_secondary ' onClick={() => {
-                                                addVenueAction(item)
+                                                val.includes("museum"))
+                                        }
+                                        else if (catogory == "entertainment") {
 
-                                            }}
-                                                style={{
-                                                    background: addedVenueId?.includes(item?.id || item?.place_id) ? 'green' : '',
-                                                    opacity: addedVenueId?.includes(item?.id || item?.place_id) ? '0.4' : ''
-                                                }}
-                                                disabled={addedVenueId?.includes(item?.id || item?.place_id)}
-                                            >
-                                                <i className="fa fa-plus" aria-hidden="true"></i>
-                                                ADD  VENUE
-                                            </button>
-                                        </div>
+                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("bar") ||
+                                                val.includes("movie_theater") ||
+                                                val.includes("stadium") ||
+                                                val.includes("tourist_attraction") ||
+                                                val.includes("museum") ||
+                                                val.includes("night_club") ||
 
-                                    </div>
-                                ))
+                                                val.includes("amusement_park") ||
+                                                val.includes("book_store") ||
+
+                                                val.includes("museum"))
+                                        }
+                                        else if (catogory == "music") {
+
+                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("stadium") ||
+                                                val.includes("bar") ||
+                                                val.includes("casino") ||
+                                                val.includes("night_club"))
+                                        }
+                                        else if (catogory == "casual") {
+
+                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("spa") ||
+                                                val.includes("aquarium") ||
+                                                val.includes("art_gallery") ||
+                                                val.includes("beauty_salon") ||
+                                                val.includes("book_store") ||
+                                                val.includes("book_store") ||
+                                                val.includes("park") ||
+                                                val.includes("shopping_mall") ||
+                                                val.includes("tourist_attraction") ||
+                                                val.includes("university"))
+                                        }
+                                        else if (catogory == "celebrations") {
+
+                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("spa") ||
+                                                val.includes("night_club") ||
+                                                val.includes("bar") ||
+                                                val.includes("casino") ||
+                                                val.includes("amusement_park") ||
+                                                val.includes("church") ||
+                                                val.includes("hindu_temple") ||
+                                                val.includes("lodging") ||
+                                                val.includes("mosque") ||
+                                                val.includes("stadium") ||
+                                                val.includes("stadium") ||
+                                                val.includes("tourist_attraction") ||
+                                                val.includes("place_of_worship") ||
+                                                val.includes("restaurant"))
+                                        }
+                                        else if (catogory == "gaming") {
+
+                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("stadium"))
+
+                                        }
+                                        else if (catogory == "education") {
+
+                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("art_gallery") ||
+                                                val.includes("book_store") ||
+                                                val.includes("library") ||
+                                                val.includes("museum") ||
+                                                val.includes("university") ||
+                                                val.includes("zoo") ||
+                                                val.includes("hindu_temple") ||
+                                                val.includes("lodging") ||
+                                                val.includes("mosque") ||
+                                                val.includes("stadium") ||
+                                                val.includes("stadium") ||
+                                                val.includes("tourist_attraction") ||
+                                                val.includes("place_of_worship") ||
+                                                val.includes("restaurant"))
+                                        }
+                                        else if (catogory == "sports") {
+
+                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("stadium") ||
+                                                val.includes("bowling_alley") ||
+                                                val.includes("gym") ||
+                                                val.includes("park") ||
+                                                val.includes("university"))
+
+                                        }
+                                        else {
+                                            return item
+                                        }
+                                    })
+                                    ?.map(item => {
+
+                                        return (
+                                            <div className='event_card' key={item?.id}>
+
+                                                <Slider slidesToShow={1} prevArrow={false} nextArrow={false} dots={false}>
+                                                    {/* need to check */}
+
+                                                    {
+                                                        item?.photos ?
+                                                            item?.photos?.map(photo => {
+
+                                                                if (typeof photo.getUrl === "function") {
+                                                                    return <img src={photo.getUrl()} alt="" />
+                                                                } else {
+                                                                    return <img src={dummy} alt="" />
+
+                                                                }
+
+                                                            }) :
+                                                            <img src={dummy} alt="" />
+
+                                                    }
+                                                </Slider>
+
+
+                                                <h5 >{item?.Title || item?.name}</h5>
+                                                <p className='p_gray_10 '>
+                                                    {
+                                                        item?.Description?.length > 230 ?
+                                                            item?.Description?.substring(0, 230) + "..."
+                                                            : item?.Description?.substring(0, 230)
+                                                            || item?.vicinity
+                                                    }
+                                                </p>
+                                                <div className='btn-container'>
+                                                    <button className='btn_secondary ' onClick={() => {
+                                                        addVenueAction(item)
+
+                                                    }}
+                                                        style={{
+                                                            background: addedVenueId?.includes(item?.id || item?.place_id) ? 'green' : '',
+                                                            opacity: addedVenueId?.includes(item?.id || item?.place_id) ? '0.4' : ''
+                                                        }}
+                                                        disabled={addedVenueId?.includes(item?.id || item?.place_id)}
+                                                    >
+                                                        <i className="fa fa-plus" aria-hidden="true"></i>
+                                                        ADD  VENUE
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                        )
+                                    })
                                 :
                                 <div className='d-flex justift-content-center align-items-center'>
                                     No Data Found
@@ -474,6 +648,8 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                             data={getPlacesList}
                             setAddedVenues={setAddedVenues}
                             addedVenues={addedVenues}
+                            keyword={keyword}
+                            catogory={catogory}
                         />
                     </div>
 
