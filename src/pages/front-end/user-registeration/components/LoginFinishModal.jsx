@@ -28,8 +28,8 @@ export default function LoginFinishModal({ modalShow, setModalShow }) {
                             />
                         </div>
                     </div>
-                    <div class="row justify-content-center">
-                        <div class="col-lg-9 col-md-6 col-sm-6">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-9 col-md-6 col-sm-6 d-flex justify-content-center">
                             <div class="card-title text-center">
                                 <h2 class="login-main-heading">
                                     You have successfully Sign In
