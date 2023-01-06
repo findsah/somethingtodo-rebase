@@ -23,9 +23,9 @@ export default function Login() {
                     <h2>LOG IN</h2>
                 </div>
             </div>
-            <div className="row d-flex justify-content-center">
+            <div className="row d-flex justify-content-center" >
                 <div className="col-lg-4 col-12">
-                    <div className="row justify-content-center form-sec">
+                    <div className="row justify-content-center form-sec" >
                         <div className="col-12">
                             <div className="row  justify-content-center">
                                 <div className="col-lg-9 col-11 text-center">
@@ -47,7 +47,7 @@ export default function Login() {
 
                                 </div>
                                 <div className="row mt-5 justify-content-center">
-                                    <div className="col-lg-6 col-5">
+                                    <div className="col-lg-6 col-5 mb-5">
                                         {/* <CustomButton onClick={() => setModalShow(true)} text='FINISH' /> */}
                                         <CustomButton onClick={() => setModalShow(true)} text='FINISH' />
                                     </div>
@@ -56,7 +56,7 @@ export default function Login() {
                         </div>
                         <div >
                             {/* <LoginFinishModal modalShow={modalShow} setModalShow={setModalShow} /> */}
-                            <LogoutModal modalShow={modalShow} setModalShow={setModalShow} />
+                            <LoginFinishModal modalShow={modalShow} setModalShow={setModalShow} />
                         </div>
                     </div>
                 </div>

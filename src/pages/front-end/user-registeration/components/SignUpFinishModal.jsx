@@ -7,6 +7,7 @@ export default function SignUpFinishModal({ modalShow, setModalShow }) {
     return (
         <div size={28}>
             <Modal
+                size='sm'
                 show={modalShow} onHide={() => {
                     setModalShow(false)
                 }}

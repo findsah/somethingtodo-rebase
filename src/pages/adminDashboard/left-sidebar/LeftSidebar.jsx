@@ -1,61 +1,62 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 // import './LeftSidebar.scss';
-
+import dashboard from '../../../assets/icons/dashboard.svg'
+import editvanue from '../../../assets/icons/editvanue.svg'
+import claimvanue from '../../../assets/icons/claimvanue.png'
 const sidebarNavItems = [
     {
         display: 'Dashboard',
-        icon: <i className='bx bx-home'></i>,
+        icon: <img src={dashboard} alt="" />,
         to: '/dashboard',
-        section: 'dashboard'
     },
     {
         display: 'Edit Venue',
-        icon: <i className='bx bx-star'></i>,
+        icon: <img src={editvanue} alt="" />,
         to: '/dashboard/edit-venue',
-        section: 'edit-venue'
+        section: '/edit-venue'
     },
     {
         display: 'Claim A Venue',
-        icon: <i className='bx bx-calendar'></i>,
+        icon: <img src={claimvanue} alt="" />,
         to: '/dashboard/claim-venue',
-        section: 'claim-venue'
+        section: '/claim-venue'
     },
     {
         display: 'Promotions',
         icon: <i className='bx bx-user'></i>,
         to: '/dashboard/promotions',
-        section: 'promotions'
+        section: '/promotions'
     },
     {
         display: 'On-going promotions',
         icon: <i className='bx bx-receipt'></i>,
         to: '/dashboard/on-going-promotions',
-        section: 'on-going-promotions'
+        section: '/on-going-promotions'
     },
     {
         display: 'Promotion Details',
         icon: <i className='bx bx-receipt'></i>,
         to: '/dashboard/promotion-details',
-        section: 'promotion-details'
+        section: '/promotion-details'
     },
     {
         display: 'Create Event',
         icon: <i className='bx bx-receipt'></i>,
         to: '/dashboard/event-create',
-        section: 'event-create'
+        section: '/event-create'
     },
     {
         display: 'Account',
         icon: <i className='bx bx-receipt'></i>,
         to: '/dashboard/account',
-        section: 'account'
+        section: '/account'
     },
     {
         display: 'My Event',
         icon: <i className='bx bx-receipt'></i>,
         to: '/dashboard/my-event',
-        section: 'my-event'
+        section: '/my-event'
     },
     {
         display: 'Logout',
@@ -82,7 +83,7 @@ export default function LeftSidebar() {
 
     // change active index
     useEffect(() => {
-        const curPath = window.location.pathname.split('/')[1];
+        const curPath = window.location.pathname.split('/dashboard')[1];
         const activeItem = sidebarNavItems.findIndex(item => item.section === curPath);
         setActiveIndex(curPath.length === 0 ? 0 : activeItem);
     }, [location]);
