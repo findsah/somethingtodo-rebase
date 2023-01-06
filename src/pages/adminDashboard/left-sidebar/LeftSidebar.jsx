@@ -3,7 +3,18 @@ import { Link, useLocation } from 'react-router-dom';
 // import './LeftSidebar.scss';
 import dashboard from '../../../assets/icons/dashboard.svg'
 import editvanue from '../../../assets/icons/editvanue.svg'
+import businessname from '../../../assets/icons/businessname.svg'
+import whatsapp from '../../../assets/icons/whatsapp.svg'
+import proemail from '../../../assets/icons/proemail.svg'
+import proloction from '../../../assets/icons/proloction.svg'
 import claimvanue from '../../../assets/icons/claimvanue.png'
+import logo from '../../../assets/logo.png'
+import dashprofile from '../../../assets/dashprofile.png'
+import { GrFacebook } from "react-icons/gr";
+import { ImTwitter } from "react-icons/im";
+import { SiInstagram } from "react-icons/si";
+import { Button } from 'react-bootstrap';
+import { BiEditAlt } from 'react-icons/bi';
 const sidebarNavItems = [
     {
         display: 'Dashboard',
@@ -90,9 +101,50 @@ export default function LeftSidebar() {
 
     return <div className='sidebar'>
         <div className="sidebar__logo">
-            Somethingtodo
+            <img src={logo} alt="" />
         </div>
-        <div ref={sidebarRef} className="sidebar__menu">
+        <div className="row d-flex justify-content-center">
+            <div className="col-12  profile-box">
+
+                <div className="row" style={{ border: '1px solid red' }}>
+                    <div className="col-4 mt-4" style={{ border: '1px solid red' }}>
+                        <img src={dashprofile} alt="" />
+                    </div>
+                    <div className="col-8" style={{ border: '1px solid red' }}>
+
+                        <div className="social-links" style={{ border: '1px solid red' }}>
+                            <div className="links2" >
+                                <p className='heading' style={{ border: '1px solid red' }}>INSERT NAME HERE</p>
+                                <div className="col-10" style={{ border: '1px solid red' }}>
+                                    <img src={businessname} alt="" />
+                                    <span>  Business Name</span>
+                                </div>
+                                <div className="col-10" style={{ border: '1px solid red' }}>
+                                    <img src={whatsapp} alt="" />
+                                    <span> Phone</span>
+                                </div>
+                                <div className="col-10" style={{ border: '1px solid red' }}>
+                                    <img src={proemail} alt="" />
+                                    <span>  Email</span>
+                                </div>
+                                <div className="col-10" style={{ border: '1px solid red' }}>
+                                    <img src={proloction} alt="" />
+                                    <span>  Primary venue</span>
+                                </div>
+                                <div className="col-12" style={{ border: '1px solid red' }}>
+                                    <Button variant='outlined' className='outlined-btn'><BiEditAlt />EDIT PROFILE</Button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div ref={sidebarRef} className="sidebar__menu mt-5">
             <div
                 ref={indicatorRef}
                 className="sidebar__menu__indicator"

@@ -19,7 +19,7 @@ export default function Login() {
 
                     <img className="img-fluid" src={logo} alt="logo" />
                 </div>
-                <div className="col-6">
+                <div className="col-2 text-center">
                     <h2>LOG IN</h2>
                 </div>
             </div>
@@ -27,12 +27,12 @@ export default function Login() {
                 <div className="col-lg-4 col-12">
                     <div className="row justify-content-center form-sec" >
                         <div className="col-12">
-                            <div className="row  justify-content-center">
-                                <div className="col-lg-9 col-11 text-center">
+                            <div className="row d-flex justify-content-center">
+                                <div className="col-lg-10 col-11  text-center">
                                     <h2>INSERT NAME</h2> <br />
                                     <input type="text" placeholder="Text" />
                                 </div>
-                                <div className="col-lg-9 col-11 text-center">
+                                <div className="col-lg-10 col-11 text-center ">
                                     <h2>PASSWORD</h2> <br />
                                     <div className="pass-wrapper">
                                         <input
@@ -42,6 +42,9 @@ export default function Login() {
                                         <MdVisibility className='icon2'
                                             onClick={togglePasswordVisiblity}
                                         />
+                                        <div className="col-8">
+                                            <p>Forgot you password ?</p>
+                                        </div>
                                     </div>
                                     {/* <input type="password" placeholder="Password" /> */}
 
