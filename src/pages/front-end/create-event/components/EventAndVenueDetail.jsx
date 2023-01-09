@@ -45,7 +45,7 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                     <div className="blue_line_bar"></div>
                     <div className="col map">
                         {/* react leftlet */}
-                        <MapModal position={[51.505, -0.09]} data={addedVenues} />
+                        <MapModal position={[localStorage.getItem("lat") || 51.505, localStorage.getItem("lag") || -0.09]} data={addedVenues} zoom={12} />
                     </div>
                     <div className="col info">
                         <div className='inline'>

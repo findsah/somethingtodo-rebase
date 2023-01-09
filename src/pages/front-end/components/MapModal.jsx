@@ -8,7 +8,7 @@ import { MapContainer, Marker, Popup, TileLayer, useMapEvent, useMap, useMapEven
 import dummy from '../../../assets/dummy1.png'
 import { iconBlue, iconGreen } from '../../../assets/leftletIcon/icon'
 
-const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogory }) => {
+const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogory, distance }) => {
 
 
     const [positionLocate, setPositionLocate] = useState([51.505, -0.09])
@@ -23,6 +23,27 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
     const addedVenueId = addedVenues?.map((venue) => {
         return venue?.id || venue?.place_id
     })
+
+    // zoom level control
+    let zoom = 12;
+
+    if (distance === '1km') {
+        zoom = 16
+    } else if (distance === "5km") {
+        zoom = 16
+    }
+    else if (distance === "25km") {
+        zoom = 16
+    }
+    else if (distance === "50km") {
+        zoom = 10
+    }
+    else if (distance === "75km") {
+        zoom = 8
+    }
+    else if (distance === "100km") {
+        zoom = 6
+    }
 
 
 
@@ -43,13 +64,14 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
         const map = useMapEvent({
             click() {
                 map.locate();
-                map.flyTo(positionLocate, map.getZoom())
+                // map.flyTo(positionLocate, map.getZoom())
             },
 
 
         });
 
-        map.flyTo(positionLocate, map.getZoom())
+        map.flyTo(position, map.getZoom())
+        mapRef?.current?.map.setZoom(zoom)
 
 
 
@@ -182,12 +204,13 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
                     const checkposition =
 
                         typeof venue?.geometry?.location?.lat === "function" ?
-                            [venue?.geometry?.location?.lat(), venue?.geometry?.location?.lng()] : [51.507, -0.10]
+                            [venue?.geometry?.location?.lat(), venue?.geometry?.location?.lng()] : position
 
 
                     return (
                         <Marker
                             position={venue?.position || checkposition}
+                            // position={position}
                             icon={addedVenueId?.includes(venue?.id || venue?.place_id) ? iconGreen : iconBlue}
                             key={venue?.id || venue?.place_id}>
                             <Popup className='map_venue_list' >
@@ -234,7 +257,7 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
     }
 
     return (
-        <MapContainer center={positionLocate} zoom={16} scrollWheelZoom={true}
+        <MapContainer center={position} zoom={12} scrollWheelZoom={true}
             ref={mapRef}
             style={{
                 width: "100%",

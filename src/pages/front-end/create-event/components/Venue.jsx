@@ -27,6 +27,7 @@ import { AddedVenueSorting } from './AddedVenueSorting';
 
 
 
+
 const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, setPreviewImage }) => {
     // hook importer
     const dispatch = useDispatch()
@@ -38,10 +39,12 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const [openError, setOpenError] = useState(false);
     const [venueList, setVenueList] = useState([])
     const [catogory, setCatogory] = useState("")
-    const [distance, setDistance] = useState("500")
+    const [distance, setDistance] = useState("1km")
     const [searchLocation, setSearchLocation] = useState("")
     const [searchBy, setSearchBy] = useState("")
-    console.log("hhhhhhhhh", catogory)
+    const [checkResultLength, setCheckResultLength] = useState(0)
+    const [callState, setCallState] = useState(false)
+
     // list of catogories 
     const catogories = [{
         id: 1,
@@ -116,6 +119,24 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             km: "100km"
         },
     ]
+
+    // useEffect(() => {
+    //     // it run untill 6 venue is found in response
+    //     if (checkResultLength < 6) {
+    //         let value = distance.replace('km', '')
+    //         let d = value + 10
+    //         let dis = d + "km"
+
+    //         setDistance(dis)
+    //         setCallState(!callState)
+    //         alert("hi", distance)
+    //         console.log("ddi", distance)
+    //     }
+    // }, [callState])
+
+
+    console.log("hhhh", checkResultLength)
+
     // current location of user
     const lat = localStorage.getItem("lat");
     const lag = localStorage.getItem("lag");
@@ -214,7 +235,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             // var pyrmont = new google.maps.LatLng(51.509865, -0.118092);
             let map = new google.maps.Map(document.getElementById("map"), {
                 center: { lat: 33.1415552, lng: 73.7476608 },
-                zoom: 8,
+                zoom: 12,
             });
             var service
 
@@ -232,7 +253,9 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
             function getNearPlaces(results, status) {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
+
                     dispatch(GetPlacesList(results))
+                    setCheckResultLength(results?.length)
 
                 } else {
                     // console.log(status)
@@ -248,7 +271,8 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
         lag,
         distance,
         searchLocation?.geometry?.location?.lat,
-        searchLocation?.geometry?.location?.lng
+        searchLocation?.geometry?.location?.lng,
+        checkResultLength
     ])
 
     return (
@@ -651,12 +675,14 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                     <div className="event_map">
 
                         <MapModal
-                            position={[51.505, -0.09]}
+                            position={[searchlat || lat, searchlng || lag]}
                             data={getPlacesList}
                             setAddedVenues={setAddedVenues}
                             addedVenues={addedVenues}
                             keyword={keyword}
                             catogory={catogory}
+                            distance={distance}
+
                         />
                     </div>
 
