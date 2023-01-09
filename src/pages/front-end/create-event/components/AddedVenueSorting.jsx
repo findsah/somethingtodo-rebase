@@ -37,7 +37,7 @@ export const AddedVenueSorting = ({ venueCard, setVenueCard }) => {
                         venueCard?.length > 0 ?
                             venueCard?.map((card, i) => renderCard(card, i)) :
                             <div className='d-flex justify-content-center align-items-center mt-3 mb-3 '>
-                                No Veneu is Added. add view to see
+                                You haven’t added any yet
                             </div>
                     }
                 </div>

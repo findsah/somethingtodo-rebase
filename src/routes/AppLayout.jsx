@@ -5,13 +5,13 @@ import Header from '../pages/front-end/header/Header';
 
 const AppLayout = () => {
     return (
-        <>
+        <div className='AppLayout'>
             <Header />
             <main>
                 <Outlet />
             </main>
             <FooterSection />
-        </>
+        </div>
     )
 }
 

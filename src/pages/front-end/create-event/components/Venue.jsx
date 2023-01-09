@@ -98,6 +98,12 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     // list of distance 
     const distances = [
         {
+            km: "1km"
+        },
+        {
+            km: "5km"
+        },
+        {
             km: "25km"
         },
         {
@@ -261,7 +267,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                     <input
                         className="search"
                         type="search"
-                        placeholder="Search City / Current Location"
+                        placeholder="Name of venue"
                         value={searchBy}
                         onChange={(e) => setSearchBy(e.target.value)}
                     />
@@ -287,7 +293,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             {/* filter */}
             <div className='filter_group'>
                 <div className='filter_group_left'>
-                    <h2>ALL</h2>
+                    <h2>SEARCH BY</h2>
                     <select
                         name="catogories"
                         id="catogories"
@@ -300,7 +306,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
                         }}
                     >
-                        <option>Categories</option>
+                        <option>All categories</option>
                         {
                             catogories?.map((item) =>
                                 <option value={item?.name}> {item?.name}</option>
@@ -310,6 +316,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                     </select>
                     <select name="distance" id="distance" className='select'
                         value={distance}
+                        defaultValue={"1km"}
                         onChange={(e) => {
                             setDistance(e.target.value)
                         }}

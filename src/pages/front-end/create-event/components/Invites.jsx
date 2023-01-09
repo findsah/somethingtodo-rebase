@@ -134,7 +134,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
             <table className="table">
                 <thead>
                     <tr>
-                        <th style={{ width: '25%' }}>NUMBER</th>
+                        <th style={{ width: '25%' }}>NUMBER OF PEOPLE</th>
                         <th>GENDER</th>
                         <th>AGE</th>
                         <th style={{ width: '10%' }}>Action</th>

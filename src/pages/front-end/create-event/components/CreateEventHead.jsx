@@ -78,8 +78,8 @@ const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues
                 <div className='move_up'>
                     <Slider
                         slidesToShow={(addedVenues?.length === 1 && 1) || (addedVenues?.length === 2 && 2) || (addedVenues?.length > 2 && 3)}
-                    // className="center"
-                    // centerMode={true}
+                        className="center"
+                        centerMode={true}
                     >
                         {
                             addedVenues?.map((item, index) => (
@@ -98,7 +98,10 @@ const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues
                         <p>{descData?.eventDescription || "Your event Description"}</p>
                     </div>
                     <div className='timer'>
-                        <p className='timerStart'>Event starts in</p>
+                        {
+                            timeandpriceData?.eventDate &&
+                            <p className='timerStart'>Event starts in</p>
+                        }
                         <Countdown date={calculateTimerCount} renderer={renderer} />,
                     </div>
                     <div className='address'>
