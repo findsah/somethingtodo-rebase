@@ -47,6 +47,13 @@ whatsapp: +923430048341
       display: flex;
       gap: 1rem;
 
+      .slick-slide>div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+      }
+
       img {
         height: 289px !important;
         border-radius: 10px;

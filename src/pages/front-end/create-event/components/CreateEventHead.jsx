@@ -78,8 +78,8 @@ const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues
                 <div className='move_up'>
                     <Slider
                         slidesToShow={(addedVenues?.length === 1 && 1) || (addedVenues?.length === 2 && 2) || (addedVenues?.length > 2 && 3)}
-                        className="center"
-                        centerMode={true}
+                    // className="center"
+                    // centerMode={true}
                     >
                         {
                             addedVenues?.map((item, index) => (
@@ -104,10 +104,11 @@ const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues
                         }
                         <Countdown date={calculateTimerCount} renderer={renderer} />,
                     </div>
-                    <div className='address'>
+                    {/* hide for a temporarry purpose */}
+                    {/* <div className='address'>
                         <i className="fa fa-map-marker" aria-hidden="true"></i>
                         <p>Address</p>
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* comment for temporary purpose */}
