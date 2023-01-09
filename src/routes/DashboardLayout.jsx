@@ -5,8 +5,8 @@ import LeftSidebar from '../pages/adminDashboard/left-sidebar/LeftSidebar';
 const DashboardLayout = () => {
     return (
         <>
-            <LeftSidebar className="col-md-2" />
-            <main className='col-md-10'>
+            <LeftSidebar />
+            <main>
                 <Outlet />
             </main>
         </>
