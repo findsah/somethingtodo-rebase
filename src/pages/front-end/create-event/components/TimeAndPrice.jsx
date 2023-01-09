@@ -13,7 +13,8 @@ const format = 'h:mm a';
 
 
 
-const TimeAndPrice = ({ eventDate,
+const TimeAndPrice = ({
+    eventDate,
     eventCost,
     eventTime,
     costSplit,
@@ -67,7 +68,8 @@ const TimeAndPrice = ({ eventDate,
                         <TimePicker
                             className='time_style'
                             minuteStep={15}
-                            use12Hours
+                            // use12Hours
+                            showSecond={false}
                             onChange={onChange}
                         />
                     </div>
@@ -76,15 +78,16 @@ const TimeAndPrice = ({ eventDate,
 
             <div className="row mt-5">
                 <div className="col-sm-6 col-12 m-auto event_cost">
-                    <h3>ESTIMATED COST FOR THIS EVENT</h3>
+                    <h3>ESTIMATED COST FOR THIS EVENT <span>{"($ " + eventCost[1] + ")"}</span></h3>
                     <div className='range_wdith'>
 
                         <CustomRangeSlider
                             values={eventCost}
                             setValues={setEventCost}
                             min={0}
-                            max={9999}
-                            step={2}
+                            max={100000}
+                            step={5}
+                            show={false}
                             single={"single-thumb"} />
                     </div>
                 </div>
@@ -94,10 +97,10 @@ const TimeAndPrice = ({ eventDate,
                         <div className='paying checkbox'>
                             <input type="checkbox" name='paying' id='paying'
                                 value={costSplit}
-                                onChange={() => setCostSplit("i am Paying")}
-                                checked={costSplit === "i am Paying"}
+                                onChange={() => setCostSplit("i am paying")}
+                                checked={costSplit === "i am paying"}
                             />
-                            <label htmlFor="paying">I`m Paying</label>
+                            <label htmlFor="paying">I am paying</label>
                         </div>
                         <div className='shared checkbox'>
                             <input type="checkbox" name='shared' id='shared'
@@ -105,15 +108,15 @@ const TimeAndPrice = ({ eventDate,
                                 onChange={() => setCostSplit("shared")}
                                 checked={costSplit === "shared"}
                             />
-                            <label htmlFor="shared">Evenly Shared</label>
+                            <label htmlFor="shared">Evenly shared</label>
                         </div>
                         <div className='shared checkbox'>
-                            <input type="checkbox" name='They Are Paying' id='  They Are Paying'
+                            <input type="checkbox" name='They are paying' id='  They are paying'
                                 value={costSplit}
-                                onChange={() => setCostSplit("  They Are Paying")}
-                                checked={costSplit === "  They Are Paying"}
+                                onChange={() => setCostSplit("  They are paying")}
+                                checked={costSplit === "  They are paying"}
                             />
-                            <label htmlFor="  They Are Paying">  They Are Paying</label>
+                            <label htmlFor="  They are paying">  They are paying</label>
                         </div>
                     </div>
                 </div>

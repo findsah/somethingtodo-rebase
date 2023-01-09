@@ -26,7 +26,7 @@ const CreateEvent = () => {
     // time and price state
     const [eventDate, setEventDate] = useState("")
     const [eventTime, setEventTime] = useState("")
-    const [eventCost, setEventCost] = useState([0, 1000])
+    const [eventCost, setEventCost] = useState([0, 0])
     const [costSplit, setCostSplit] = useState("")
 
     console.log(addedVenues)

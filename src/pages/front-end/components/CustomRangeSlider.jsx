@@ -7,7 +7,7 @@ import React from 'react'
 import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
 
-const CustomRangeSlider = ({ values, setValues, min, max, step, single }) => {
+const CustomRangeSlider = ({ values, setValues, min, max, step, single, show }) => {
     return (
         <div className='custom_range_slider'>
             <RangeSlider
@@ -17,10 +17,17 @@ const CustomRangeSlider = ({ values, setValues, min, max, step, single }) => {
                 step={step}
                 onInput={(e) => { setValues([e[0], e[1]]) }}
             />
-            <span className='min '>min</span>
-            <span className='zero'>{single ? min : values[0]} </span>
-            <span className='max_num'>{values[1]} </span>
-            <span className='max '>max</span>
+            {
+                show &&
+                <>
+                    <span className='min '>min</span>
+                    <span className='max '>max</span>
+
+                    <span className='max_num'>{values[1]} </span>
+                    <span className='zero'>{single ? min : values[0]} </span>
+                </>
+            }
+
         </div>
     )
 }

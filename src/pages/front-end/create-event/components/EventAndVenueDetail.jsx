@@ -50,7 +50,7 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                     <div className="col info">
                         <div className='inline'>
                             <img src={dollar} alt="" />
-                            <p className='p_gray_14'> ${timeandpriceData?.eventCost[1]}/  PAX </p>
+                            <p className='p_gray_14'> ${timeandpriceData?.eventCost[1]}/  person </p>
                         </div>
                         <div className='inline'>
                             <img src={calendarblue} alt="" />

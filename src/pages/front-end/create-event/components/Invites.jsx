@@ -211,7 +211,10 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                                             // setValues={}
                                             // onChange={(e) => { handleChange(item?.id, e) }}
                                             min={0} max={90}
-                                            step={1} />
+                                            step={1}
+                                            show={true}
+                                        />
+
                                     </td>
                                     <td>
                                         <AiFillDelete
@@ -307,6 +310,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
                                 values={age}
                                 name="age"
                                 setValues={setAge}
+                                show={true}
                                 // onChange={(e) => { handleChange(item?.id, e) }}
                                 min={0} max={90}
                                 step={1} />
