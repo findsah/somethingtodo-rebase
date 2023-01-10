@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import Dashboard from "../pages/adminDashboard/dashboard/Dashboard";
 import EditVenue from "../pages/adminDashboard/dashboard/editVenue/EditVenue";
 import SideBarLayout from "../pages/adminDashboard/layouts/SideBarLayout";
 import Blog from "../pages/front-end/blog/Blog";
@@ -28,6 +29,7 @@ const MainRoutes = () => {
       </Route>
       {/* layout for Dashboard */}
       <Route path="/dashboard" element={<DashboardLayout />}>
+      <Route index path="/dashboard" element={<Dashboard />} />
         {/* sub routing */}
         <Route path="edit-venue" element={<EditVenue />} />
         <Route path='claim-venue' element={<EditVenue />} />

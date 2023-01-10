@@ -1,0 +1,141 @@
+.dashboard {
+  .vanue-clamid {
+    // position: absolute;
+    // margin-left: 15px;
+    width: 344px;
+    height: 95px;
+    background: #ffffff;
+    box-shadow: 0px 0px 6.91532px 3.31935px rgba(172, 214, 255, 0.8);
+    border-radius: 4px;
+    img {
+      margin-top: -1.3rem;
+    }
+    p {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: 0.063em;
+      color: #1f518b;
+    }
+  }
+  .ongoing-promotion {
+    // position: relative;
+    width: 344px;
+    height: 95px;
+    background: #1f518b;
+    box-shadow: 0px 0px 6.91532px 3.31935px rgba(172, 214, 255, 0.8);
+    border-radius: 4px;
+    img {
+      margin-top: -1rem;
+    }
+    p {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: 0.063em;
+      color: #ffffff;
+    }
+    h2 {
+      color: #ffffff;
+    }
+  }
+  .available-promotion {
+    // position: relative;
+    width: 344px;
+    height: 95px;
+    background: #64e2ff;
+    box-shadow: 0px 0px 6.91532px 3.31935px rgba(172, 214, 255, 0.8);
+    border-radius: 4px;
+    img {
+      margin-top: -1rem;
+    }
+    p {
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 17px;
+      letter-spacing: 0.063em;
+      color: #ffffff;
+    }
+    h2 {
+      color: #ffffff;
+    }
+  }
+  .dispute-list {
+    // position: relative;
+    width: 344px;
+    height: 95px;
+    background: linear-gradient(92.39deg, #ff9700 0%, #de8300 91.96%);
+    box-shadow: 0px 0px 6.91532px 3.31935px rgba(172, 214, 255, 0.8);
+    border-radius: 4px;
+    img {
+      margin-top: -1rem;
+    }
+    p {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: 0.063em;
+      color: #ffffff;
+    }
+    h2 {
+      color: #ffffff;
+    }
+  }
+  .vanue-style {
+    .vanues-card-style {
+      filter: drop-shadow(0px 4.70984px 18.8394px rgba(0, 0, 0, 0.2));
+      border-radius: 4px;
+      width: 92% !important;
+      margin: 20px auto;
+      cursor: pointer;
+      border: transparent !important;
+
+      // fil  ter: drop-shadow(0px 6px 24px rgba(0, 0, 0, 0.2));
+      .card-custom-Body {
+        display: flex;
+        // justify-content: space-between;
+        // align-items: center;
+        .card-title {
+          font-size: 1rem;
+          text-transform: uppercase;
+        }
+        .desc {
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 16px;
+          color: #909090;
+        }
+        .buttonss {
+          display: flex;
+          justify-content: space-between;
+          .btn-main {
+            gap: 6.28px;
+            width: 103.12px;
+            // height: 22.42px;
+            left: 12px;
+            top: 217.56px;
+
+            /* Orange */
+
+            background: linear-gradient(92.39deg, #ff9700 0%, #de8300 91.96%);
+            border-radius: 10.9896px;
+          }
+          .outlined-btn {
+            width: 132.12px;
+            margin: 0px;
+          }
+        }
+      }
+    }
+    .vanues-card-style:hover {
+      transform: scale(1.05);
+      box-shadow: 5px 5px 10px rgba(34, 33, 33, 0.3);
+    }
+    .slick-prev {
+      display: none;
+    }
+    .slick-next {
+      display: none;
+    }
+  }
+}

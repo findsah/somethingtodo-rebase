@@ -106,32 +106,32 @@ export default function LeftSidebar() {
         <div className="row d-flex justify-content-center">
             <div className="col-12  profile-box">
 
-                <div className="row" style={{ border: '1px solid red' }}>
-                    <div className="col-4 mt-4" style={{ border: '1px solid red' }}>
+                <div className="row" >
+                    <div className="col-4 mt-4" >
                         <img src={dashprofile} alt="" />
                     </div>
-                    <div className="col-8" style={{ border: '1px solid red' }}>
+                    <div className="col-8" >
 
-                        <div className="social-links" style={{ border: '1px solid red' }}>
+                        <div className="social-links" >
                             <div className="links2" >
-                                <p className='heading' style={{ border: '1px solid red' }}>INSERT NAME HERE</p>
-                                <div className="col-10" style={{ border: '1px solid red' }}>
+                                <p className='heading' >INSERT NAME HERE</p>
+                                <div className="col-10" >
                                     <img src={businessname} alt="" />
                                     <span>  Business Name</span>
                                 </div>
-                                <div className="col-10" style={{ border: '1px solid red' }}>
+                                <div className="col-10" >
                                     <img src={whatsapp} alt="" />
                                     <span> Phone</span>
                                 </div>
-                                <div className="col-10" style={{ border: '1px solid red' }}>
+                                <div className="col-10" >
                                     <img src={proemail} alt="" />
                                     <span>  Email</span>
                                 </div>
-                                <div className="col-10" style={{ border: '1px solid red' }}>
+                                <div className="col-10" >
                                     <img src={proloction} alt="" />
                                     <span>  Primary venue</span>
                                 </div>
-                                <div className="col-12" style={{ border: '1px solid red' }}>
+                                <div className="col-12" >
                                     <Button variant='outlined' className='outlined-btn'><BiEditAlt />EDIT PROFILE</Button>
                                 </div>
 

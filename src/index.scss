@@ -8,11 +8,5 @@
 @import "./pages/front-end/user-registeration/LoginSignUp.scss";
 @import "./pages//front-end/create-event/CreateEvent.scss";
 @import "./pages/adminDashboard/left-sidebar/LeftSidebar.scss";
+@import "./pages/adminDashboard/dashboard/Dashboard.scss";
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
-
-a {
-    text-decoration: none;
-    color: unset;
-}
