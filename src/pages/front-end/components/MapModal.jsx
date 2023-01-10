@@ -35,7 +35,7 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
         }
 
         // setAddedVenues((prevState) => [...prevState, item])
-        setAddedVenues((prevState) => [...prevState, data])
+        setAddedVenues((prevState) => [...prevState, item])
     }
     addedVenues = addedVenues ? addedVenues : data
     const addedVenueId = addedVenues?.map((venue) => {
