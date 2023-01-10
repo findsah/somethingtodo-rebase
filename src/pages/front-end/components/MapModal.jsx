@@ -16,7 +16,25 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
 
     // add venue
     const addVenueAction = (item) => {
+        const data = {
+            place_id: item?.place_id,
+            images: "",
+            imageUrl: item?.photos ? item?.photos[0]?.getUrl() : "",
+            description: item?.vicinity,
+            name: item?.name,
+            location: {
+                lat: item?.geometry?.location?.lat(),
+                lng: item?.geometry?.location?.lng()
+            },
+            city: "",
+            street: "",
+            building: "",
+            phoneNumber: "",
+            website: '',
+            isPravite: ""
+        }
 
+        // setAddedVenues((prevState) => [...prevState, item])
         setAddedVenues((prevState) => [...prevState, item])
     }
     addedVenues = addedVenues ? addedVenues : data

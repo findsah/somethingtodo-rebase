@@ -13,22 +13,19 @@ import MapModal from '../../components/MapModal';
 import Slider from 'react-slick';
 import CustomUpload from '../../components/CustomUpload';
 import CustomErrorPopUp from '../../components/CustomErrorPopUp';
+import MapForGetLatLng from '../../components/MapForGetLatLng';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetEventList, GetVenueList } from '../service/CreateEventApi';
-import CustomPagination from '../../components/CustomPagination';
-import customPagination from '../../components/CustomPagination';
-// import { GetCatogories } from '../../../../services/GoogleSlice';
 import { Loader } from "@googlemaps/js-api-loader"
 import { GetPlacesList } from '../../../../services/GoogleSlice';
-import Autocomplete from "react-google-autocomplete";
-import { AiOutlineConsoleSql } from 'react-icons/ai';
 import { AddedVenueSorting } from './AddedVenueSorting';
-
-
+import uuid from 'react-uuid';
+import { toast } from 'react-toastify';
 
 
 const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, setPreviewImage }) => {
+    console.log(addedVenues)
     // hook importer
     const dispatch = useDispatch()
 
@@ -44,6 +41,50 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const [searchBy, setSearchBy] = useState("")
     const [checkResultLength, setCheckResultLength] = useState(0)
     const [callState, setCallState] = useState(false)
+
+
+    // custom venues state
+    const [lantitude, setLatitude] = useState()
+    const [longitude, setLongitude] = useState()
+    const [Title, setTitle] = useState()
+    const [isPravite, setIsPravite] = useState()
+    const [city, setCity] = useState()
+    const [street, setStreet] = useState()
+    const [building, setBuilding] = useState()
+    const [phoneNumber, setPhoneNumber] = useState()
+    const [website, setWebite] = useState()
+    const [description, setDescription] = useState()
+    //   handel custom venue funtion
+    const handelCreateCustom = () => {
+        const createCustomVenueData = {
+            place_id: uuid(),
+            images,
+            imageUrl: null,
+            description,
+            name: Title,
+            location: {
+                lat: longitude,
+                lng: longitude
+            },
+            city,
+            street,
+            building,
+            phoneNumber,
+            website,
+            isPravite
+
+        }
+        if (!Title || !description || !city || !street || !building || !phoneNumber || !website || images?.length == 0) {
+            setOpenError(true)
+        }
+        else {
+            toast.success("Custom Venue Add Successfully")
+            console.log("create Custom Venue", createCustomVenueData)
+            setOpen(false)
+        }
+
+    }
+
 
     // list of catogories 
     const catogories = [{
@@ -135,30 +176,15 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     // }, [callState])
 
 
-    console.log("hhhh", checkResultLength)
-
     // current location of user
     const lat = localStorage.getItem("lat");
     const lag = localStorage.getItem("lag");
     //search case insensitibe
     const keyword = new RegExp(searchBy, 'i');
 
-    const searchlat = searchLocation?.geometry?.location?.lat();
-    const searchlng = searchLocation?.geometry?.location?.lng();
-
     // useSlector to get State from store
     const { getPlacesList } = useSelector((state) => state?.googleSlice)
     const { getCurrentLocation } = useSelector((state) => state?.shareSlice)
-
-    // useSlector to get State from store
-    const { getVenueList } = useSelector((state) => state?.createEventSlice)
-    // const { getLocationList } = useSelector((state) => state?.shareSlice)
-    // console.log(getLocationList)
-
-    // console.log(getVenueList)
-
-    // console.log(venueList)
-
 
     const addedVenueId = addedVenues?.map((venue) => {
         return venue?.id || venue?.place_id
@@ -183,6 +209,23 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
     // add venue
     const addVenueAction = (item) => {
+        const data = {
+            place_id: item?.place_id,
+            images: "",
+            imageUrl: item?.photos ? item?.photos[0]?.getUrl() : "",
+            description: item?.vicinity,
+            name: item?.name,
+            location: {
+                lat: item?.geometry?.location?.lat(),
+                lng: item?.geometry?.location?.lng()
+            },
+            city: "",
+            street: "",
+            building: "",
+            phoneNumber: "",
+            website: '',
+            isPravite: ""
+        }
         setAddedVenues((prevState) => [...prevState, item])
     }
 
@@ -203,6 +246,9 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             )
         );
     }
+
+
+
 
     // useEffect to check google event and db event
     // useEffect(() => {
@@ -231,7 +277,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
         });
         // fetch google api
         loader.load().then((google) => {
-            var pyrmont = new google.maps.LatLng(searchlat || lat, searchlng || lag);
+            var pyrmont = new google.maps.LatLng(lat, lag);
             // var pyrmont = new google.maps.LatLng(51.509865, -0.118092);
             let map = new google.maps.Map(document.getElementById("map"), {
                 center: { lat: 33.1415552, lng: 73.7476608 },
@@ -282,12 +328,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                 <h2>SEARCH VENUES: </h2>
                 <div className="right-inner-icon">
                     <i className="fa fa-search" aria-hidden="true"></i>
-                    {/* <Autocomplete
-                        apiKey={"AIzaSyAlEQnPxaoYwZXM4aKDtwa3N7tYNvkKFkQ"}
-                        onPlaceSelected={(place) => {
-                            console.log(place);
-                        }}
-                    > */}
+
                     <input
                         className="search"
                         type="search"
@@ -295,22 +336,6 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                         value={searchBy}
                         onChange={(e) => setSearchBy(e.target.value)}
                     />
-
-                    {/* </Autocomplete>  */}
-                    {/* <Autocomplete
-                        className='search'
-                        apiKey={"AIzaSyAlEQnPxaoYwZXM4aKDtwa3N7tYNvkKFkQ"}
-                        // style={{ width: "90%" }}
-                        onPlaceSelected={(place) => {
-                            setSearchLocation(place)
-                            console.log(place)
-                        }}
-                        // options={{
-                        //     types: ["(regions)"],
-                        //     componentRestrictions: { country: "ru" },
-                        // }}
-                        defaultValue={getCurrentLocation}
-                    />  */}
                 </div>
             </div>
 
@@ -366,24 +391,44 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                         <div className="form_feild">
                             <div className='feild'>
                                 <h3>VENUE NAME</h3>
-                                <input type="text" className='text' placeholder='text' />
+                                <input
+                                    type="text"
+                                    className='text'
+                                    placeholder='Venue Name'
+                                    value={Title}
+                                    onChange={(e) => setTitle(e.target.value)}
+
+                                />
                             </div>
-                            <div className='feild'>
+                            {/* <div className='feild'>
                                 <h3>CATEGORY</h3>
                                 <select name="category" id="category" className='select'>
                                     <option >Category</option>
                                     <option value="catogory one">one</option>
                                 </select>
-                            </div>
+                            </div> */}
                             <div className='feild'>
                                 <h3>SET TO PRIVATE</h3>
                                 <div className='checkbox_group'>
                                     <div className="checkbox">
-                                        <input type="checkbox" id='yes' name='yes' />
+                                        <input
+                                            type="checkbox"
+                                            id='yes'
+                                            value={isPravite}
+                                            checked={isPravite === "yes"}
+                                            onChange={() => setIsPravite("yes")}
+
+                                            name='yes' />
                                         <label htmlFor="yes">Yes</label>
                                     </div>
                                     <div className="checkbox">
-                                        <input type="checkbox" id='no' name='no' />
+                                        <input type="checkbox"
+                                            id='no'
+                                            name='no'
+                                            value={isPravite}
+                                            checked={isPravite === "no"}
+                                            onChange={() => setIsPravite("no")}
+                                        />
                                         <label htmlFor="no">No</label>
                                     </div>
                                 </div>
@@ -394,9 +439,32 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                                     <h3>EVENT ADDRESS</h3>
                                 </div>
                                 <div className='input_text_group'>
-                                    <input type="text" name="city" id="city" placeholder='City' className='text' />
-                                    <input type="text" name="Street" id="Street" placeholder='Street' className='text' />
-                                    <input type="text" name="Buildings" id="Buildings" placeholder='Buildings' className='text' />
+                                    <input type="text"
+                                        name="city"
+                                        id="city"
+                                        placeholder='City'
+                                        className='text'
+                                        value={city}
+                                        onChange={(e) => setCity(e.target.value)}
+                                    />
+                                    <input
+                                        type="text"
+                                        name="Street"
+                                        id="Street"
+                                        placeholder='Street'
+                                        className='text'
+                                        value={street}
+                                        onChange={(e) => setStreet(e.target.value)}
+                                    />
+                                    <input
+                                        type="text"
+                                        name="Buildings"
+                                        id="Buildings"
+                                        placeholder='Buildings'
+                                        className='text'
+                                        value={building}
+                                        onChange={(e) => setBuilding(e.target.value)}
+                                    />
                                 </div>
 
                             </div>
@@ -405,7 +473,13 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                                     <img src={phoneIcon} alt="" />
                                     <h3>PHONE NUMBER</h3>
                                 </div>
-                                <input type="text" className='text' placeholder='888-888-888' />
+                                <input
+                                    type="text"
+                                    className='text'
+                                    placeholder='888-888-888'
+                                    value={phoneNumber}
+                                    onChange={(e) => setPhoneNumber(e.target.value)}
+                                />
                             </div>
                             <div className='feild'>
                                 <div className='icon'>
@@ -413,51 +487,106 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                                     <h3>WEBSITE</h3>
                                 </div>
 
-                                <input type="text" className='text' placeholder='888-888-888' />
+                                <input
+                                    type="text"
+                                    className='text'
+                                    placeholder='888-888-888'
+                                    value={website}
+                                    onChange={(e) => setWebite(e.target.value)}
+                                />
                             </div>
-                            <div className='feild form-outline mb-4 textarea_move'>
+                            {/*  //classname textarea_move is removed due to change */}
+                            <div className='feild form-outline mb-4 '>
                                 <h3>DESCRIPTION</h3>
-                                <textarea className='form-control' name="description" id="description" rows="6" cols="50" style={{ maxWidth: "100%" }}></textarea>
+                                <textarea
+                                    className='form-control'
+                                    name="description"
+                                    id="description"
+                                    rows="6" cols="50"
+                                    style={{ maxWidth: "100%" }}
+                                    value={description}
+                                    onChange={(e) => setDescription(e.target.value)}
+                                ></textarea>
+
                             </div>
 
 
                         </div>
-                        <div className="photo_of_venue">
-                            <h3>Add Photos Of Your Event</h3>
-                            <div className='image_container'>
-                                {
-                                    previewImage?.length > 0 ?
-                                        <Slider
-                                            slidesToShow={2}
-                                            className='image_preview_slider'>
-                                            {
-                                                previewImage?.map((item, index) => (
+                        <div>
 
-                                                    <div className='image_preview' key={index}>
-                                                        <img src={item} alt="" />
-                                                        <div className='close_icon' onClick={() => deleteImage(index)}>
-                                                            <i className="fa fa-times" aria-hidden="true"></i>
+                            {/* image container */}
+                            <div className="photo_of_venue">
+                                <h3>Add Photos Of Your Event</h3>
+                                <div className='image_container'>
+                                    {
+                                        previewImage?.length > 0 ?
+                                            <Slider
+                                                slidesToShow={2}
+                                                className='image_preview_slider'>
+                                                {
+                                                    previewImage?.map((item, index) => (
+
+                                                        <div className='image_preview' key={index}>
+                                                            <img src={item} alt="" />
+                                                            <div className='close_icon' onClick={() => deleteImage(index)}>
+                                                                <i className="fa fa-times" aria-hidden="true"></i>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                ))
-                                            }
-                                        </Slider> :
-                                        <div className='image_preview_slider d-flex justify-content-center align-items-center'>
-                                            {/* <h2>No Images To preview</h2> */}
-                                            No Images To preview
-                                        </div >
-                                }
-                                <CustomUpload setFiles={setImages} setPreview={setPreviewImage} />
+                                                    ))
+                                                }
+                                            </Slider> :
+                                            <div className='image_preview_slider d-flex justify-content-center align-items-center'>
+                                                {/* <h2>No Images To preview</h2> */}
+                                                No Images To preview
+                                            </div >
+                                    }
+                                    <CustomUpload setFiles={setImages} setPreview={setPreviewImage} />
+
+                                </div>
+                            </div>
+                            {/* map  and field*/}
+                            <div className='Map_for_lat_lng'>
+                                <div className='Map_form'>
+                                    <div className='feild'>
+                                        <h3>Latitude</h3>
+                                        <input
+                                            type="text"
+                                            className='text'
+                                            placeholder='Latitude'
+                                            value={lantitude}
+                                            style={{ width: '100%' }}
+                                            disabled
+
+                                        />
+                                    </div>
+                                    <div className='feild'>
+                                        <h3>Longitude</h3>
+                                        <input type="text"
+                                            className='text'
+                                            placeholder='Longitude'
+                                            value={longitude}
+                                            disabled
+                                        />
+                                    </div>
+                                </div>
+                                <MapForGetLatLng
+                                    latlng={[lat, lag]}
+                                    setLatitude={setLatitude}
+                                    setLongitude={setLongitude}
+                                />
 
                             </div>
+
                         </div>
 
 
                     </div>
-                    <div className='d-flex justify-content-center mt-4 mb-3' onClick={() => {
-                        setOpenError(true)
-                    }}>
-                        <button className='btn_primary'>CREATE</button>
+                    <div className='d-flex justify-content-center mt-4 mb-3'>
+                        <button className='btn_primary'
+                            onClick={() => {
+                                handelCreateCustom()
+                            }}
+                        >CREATE</button>
                     </div>
                     <CustomErrorPopUp error="Oops we missed something. Please ensure all fields are filled correctly" openError={openError} close={setOpenError} />
                 </CustoModal>
@@ -675,7 +804,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                     <div className="event_map">
 
                         <MapModal
-                            position={[searchlat || lat, searchlng || lag]}
+                            position={[lat, lag]}
                             data={getPlacesList}
                             setAddedVenues={setAddedVenues}
                             addedVenues={addedVenues}
@@ -704,64 +833,10 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                 <h2 className='disable_mobile'>ADDED VENUES</h2>
                 <h2 className='disable_desktop'>SEARCH VENUES:</h2>
                 <div className='venue_card_container'>
-
                     <AddedVenueSorting
                         venueCard={addedVenues}
                         setVenueCard={setAddedVenues}
                     />
-                    {/* {
-                        addedVenues?.length > 0 ?
-                            <Slider className='venue_cards' slidesToShow={addedVenues?.length === 1 ? 1 : 2}>
-                                {
-                                    addedVenues.map(item => {
-
-                                        return (
-                                            <div className='venue_card' key={item?.id}>
-                                                <img src={item?.photos ? item?.photos[0]?.getUrl() : dummy} alt="" />
-                                                <h5 >{item?.Title || item?.name}</h5>
-                                                <p className='p_gray_10 '>
-                                                    {
-                                                        item?.Description?.length > 230 ?
-                                                            item?.Description?.substring(0, 230) + "..."
-                                                            : item?.Description?.substring(0, 230)
-                                                            || item?.vicinity
-                                                    }
-                                                </p>
-                                                <div className='btn-container'>
-                                              
-                                                    <button className='btn_error desktop_btn'
-                                                        onClick={() => RemoveVenueAction(item)}
-                                                    >
-                                                        <i className="fa fa-minus" aria-hidden="true"></i>
-                                                        REMOVE VENUE
-                                                    </button>
-                                                    <button className='btn_error mobile_btn'
-                                                        onClick={() => RemoveVenueAction(item)}
-                                                    >
-                                                        <i className="fa fa-minus" aria-hidden="true"></i>
-                                                        REMOVE
-                                                    </button>
-                                                </div>
-
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </Slider>
-                            :
-                            <div className='venue_cards d-flex justify-content-center align-items-center'  >
-                                No venue Added add venue to show
-                            </div>
-                    }
- */}
-
-
-
-                    {/* <div className='add_venue'>
-                        <div className='create'>
-                            <i className="fa fa-plus" aria-hidden="true"></i>
-                        </div>
-                    </div> */}
                 </div>
             </div>
 
