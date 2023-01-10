@@ -1272,6 +1272,24 @@ whatsapp: +923430048341
       }
     }
   }
+
+  .Map_for_lat_lng {
+    margin-top: 1rem;
+
+    .Map_form {
+      display: flex;
+      width: 100%;
+      gap: 1rem;
+
+      .feild {}
+    }
+
+    .map_container {
+      margin-top: 1rem;
+      height: 14rem;
+      width: 100%;
+    }
+  }
 }
 
 
