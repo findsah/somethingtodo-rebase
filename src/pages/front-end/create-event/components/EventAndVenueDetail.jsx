@@ -19,6 +19,7 @@ import MuiModal from '../../components/CustomModal'
 import MapModal from '../../components/MapModal'
 import Slider from 'react-slick'
 import dummy from '../../../../assets/dummy1.png'
+import AddedVenueMap from '../../components/AddedVenueMap'
 
 
 const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
@@ -45,7 +46,8 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                     <div className="blue_line_bar"></div>
                     <div className="col map">
                         {/* react leftlet */}
-                        <MapModal position={[localStorage.getItem("lat") || 51.505, localStorage.getItem("lag") || -0.09]} data={addedVenues} zoom={12} />
+                        <AddedVenueMap addedVenues={addedVenues} />
+                        {/* <MapModal position={[localStorage.getItem("lat") || 51.505, localStorage.getItem("lag") || -0.09]} data={addedVenues} zoom={12} /> */}
                     </div>
                     <div className="col info">
                         <div className='inline'>
