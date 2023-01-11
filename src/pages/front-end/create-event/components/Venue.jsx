@@ -63,7 +63,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             description,
             name: Title,
             location: {
-                lat: longitude,
+                lat: lantitude,
                 lng: longitude
             },
             city,
@@ -71,7 +71,8 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             building,
             phoneNumber,
             website,
-            isPravite
+            isPravite,
+            previewImage
 
         }
         if (!Title || !description || !city || !street || !building || !phoneNumber || !website || images?.length == 0) {
@@ -81,6 +82,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             toast.success("Custom Venue Add Successfully")
             console.log("create Custom Venue", createCustomVenueData)
             setOpen(false)
+            setAddedVenues((prevState) => [...prevState, createCustomVenueData])
         }
 
     }
@@ -224,9 +226,10 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             building: "",
             phoneNumber: "",
             website: '',
-            isPravite: ""
+            isPravite: "",
+            previewImage: []
         }
-        setAddedVenues((prevState) => [...prevState, item])
+        setAddedVenues((prevState) => [...prevState, data])
     }
 
     // remove venue

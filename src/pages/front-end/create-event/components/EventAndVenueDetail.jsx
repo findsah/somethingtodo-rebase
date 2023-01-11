@@ -19,6 +19,7 @@ import MuiModal from '../../components/CustomModal'
 import MapModal from '../../components/MapModal'
 import Slider from 'react-slick'
 import dummy from '../../../../assets/dummy1.png'
+import AddedVenueMap from '../../components/AddedVenueMap'
 
 
 const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
@@ -45,7 +46,8 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                     <div className="blue_line_bar"></div>
                     <div className="col map">
                         {/* react leftlet */}
-                        <MapModal position={[localStorage.getItem("lat") || 51.505, localStorage.getItem("lag") || -0.09]} data={addedVenues} zoom={12} />
+                        <AddedVenueMap addedVenues={addedVenues} />
+                        {/* <MapModal position={[localStorage.getItem("lat") || 51.505, localStorage.getItem("lag") || -0.09]} data={addedVenues} zoom={12} /> */}
                     </div>
                     <div className="col info">
                         <div className='inline'>
@@ -162,11 +164,12 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                                     addedVenues?.map((item) => {
 
 
-                                        // const res = fetch("https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJj83WIGKvEmsRuQACGqZdj48&key=AIzaSyBR962qKrR2IwdYUmk8J4diZVZuV_L9pWw")
-                                        // const data = res.json();
+
                                         return (
-                                            <div className='card' id={item?.id || item?.place_id}>
-                                                {
+                                            <div className='card' id={item?.place_id}>
+
+                                                <img src={item?.imageUrl ? item?.imageUrl : item?.previewImage.length > 0 ? item?.previewImage[0] : dummy} alt="" width="464px" height="207px" />
+                                                {/* {
                                                     item?.photos ?
 
                                                         item?.photos?.map(photo => {
@@ -176,10 +179,9 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
 
                                                         }) :
                                                         <img src={dummy} alt="" width="464px" height="207px" />
-                                                }
-                                                {/* <img src={item?.photos ? item?.photos?.getUrl() : dummy} alt="" width="464px" height="207px" /> */}
-                                                {/* <img src={item?.photos[0]?.getUrl()} alt="" width="464px" height="207px" /> */}
-                                                <p className='p_blue_size_20 text-center pb-3'>{item?.Title || item?.name}</p>
+                                                } */}
+
+                                                <p className='p_blue_size_20 text-center pb-3'>{item?.name}</p>
                                                 <div className="row info">
                                                     <div className="col d-flex align-items-center gap-4">
                                                         <img src={websiteIcon} alt="icon" width="30px" height="30px" />
@@ -187,7 +189,7 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                                                     </div>
                                                     <div className="col d-flex align-items-center gap-4">
                                                         <img src={phoneIcon} alt="icon" width="30px" height="30px" />
-                                                        <p className='p_gray_14'>{item?.phone} </p>
+                                                        <p className='p_gray_14'>{item?.phoneNumber} </p>
                                                     </div>
                                                 </div>
 
@@ -201,13 +203,13 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                                                 <div className="row info">
                                                     <div className="col d-flex align-items-center gap-4">
                                                         <img src={locationIcon} alt="icon" width="30px" height="30px" />
-                                                        <p className='p_gray_14'> {item?.location || item?.vicinity}</p>
+                                                        <p className='p_gray_14'> {item?.description}</p>
                                                     </div>
                                                 </div>
                                                 <div className="row info">
                                                     <div className="col d-flex align-items-center gap-4">
                                                         <img src={clockblue} alt="icon" width="30px" height="30px" />
-                                                        <p className='p_gray_14'> {item?.openningday || item?.opening_hours?.isOpen()}<br />
+                                                        <p className='p_gray_14'> {""}<br />
                                                             {item?.openningtimes}</p>
                                                     </div>
                                                     <div className="col d-flex align-items-center gap-4">
@@ -217,13 +219,6 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
 
                                             </div>
                                         )
-
-
-
-
-
-
-
                                     }
                                     )}
 

@@ -94,14 +94,16 @@ export const VenueCard = ({ id, data, index, moveCard, setAddedVenues }) => {
     return (
         <div ref={ref} style={{ ...customStyle }} data-handler-id={handlerId}>
             <div className='venue_card' key={data?.id}>
-                <img src={data?.photos ? data?.photos[0]?.getUrl() : dummy} alt="" />
-                <h5 >{data?.Title || data?.name}</h5>
+                <img src={data?.imageUrl ? data?.imageUrl : data?.previewImage.length > 0 ? data?.previewImage[0] : dummy} alt="" />
+                <h5 >{data?.name}</h5>
                 <p className='p_gray_10 '>
                     {
-                        data?.Description?.length > 230 ?
-                            data?.Description?.substring(0, 230) + "..."
-                            : data?.Description?.substring(0, 230)
-                            || data?.vicinity
+                        data?.description?.length > 530 ?
+                            data?.description?.substring(0, 530) + "..."
+                            : data?.description?.substring(0, 530)
+
+
+
                     }
                 </p>
                 <div className='btn-container'>
