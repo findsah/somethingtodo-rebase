@@ -226,7 +226,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             website: '',
             isPravite: ""
         }
-        setAddedVenues((prevState) => [...prevState, item])
+        setAddedVenues((prevState) => [...prevState, data])
     }
 
     // remove venue

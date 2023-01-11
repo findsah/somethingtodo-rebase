@@ -94,8 +94,8 @@ export const VenueCard = ({ id, data, index, moveCard, setAddedVenues }) => {
     return (
         <div ref={ref} style={{ ...customStyle }} data-handler-id={handlerId}>
             <div className='venue_card' key={data?.id}>
-                <img src={data?.photos ? data?.photos[0]?.getUrl() : dummy} alt="" />
-                <h5 >{data?.Title || data?.name}</h5>
+                <img src={data?.imageUrl ? data?.imageUrl : dummy} alt="" />
+                <h5 >{data?.name}</h5>
                 <p className='p_gray_10 '>
                     {
                         data?.Description?.length > 230 ?

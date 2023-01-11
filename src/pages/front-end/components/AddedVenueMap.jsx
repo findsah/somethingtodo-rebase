@@ -50,15 +50,16 @@ const AddedVenueMap = ({ position, addedVenues }) => {
                 console.log("venuesdljflsjflsdjflds", venue?.geometry?.location?.lat())
                 return (
                     <Marker
-                        position={[venue?.geometry?.location?.lat(), venue?.geometry?.location?.lng()]}
-                        // position={position}
+                        // position={[venue?.geometry?.location?.lat(), venue?.geometry?.location?.lng()]}
+                        position={[venue?.location?.lat, venue?.location?.lng]}
                         icon={addedVenueId?.includes(venue?.id || venue?.place_id) ? iconGreen : iconBlue}
                         key={venue?.id || venue?.place_id}>
                         <Popup className='map_venue_list' >
                             {/* {venue?.Title || venue?.name}
                              */}
                             {/* //need to check */}
-                            <img src={venue?.photos?.length > 0 && typeof venue?.photos[0]?.getUrl === "function" ? venue?.photos[0]?.getUrl() : dummy} alt="" />
+                            <img src={venue?.imageUrl ? venue?.imageUrl : dummy} alt="" />
+                            {/* <img src={venue?.photos?.length > 0 && typeof venue?.photos[0]?.getUrl === "function" ? venue?.photos[0]?.getUrl() : dummy} alt="" /> */}
 
 
                             <h5 >{venue?.Title || venue?.name}</h5>
