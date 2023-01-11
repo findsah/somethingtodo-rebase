@@ -167,7 +167,8 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
 
                                         return (
                                             <div className='card' id={item?.place_id}>
-                                                <img src={item?.imageUrl ? item?.imageUrl : dummy} width="464px" height="207px" alt="" />
+
+                                                <img src={item?.imageUrl ? item?.imageUrl : item?.previewImage.length > 0 ? item?.previewImage[0] : dummy} alt="" width="464px" height="207px" />
                                                 {/* {
                                                     item?.photos ?
 
@@ -188,7 +189,7 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                                                     </div>
                                                     <div className="col d-flex align-items-center gap-4">
                                                         <img src={phoneIcon} alt="icon" width="30px" height="30px" />
-                                                        <p className='p_gray_14'>{item?.phone} </p>
+                                                        <p className='p_gray_14'>{item?.phoneNumber} </p>
                                                     </div>
                                                 </div>
 
