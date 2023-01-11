@@ -10,6 +10,7 @@ import TopVanuesCard from "../../front-end/components/TopVanuesCard";
 import { Button, Card } from "react-bootstrap";
 import vanueImg from "../../../assets/Rectangle 11.jpg";
 import { MdLocationPin } from "react-icons/md";
+import VanueCard from "./components/VanueCard";
 export default function Dashboard() {
   return (
     <div className="mt-4 dashboard">
@@ -69,30 +70,12 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="col-12" style={{ marginLeft: "8rem" }}>
-          <div className="row vanue-style mt-5">
+          <div className="row  mt-5">
             <h2>MY VENUES (3)</h2>
             <div className="col-lg-12 mt-3">
               <Slider {...settings}>
                 {[1, 2, 3, 4, 5, 6, 7].map((item) => (
-                  <Card className="vanues-card-style">
-                    <Card.Img variant="top" src={vanueImg} />
-                    <div className="card-custom-Body">
-                      <Card.Body>
-                        <Card.Title>LOREM IPSUM DOLOR SIT AMET</Card.Title>
-                        <Card.Text className="desc">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Nunc vulputate libero et velit interdum, ac
-                          aliquet odio mattis.
-                        </Card.Text>
-                        <Card.Text className="buttonss">
-                          <Button className="btn-main">EDIT VENUE</Button>
-                          <Button variant="outlined" className="outlined-btn">
-                            REMOVE VENUE
-                          </Button>
-                        </Card.Text>
-                      </Card.Body>
-                    </div>
-                  </Card>
+                  <VanueCard/>
                 ))}
               </Slider>
             </div>

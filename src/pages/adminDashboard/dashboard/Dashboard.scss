@@ -81,49 +81,70 @@
       color: #ffffff;
     }
   }
+  .slick-prev {
+    display: none;
+  }
+  .slick-next {
+    display: none;
+  }
+}
+.edit-vane {
   .vanue-style {
     .vanues-card-style {
+      border: 3px solid #ff9700;
       filter: drop-shadow(0px 4.70984px 18.8394px rgba(0, 0, 0, 0.2));
       border-radius: 4px;
-      width: 92% !important;
-      margin: 20px auto;
-      cursor: pointer;
-      border: transparent !important;
+    }
+  }
+} 
+.vanue-style {
+  .slick-prev {
+    display: none;
+  }
+  .slick-next {
+    display: none;
+  }
+  .vanues-card-style {
+    filter: drop-shadow(0px 4.70984px 18.8394px rgba(0, 0, 0, 0.2));
+    border-radius: 4px;
+    width: 92% !important;
+    margin: 20px auto;
+    cursor: pointer;
+    border: transparent !important;
 
-      // fil  ter: drop-shadow(0px 6px 24px rgba(0, 0, 0, 0.2));
-      .card-custom-Body {
+    // fil  ter: drop-shadow(0px 6px 24px rgba(0, 0, 0, 0.2));
+    .card-custom-Body {
+      display: flex;
+      // justify-content: space-between;
+      // align-items: center;
+      .card-title {
+        font-size: 1rem;
+        text-transform: uppercase;
+      }
+      .desc {
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+        color: #909090;
+      }
+      .buttonss {
         display: flex;
-        // justify-content: space-between;
-        // align-items: center;
-        .card-title {
-          font-size: 1rem;
-          text-transform: uppercase;
-        }
-        .desc {
-          font-weight: 600;
-          font-size: 12px;
-          line-height: 16px;
-          color: #909090;
-        }
-        .buttonss {
-          display: flex;
-          justify-content: space-between;
-          .btn-main {
-            gap: 6.28px;
-            width: 103.12px;
-            // height: 22.42px;
-            left: 12px;
-            top: 217.56px;
+        justify-content: space-between;
+        .btn-main {
+          gap: 6.28px;
+          width: 103.12px;
+          // height: 22.42px;
+          left: 12px;
+          top: 217.56px;
 
-            /* Orange */
+          /* Orange */
 
-            background: linear-gradient(92.39deg, #ff9700 0%, #de8300 91.96%);
-            border-radius: 10.9896px;
-          }
-          .outlined-btn {
-            width: 132.12px;
-            margin: 0px;
-          }
+          background: linear-gradient(92.39deg, #ff9700 0%, #de8300 91.96%);
+          border-radius: 10.9896px;
+        }
+        .outlined-btn {
+          width: 132.12px;
+          margin: 0px;
         }
       }
     }
@@ -131,11 +152,12 @@
       transform: scale(1.05);
       box-shadow: 5px 5px 10px rgba(34, 33, 33, 0.3);
     }
-    .slick-prev {
-      display: none;
-    }
-    .slick-next {
-      display: none;
-    }
+  }
+}
+
+.edit-vanue{
+  h2{
+    font-size: 20px;
+line-height: 24px;
   }
 }
