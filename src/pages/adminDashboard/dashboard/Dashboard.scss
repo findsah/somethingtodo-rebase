@@ -96,7 +96,7 @@
       border-radius: 4px;
     }
   }
-} 
+}
 .vanue-style {
   .slick-prev {
     display: none;
@@ -155,9 +155,18 @@
   }
 }
 
-.edit-vanue{
-  h2{
+.edit-vanue {
+  h2 {
     font-size: 20px;
-line-height: 24px;
+    line-height: 24px;
+  }
+  .textarea {
+    width: 256px;
+    height: 100px;
+  }
+  .profile-box{
+    .text{
+      margin-left: 19px;
+    }
   }
 }
