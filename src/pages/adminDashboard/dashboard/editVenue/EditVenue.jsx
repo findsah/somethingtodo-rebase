@@ -46,8 +46,47 @@ const EditVenue = () => {
                       <div className="pass-wrapper ">
                         {/* <input className="text"  placeholder="DESCRIPTION" type="text" /> */}
                         <textarea className="form-control textarea"></textarea>
+                       
                       </div>
+                      
                     </div>
+                    <div className="col-11 d-flex">
+                        <div className='feild'>
+                                <div className='icon'>
+                                    {/* <img src={locationIcon} alt="" /> */}
+                                    <h3>EVENT ADDRESS</h3>
+                                </div>
+                                <div className='input_text_group'>
+                                    <input type="text"
+                                        name="city"
+                                        id="city"
+                                        placeholder='City'
+                                        className='text'
+                                        // value={city}
+                                        // onChange={(e) => setCity(e.target.value)}
+                                    />
+                                    <input
+                                        type="text"
+                                        name="Street"
+                                        id="Street"
+                                        placeholder='Street'
+                                        className='text'
+                                        // value={street}
+                                        // onChange={(e) => setStreet(e.target.value)}
+                                    />
+                                    <input
+                                        type="text"
+                                        name="Buildings"
+                                        id="Buildings"
+                                        placeholder='Buildings'
+                                        className='text'
+                                        // value={building}
+                                        // onChange={(e) => setBuilding(e.target.value)}
+                                    />
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                     <div className="col-lg-6 col-11">
                       <h2>Venue Information</h2>
