@@ -20,10 +20,12 @@ import MapModal from '../../components/MapModal'
 import Slider from 'react-slick'
 import dummy from '../../../../assets/dummy1.png'
 import AddedVenueMap from '../../components/AddedVenueMap'
+import { useNavigate } from 'react-router-dom'
 
 
 const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
     const [open, setOpen] = useState(false)
+    const navigate = useNavigate();
     console.log(addedVenues)
 
     var settings = {
@@ -213,7 +215,9 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                                                             {item?.openningtimes}</p>
                                                     </div>
                                                     <div className="col d-flex align-items-center gap-4">
-                                                        <button className='btn_primary'>MORE DETAILS</button>
+                                                        <button
+                                                            onClick={() => navigate("/venue-detail")}
+                                                            className='btn_primary'>MORE DETAILS</button>
                                                     </div>
                                                 </div>
 

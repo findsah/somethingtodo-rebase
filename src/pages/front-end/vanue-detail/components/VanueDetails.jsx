@@ -73,12 +73,16 @@ export default function VanueDetails() {
                 <div className="row d-flex justify-content-center detail-sec">
                     <div className="col-12 mt-5">
                         <div className='eventDetailHighlight'></div>
-                        <h1 className=''>EVENT DETAILS</h1>
+                        <h1 className=''>VENUE DETAILS</h1>
                     </div>
 
-                    <div className="col-lg-6 col-sm-12 justify-content-center">
+                    <div className="col-lg-6 col-sm-12 ">
                         <div className="row">
-                            <div className="col-lg-4 col-3">
+                            <div>
+                                <h2>VENUE NAME</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                            {/* <div className="col-lg-4 col-3">
                                 <h2>Starts at:</h2>
                             </div>
                             <div className="col-lg-8 col-9">
@@ -101,7 +105,7 @@ export default function VanueDetails() {
                                 <h2><span>Insert Venue Name Here</span></h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum,
                                     ac aliquet odio mattis.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
+                            </div> */}
                         </div>
 
                     </div>

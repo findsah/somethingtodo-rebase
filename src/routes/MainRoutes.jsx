@@ -11,6 +11,7 @@ import Home from "../pages/front-end/home/Home";
 import Login from "../pages/front-end/user-registeration/Login";
 import SignUp from "../pages/front-end/user-registeration/SignUp";
 import VanueDetail from "../pages/front-end/vanue-detail/VanueDetail";
+import VenueDetail from "../pages/front-end/venue-detail/VenueDetail";
 import AppLayout from "./AppLayout";
 import DashboardLayout from "./DashboardLayout";
 
@@ -22,6 +23,7 @@ const MainRoutes = () => {
       <Route path="/" element={<AppLayout />}>
         <Route index path="/" element={<Home />} />
         <Route path="/create-event" element={<CreateEvent />} />
+        <Route path="/venue-detail" element={<VenueDetail />} />
         <Route path="/vanue-detail" element={<VanueDetail />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog-post" element={<BlogPost />} />
@@ -29,7 +31,7 @@ const MainRoutes = () => {
       </Route>
       {/* layout for Dashboard */}
       <Route path="/dashboard" element={<DashboardLayout />}>
-      <Route index path="/dashboard" element={<Dashboard />} />
+        <Route index path="/dashboard" element={<Dashboard />} />
         {/* sub routing */}
         <Route path="edit-venue" element={<EditVenue />} />
         <Route path='claim-venue' element={<EditVenue />} />

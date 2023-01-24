@@ -1,108 +1,125 @@
 .top-sec-img {
-    background-image: url("../../../assets/topvanue.png");
-    height: 632px;
-    width: 100%;
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    .top-sec {
-      text-align: center;
+  background-image: url("../../../assets/topvanue.png");
+  height: 632px;
+  width: 100%;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .top-sec {
+    text-align: center;
+    height: 80px;
+
+    img {
+      max-width: 100%;
       height: 80px;
-      img {
-        max-width: 100%;
-        height: 80px;
-      }
-    }
-    .top-text {
-      text-align: center;
-      .place {
-        font-size: 49px;
-        line-height: 64px;
-        font-weight: 600;
-        letter-spacing: 0.063em;
-        margin-top: 118px;
-        margin-bottom: 30px;
-        color: #ffffff;
-        text-transform: uppercase;
-      }
-      .sub-text{
-        color: #ffffff;
-        font-weight: 600;
-        font-size: 16.1036px;
-        line-height: 19px;
-        text-transform: uppercase;
-      }
-    }
-
-  }
-  .event_map {
-    .mapouter {
-      position: relative;
-      text-align: right;
-      width: auto;
-      height: auto;
-    }
-
-    .gmap_canvas {
-      overflow: hidden;
-      background: none !important;
-      width: 100%;
-      height: auto;
-    }
-
-    .gmap_iframe {
-      height: 300px !important;
     }
   }
- .main-vanue-detail{
-    
-   .slider-section{
-    
-    .vanue-img{
-        width: 88% !important;
-        margin: 20px auto;
-        cursor: pointer;
+
+  .top-text {
+    text-align: center;
+
+    .place {
+      font-size: 49px;
+      line-height: 64px;
+      font-weight: 600;
+      letter-spacing: 0.063em;
+      margin-top: 118px;
+      margin-bottom: 30px;
+      color: #ffffff;
+      text-transform: uppercase;
     }
+
+    .sub-text {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 16.1036px;
+      line-height: 19px;
+      text-transform: uppercase;
+    }
+  }
+
+}
+
+.event_map {
+  .mapouter {
+    position: relative;
+    text-align: right;
+    width: auto;
+    height: auto;
+  }
+
+  .gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    width: 100%;
+    height: auto;
+  }
+
+  .gmap_iframe {
+    height: 300px !important;
+  }
+}
+
+.main-vanue-detail {
+
+  .slider-section {
+
+    .vanue-img {
+      width: 88% !important;
+      margin: 20px auto;
+      cursor: pointer;
+    }
+
     .vanue-img:hover {
-        transform: scale(1.09);
-        box-shadow: 5px 5px 10px rgba(34, 33, 33, 0.3);
-      }
-      .card{
-        box-shadow: 5px 5px 10px rgba(34, 33, 33, 0.3);
-      }
-      span{
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 17px;
-        display: flex;
-        align-items: center;
-        letter-spacing: 0.063em;
-        color: #515151;
-      }
-      .icon-style{
-        fill: #ff9700;
-        font-size: 23px;
-        margin-left: 9px;
-      }
-      .review{
-        margin-left: 9px;
-      }
-   } 
-   .detail-sec{
-     .card{
+      transform: scale(1.09);
       box-shadow: 5px 5px 10px rgba(34, 33, 33, 0.3);
-      span{
+    }
+
+    .card {
+      box-shadow: 5px 5px 10px rgba(34, 33, 33, 0.3);
+    }
+
+    span {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.063em;
+      color: #515151;
+    }
+
+    .icon-style {
+      fill: #ff9700;
+      font-size: 23px;
+      margin-left: 9px;
+    }
+
+    .review {
+      margin-left: 9px;
+    }
+  }
+
+  .detail-sec {
+    .card {
+      box-shadow: 0px 4px 24px -8px rgba(34, 33, 33, 0.3);
+      // box-shadow: 0px 4px 24px -8px rgb(0 0 0 / 40%);
+
+      span {
         font-size: 14px;
         line-height: 126.84%;
         letter-spacing: -0.017em;
         color: #515151;
         padding: 13px;
       }
-      .icon-style{
+
+      .icon-style {
         color: #1F518B;
         font-size: 23px;
       }
-     }
+    }
+
     .eventDetailHighlight {
       background: #64e2ff !important;
       width: 17.7%;
@@ -111,64 +128,75 @@
       right: 82.2%;
       position: absolute;
       z-index: -1;
-      }
-    h1{
-        font-weight: 700;
-        font-size: 40px;
-        line-height: 48px;
-        display: flex;
-        align-items: center;
-        letter-spacing: 0.063em;
-        color: #1F518B;
     }
-    h2{
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 24px;
-        letter-spacing: 0.063em;
-        color: #515151;
-    }
-    p{
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 126.84%;
-        display: flex;
-        align-items: center;
-        letter-spacing: -0.017em;
-        color: #515151;
-    }
-   }
 
-  .raiting-card{
+    h1 {
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 48px;
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.063em;
+      color: #1F518B;
+    }
+
+    h2 {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 24px;
+      letter-spacing: 0.063em;
+      color: #515151;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 126.84%;
+      display: flex;
+      align-items: center;
+      letter-spacing: -0.017em;
+      color: #515151;
+    }
+  }
+
+  .raiting-card {
     width: 92% !important;
-    .raitng-icon{
+
+    .raitng-icon {
       fill: #ff9700;
     }
+
     .circle {
       padding: 17px 26px !important;
       border-radius: 50%;
       background-color: #D9D9D9;
     }
-   }
- } 
- .suggested-vanue{
+  }
+}
+
+.suggested-vanue {
   background: linear-gradient(140.6deg, #002C6D 0%, #0082CF 100%);
   padding: 20px;
-  a{
+
+  a {
     text-decoration: none !important;
     color: #161616;
   }
+
   .happen-wrapper {
     padding-top: 4rem;
+
     .happen-text {
       font-weight: 700;
       font-size: 46px;
       line-height: 60px;
       color: #ffffff;
       text-transform: uppercase;
+
       span {
         color: #ff9700;
       }
+
       .topVanueHighlight {
         background: #64e2ff !important;
         width: 42.7%;
@@ -178,8 +206,9 @@
         position: absolute;
         z-index: -1;
       }
-   
+
     }
+
     .dropdown-btn {
       border: 1px solid #ff9700 !important;
       border-radius: 14px;
@@ -191,15 +220,18 @@
     }
   }
 }
-.similer-vanues{
-   margin-top: 5rem;
-  h2{
+
+.similer-vanues {
+  margin-top: 5rem;
+
+  h2 {
     font-weight: 700;
     font-size: 40px;
     line-height: 48px;
     letter-spacing: 0.063em;
     color: #1F518B;
   }
+
   .vanueHighlight {
     background: #64e2ff !important;
     width: 42.7%;
@@ -211,9 +243,10 @@
   }
 }
 
- @media (max-width:991px) {
+@media (max-width:991px) {
   .top-sec-img {
     background-size: cover;
+
     .top-text .place {
       font-size: 28px;
       line-height: 63px;
@@ -223,39 +256,46 @@
       margin-bottom: 30px;
       color: #ffffff;
       text-transform: uppercase;
+    }
   }
+
+  .main-vanue-detail {
+    .detail-sec {
+      .span-2 {
+        margin-top: 22px;
+      }
+
+      .eventDetailHighlight {
+        display: none;
+      }
+    }
   }
-      .main-vanue-detail {
-        .detail-sec {
-          .span-2{
-            margin-top: 22px;
-           }
-          .eventDetailHighlight {
-            display: none;
-          }
-          }
-        }
-        .similer-vanues{
-          .vanueHighlight {
-            display: none;
-         }
-          h2 {
-            font-weight: 600;
-            font-size: 31px;
-            line-height: 0px;
-        }
-        }
- }
- @media (max-width:475px) {
- 
+
+  .similer-vanues {
+    .vanueHighlight {
+      display: none;
+    }
+
+    h2 {
+      font-weight: 600;
+      font-size: 31px;
+      line-height: 0px;
+    }
+  }
+}
+
+@media (max-width:475px) {
+
   .main-vanue-detail {
     .detail-sec {
       .eventDetailHighlight {
         display: none;
-       }
-       .span-2{
+      }
+
+      .span-2 {
         margin-top: 22px;
-       }
+      }
+
       h1 {
         text-align: center;
         justify-content: center;
@@ -264,13 +304,15 @@
         display: flex;
         align-items: center;
         letter-spacing: 0.063em;
-    }
-    h2{
-     
+      }
+
+      h2 {
+
         font-size: 15px;
-    }
+      }
     }
   }
+
   .top-sec-img {
     .top-text {
       .place {
@@ -279,14 +321,131 @@
       }
     }
   }
+
   .similer-vanues {
-     .vanueHighlight {
-     display: none;
-  }
+    .vanueHighlight {
+      display: none;
+    }
+
     h2 {
       font-size: 17px;
       line-height: 0px;
-    
+
+    }
   }
+}
+
+// venue detail my code here....
+
+.venue_detail_event {
+
+  .section_one_wrapper_light_blue {
+    height: 632px;
+    width: 100%;
+    position: relative;
+    background-image: url('../../../assets/divider/ShapeB.svg');
+
+    .section_one_wrapper_drak_blue {
+      height: 603px;
+      width: 100%;
+      background-image: url('../../../assets/divider/ShapeA.svg');
+
+      .inner_section {
+        height: inherit;
+        width: 100%;
+        position: relative;
+
+
+        background-image: url('../../../assets/maskVenueDetail.svg');
+
+        .logo {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0 auto;
+
+        }
+
+        .inner_content {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          height: 75%;
+
+          h1 {
+            color: white;
+          }
+
+          p {
+            color: white;
+          }
+
+        }
+      }
+
+
+    }
+
+    .rating_card_container {
+      position: absolute;
+      bottom: 0;
+      right: 145px;
+      background: #FFFFFF;
+      box-shadow: 0px 4px 24px -8px rgba(0, 0, 0, 0.4);
+      border-radius: 4px;
+      width: 286px;
+      height: 108px;
+      padding: 19.5px 24px;
+
+      .star_rating {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding-bottom: 11.5px;
+
+        .stars {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        span {
+          letter-spacing: 0.063em;
+          color: #515151;
+          font-family: 'SF UI Display';
+          font-style: normal;
+          font-weight: 600;
+          font-size: 14px;
+        }
+
+
+      }
+
+      .inline-item {
+        display: flex;
+        gap: 0.5rem;
+        line-height: 11.5px;
+
+        p {
+          letter-spacing: 0.063em;
+          color: #515151;
+          font-family: 'SF UI Display';
+          font-style: normal;
+          font-weight: 600;
+          font-size: 14px;
+        }
+      }
+    }
+
+
+
+
+
   }
- }
+
+  .slider_section {}
+
+
+
+}
