@@ -375,10 +375,23 @@
 
           h1 {
             color: white;
+            font-family: 'SF UI Display';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 54px;
+            letter-spacing: 0.063em;
           }
 
           p {
             color: white;
+            font-family: 'SF UI Display';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16.1036px;
+            letter-spacing: 0.063em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
           }
 
         }
@@ -444,8 +457,128 @@
 
   }
 
-  .slider_section {}
+  .slider_section {
+    padding-top: 2.2rem;
 
+    .slick-slider {
+      width: 90%;
+
+      margin: 0px auto;
+
+      .slick-prev:before,
+      .slick-next:before {
+        color: #1F518B;
+      }
+    }
+
+    .slick-track {
+      display: flex;
+      gap: 1rem;
+      padding-left: 5rem;
+
+      // .slick-current+* {
+      //   img {
+      //     width: 444px !important;
+      //     height: 352px !important;
+      //   }
+      // }
+
+      .slick-slide>div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+
+      }
+
+      .image_design img {
+        width: 286px;
+        height: 226px;
+      }
+    }
+
+  }
+
+  .venue_details_container {
+    padding-top: 3rem;
+    position: relative;
+
+    h2 {
+      padding-left: 112px;
+
+    }
+
+    .line_bar {
+      background: #64E2FF;
+      width: 247px;
+      height: 24px;
+      position: absolute;
+      top: 79px;
+      z-index: -1;
+
+    }
+
+    .venue_detail_info_container {
+      .venue_detail-info {
+        padding: 61px 120px 0px 161px;
+
+        p {
+          padding-top: 24px;
+          text-align: justify;
+          font-family: 'SF UI Display';
+          font-style: normal;
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 140%;
+          letter-spacing: 0.063em;
+          color: #515151;
+        }
+      }
+
+      .venue_detail-map {
+        margin: 0px 120px 0px 0px;
+        box-shadow: 0px 13px 24px -8px rgba(0, 0, 0, 0.4);
+        border-radius: 8px;
+        // width: 636px;
+        height: 588px;
+
+        .map {
+          height: 334px;
+        }
+
+        .venue_detail_map_info {
+          background: #FFFFFF;
+          height: 254px;
+          overflow: hidden;
+
+          .line_row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 2.7rem;
+            padding-right: 2.7rem;
+
+            .aligment {
+              display: flex;
+              gap: 1rem;
+              padding-top: 1.5rem;
+
+              span {
+                font-family: 'SF UI Display';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                letter-spacing: -0.017em;
+              }
+            }
+
+
+          }
+        }
+      }
+    }
+  }
 
 
 }
