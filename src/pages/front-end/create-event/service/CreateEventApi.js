@@ -136,6 +136,20 @@ export const GetVenueDetailByPlaceId = createAsyncThunk("createEventsSection/get
     return { data, status }
 
 });
+export const GetVenueDetailByPlaceIdfordetail = createAsyncThunk("createEventsSection/getVenueDetailByPlaceIdfordetail", async (params) => {
+
+    let response = await axios.get(`${baseUrl}google/details/${params}`).then((response) => {
+        return response
+    }).catch((error) => {
+        return error.response
+    })
+
+    const { data, status } = response;
+    return { data, status }
+
+});
+
+
 
 export const CreateCustomVenue = createAsyncThunk("createEventsSection/createCustomVenue", async (params) => {
 

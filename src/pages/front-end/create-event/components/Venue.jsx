@@ -16,7 +16,7 @@ import CustomErrorPopUp from '../../components/CustomErrorPopUp';
 import MapForGetLatLng from '../../components/MapForGetLatLng';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { CreateCustomVenue, GetEventList, GetVenueList, GetVenueListGoogle } from '../service/CreateEventApi';
+import { CreateCustomVenue, GetEventList, GetVenueDetailByPlaceId, GetVenueList, GetVenueListGoogle } from '../service/CreateEventApi';
 import { Loader } from "@googlemaps/js-api-loader"
 import { GetPlacesList } from '../../../../services/GoogleSlice';
 import { AddedVenueSorting } from './AddedVenueSorting';
@@ -25,7 +25,10 @@ import { toast } from 'react-toastify';
 import validator from 'validator'
 
 
-const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, setPreviewImage }) => {
+const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, setPreviewImage,
+    setAddedVenueDetails,
+    addedVenueDetails
+}) => {
 
     // hook importer
     const dispatch = useDispatch()
@@ -259,6 +262,38 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             previewImage: []
         }
         setAddedVenues((prevState) => [...prevState, data])
+    }
+    // add venue detail 
+    const addVenueActionDetail = (id) => {
+
+        dispatch(GetVenueDetailByPlaceId(id)).then(res => {
+            const data = {
+                place_id: id,
+                images: "",
+                imageUrl: "",
+                description: res?.payload?.data?.data?.formatted_address,
+                name: res?.payload?.data?.data?.name,
+                location: {
+                    lat: res?.payload?.data?.data?.location?.lat,
+                    lng: res?.payload?.data?.data?.location?.lng,
+                },
+                city: "",
+                street: "",
+                building: "",
+                phoneNumber: res?.payload?.data?.data?.formatted_phone_number,
+                website: res?.payload?.data?.data?.website,
+                isPravite: "",
+                previewImage: [],
+                openingDay: res?.payload?.data?.data?.opening_hours ? res?.payload?.data?.data?.opening_hours?.weekday_text[0] : "",
+                closingDay: res?.payload?.data?.data?.opening_hours ? res?.payload?.data?.data?.opening_hours?.weekday_text[6] : ""
+            }
+            setAddedVenueDetails((prevState) => [...prevState, data])
+
+
+
+        })
+
+
     }
 
     // remove venue
@@ -614,6 +649,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                                                 <div className='btn-container'>
                                                     <button className='btn_secondary ' onClick={() => {
                                                         addVenueAction(item)
+                                                        addVenueActionDetail(item?.google_place_id)
 
                                                     }}
                                                         style={{
@@ -674,6 +710,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                     <AddedVenueSorting
                         venueCard={addedVenues}
                         setVenueCard={setAddedVenues}
+                        setAddedVenueDetails={setAddedVenueDetails}
                     />
                 </div>
             </div>

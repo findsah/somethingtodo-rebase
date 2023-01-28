@@ -13,6 +13,7 @@ const CreateEvent = () => {
     const [images, setImages] = useState([])
     const [previewImage, setPreviewImage] = useState([])
     const [addedVenues, setAddedVenues] = useState([])
+    const [addedVenueDetails, setAddedVenueDetails] = useState([])
 
     // event discription local state
     const [eventTitle, setEventTitle] = useState("");
@@ -38,7 +39,9 @@ const CreateEvent = () => {
         previewImage,
         setPreviewImage,
         addedVenues,
-        setAddedVenues
+        setAddedVenues,
+        setAddedVenueDetails,
+        addedVenueDetails
     }
     //main state controller from parent to discritpion
     const descData = {
@@ -129,6 +132,7 @@ const CreateEvent = () => {
             <div className='container '>
                 <EventAndVenueDetail
                     addedVenues={addedVenues}
+                    addedVenueDetails={addedVenueDetails}
                     timeandpriceData={timeandpriceData}
 
 

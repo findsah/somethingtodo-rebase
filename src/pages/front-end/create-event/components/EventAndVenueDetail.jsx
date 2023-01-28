@@ -21,20 +21,40 @@ import Slider from 'react-slick'
 import dummy from '../../../../assets/dummy1.png'
 import AddedVenueMap from '../../components/AddedVenueMap'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { GetVenueDetailByPlaceId, GetVenueDetailByPlaceIdfordetail } from '../service/CreateEventApi'
+import { useEffect } from 'react'
 
 
-const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
+const EventAndVenueDetail = ({ addedVenues, timeandpriceData, addedVenueDetails }) => {
+    const [venueDetail, setVenueDetail] = useState([]);
     const [open, setOpen] = useState(false)
     const navigate = useNavigate();
+    const dispatch = useDispatch()
 
-
+    console.log(addedVenues)
     var settings = {
         slidesToShow: 2,
         className: "center",
         centerMode: true,
     }
 
+    // useEffect(() => {
+    //     addedVenues?.forEach(async (item) => {
+    //         const res = await dispatch(GetVenueDetailByPlaceId(item?.place_id));
+    //         setVenueDetail(prevState => [...prevState, { ...res?.payload?.data?.data, place_id: item?.place_id }]);
 
+    //     });
+    // }, [addedVenues, dispatch])
+    // useEffect(() => {
+    //     async function fetchData() {
+    //         addedVenues?.forEach(async (item) => {
+    //             const res = await dispatch(GetVenueDetailByPlaceId(item?.place_id));
+    //             setVenueDetail(prevState => [...prevState, { ...res?.payload?.data?.data, place_id: item?.place_id }]);
+    //         });
+    //     }
+    //     fetchData()
+    // }, [addedVenues])
 
     return (
         <>
@@ -81,7 +101,7 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                                             <div className="col-9">
                                                 <h6> {item?.name || "Venue Name"}</h6>
                                                 <p className='p_gray_14'>
-                                                    {item?.vicinity || "Venue Description"}
+                                                    {item?.description || "Venue Description"}
                                                 </p>
                                             </div>
                                         )
@@ -108,7 +128,7 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                                             <div className="col-9">
                                                 <h6> {item?.name || "Venue Name"}</h6>
                                                 <p className='p_gray_14'>
-                                                    {item?.vicinity || "Venue Description"}
+                                                    {item?.description || "Venue Description"}
                                                 </p>
                                             </div>
                                         )
@@ -133,7 +153,7 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                                             <div className="col-9">
                                                 <h6> {item?.name || "Venue Name"}</h6>
                                                 <p className='p_gray_14'>
-                                                    {item?.vicinity || "Venue Description"}
+                                                    {item?.description || "Venue Description"}
                                                 </p>
                                             </div>
                                         )
@@ -160,72 +180,66 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
                     <h2 >VENUE DETAILS</h2>
                     <div className="blue_line_bar"></div>
                     {
-                        addedVenues?.length > 0 ?
+                        addedVenueDetails?.length > 0 ?
                             <Slider {...settings}>
-                                {
-                                    addedVenues?.map((item) => {
 
 
+                                {addedVenueDetails.map((item, index) => (
+                                    <div className='card' id={index}>
 
-                                        return (
-                                            <div className='card' id={item?.place_id}>
+                                        <img src={dummy} alt="" width="464px" height="207px" />
 
-                                                <img src={item?.imageUrl ? item?.imageUrl : item?.previewImage.length > 0 ? item?.previewImage[0] : dummy} alt="" width="464px" height="207px" />
-                                                {/* {
-                                                    item?.photos ?
+                                        <p className='p_blue_size_20 text-center pb-3'>{item?.name}</p>
+                                        <div className="row info">
+                                            <div className="col-6 d-flex align-items-center gap-4" style={{ overflow: 'hidden' }}>
 
-                                                        item?.photos?.map(photo => {
+                                                <img src={websiteIcon} alt="icon" width="30px" height="30px" />
+                                                <p className='p_gray_14'>{item?.website}</p>
 
-                                                            return <img src={photo?.getUrl() ? photo?.getUrl() : dummy} alt="" width="464px" height="207px" />
-
-
-                                                        }) :
-                                                        <img src={dummy} alt="" width="464px" height="207px" />
-                                                } */}
-
-                                                <p className='p_blue_size_20 text-center pb-3'>{item?.name}</p>
-                                                <div className="row info">
-                                                    <div className="col d-flex align-items-center gap-4">
-                                                        <img src={websiteIcon} alt="icon" width="30px" height="30px" />
-                                                        <p className='p_gray_14'>{item?.website}</p>
-                                                    </div>
-                                                    <div className="col d-flex align-items-center gap-4">
-                                                        <img src={phoneIcon} alt="icon" width="30px" height="30px" />
-                                                        <p className='p_gray_14'>{item?.phoneNumber} </p>
-                                                    </div>
-                                                </div>
-
-                                                <div className="row info">
-                                                    <div className="col d-flex align-items-center gap-4">
-                                                        <img src={emailIcon} alt="icon" width="30px" height="30px" />
-                                                        <p className='p_gray_14'>{item?.email || "no email"}</p>
-                                                    </div>
-                                                </div>
-
-                                                <div className="row info">
-                                                    <div className="col d-flex align-items-center gap-4">
-                                                        <img src={locationIcon} alt="icon" width="30px" height="30px" />
-                                                        <p className='p_gray_14'> {item?.description}</p>
-                                                    </div>
-                                                </div>
-                                                <div className="row info">
-                                                    <div className="col d-flex align-items-center gap-4">
-                                                        <img src={clockblue} alt="icon" width="30px" height="30px" />
-                                                        <p className='p_gray_14'> {""}<br />
-                                                            {item?.openningtimes}</p>
-                                                    </div>
-                                                    <div className="col d-flex align-items-center gap-4">
-                                                        <button
-                                                            onClick={() => navigate("/venue-detail")}
-                                                            className='btn_primary'>MORE DETAILS</button>
-                                                    </div>
-                                                </div>
 
                                             </div>
-                                        )
-                                    }
-                                    )}
+                                            <div className="col-6 d-flex align-items-center gap-4">
+                                                <img src={phoneIcon} alt="icon" width="30px" height="30px" />
+                                                <p className='p_gray_14'>{item?.phoneNumber} </p>
+                                            </div>
+                                        </div>
 
+                                        <div className="row info">
+                                            <div className="col d-flex align-items-center gap-4">
+                                                <img src={emailIcon} alt="icon" width="30px" height="30px" />
+                                                <p className='p_gray_14'>{item?.email || "no email"}</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="row info">
+                                            <div className="col d-flex align-items-center gap-4">
+                                                <img src={locationIcon} alt="icon" width="30px" height="30px" />
+                                                <p className='p_gray_14'> {item?.description}</p>
+                                            </div>
+                                        </div>
+                                        <div className="row info">
+                                            <div className="col d-flex align-items-center gap-4">
+                                                <img src={clockblue} alt="icon" width="30px" height="30px" />
+                                                {/* {item?.openningtimes} */}
+
+                                                <p className='p_gray_14'> {""}<br />
+                                                    {item?.openingDay ? item?.openingDay : item?.openningtimes}
+                                                    <br />
+                                                    {item?.closingDay ? item?.closingDay : item?.openningtimes}
+                                                </p>
+                                            </div>
+                                            <div className="col d-flex align-items-center gap-4">
+                                                <button
+                                                    onClick={() => {
+                                                        navigate("/venue-detail")
+                                                        dispatch(GetVenueDetailByPlaceIdfordetail(item?.place_id))
+                                                    }}
+                                                    className='btn_primary'>MORE DETAILS</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                ))}
 
                             </Slider> :
                             <div className='d-flex justify-content-center align-items-center'>

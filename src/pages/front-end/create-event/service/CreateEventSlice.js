@@ -23,7 +23,9 @@ const createEventSlice = createSlice({
         deleteVenueList: {},
         getFriendList: [],
         getVenueListGoogle: {},
-        createCustomVenue: {}
+        createCustomVenue: {},
+        getVenueDetailByPlaceId: {},
+        getVenueDetailByPlaceIdfordetail: {}
     },
     reducers: {
 
@@ -104,6 +106,25 @@ const createEventSlice = createSlice({
             }
         },
 
+
+        ['createEventsSection/getVenueDetailByPlaceIdfordetail/fulfilled']: (state, action) => {
+            const { data, status } = action.payload || {}
+
+            if (status >= 200 && status < 300) {
+                state.getVenueDetailByPlaceIdfordetail = data
+            } else if (status >= 400 && status < 500) {
+
+            }
+        },
+        ['createEventsSection/getVenueDetailByPlaceId/fulfilled']: (state, action) => {
+            const { data, status } = action.payload || {}
+
+            if (status >= 200 && status < 300) {
+                state.getVenueDetailByPlaceId = data
+            } else if (status >= 400 && status < 500) {
+
+            }
+        },
         ['createEventsSection/getVenueListById/fulfilled']: (state, action) => {
             const { data, status } = action.payload || {}
 

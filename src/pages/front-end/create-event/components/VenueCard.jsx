@@ -3,12 +3,25 @@ import { useDrag, useDrop } from 'react-dnd'
 import { ItemTypes } from '../../components/ItemTypes.js'
 import dummy from '../../../../assets/dummy1.png'
 
-export const VenueCard = ({ id, data, index, moveCard, setAddedVenues }) => {
+export const VenueCard = ({ id, data, index, moveCard, setAddedVenues, setAddedVenueDetails }) => {
 
     // remove venue
     const RemoveVenueAction = (item) => {
 
         setAddedVenues((current) =>
+            current.filter((venue) => {
+
+
+                if (venue.id) {
+                    return venue.id !== item?.id
+                } else {
+                    return venue?.place_id !== item?.place_id
+                }
+
+            }
+            )
+        );
+        setAddedVenueDetails((current) =>
             current.filter((venue) => {
 
 
