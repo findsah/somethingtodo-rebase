@@ -28,7 +28,7 @@ export const GetEventList = createAsyncThunk("createEventsSection/getEventList",
         return error.response
     })
     const { data, status } = response;
-    console.log(data)
+
     return { data, status }
 
 });
@@ -92,7 +92,7 @@ export const DeleteEventList = createAsyncThunk("createEventsSection/deleteEvent
 
 
 // **************************  venues  *****************************
-//  get venue list
+//  get venue list from custom or google list
 export const GetVenueList = createAsyncThunk("createEventsSection/getVenueList", async (params) => {
 
     // let response = await  apiInstance.get(`${baseUrl}all-venues`).then((response) => {
@@ -102,6 +102,55 @@ export const GetVenueList = createAsyncThunk("createEventsSection/getVenueList",
         return error.response
     })
     const { data, status } = response;
+    return { data, status }
+
+});
+
+export const GetVenueListGoogle = createAsyncThunk("createEventsSection/getVenueListGoogle", async (params) => {
+
+    // let response = await  apiInstance.get(`${baseUrl}all-venues`).then((response) => {
+
+    // google/40.730610/-73.935242 
+
+    // let response = await axios.post(`${baseUrl}google/${params?.lat}/${params?.lng}`, { type: params?.catogory || "sports", radius: params?.radias }).then((response) => {
+    let response = await axios.post(`${baseUrl}google/40.730610/-73.935242 `, { type: params?.catogory || "sports", radius: params?.radias }).then((response) => {
+        return response
+    }).catch((error) => {
+        return error.response
+    })
+    console.log('googlesapi', response)
+    const { data, status } = response;
+    return { data, status }
+
+});
+
+export const GetVenueDetailByPlaceId = createAsyncThunk("createEventsSection/getVenueDetailByPlaceId", async (params) => {
+
+    let response = await axios.get(`${baseUrl}google/details/${params}`).then((response) => {
+        return response
+    }).catch((error) => {
+        return error.response
+    })
+
+    const { data, status } = response;
+    return { data, status }
+
+});
+
+export const CreateCustomVenue = createAsyncThunk("createEventsSection/createCustomVenue", async (params) => {
+
+    // let response = await  apiInstance.get(`${baseUrl}all-venues`).then((response) => {
+
+    // google/40.730610/-73.935242 
+
+    let response = await axios.post(`${baseUrl}google/create-event`, params).then((response) => {
+        // let response = await axios.post(`${baseUrl}google/40.730610/-73.935242 `, { type: params?.catogory || "sports", radius: params?.radias }, config).then((response) => {
+        return response
+    }).catch((error) => {
+        return error.response
+    })
+    const { data, status } = response;
+
     return { data, status }
 
 });

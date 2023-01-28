@@ -22,11 +22,11 @@ export default function BlogList() {
 
     // useSlector to get State from store
     const { getBlogList } = useSelector((state) => state?.blogSlice);
-    console.log(getBlogList)
+
 
     // useEffect to call function
     useEffect(() => {
-        dispatch(GetBlogList())
+        // dispatch(GetBlogList())
     }, [])
     return (
         <div className="container-fluid">

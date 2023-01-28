@@ -27,7 +27,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
     const [open, setOpen] = useState(false);
 
 
-    console.log(gender)
+
 
     // useSlector to get State from store
     const { getVenueList } = useSelector((state) => state?.createEventSlice)
@@ -67,7 +67,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
         const remove = peopleInfo?.filter(item => item.id != id)
         setpeopleInfo(remove)
     }
-    // console.log(peopleInfo)
+
 
     const resetList = () => {
         setpeopleInfo([])
@@ -97,7 +97,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
 
     // useEffect
     useEffect(() => {
-        dispatch(GetFriendList())
+        // dispatch(GetFriendList())
     }, [])
 
     return (

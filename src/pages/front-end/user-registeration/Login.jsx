@@ -19,24 +19,24 @@ export default function Login() {
     const formSchema = Yup.object().shape({
         fullName: Yup.string().required("Full name is mandatory"),
         password: Yup.string()
-          .required("Password is mandatory")
-          .min(8, "Password must be at 8 char long")
-          .matches(
-            /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s)(?=.*[!@#$*])/,
-            "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character (!@#$*)"
-          ),
-      });
-      const formOptions = { resolver: yupResolver(formSchema) };
-      const {
+            .required("Password is mandatory")
+            .min(8, "Password must be at 8 char long")
+            .matches(
+                /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s)(?=.*[!@#$*])/,
+                "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character (!@#$*)"
+            ),
+    });
+    const formOptions = { resolver: yupResolver(formSchema) };
+    const {
         register,
         handleSubmit,
         resetField,
         watch,
         formState: { errors },
-      } = useForm(formOptions);
-      const onSubmit = () => {
+    } = useForm(formOptions);
+    const onSubmit = () => {
         setModalShow(true);
-             console.log('shahid');
+
         // let res = await axios.post(
         //     "https://next-server.nextgencrypto.org/api/user/signup",
         //     data
@@ -50,15 +50,15 @@ export default function Login() {
         // resetField("email");
         // resetField("password")
         // resetField("confirmPwd")
-      };
+    };
     return (
         <div className='container-fluid main-login'>
             <div className="row top-sec">
 
                 <div className="col-lg-5 col-11">
-                  <Link to='/'>
-                    <img className="img-fluid" src={logo} alt="logo" />
-                  </Link>
+                    <Link to='/'>
+                        <img className="img-fluid" src={logo} alt="logo" />
+                    </Link>
                 </div>
                 <div className="col-lg-2 col-6 text-center">
                     <h2>LOG IN</h2>
@@ -66,48 +66,48 @@ export default function Login() {
             </div>
             <Form onSubmit={handleSubmit(onSubmit)}>
 
-            <div className="row d-flex justify-content-center" >
-                <div className="col-lg-4 col-12">
-                    <div className="row form-sec" >
-                        <div className="col-12  d-flex justify-content-center m-auto" >
-                            <div >
-                            <h2>INSERT NAME</h2>
-                            <input className='mt-3' type="text" placeholder="Text"
-                             {...register("fullName", { required: true })}
-                            />
-                             <br />
-                     {errors.fullName && <> &nbsp;<span style={{ color: "red" }}>{errors.fullName.message}</span></>}
+                <div className="row d-flex justify-content-center" >
+                    <div className="col-lg-4 col-12">
+                        <div className="row form-sec" >
+                            <div className="col-12  d-flex justify-content-center m-auto" >
+                                <div >
+                                    <h2>INSERT NAME</h2>
+                                    <input className='mt-3' type="text" placeholder="Text"
+                                        {...register("fullName", { required: true })}
+                                    />
+                                    <br />
+                                    {errors.fullName && <> &nbsp;<span style={{ color: "red" }}>{errors.fullName.message}</span></>}
 
-                        <div className="col-12  d-flex justify-content-center m-auto">
-                            <div>
-                            <h2>PASSWORD</h2>
-                            <div className="pass-wrapper mt-3">
-                                        <input
-                                            placeholder="Password"
-                                            type={passwordShown ? "text" : "password"}
-                                            {...register("password", { required: true })}
+                                    <div className="col-12  d-flex justify-content-center m-auto">
+                                        <div>
+                                            <h2>PASSWORD</h2>
+                                            <div className="pass-wrapper mt-3">
+                                                <input
+                                                    placeholder="Password"
+                                                    type={passwordShown ? "text" : "password"}
+                                                    {...register("password", { required: true })}
 
-                                        />
-                                        <MdVisibility className='icon2'
-                                            onClick={togglePasswordVisiblity}
-                                        />
-                                        <br />
-                      {errors.password && <> &nbsp;<span style={{ color: "red" }}>{errors.password.message}</span></>}
-                      
-                                        <div className="col-12 mt-1">
-                                            <p>Forgot you password ?</p>
+                                                />
+                                                <MdVisibility className='icon2'
+                                                    onClick={togglePasswordVisiblity}
+                                                />
+                                                <br />
+                                                {errors.password && <> &nbsp;<span style={{ color: "red" }}>{errors.password.message}</span></>}
+
+                                                <div className="col-12 mt-1">
+                                                    <p>Forgot you password ?</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                            </div>
-                        </div>
-                        <div className="row mt-5 justify-content-center">
-                                    <div className="col-lg-8 col-5 mb-5">
-                                        <CustomButton type="submit"  text='FINISH' />
+                                    <div className="row mt-5 justify-content-center">
+                                        <div className="col-lg-8 col-5 mb-5">
+                                            <CustomButton type="submit" text='FINISH' />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        {/* <div className="col-12">
+                            {/* <div className="col-12">
                             <div className="row d-flex justify-content-center">
                                 <div className="col-lg-10 col-11">
                                     <div className="col-11 d-flex justify-content-center">
@@ -144,12 +144,12 @@ export default function Login() {
                                 </div>
                             </div>
                         </div> */}
-                        <div >
-                            <LoginFinishModal modalShow={modalShow} setModalShow={setModalShow} />
+                            <div >
+                                <LoginFinishModal modalShow={modalShow} setModalShow={setModalShow} />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </Form>
         </div>
     )

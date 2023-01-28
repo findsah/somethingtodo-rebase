@@ -16,16 +16,17 @@ import CustomErrorPopUp from '../../components/CustomErrorPopUp';
 import MapForGetLatLng from '../../components/MapForGetLatLng';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { GetEventList, GetVenueList } from '../service/CreateEventApi';
+import { CreateCustomVenue, GetEventList, GetVenueList, GetVenueListGoogle } from '../service/CreateEventApi';
 import { Loader } from "@googlemaps/js-api-loader"
 import { GetPlacesList } from '../../../../services/GoogleSlice';
 import { AddedVenueSorting } from './AddedVenueSorting';
 import uuid from 'react-uuid';
 import { toast } from 'react-toastify';
+import validator from 'validator'
 
 
 const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, setPreviewImage }) => {
-    console.log(addedVenues)
+
     // hook importer
     const dispatch = useDispatch()
 
@@ -34,9 +35,10 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const [mapOrcardTap, setMapOrCardTap] = useState("mapTap");
     const [open, setOpen] = useState(false);
     const [openError, setOpenError] = useState(false);
+    const [errorRes, setErrorRes] = useState("")
     const [venueList, setVenueList] = useState([])
     const [catogory, setCatogory] = useState("")
-    const [distance, setDistance] = useState("1km")
+    const [distance, setDistance] = useState("5km")
     const [searchLocation, setSearchLocation] = useState("")
     const [searchBy, setSearchBy] = useState("")
     const [checkResultLength, setCheckResultLength] = useState(0)
@@ -47,13 +49,18 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const [lantitude, setLatitude] = useState()
     const [longitude, setLongitude] = useState()
     const [Title, setTitle] = useState()
-    const [isPravite, setIsPravite] = useState()
+    const [isPravite, setIsPravite] = useState("no")
     const [city, setCity] = useState()
     const [street, setStreet] = useState()
     const [building, setBuilding] = useState()
     const [phoneNumber, setPhoneNumber] = useState()
     const [website, setWebite] = useState()
     const [description, setDescription] = useState()
+
+    // a function to reset
+    // const resetFn =()=>{
+
+    // }
     //   handel custom venue funtion
     const handelCreateCustom = () => {
         const createCustomVenueData = {
@@ -75,14 +82,45 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             previewImage
 
         }
+        const createCustomVenueDB = {
+
+            venue_name: Title,
+            description,
+            image: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
+            location: { lat: lantitude, lng: longitude },
+            city,
+            street,
+            building,
+            phoneNumber,
+            website,
+            isPrivate: isPravite == "yes" ? true : false
+        }
         if (!Title || !description || !city || !street || !building || !phoneNumber || !website || images?.length == 0) {
             setOpenError(true)
+            setErrorRes("Oops we missed something. Please ensure all fields are filled correctly")
         }
         else {
+            // checking phone number validation
+            const phoneRegex = /^(?:\+\d{1,3}|0\d{1,3}|00\d{1,2})?(?:\d{9,11})$/;
+            if (!phoneRegex.test(phoneNumber)) {
+
+                setOpenError(true)
+                setErrorRes("Oops Invalid Phone Number")
+                return null
+            }
+            // checking website url
+
+            if (!validator.isURL(website)) {
+                setOpenError(true)
+                setErrorRes("Oops Invalid website")
+                return null
+            }
             toast.success("Custom Venue Add Successfully")
-            console.log("create Custom Venue", createCustomVenueData)
             setOpen(false)
             setAddedVenues((prevState) => [...prevState, createCustomVenueData])
+            dispatch(CreateCustomVenue(createCustomVenueDB))
+
+
         }
 
     }
@@ -163,21 +201,6 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
         },
     ]
 
-    // useEffect(() => {
-    //     // it run untill 6 venue is found in response
-    //     if (checkResultLength < 6) {
-    //         let value = distance.replace('km', '')
-    //         let d = value + 10
-    //         let dis = d + "km"
-
-    //         setDistance(dis)
-    //         setCallState(!callState)
-    //         alert("hi", distance)
-    //         console.log("ddi", distance)
-    //     }
-    // }, [callState])
-
-
     // current location of user
     const lat = localStorage.getItem("lat");
     const lag = localStorage.getItem("lag");
@@ -187,7 +210,9 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     // useSlector to get State from store
     const { getPlacesList } = useSelector((state) => state?.googleSlice)
     const { getCurrentLocation } = useSelector((state) => state?.shareSlice)
+    const { getVenueListGoogle } = useSelector((state) => state?.createEventSlice)
 
+    console.log(getVenueListGoogle)
     const addedVenueId = addedVenues?.map((venue) => {
         return venue?.id || venue?.place_id
     })
@@ -212,14 +237,14 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     // add venue
     const addVenueAction = (item) => {
         const data = {
-            place_id: item?.place_id,
+            place_id: item?.google_place_id,
             images: "",
-            imageUrl: item?.photos ? item?.photos[0]?.getUrl() : "",
-            description: item?.vicinity,
-            name: item?.name,
+            imageUrl: "",
+            description: item?.description,
+            name: item?.venue_name,
             location: {
-                lat: item?.geometry?.location?.lat(),
-                lng: item?.geometry?.location?.lng()
+                lat: item?.location?.lat,
+                lng: item?.location?.lng,
             },
             city: "",
             street: "",
@@ -234,7 +259,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
     // remove venue
     const RemoveVenueAction = (item) => {
-        console.log(item)
+
         setAddedVenues((current) =>
             current.filter((venue) => {
 
@@ -250,79 +275,15 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
         );
     }
 
-
-
-
-    // useEffect to check google event and db event
-    // useEffect(() => {
-    //     if (getLocationList != []) {
-    //         setVenueList(getLocationList)
-    //     } else {
-    //         setVenueList(getVenueList)
-    //     }
-    // }, [getLocationList?.place_id, getVenueList?.id])
-
-    // useEffect to call function
     useEffect(() => {
-        dispatch(GetVenueList())
-        dispatch(GetEventList())
-    }, [])
-
-    // useEffect to fetch all  venus from google
-    useEffect(() => {
-
-        var radias = distance.replace('km', '') * 1000
-        const loader = new Loader({
-            apiKey: "AIzaSyAlEQnPxaoYwZXM4aKDtwa3N7tYNvkKFkQ",
-            version: "weekly",
-            libraries: ["places"]
-
-        });
-        // fetch google api
-        loader.load().then((google) => {
-            var pyrmont = new google.maps.LatLng(lat, lag);
-            // var pyrmont = new google.maps.LatLng(51.509865, -0.118092);
-            let map = new google.maps.Map(document.getElementById("map"), {
-                center: { lat: 33.1415552, lng: 73.7476608 },
-                zoom: 12,
-            });
-            var service
-
-            var request = {
-                location: pyrmont,
-                radius: radias,
-                type: catogory
-                // [`${catogory}` || "restaurant"]
-            };
-
-
-            service = new google.maps.places.PlacesService(map);
-            service.nearbySearch(request, getNearPlaces);
-            // service.getDetails(reqestplacebyid, getplaceDetail)
-
-            function getNearPlaces(results, status) {
-                if (status == google.maps.places.PlacesServiceStatus.OK) {
-
-                    dispatch(GetPlacesList(results))
-                    setCheckResultLength(results?.length)
-
-                } else {
-                    // console.log(status)
-                    // console.log(results)
-                }
-            }
-
-        });
-    }, [
-        catogory,
-        keyword,
-        lat,
-        lag,
-        distance,
-        searchLocation?.geometry?.location?.lat,
-        searchLocation?.geometry?.location?.lng,
-        checkResultLength
-    ])
+        const data = {
+            lat: lat || 40.730610,
+            lng: lag || -73.935242,
+            catogory: catogory || 'sports',
+            radias: distance?.replace('km', '') * 1000 || 5000
+        }
+        dispatch(GetVenueListGoogle(data))
+    }, [catogory, distance])
 
     return (
         <div className='create_event_venue'>
@@ -591,7 +552,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                             }}
                         >CREATE</button>
                     </div>
-                    <CustomErrorPopUp error="Oops we missed something. Please ensure all fields are filled correctly" openError={openError} close={setOpenError} />
+                    <CustomErrorPopUp error={errorRes} openError={openError} close={setOpenError} />
                 </CustoModal>
             </div>
 
@@ -616,131 +577,9 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                 <div className={mapOrCarView === "listview" ? "width" : "disable_list"}>
                     <div className="card_container">
                         {
-                            getPlacesList?.length > 0 ?
-                                getPlacesList?.filter(entry => Object?.values(entry)?.some(val => typeof val === "string" && val?.match(keyword)))
-                                    ?.filter(item => {
-                                        if (catogory == "dining") {
-
-                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("bar") ||
-                                                val.includes("bakery") ||
-                                                val.includes("cafe") ||
-                                                val.includes("restaurant"))
-                                        }
-                                        else if (catogory == "nightlife") {
-
-                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("bar") ||
-                                                val.includes("night_club") ||
-
-                                                val.includes("casino"))
-                                        }
-                                        else if (catogory == "adventure") {
-
-                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("airport") ||
-                                                val.includes("amusement_park") ||
-                                                val.includes("aquarium") ||
-                                                val.includes("campground") ||
-                                                val.includes("park") ||
-                                                val.includes("tourist_attraction") ||
-                                                val.includes("zoo") ||
-
-                                                val.includes("bus_station") ||
-                                                val.includes("light_rail_station") ||
-                                                val.includes("natural_feature") ||
-                                                val.includes("point_of_interest"))
-                                        }
-                                        else if (catogory == "art") {
-
-                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("art_gallery") ||
-
-
-                                                val.includes("museum"))
-                                        }
-                                        else if (catogory == "entertainment") {
-
-                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("bar") ||
-                                                val.includes("movie_theater") ||
-                                                val.includes("stadium") ||
-                                                val.includes("tourist_attraction") ||
-                                                val.includes("museum") ||
-                                                val.includes("night_club") ||
-
-                                                val.includes("amusement_park") ||
-                                                val.includes("book_store") ||
-
-                                                val.includes("museum"))
-                                        }
-                                        else if (catogory == "music") {
-
-                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("stadium") ||
-                                                val.includes("bar") ||
-                                                val.includes("casino") ||
-                                                val.includes("night_club"))
-                                        }
-                                        else if (catogory == "casual") {
-
-                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("spa") ||
-                                                val.includes("aquarium") ||
-                                                val.includes("art_gallery") ||
-                                                val.includes("beauty_salon") ||
-                                                val.includes("book_store") ||
-                                                val.includes("book_store") ||
-                                                val.includes("park") ||
-                                                val.includes("shopping_mall") ||
-                                                val.includes("tourist_attraction") ||
-                                                val.includes("university"))
-                                        }
-                                        else if (catogory == "celebrations") {
-
-                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("spa") ||
-                                                val.includes("night_club") ||
-                                                val.includes("bar") ||
-                                                val.includes("casino") ||
-                                                val.includes("amusement_park") ||
-                                                val.includes("church") ||
-                                                val.includes("hindu_temple") ||
-                                                val.includes("lodging") ||
-                                                val.includes("mosque") ||
-                                                val.includes("stadium") ||
-                                                val.includes("stadium") ||
-                                                val.includes("tourist_attraction") ||
-                                                val.includes("place_of_worship") ||
-                                                val.includes("restaurant"))
-                                        }
-                                        else if (catogory == "gaming") {
-
-                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("stadium"))
-
-                                        }
-                                        else if (catogory == "education") {
-
-                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("art_gallery") ||
-                                                val.includes("book_store") ||
-                                                val.includes("library") ||
-                                                val.includes("museum") ||
-                                                val.includes("university") ||
-                                                val.includes("zoo") ||
-                                                val.includes("hindu_temple") ||
-                                                val.includes("lodging") ||
-                                                val.includes("mosque") ||
-                                                val.includes("stadium") ||
-                                                val.includes("stadium") ||
-                                                val.includes("tourist_attraction") ||
-                                                val.includes("place_of_worship") ||
-                                                val.includes("restaurant"))
-                                        }
-                                        else if (catogory == "sports") {
-
-                                            return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("stadium") ||
-                                                val.includes("bowling_alley") ||
-                                                val.includes("gym") ||
-                                                val.includes("park") ||
-                                                val.includes("university"))
-
-                                        }
-                                        else {
-                                            return item
-                                        }
-                                    })
+                            getVenueListGoogle?.data?.length > 0 ?
+                                // getVenueListGoogle?.data?.filter((item => item?.venue_name?.indexOf(keyword) !== -1))
+                                getVenueListGoogle?.data?.filter(entry => Object?.values(entry)?.some(val => typeof val === "string" && val?.match(keyword)))
                                     ?.map(item => {
 
                                         return (
@@ -750,30 +589,22 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                                                     {/* need to check */}
 
                                                     {
-                                                        item?.photos ?
-                                                            item?.photos?.map(photo => {
-
-                                                                if (typeof photo.getUrl === "function") {
-                                                                    return <img src={photo.getUrl()} alt="" />
-                                                                } else {
-                                                                    return <img src={dummy} alt="" />
-
-                                                                }
-
-                                                            }) :
+                                                        item?.image ?
+                                                            <img src={dummy} />
+                                                            :
                                                             <img src={dummy} alt="" />
 
                                                     }
                                                 </Slider>
 
 
-                                                <h5 >{item?.Title || item?.name}</h5>
+                                                <h5 >{item?.Title || item?.venue_name}</h5>
                                                 <p className='p_gray_10 '>
                                                     {
-                                                        item?.Description?.length > 230 ?
-                                                            item?.Description?.substring(0, 230) + "..."
-                                                            : item?.Description?.substring(0, 230)
-                                                            || item?.vicinity
+                                                        item?.description?.length > 230 ?
+                                                            item?.description?.substring(0, 230) + "..."
+                                                            : item?.description?.substring(0, 230)
+
                                                     }
                                                 </p>
                                                 <div className='btn-container'>
@@ -782,10 +613,10 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
                                                     }}
                                                         style={{
-                                                            background: addedVenueId?.includes(item?.id || item?.place_id) ? 'green' : '',
-                                                            opacity: addedVenueId?.includes(item?.id || item?.place_id) ? '0.4' : ''
+                                                            background: addedVenueId?.includes(item?.id || item?.google_place_id) ? 'green' : '',
+                                                            opacity: addedVenueId?.includes(item?.id || item?.google_place_id) ? '0.4' : ''
                                                         }}
-                                                        disabled={addedVenueId?.includes(item?.id || item?.place_id)}
+                                                        disabled={addedVenueId?.includes(item?.id || item?.google_place_id)}
                                                     >
                                                         <i className="fa fa-plus" aria-hidden="true"></i>
                                                         ADD  VENUE
@@ -808,7 +639,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
                         <MapModal
                             position={[lat, lag]}
-                            data={getPlacesList}
+                            data={getVenueListGoogle}
                             setAddedVenues={setAddedVenues}
                             addedVenues={addedVenues}
                             keyword={keyword}

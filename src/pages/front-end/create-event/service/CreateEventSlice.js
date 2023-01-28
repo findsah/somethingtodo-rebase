@@ -21,7 +21,9 @@ const createEventSlice = createSlice({
         createVenue: {},
         updateVenueList: {},
         deleteVenueList: {},
-        getFriendList: []
+        getFriendList: [],
+        getVenueListGoogle: {},
+        createCustomVenue: {}
     },
     reducers: {
 
@@ -82,6 +84,26 @@ const createEventSlice = createSlice({
                 toast("Something went wrong in getVenueList")
             }
         },
+        ['createEventsSection/getVenueListGoogle/fulfilled']: (state, action) => {
+            const { data, status } = action.payload || {}
+
+            if (status >= 200 && status < 300) {
+                state.getVenueListGoogle = data
+            } else if (status >= 400 && status < 500) {
+                toast("Something went wrong in getVenueListGoogle")
+            }
+        },
+
+        ['createEventsSection/createCustomVenue/fulfilled']: (state, action) => {
+            const { data, status } = action.payload || {}
+
+            if (status >= 200 && status < 300) {
+                state.createCustomVenue = data
+            } else if (status >= 400 && status < 500) {
+                toast("Something went wrong in createCustomVenue")
+            }
+        },
+
         ['createEventsSection/getVenueListById/fulfilled']: (state, action) => {
             const { data, status } = action.payload || {}
 

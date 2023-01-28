@@ -26,7 +26,11 @@ const CustoModal = (props) => {
         {close ? (
           <IconButton
             aria-label="close"
-            onClick={() => close(false)}
+            onClick={() => {
+
+              close(false);
+
+            }}
             className="icon_wrapper"
 
           >

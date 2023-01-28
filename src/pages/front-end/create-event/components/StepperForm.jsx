@@ -27,8 +27,7 @@ const StepperForm = ({ data, venueData, descData, inviteData, timeandpriceData }
     // create event action
     const createEventAction = () => {
         // toast.success("your event is created")
-        console.log(data)
-        dispatch(CreateEvent(data))
+        // dispatch(CreateEvent(data))
         setOpenSuccess(true)
     }
     return (

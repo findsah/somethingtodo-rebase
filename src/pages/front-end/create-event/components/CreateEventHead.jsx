@@ -14,7 +14,6 @@ import moment from 'moment/moment';
 
 const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues }) => {
 
-    console.log(addedVenues)
 
     // use meno call back function to calculate count
     const calculateCount = (Edate, Etime) => {

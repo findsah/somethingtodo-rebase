@@ -10,17 +10,17 @@ const googleSlice = createSlice({
     },
     reducers: {
         GetPlacesList(state, action) {
-            console.log(action.payload)
+
             state.getPlacesList = action.payload
         },
         GetPlacesDetailbyId(state, action) {
 
-            console.log(action.payload)
+
             state.getPlacesDetailbyId = action.payload
         },
         GetCatogories(state, action) {
 
-            console.log(action.payload)
+
             state.catogory = action.payload
         }
 

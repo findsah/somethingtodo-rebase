@@ -9,15 +9,66 @@ import phoneIcon from '../../../assets/icons/phone.svg'
 import emailIcon from '../../../assets/icons/email.svg'
 import locationIcon from '../../../assets/icons/location.svg'
 import clockblue from '../../../assets/icons/clockblue.svg'
+import DateCard from '../components/DateCard'
+import SimilarVanues from '../components/SimilarVanues'
 const VenueDetail = () => {
 
+    const settings = {
+        dots: false,
+        infinite: true,
+        slidesToScroll: 1,
+        autoplay: true,
+        // speed: 1000,
+        autoplaySpeed: 3000,
+        slidesToShow: 3,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: false,
+                },
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 1,
+                },
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    centerMode: true,
+                    // centerPadding: '60px',
+
+                },
+            },
+            {
+                breakpoint: 400,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    lineHeight: 0,
+                    centerMode: true,
+                    // centerPadding: '40px',
+
+                },
+            },
+        ],
+    }
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
     return (
         <>
-            <div className='venue_detail_event'>
+            <div className='venue_detail_event container'>
                 <div className="section_one_wrapper_light_blue">
                     <div className="section_one_wrapper_drak_blue">
                         <div className='inner_section'>
@@ -56,7 +107,10 @@ const VenueDetail = () => {
                 </div>
                 <div className="slider_section">
                     <Slider
-                        slidesToShow={3}
+                        {...settings}
+                    // slidesToShow={3}
+                    // autoplay={true}
+                    // autoplaySpeed={3000}
                     >
                         <div className='image_design'>
                             <img src={dummy} alt="" />
@@ -79,7 +133,7 @@ const VenueDetail = () => {
                     <h2>VENUE DETAILS</h2>
                     <div className='line_bar'></div>
                     <div className='venue_detail_info_container'>
-                        <div className="row">
+                        <div className="row" style={{ width: "100%" }}>
                             <div className="col-md-6 col-sm-12 d-flex justify-content-center ">
                                 <div className='venue_detail-info'>
                                     <h4 className='p_blue_size_20'>Venue Name</h4>
@@ -133,14 +187,47 @@ const VenueDetail = () => {
 
                     </div>
                 </div>
-                <div className="section_four">
-                    carousel
+                <div className="carousel_container">
+                    <Slider
+                        {...settings}
+                    >{
+                            [1, 2, 3, 4, 5, 6, 7].map((item, index) => {
+                                return (
+                                    <div className='feed_back_container' key={index}>
+                                        <img className='avatar' src="" alt="" />
+                                        <div className='stars'>
+                                            <img src={starFill} alt="starFill" />
+                                            <img src={starNotFill} alt="starNotFill" />
+                                            <img src={starNotFill} alt="starNotFill" />
+                                            <img src={starNotFill} alt="starNotFill" />
+                                            <img src={starNotFill} alt="starNotFill" />
+                                        </div>
+                                        <p>“ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis ”</p>
+                                    </div>
+                                )
+                            })
+                        }
+
+
+                    </Slider>
                 </div>
-                <div className="section_five">
-                    suggest event
+                <div className="suggest_event_container ">
+                    <div className="row">
+                        <div className="col-md-5">
+                            <h2>
+                                SUGGESTED <br /> EVENTS <br /> WITH
+                            </h2>
+                            <h3>THIS VENUE</h3>
+                        </div>
+                        <div className='col-md-7'>
+                            card
+                            {/* <DateCard /> */}
+                        </div>
+
+                    </div>
                 </div>
                 <div className="section_six">
-                    similar venue
+                    <SimilarVanues />
                 </div>
 
             </div>

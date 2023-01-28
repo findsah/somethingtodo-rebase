@@ -26,7 +26,7 @@ import { useNavigate } from 'react-router-dom'
 const EventAndVenueDetail = ({ addedVenues, timeandpriceData }) => {
     const [open, setOpen] = useState(false)
     const navigate = useNavigate();
-    console.log(addedVenues)
+
 
     var settings = {
         slidesToShow: 2,

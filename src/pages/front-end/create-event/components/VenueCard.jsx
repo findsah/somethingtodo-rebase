@@ -7,7 +7,7 @@ export const VenueCard = ({ id, data, index, moveCard, setAddedVenues }) => {
 
     // remove venue
     const RemoveVenueAction = (item) => {
-        console.log(item)
+
         setAddedVenues((current) =>
             current.filter((venue) => {
 
@@ -88,7 +88,7 @@ export const VenueCard = ({ id, data, index, moveCard, setAddedVenues }) => {
         opacity: isDragging ? 1 : 1
 
     }
-    console.log(drop(ref))
+
     // isDragging ? 2 : 2
     drag(drop(ref))
     return (

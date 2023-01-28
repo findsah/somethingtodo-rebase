@@ -17,14 +17,14 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
     // add venue
     const addVenueAction = (item) => {
         const data = {
-            place_id: item?.place_id,
+            google_place_id: item?.google_google_place_id,
             images: "",
-            imageUrl: item?.photos ? item?.photos[0]?.getUrl() : "",
-            description: item?.vicinity,
-            name: item?.name,
+            imageUrl: "",
+            description: item?.description,
+            name: item?.venue_name,
             location: {
-                lat: item?.geometry?.location?.lat(),
-                lng: item?.geometry?.location?.lng()
+                lat: item?.location?.lat,
+                lng: item?.location?.lng,
             },
             city: "",
             street: "",
@@ -40,7 +40,7 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
     }
 
     const addedVenueId = addedVenues?.map((venue) => {
-        return venue?.id || venue?.place_id
+        return venue?.id || venue?.google_place_id
     })
 
     // zoom level control
@@ -69,9 +69,8 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
 
     useEffect(() => {
 
-        if (data?.length > 0 && typeof data[0]?.geometry?.location?.lat === "function") {
-            //need to check
-            const setposition = [data[0]?.geometry?.location?.lat(), data[0]?.geometry?.location?.lng()]
+        if (data?.data.length > 0 && data[0]?.location?.lat) {
+            const setposition = [data[0]?.location?.lat, data[0]?.location?.lng]
             setPositionLocate(setposition)
             // mapRef?.current?.flyTo(setposition || [51.505, -0.09])
         }
@@ -95,151 +94,21 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
 
 
         {
-            return data?.filter(entry => Object?.values(entry)?.some(val => typeof val === "string" && val?.match(keyword)))
-                ?.filter(item => {
-                    if (catogory == "dining") {
+            return data?.data?.filter(entry => Object?.values(entry)?.some(val => typeof val === "string" && val?.match(keyword)))
+                ?.map((venue) => {
 
-                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("bar") ||
-                            val.includes("bakery") ||
-                            val.includes("cafe") ||
-                            val.includes("restaurant"))
-                    }
-                    else if (catogory == "nightlife") {
-
-                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("bar") ||
-                            val.includes("night_club") ||
-
-                            val.includes("casino"))
-                    }
-                    else if (catogory == "adventure") {
-
-                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("airport") ||
-                            val.includes("amusement_park") ||
-                            val.includes("aquarium") ||
-                            val.includes("campground") ||
-                            val.includes("park") ||
-                            val.includes("tourist_attraction") ||
-                            val.includes("zoo") ||
-
-                            val.includes("bus_station") ||
-                            val.includes("light_rail_station") ||
-                            val.includes("natural_feature") ||
-                            val.includes("point_of_interest"))
-                    }
-                    else if (catogory == "art") {
-
-                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("art_gallery") ||
-
-
-                            val.includes("museum"))
-                    }
-                    else if (catogory == "entertainment") {
-
-                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("bar") ||
-                            val.includes("movie_theater") ||
-                            val.includes("stadium") ||
-                            val.includes("tourist_attraction") ||
-                            val.includes("museum") ||
-                            val.includes("night_club") ||
-
-                            val.includes("amusement_park") ||
-                            val.includes("book_store") ||
-
-                            val.includes("museum"))
-                    }
-                    else if (catogory == "music") {
-
-                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("stadium") ||
-                            val.includes("bar") ||
-                            val.includes("casino") ||
-                            val.includes("night_club"))
-                    }
-                    else if (catogory == "casual") {
-
-                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("spa") ||
-                            val.includes("aquarium") ||
-                            val.includes("art_gallery") ||
-                            val.includes("beauty_salon") ||
-                            val.includes("book_store") ||
-                            val.includes("book_store") ||
-                            val.includes("park") ||
-                            val.includes("shopping_mall") ||
-                            val.includes("tourist_attraction") ||
-                            val.includes("university"))
-                    }
-                    else if (catogory == "celebrations") {
-
-                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("spa") ||
-                            val.includes("night_club") ||
-                            val.includes("bar") ||
-                            val.includes("casino") ||
-                            val.includes("amusement_park") ||
-                            val.includes("church") ||
-                            val.includes("hindu_temple") ||
-                            val.includes("lodging") ||
-                            val.includes("mosque") ||
-                            val.includes("stadium") ||
-                            val.includes("stadium") ||
-                            val.includes("tourist_attraction") ||
-                            val.includes("place_of_worship") ||
-                            val.includes("restaurant"))
-                    }
-                    else if (catogory == "gaming") {
-
-                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("stadium"))
-
-                    }
-                    else if (catogory == "education") {
-
-                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("art_gallery") ||
-                            val.includes("book_store") ||
-                            val.includes("library") ||
-                            val.includes("museum") ||
-                            val.includes("university") ||
-                            val.includes("zoo") ||
-                            val.includes("hindu_temple") ||
-                            val.includes("lodging") ||
-                            val.includes("mosque") ||
-                            val.includes("stadium") ||
-                            val.includes("stadium") ||
-                            val.includes("tourist_attraction") ||
-                            val.includes("place_of_worship") ||
-                            val.includes("restaurant"))
-                    }
-                    else if (catogory == "sports") {
-
-                        return Object?.values(item.types)?.some(val => typeof val === "string" && val.includes("stadium") ||
-                            val.includes("bowling_alley") ||
-                            val.includes("gym") ||
-                            val.includes("park") ||
-                            val.includes("university"))
-
-                    }
-                    else {
-                        return item
-                    }
-                })?.map((venue) => {
-
-                    const checkposition =
-
-                        typeof venue?.geometry?.location?.lat === "function" ?
-                            [venue?.geometry?.location?.lat(), venue?.geometry?.location?.lng()] : position
+                    const checkposition = venue?.location?.lat ? [venue?.location?.lat, venue?.location?.lng] : position
 
 
                     return (
                         <Marker
                             position={venue?.position || checkposition}
-                            // position={position}
-                            icon={addedVenueId?.includes(venue?.id || venue?.place_id) ? iconGreen : iconBlue}
-                            key={venue?.id || venue?.place_id}>
+                            // position={[venue?.location?.lat, venue?.location?.lng]}
+                            icon={addedVenueId?.includes(venue?.id || venue?.google_place_id) ? iconGreen : iconBlue}
+                            key={venue?.id || venue?.google_place_id}>
                             <Popup className='map_venue_list' >
-                                {/* {venue?.Title || venue?.name}
-                             */}
-                                {/* //need to check */}
-                                <img src={venue?.photos?.length > 0 && typeof venue?.photos[0]?.getUrl === "function" ? venue?.photos[0]?.getUrl() : dummy} alt="" />
-
-
-                                <h5 >{venue?.Title || venue?.name}</h5>
+                                <img src={venue?.image || dummy} alt="" />
+                                <h5 >{venue?.Title || venue?.venue_name}</h5>
                                 {/* <p className='p_gray_10 '>
                                 {
                                     venue?.Description?.length > 230 ?
@@ -254,10 +123,10 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
 
                                     }}
                                         style={{
-                                            background: addedVenueId?.includes(venue?.id || venue?.place_id) ? 'green' : '',
-                                            opacity: addedVenueId?.includes(venue?.id || venue?.place_id) ? '0.4' : ''
+                                            background: addedVenueId?.includes(venue?.id || venue?.google_place_id) ? 'green' : '',
+                                            opacity: addedVenueId?.includes(venue?.id || venue?.google_place_id) ? '0.4' : ''
                                         }}
-                                        disabled={addedVenueId?.includes(venue?.id || venue?.place_id)}
+                                        disabled={addedVenueId?.includes(venue?.id || venue?.google_place_id)}
                                     >
                                         <i className="fa fa-plus" aria-hidden="true"></i>
                                         ADD  VENUE

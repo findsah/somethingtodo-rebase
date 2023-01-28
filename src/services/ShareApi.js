@@ -27,7 +27,7 @@ export const GetCurrentLocation = createAsyncThunk("sharedSection/getCurrentLoca
     const result = await Geocode.fromLatLng(params?.latitude, params?.longitude).then(
         // const result = await Geocode.fromLatLng(35.3247, 75.5510).then(
         (response) => {
-            console.log(response)
+
             let city;
             for (let i = 0; i < response.results[0].address_components.length; i++) {
                 for (let j = 0; j < response.results[0].address_components[i].types.length; j++) {
@@ -35,7 +35,7 @@ export const GetCurrentLocation = createAsyncThunk("sharedSection/getCurrentLoca
                         case "locality":
                             city = response.results[0].address_components[i].long_name;
                             // currentCityName.current = city;
-                            console.log(city)
+
                             return city
                             break;
                         default:
@@ -44,8 +44,7 @@ export const GetCurrentLocation = createAsyncThunk("sharedSection/getCurrentLoca
                     }
                 }
             }
-            // console.log(city.current)
-            // setAddress(city.current);
+
             return city.current
         },
         (error) => {

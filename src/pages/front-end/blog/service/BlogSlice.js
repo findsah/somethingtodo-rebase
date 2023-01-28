@@ -13,7 +13,7 @@ const blogSlice = createSlice({
     extraReducers: {
         ['blogSection/getBlogList/fulfilled']: (state, action) => {
             const { data, status } = action.payload || {}
-            console.log(data)
+
             if (status >= 200 && status < 300) {
                 state.getBlogList = data
             } else if (status >= 400 && status < 500) {

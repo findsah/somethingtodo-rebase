@@ -30,7 +30,7 @@ const CreateEvent = () => {
     const [eventCost, setEventCost] = useState([0, 0])
     const [costSplit, setCostSplit] = useState("")
 
-    console.log("addvenues", addedVenues)
+
     // main state controller from parrent for venue
     const venueData = {
         images,
@@ -80,14 +80,15 @@ const CreateEvent = () => {
         return {
             place_id: item?.place_id,
             imageUrl: item?.photos ? item?.photos[0]?.getUrl() : "",
-            description: item?.vicinity,
             name: item?.name,
+
+            description: item?.vicinity,
             location: { lat: item?.geometry?.location?.lat(), lng: item?.geometry?.location?.lng() },
 
         }
     })
 
-    console.log(addVenues)
+
 
     // whole onSubmit date for createEvent
     const createEventData = {
