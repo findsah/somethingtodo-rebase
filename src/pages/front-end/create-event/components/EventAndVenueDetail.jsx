@@ -22,7 +22,7 @@ import dummy from '../../../../assets/dummy1.png'
 import AddedVenueMap from '../../components/AddedVenueMap'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { GetVenueDetailByPlaceId, GetVenueDetailByPlaceIdfordetail } from '../service/CreateEventApi'
+import { GetAllImages, GetVenueDetailByPlaceId, GetVenueDetailByPlaceIdfordetail } from '../service/CreateEventApi'
 import { useEffect } from 'react'
 
 
@@ -32,7 +32,7 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData, addedVenueDetails 
     const navigate = useNavigate();
     const dispatch = useDispatch()
 
-    console.log(addedVenues)
+    console.log(addedVenueDetails)
     var settings = {
         slidesToShow: 2,
         className: "center",
@@ -186,21 +186,35 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData, addedVenueDetails 
 
                                 {addedVenueDetails.map((item, index) => (
                                     <div className='card' id={index}>
+                                        {/* <div>
+                                            <Slider>
+                                                {
+                                                    item?.images?.map(item => (
+                                                        <img src={`data:image/png;base64,${item?.data}`} width="464px" height="207px" />
+                                                    ))
+                                                }
 
-                                        <img src={dummy} alt="" width="464px" height="207px" />
+                                            </Slider>
+                                        </div> */}
+
+                                        {
+                                            item?.images ?
+                                                <img src={`data:image/png;base64,${item?.images[0]?.data}`} alt="" width="464px" height="207px" /> :
+                                                <img src={dummy} />
+                                        }
 
                                         <p className='p_blue_size_20 text-center pb-3'>{item?.name}</p>
                                         <div className="row info">
                                             <div className="col-6 d-flex align-items-center gap-4" style={{ overflow: 'hidden' }}>
 
                                                 <img src={websiteIcon} alt="icon" width="30px" height="30px" />
-                                                <p className='p_gray_14'>{item?.website}</p>
+                                                <p className='p_gray_14'>{item?.website || "No Website"}</p>
 
 
                                             </div>
                                             <div className="col-6 d-flex align-items-center gap-4">
                                                 <img src={phoneIcon} alt="icon" width="30px" height="30px" />
-                                                <p className='p_gray_14'>{item?.phoneNumber} </p>
+                                                <p className='p_gray_14'>{item?.phoneNumber || "Not Provide"} </p>
                                             </div>
                                         </div>
 
@@ -214,7 +228,7 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData, addedVenueDetails 
                                         <div className="row info">
                                             <div className="col d-flex align-items-center gap-4">
                                                 <img src={locationIcon} alt="icon" width="30px" height="30px" />
-                                                <p className='p_gray_14'> {item?.description}</p>
+                                                <p className='p_gray_14'> {item?.description || "No Location Address"}</p>
                                             </div>
                                         </div>
                                         <div className="row info">
@@ -223,7 +237,7 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData, addedVenueDetails 
                                                 {/* {item?.openningtimes} */}
 
                                                 <p className='p_gray_14'> {""}<br />
-                                                    {item?.openingDay ? item?.openingDay : item?.openningtimes}
+                                                    {item?.openingDay ? item?.openingDay : item?.openningtimes || "NO Time Provide"}
                                                     <br />
                                                     {item?.closingDay ? item?.closingDay : item?.openningtimes}
                                                 </p>
@@ -233,6 +247,7 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData, addedVenueDetails 
                                                     onClick={() => {
                                                         navigate("/venue-detail")
                                                         dispatch(GetVenueDetailByPlaceIdfordetail(item?.place_id))
+                                                        dispatch(GetAllImages(item?.place_id))
                                                     }}
                                                     className='btn_primary'>MORE DETAILS</button>
                                             </div>

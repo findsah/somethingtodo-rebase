@@ -4,7 +4,7 @@ import { VenueCard } from './VenueCard.jsx'
 const style = {
     display: 'flex',
 }
-export const AddedVenueSorting = ({ venueCard, setVenueCard }) => {
+export const AddedVenueSorting = ({ venueCard, setVenueCard, setAddedVenueDetails }) => {
     {
 
         const moveCard = useCallback((dragIndex, hoverIndex) => {
@@ -26,6 +26,8 @@ export const AddedVenueSorting = ({ venueCard, setVenueCard }) => {
                     data={card}
                     moveCard={moveCard}
                     setAddedVenues={setVenueCard}
+                    setAddedVenueDetails={setAddedVenueDetails}
+
 
                 />
             )

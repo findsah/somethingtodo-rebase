@@ -16,7 +16,7 @@ import CustomErrorPopUp from '../../components/CustomErrorPopUp';
 import MapForGetLatLng from '../../components/MapForGetLatLng';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { CreateCustomVenue, GetEventList, GetVenueDetailByPlaceId, GetVenueList, GetVenueListGoogle } from '../service/CreateEventApi';
+import { CreateCustomVenue, GetAllImages, GetEventList, GetVenueDetailByPlaceId, GetVenueList, GetVenueListGoogle } from '../service/CreateEventApi';
 import { Loader } from "@googlemaps/js-api-loader"
 import { GetPlacesList } from '../../../../services/GoogleSlice';
 import { AddedVenueSorting } from './AddedVenueSorting';
@@ -266,32 +266,37 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     // add venue detail 
     const addVenueActionDetail = (id) => {
 
-        dispatch(GetVenueDetailByPlaceId(id)).then(res => {
-            const data = {
-                place_id: id,
-                images: "",
-                imageUrl: "",
-                description: res?.payload?.data?.data?.formatted_address,
-                name: res?.payload?.data?.data?.name,
-                location: {
-                    lat: res?.payload?.data?.data?.location?.lat,
-                    lng: res?.payload?.data?.data?.location?.lng,
-                },
-                city: "",
-                street: "",
-                building: "",
-                phoneNumber: res?.payload?.data?.data?.formatted_phone_number,
-                website: res?.payload?.data?.data?.website,
-                isPravite: "",
-                previewImage: [],
-                openingDay: res?.payload?.data?.data?.opening_hours ? res?.payload?.data?.data?.opening_hours?.weekday_text[0] : "",
-                closingDay: res?.payload?.data?.data?.opening_hours ? res?.payload?.data?.data?.opening_hours?.weekday_text[6] : ""
-            }
-            setAddedVenueDetails((prevState) => [...prevState, data])
+        dispatch(GetAllImages(id)).then(imageList => {
+
+            dispatch(GetVenueDetailByPlaceId(id)).then(res => {
+
+                const data = {
+                    place_id: id,
+                    images: imageList?.payload?.data,
+                    imageUrl: "",
+                    description: res?.payload?.data?.data?.formatted_address,
+                    name: res?.payload?.data?.data?.name,
+                    location: {
+                        lat: res?.payload?.data?.data?.location?.lat,
+                        lng: res?.payload?.data?.data?.location?.lng,
+                    },
+                    city: "",
+                    street: "",
+                    building: "",
+                    phoneNumber: res?.payload?.data?.data?.formatted_phone_number,
+                    website: res?.payload?.data?.data?.website,
+                    isPravite: "",
+                    previewImage: [],
+                    openingDay: res?.payload?.data?.data?.opening_hours ? res?.payload?.data?.data?.opening_hours?.weekday_text[0] : "",
+                    closingDay: res?.payload?.data?.data?.opening_hours ? res?.payload?.data?.data?.opening_hours?.weekday_text[6] : ""
+                }
+                setAddedVenueDetails((prevState) => [...prevState, data])
 
 
 
+            })
         })
+
 
 
     }
@@ -629,7 +634,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
                                                     {
                                                         item?.image ?
-                                                            <img src={dummy} />
+                                                            <img src={`data:image/png;base64,${item?.image}`} />
                                                             :
                                                             <img src={dummy} alt="" />
 

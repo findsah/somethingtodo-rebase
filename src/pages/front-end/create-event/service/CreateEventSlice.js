@@ -25,7 +25,8 @@ const createEventSlice = createSlice({
         getVenueListGoogle: {},
         createCustomVenue: {},
         getVenueDetailByPlaceId: {},
-        getVenueDetailByPlaceIdfordetail: {}
+        getVenueDetailByPlaceIdfordetail: {},
+        getAllImages: []
     },
     reducers: {
 
@@ -96,6 +97,16 @@ const createEventSlice = createSlice({
             }
         },
 
+
+        ['createEventsSection/getAllImages/fulfilled']: (state, action) => {
+            const { data, status } = action.payload || {}
+
+            if (status >= 200 && status < 300) {
+                state.getAllImages = data
+            } else if (status >= 400 && status < 500) {
+                toast("Something went wrong in getAllImages")
+            }
+        },
         ['createEventsSection/createCustomVenue/fulfilled']: (state, action) => {
             const { data, status } = action.payload || {}
 

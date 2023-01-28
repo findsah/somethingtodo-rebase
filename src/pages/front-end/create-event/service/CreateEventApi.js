@@ -106,19 +106,35 @@ export const GetVenueList = createAsyncThunk("createEventsSection/getVenueList",
 
 });
 
+
+
+
 export const GetVenueListGoogle = createAsyncThunk("createEventsSection/getVenueListGoogle", async (params) => {
 
     // let response = await  apiInstance.get(`${baseUrl}all-venues`).then((response) => {
 
     // google/40.730610/-73.935242 
 
-    let response = await axios.post(`${baseUrl}google/${params?.lat}/${params?.lng}`, { type: params?.catogory || "sports", radius: params?.radias }).then((response) => {
-        // let response = await axios.post(`${baseUrl}google/40.730610/-73.935242 `, { type: params?.catogory || "sports", radius: params?.radias }).then((response) => {
+    // let response = await axios.post(`${baseUrl}google/${params?.lat}/${params?.lng}`, { type: params?.catogory || "sports", radius: params?.radias }).then((response) => {
+    let response = await axios.post(`${baseUrl}google/40.730610/-73.935242 `, { type: params?.catogory || "sports", radius: params?.radias }).then((response) => {
         return response
     }).catch((error) => {
         return error.response
     })
     console.log('googlesapi', response)
+    const { data, status } = response;
+    return { data, status }
+
+});
+
+export const GetAllImages = createAsyncThunk("createEventsSection/getAllImages", async (params) => {
+
+    // let response = await  apiInstance.get(`${baseUrl}all-venues`).then((response) => {
+    let response = await axios.get(`${baseUrl}google/${params}`).then((response) => {
+        return response
+    }).catch((error) => {
+        return error.response
+    })
     const { data, status } = response;
     return { data, status }
 
@@ -136,6 +152,7 @@ export const GetVenueDetailByPlaceId = createAsyncThunk("createEventsSection/get
     return { data, status }
 
 });
+
 export const GetVenueDetailByPlaceIdfordetail = createAsyncThunk("createEventsSection/getVenueDetailByPlaceIdfordetail", async (params) => {
 
     let response = await axios.get(`${baseUrl}google/details/${params}`).then((response) => {
@@ -148,8 +165,6 @@ export const GetVenueDetailByPlaceIdfordetail = createAsyncThunk("createEventsSe
     return { data, status }
 
 });
-
-
 
 export const CreateCustomVenue = createAsyncThunk("createEventsSection/createCustomVenue", async (params) => {
 
