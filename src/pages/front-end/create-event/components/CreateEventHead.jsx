@@ -14,7 +14,7 @@ import moment from 'moment/moment';
 
 const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues }) => {
 
-
+    console.log(addedVenues)
     // use meno call back function to calculate count
     const calculateCount = (Edate, Etime) => {
         // tell moment how to parse the input string
@@ -83,8 +83,7 @@ const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues
                         {
                             addedVenues?.map((item, index) => (
 
-
-                                <img className="img-fluid" src={item?.imageUrl ? item?.imageUrl : item?.previewImage.length > 0 ? item?.previewImage[0] : dummy} alt="logo" key={index} style={{ height: "300px" }} />
+                                <img className="img-fluid" src={item?.images ? `data:image/png;base64,${item?.images}` : item?.previewImage.length > 0 ? item?.previewImage[0] : dummy} alt="logo" key={index} style={{ height: "300px" }} />
                             ))
                         }
                     </Slider>

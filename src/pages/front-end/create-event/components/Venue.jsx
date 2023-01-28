@@ -220,6 +220,8 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const { getVenueListGoogle } = useSelector((state) => state?.createEventSlice)
 
     console.log(getVenueListGoogle)
+
+    console.log(getVenueListGoogle)
     const addedVenueId = addedVenues?.map((venue) => {
         return venue?.id || venue?.place_id
     })
@@ -245,7 +247,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const addVenueAction = (item) => {
         const data = {
             place_id: item?.google_place_id,
-            images: "",
+            images: item?.image,
             imageUrl: "",
             description: item?.description,
             name: item?.venue_name,

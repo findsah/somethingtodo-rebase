@@ -115,8 +115,8 @@ export const GetVenueListGoogle = createAsyncThunk("createEventsSection/getVenue
 
     // google/40.730610/-73.935242 
 
-    let response = await axios.post(`${baseUrl}google/${params?.lat}/${params?.lng}`, { type: params?.catogory || "sports", radius: params?.radias }).then((response) => {
-        // let response = await axios.post(`${baseUrl}google/40.730610/-73.935242 `, { type: params?.catogory || "sports", radius: params?.radias }).then((response) => {
+    // let response = await axios.post(`${baseUrl}google/${params?.lat}/${params?.lng}`, { type: params?.catogory || "sports", radius: params?.radias }).then((response) => {
+    let response = await axios.post(`${baseUrl}google/40.730610/-73.935242 `, { type: params?.catogory || "sports", radius: params?.radias }).then((response) => {
         return response
     }).catch((error) => {
         return error.response
