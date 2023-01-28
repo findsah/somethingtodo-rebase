@@ -63,25 +63,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     // }
     //   handel custom venue funtion
     const handelCreateCustom = () => {
-        const createCustomVenueData = {
-            place_id: uuid(),
-            images,
-            imageUrl: null,
-            description,
-            name: Title,
-            location: {
-                lat: lantitude,
-                lng: longitude
-            },
-            city,
-            street,
-            building,
-            phoneNumber,
-            website,
-            isPravite,
-            previewImage
 
-        }
         const createCustomVenueDB = {
 
             venue_name: Title,
@@ -115,10 +97,32 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                 setErrorRes("Oops Invalid website")
                 return null
             }
-            toast.success("Custom Venue Add Successfully")
-            setOpen(false)
-            setAddedVenues((prevState) => [...prevState, createCustomVenueData])
-            dispatch(CreateCustomVenue(createCustomVenueDB))
+
+            dispatch(CreateCustomVenue(createCustomVenueDB)).then((res) => {
+                console.log("ressss", res)
+                const createCustomVenueData = {
+                    place_id: res?.payload?.google?._id,
+                    images,
+                    imageUrl: null,
+                    description,
+                    name: Title,
+                    location: {
+                        lat: lantitude,
+                        lng: longitude
+                    },
+                    city,
+                    street,
+                    building,
+                    phoneNumber,
+                    website,
+                    isPravite,
+                    previewImage
+
+                }
+                toast.success("Custom Venue Add Successfully")
+                setOpen(false)
+                setAddedVenues((prevState) => [...prevState, createCustomVenueData])
+            })
 
 
         }
