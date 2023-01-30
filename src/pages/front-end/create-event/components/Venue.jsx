@@ -102,7 +102,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             }
 
             dispatch(CreateCustomVenue(createCustomVenueDB)).then((res) => {
-                console.log("ressss", res)
+
                 const createCustomVenueData = {
                     place_id: res?.payload?.google?._id,
                     images,
@@ -217,10 +217,6 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     // useSlector to get State from store
     const { getCurrentLocation } = useSelector((state) => state?.shareSlice)
     const { getVenueListGoogle } = useSelector((state) => state?.createEventSlice)
-
-    console.log(getVenueListGoogle)
-
-    console.log(getVenueListGoogle)
     const addedVenueId = addedVenues?.map((venue) => {
         return venue?.id || venue?.place_id
     })

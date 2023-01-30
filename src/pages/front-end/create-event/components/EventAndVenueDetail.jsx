@@ -31,8 +31,6 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData, addedVenueDetails 
     const [open, setOpen] = useState(false)
     const navigate = useNavigate();
     const dispatch = useDispatch()
-
-    console.log(addedVenueDetails)
     var settings = {
         slidesToShow: 2,
         className: "center",

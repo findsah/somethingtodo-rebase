@@ -16,8 +16,6 @@ import SimpleMapLocation from '../components/SimpleMapLocation'
 const VenueDetail = () => {
 
     const { getAllImages, getVenueDetailByPlaceIdfordetail } = useSelector((state) => state?.createEventSlice)
-    console.log(getAllImages)
-    console.log(getVenueDetailByPlaceIdfordetail)
     const settings = {
         dots: false,
         infinite: true,

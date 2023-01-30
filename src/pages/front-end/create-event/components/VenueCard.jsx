@@ -5,7 +5,6 @@ import dummy from '../../../../assets/dummy1.png'
 
 export const VenueCard = ({ id, data, index, moveCard, setAddedVenues, setAddedVenueDetails }) => {
 
-    console.log("dataaaaa", data)
     // remove venue
     const RemoveVenueAction = (item) => {
 
