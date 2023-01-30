@@ -12,6 +12,7 @@ import clockblue from '../../../assets/icons/clockblue.svg'
 import DateCard from '../components/DateCard'
 import SimilarVanues from '../components/SimilarVanues'
 import { useSelector } from 'react-redux'
+import SimpleMapLocation from '../components/SimpleMapLocation'
 const VenueDetail = () => {
 
     const { getAllImages, getVenueDetailByPlaceIdfordetail } = useSelector((state) => state?.createEventSlice)
@@ -146,7 +147,11 @@ const VenueDetail = () => {
                             <div className="col-md-6 col-sm-12  ">
                                 <div className='venue_detail-map'>
                                     <div className='map'>
-                                        map  yet to add
+                                        <SimpleMapLocation
+                                            // latlng={[13.3, 73.0]}
+                                            latlng={[getVenueDetailByPlaceIdfordetail?.data?.geometry?.location?.lat,
+                                            getVenueDetailByPlaceIdfordetail?.data?.geometry?.location?.lng]}
+                                        />
                                     </div>
                                     <div className='venue_detail_map_info'>
                                         <div className='line_row row'>

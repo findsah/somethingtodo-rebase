@@ -512,6 +512,8 @@
       .image_design img {
         width: 286px;
         height: 226px;
+        border: 3px solid #1F518B;
+        border-radius: 8px;
 
 
       }
@@ -584,6 +586,8 @@
               display: flex;
               gap: 1rem;
               padding-top: 1.5rem;
+
+              overflow: hidden;
 
               span {
                 font-family: 'SF UI Display';
