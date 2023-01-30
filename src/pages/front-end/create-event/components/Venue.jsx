@@ -215,7 +215,6 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const keyword = new RegExp(searchBy, 'i');
 
     // useSlector to get State from store
-    const { getPlacesList } = useSelector((state) => state?.googleSlice)
     const { getCurrentLocation } = useSelector((state) => state?.shareSlice)
     const { getVenueListGoogle } = useSelector((state) => state?.createEventSlice)
 
@@ -303,23 +302,6 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
     }
 
-    // remove venue
-    const RemoveVenueAction = (item) => {
-
-        setAddedVenues((current) =>
-            current.filter((venue) => {
-
-
-                if (venue.id) {
-                    return venue.id !== item?.id
-                } else {
-                    return venue?.place_id !== item?.place_id
-                }
-
-            }
-            )
-        );
-    }
 
     useEffect(() => {
         const data = {

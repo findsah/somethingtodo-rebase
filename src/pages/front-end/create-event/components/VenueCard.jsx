@@ -5,6 +5,7 @@ import dummy from '../../../../assets/dummy1.png'
 
 export const VenueCard = ({ id, data, index, moveCard, setAddedVenues, setAddedVenueDetails }) => {
 
+    console.log("dataaaaa", data)
     // remove venue
     const RemoveVenueAction = (item) => {
 
@@ -107,7 +108,7 @@ export const VenueCard = ({ id, data, index, moveCard, setAddedVenues, setAddedV
     return (
         <div ref={ref} style={{ ...customStyle }} data-handler-id={handlerId}>
             <div className='venue_card' key={data?.id}>
-                <img src={data?.imageUrl ? data?.imageUrl : data?.previewImage.length > 0 ? data?.previewImage[0] : dummy} alt="" />
+                <img src={data?.images ? `data:image/png;base64,${data?.images}` : data?.previewImage.length > 0 ? data?.previewImage[0] : dummy} alt="" />
                 <h5 >{data?.name}</h5>
                 <p className='p_gray_10 '>
                     {

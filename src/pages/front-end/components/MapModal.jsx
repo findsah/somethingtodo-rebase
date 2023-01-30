@@ -6,7 +6,7 @@ whatsapp: +923430048341
 import React, { createRef, useEffect, useState } from 'react'
 import { MapContainer, Marker, Popup, TileLayer, useMapEvent, useMap, useMapEvents } from 'react-leaflet'
 import dummy from '../../../assets/dummy1.png'
-import { iconBlue, iconGreen } from '../../../assets/leftletIcon/icon'
+import { iconBlue, iconGreen, iconRed } from '../../../assets/leftletIcon/icon'
 
 const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogory, distance }) => {
 
@@ -157,6 +157,11 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <MultipleMarkers />
+            <Marker key={"location"} position={position} icon={iconRed}>
+                <Popup>
+                    Your Location is {position[0]} , {position[1]}
+                </Popup>
+            </Marker>
 
         </MapContainer>
     )
