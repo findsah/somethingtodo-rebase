@@ -240,7 +240,7 @@ const VenueDetail = () => {
 
                     </div>
                 </div> */}
-                <div className="section_six">
+                <div className="similar_venue">
                     <SimilarVanues />
                 </div>
 

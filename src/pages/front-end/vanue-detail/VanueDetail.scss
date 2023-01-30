@@ -1,3 +1,5 @@
+@import "../../../breakpoint.scss";
+
 .top-sec-img {
   background-image: url("../../../assets/topvanue.png");
   height: 632px;
@@ -700,4 +702,612 @@
     background: linear-gradient(140.6deg, #002C6D 0%, #0082CF 100%);
   }
 
+}
+
+// *********** (Media) *************
+// create event  mobile screen less then 375
+@include media ('<=phone') {
+  .venue_detail_event {
+
+    // section one
+    .section_one_wrapper_light_blue {
+      .section_one_wrapper_drak_blue {
+        .inner_section {
+          .inner_content {
+            h1 {
+
+              font-weight: 700;
+              font-size: 24px;
+
+            }
+
+            p {
+
+              font-size: 12.1036px;
+
+            }
+
+          }
+        }
+
+
+      }
+
+      .rating_card_container {
+
+        bottom: 140px;
+        right: 43px;
+
+
+        .star_rating {
+
+
+          .stars {}
+
+          span {}
+
+
+        }
+
+        .inline-item {
+          display: flex;
+          gap: 0.5rem;
+          line-height: 11.5px;
+
+          p {
+            letter-spacing: 0.063em;
+            color: #515151;
+            font-family: 'SF UI Display';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+          }
+        }
+      }
+
+
+
+
+
+    }
+
+    // section two
+    .slider_section {
+      .slick-track {
+
+
+        .slick-current+* {
+          img {
+
+            transform: scale(0);
+            box-shadow: none;
+            margin-top: 0rem;
+            margin-bottom: 0rem;
+
+          }
+        }
+
+
+
+        .image_design img {
+          width: 186px;
+          height: 140px;
+
+
+
+        }
+      }
+
+    }
+
+    // section three
+    .venue_details_container {
+      padding-top: 0rem;
+
+      h2 {
+        display: none;
+
+      }
+
+      .line_bar {
+        display: none;
+
+      }
+
+      .venue_detail_info_container {
+        .venue_detail-info {
+          padding: 0px 0px 0px 1rem;
+
+          h4 {
+            text-align: center;
+          }
+
+          p {
+            padding-top: 4px;
+            font-size: 12px;
+          }
+        }
+
+        .venue_detail-map {
+          margin: 0px 0px 0px 12px;
+          width: 100%;
+
+          .map {
+            height: 334px;
+          }
+
+          .venue_detail_map_info {
+
+
+            .line_row {
+
+
+              .aligment {
+
+
+                span {}
+              }
+
+
+            }
+          }
+        }
+      }
+    }
+
+    // section four
+    .carousel_container {
+      padding-top: 2.2rem;
+
+      .slick-slider {
+        width: 90%;
+
+        margin: 0px auto;
+
+        .slick-prev:before,
+        .slick-next:before {
+          color: #1F518B;
+        }
+      }
+
+      .slick-track {
+        display: flex;
+        gap: 1rem;
+
+
+        .feed_back_container {
+
+          margin: 10px 0px 10px 0px;
+
+
+          .avatar {}
+
+          .stars {}
+
+          p {}
+
+          &:hover {}
+        }
+      }
+    }
+
+    // section five
+    .suggest_event_container {
+      background: linear-gradient(140.6deg, #002C6D 0%, #0082CF 100%);
+    }
+
+    // similar_venue
+    .similar_venue {
+      h2 {
+        font-size: 14px;
+      }
+    }
+
+  }
+}
+
+// create event  mobile screen less then 375
+@include media (">phone", "<=Lphone") {
+
+  .venue_detail_event {
+
+    // section one
+    .section_one_wrapper_light_blue {
+      .section_one_wrapper_drak_blue {
+        .inner_section {
+          .inner_content {
+            h1 {
+
+              font-weight: 700;
+              font-size: 24px;
+
+            }
+
+            p {
+
+              font-size: 12.1036px;
+
+            }
+
+          }
+        }
+
+
+      }
+
+      .rating_card_container {
+
+        bottom: 140px;
+        right: 43px;
+
+
+        .star_rating {
+
+
+          .stars {}
+
+          span {}
+
+
+        }
+
+        .inline-item {
+          display: flex;
+          gap: 0.5rem;
+          line-height: 11.5px;
+
+          p {
+            letter-spacing: 0.063em;
+            color: #515151;
+            font-family: 'SF UI Display';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+          }
+        }
+      }
+
+
+
+
+
+    }
+
+    // section two
+    .slider_section {
+      .slick-track {
+
+
+        .slick-current+* {
+          img {
+
+            transform: scale(0);
+            box-shadow: none;
+            margin-top: 0rem;
+            margin-bottom: 0rem;
+
+          }
+        }
+
+
+
+        .image_design img {
+          width: 186px;
+          height: 140px;
+
+
+
+        }
+      }
+
+    }
+
+    // section three
+    .venue_details_container {
+      padding-top: 0rem;
+
+      h2 {
+        display: none;
+
+      }
+
+      .line_bar {
+        display: none;
+
+      }
+
+      .venue_detail_info_container {
+        .venue_detail-info {
+          padding: 0px 0px 0px 1rem;
+
+          h4 {
+            text-align: center;
+          }
+
+          p {
+            padding-top: 4px;
+            font-size: 12px;
+          }
+        }
+
+        .venue_detail-map {
+          margin: 0px 0px 0px 12px;
+          width: 100%;
+
+          .map {
+            height: 334px;
+          }
+
+          .venue_detail_map_info {
+
+
+            .line_row {
+
+
+              .aligment {
+
+
+                span {}
+              }
+
+
+            }
+          }
+        }
+      }
+    }
+
+    // section four
+    .carousel_container {
+      padding-top: 2.2rem;
+
+      .slick-slider {
+        width: 90%;
+
+        margin: 0px auto;
+
+        .slick-prev:before,
+        .slick-next:before {
+          color: #1F518B;
+        }
+      }
+
+      .slick-track {
+        display: flex;
+        gap: 1rem;
+
+
+        .feed_back_container {
+
+          margin: 10px 0px 10px 0px;
+
+
+          .avatar {}
+
+          .stars {}
+
+          p {}
+
+          &:hover {}
+        }
+      }
+    }
+
+    // section five
+    .suggest_event_container {
+      background: linear-gradient(140.6deg, #002C6D 0%, #0082CF 100%);
+    }
+
+    // similar_venue
+    .similar_venue {
+      h2 {
+        font-size: 14px;
+      }
+    }
+
+  }
+}
+
+// create event  mobile screen for table
+@include media (">Lphone", "<=tablet") {
+
+
+
+  .venue_detail_event {
+
+    // section one
+    .section_one_wrapper_light_blue {
+      .section_one_wrapper_drak_blue {
+        .inner_section {
+          .inner_content {
+            h1 {
+
+              font-weight: 700;
+              font-size: 24px;
+
+            }
+
+            p {
+
+              font-size: 12.1036px;
+
+            }
+
+          }
+        }
+
+
+      }
+
+      .rating_card_container {
+
+        bottom: 140px;
+        right: 43px;
+
+
+        .star_rating {
+
+
+          .stars {}
+
+          span {}
+
+
+        }
+
+        .inline-item {
+          display: flex;
+          gap: 0.5rem;
+          line-height: 11.5px;
+
+          p {
+            letter-spacing: 0.063em;
+            color: #515151;
+            font-family: 'SF UI Display';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+          }
+        }
+      }
+
+
+
+
+
+    }
+
+    // section two
+    .slider_section {
+      .slick-track {
+
+
+        .slick-current+* {
+          img {
+
+            transform: scale(0);
+            box-shadow: none;
+            margin-top: 0rem;
+            margin-bottom: 0rem;
+
+          }
+        }
+
+
+
+        .image_design img {
+          width: 186px;
+          height: 140px;
+
+
+
+        }
+      }
+
+    }
+
+    // section three
+    .venue_details_container {
+      padding-top: 0rem;
+
+      h2 {
+        display: none;
+
+      }
+
+      .line_bar {
+        display: none;
+
+      }
+
+      .venue_detail_info_container {
+        .venue_detail-info {
+          padding: 0px 0px 0px 1rem;
+
+          h4 {
+            text-align: center;
+          }
+
+          p {
+            padding-top: 4px;
+            font-size: 12px;
+          }
+        }
+
+        .venue_detail-map {
+          margin: 0px 0px 0px 12px;
+          width: 100%;
+
+          .map {
+            height: 334px;
+          }
+
+          .venue_detail_map_info {
+
+
+            .line_row {
+
+
+              .aligment {
+
+
+                span {}
+              }
+
+
+            }
+          }
+        }
+      }
+    }
+
+    // section four
+    .carousel_container {
+      padding-top: 2.2rem;
+
+      .slick-slider {
+        width: 90%;
+
+        margin: 0px auto;
+
+        .slick-prev:before,
+        .slick-next:before {
+          color: #1F518B;
+        }
+      }
+
+      .slick-track {
+        display: flex;
+        gap: 1rem;
+
+
+        .feed_back_container {
+
+          margin: 10px 0px 10px 0px;
+
+
+          .avatar {}
+
+          .stars {}
+
+          p {}
+
+          &:hover {}
+        }
+      }
+    }
+
+    // section five
+    .suggest_event_container {
+      background: linear-gradient(140.6deg, #002C6D 0%, #0082CF 100%);
+    }
+
+    // similar_venue
+    .similar_venue {
+      h2 {
+        font-size: 14px;
+      }
+    }
+
+  }
 }
