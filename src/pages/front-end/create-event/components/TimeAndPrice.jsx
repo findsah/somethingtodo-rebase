@@ -48,6 +48,7 @@ const TimeAndPrice = ({
                         <input type="date"
                             min={today}
                             value={eventDate}
+                            readOnly
                             onChange={(e) => { setEventDate(e.target.value) }}
                         />
                     </div>

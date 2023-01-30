@@ -606,7 +606,6 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                     <div className="card_container">
                         {
                             getVenueListGoogle?.data?.length > 0 ?
-                                // getVenueListGoogle?.data?.filter((item => item?.venue_name?.indexOf(keyword) !== -1))
                                 getVenueListGoogle?.data?.filter(entry => Object?.values(entry)?.some(val => typeof val === "string" && val?.match(keyword)))
                                     ?.map((item, index) => {
 

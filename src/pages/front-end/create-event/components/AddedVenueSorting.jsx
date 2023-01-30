@@ -20,7 +20,7 @@ export const AddedVenueSorting = ({ venueCard, setVenueCard, setAddedVenueDetail
         const renderCard = useCallback((card, index) => {
             return (
                 <VenueCard
-                    key={card?.id}
+                    key={index}
                     index={index}
                     id={card?.id}
                     data={card}
