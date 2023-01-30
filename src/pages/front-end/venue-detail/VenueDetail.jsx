@@ -115,8 +115,8 @@ const VenueDetail = () => {
                         {...settings}
                     >
                         {
-                            getAllImages?.map(item => (
-                                <div className='image_design'>
+                            getAllImages?.map((item, key) => (
+                                <div className='image_design' key={key}>
                                     {/* <img src={dummy} alt="" /> */}
                                     <img src={`data:image/png;base64,${item?.data}`} />
                                 </div>

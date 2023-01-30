@@ -367,8 +367,8 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                     >
                         <option>All categories</option>
                         {
-                            catogories?.map((item) =>
-                                <option value={item?.name}> {item?.name}</option>
+                            catogories?.map((item, index) =>
+                                <option key={index} value={item?.name}> {item?.name}</option>
                             )
 
                         }
@@ -382,8 +382,8 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                     >
                         <option>Distance</option>
                         {
-                            distances?.map(item =>
-                                <option value={item?.km}> {item?.km}</option>
+                            distances?.map((item, index) =>
+                                <option key={index} value={item?.km}> {item?.km}</option>
                             )
                         }
                     </select>
@@ -626,10 +626,10 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                             getVenueListGoogle?.data?.length > 0 ?
                                 // getVenueListGoogle?.data?.filter((item => item?.venue_name?.indexOf(keyword) !== -1))
                                 getVenueListGoogle?.data?.filter(entry => Object?.values(entry)?.some(val => typeof val === "string" && val?.match(keyword)))
-                                    ?.map(item => {
+                                    ?.map((item, index) => {
 
                                         return (
-                                            <div className='event_card' key={item?.id}>
+                                            <div className='event_card' key={index}>
 
                                                 <Slider slidesToShow={1} prevArrow={false} nextArrow={false} dots={false}>
                                                     {/* need to check */}

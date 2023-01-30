@@ -185,7 +185,7 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData, addedVenueDetails 
 
 
                                 {addedVenueDetails.map((item, index) => (
-                                    <div className='card' id={index}>
+                                    <div className='card' key={item?.place_id}>
                                         {/* <div>
                                             <Slider>
                                                 {

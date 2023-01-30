@@ -46,7 +46,7 @@ const AddedVenueMap = ({ position, addedVenues }) => {
 
 
         {
-            return addedVenues?.map((venue) => {
+            return addedVenues?.map((venue, index) => {
 
 
                 return (
@@ -54,7 +54,7 @@ const AddedVenueMap = ({ position, addedVenues }) => {
                         // position={[venue?.geometry?.location?.lat(), venue?.geometry?.location?.lng()]}
                         position={[venue?.location?.lat, venue?.location?.lng]}
                         icon={addedVenueId?.includes(venue?.id || venue?.google_place_id) ? iconGreen : iconBlue}
-                        key={venue?.id || venue?.google_place_id}>
+                        key={index}>
                         <Popup className='map_venue_list' >
                             {/* {venue?.Title || venue?.name}
                              */}

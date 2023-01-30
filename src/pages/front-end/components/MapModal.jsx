@@ -95,7 +95,7 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
 
         {
             return data?.data?.filter(entry => Object?.values(entry)?.some(val => typeof val === "string" && val?.match(keyword)))
-                ?.map((venue) => {
+                ?.map((venue, index) => {
 
                     const checkposition = venue?.location?.lat ? [venue?.location?.lat, venue?.location?.lng] : position
 
@@ -105,7 +105,7 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
                             position={venue?.position || checkposition}
                             // position={[venue?.location?.lat, venue?.location?.lng]}
                             icon={addedVenueId?.includes(venue?.id || venue?.google_place_id) ? iconGreen : iconBlue}
-                            key={venue?.id || venue?.google_place_id}>
+                            key={index}>
                             <Popup className='map_venue_list' >
                                 <img src={venue?.image || dummy} alt="" />
                                 <h5 >{venue?.Title || venue?.venue_name}</h5>
