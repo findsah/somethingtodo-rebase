@@ -34,7 +34,7 @@ const CustoModal = (props) => {
             className="icon_wrapper"
 
           >
-            <i class="fa fa-times" aria-hidden="true"></i>
+            <i className="fa fa-times" aria-hidden="true"></i>
 
           </IconButton>
         ) : null}

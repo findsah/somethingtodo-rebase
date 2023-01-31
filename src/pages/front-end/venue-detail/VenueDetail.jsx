@@ -79,7 +79,7 @@ const VenueDetail = () => {
                             <div className='inner_content'>
                                 <h1>{getVenueDetailByPlaceIdfordetail?.data?.name}</h1>
                                 <p>
-                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    <i className="fa fa-map-marker" aria-hidden="true"></i>
                                     {getVenueDetailByPlaceIdfordetail?.data?.formatted_address}
                                 </p>
                             </div>

@@ -112,9 +112,9 @@ export default function VanueDetails() {
                     <div className="col-lg-5 col-md-8">
                         <Card className='card'>
                             <div className='event_map'>
-                                <div class="mapouter">
-                                    <div class="gmap_canvas">
-                                        <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=346&amp;height=850&amp;hl=en&amp;q=lahore&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                                <div className="mapouter">
+                                    <div className="gmap_canvas">
+                                        <iframe className="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=346&amp;height=850&amp;hl=en&amp;q=lahore&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
                                         </iframe>
                                         {/* <a href="https://piratebay-proxys.com/">Piratebay</a> */}
                                     </div>

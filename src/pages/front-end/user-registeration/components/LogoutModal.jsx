@@ -22,10 +22,10 @@ export default function LogoutModal({ modalShow, setModalShow }) {
                             <img className="img-fluid" src={logo} alt="logo" />
                         </div>
                     </div>
-                    <div class="row justify-content-center">
-                        <div class="col-lg-9 col-md-6 col-sm-6">
-                            <div class="card-title text-center">
-                                <h3 class=" login-main-heading" style={{ marginTop: '3rem' }}>
+                    <div className="row justify-content-center">
+                        <div className="col-lg-9 col-md-6 col-sm-6">
+                            <div className="card-title text-center">
+                                <h3 className=" login-main-heading" style={{ marginTop: '3rem' }}>
                                     Do you want to log out ?
                                 </h3>
                                 <Button className='btn-main' style={{ marginTop: '4rem' }}>Yes</Button>

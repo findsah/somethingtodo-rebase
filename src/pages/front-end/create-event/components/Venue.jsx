@@ -16,18 +16,18 @@ import CustomErrorPopUp from '../../components/CustomErrorPopUp';
 import MapForGetLatLng from '../../components/MapForGetLatLng';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { CreateCustomVenue, GetAllImages, GetEventList, GetVenueDetailByPlaceId, GetVenueList, GetVenueListGoogle } from '../service/CreateEventApi';
-import { Loader } from "@googlemaps/js-api-loader"
-import { GetPlacesList } from '../../../../services/GoogleSlice';
+import { CreateCustomVenue, GetAllImages, GetVenueDetailByPlaceId, GetVenueList, GetVenueListGoogle } from '../service/CreateEventApi';
 import { AddedVenueSorting } from './AddedVenueSorting';
-import uuid from 'react-uuid';
 import { toast } from 'react-toastify';
 import validator from 'validator'
+import Autocomplete from "react-google-autocomplete";
+
+
 
 
 const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, setPreviewImage,
     setAddedVenueDetails,
-    addedVenueDetails
+
 }) => {
 
     // hook importer
@@ -39,14 +39,9 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const [open, setOpen] = useState(false);
     const [openError, setOpenError] = useState(false);
     const [errorRes, setErrorRes] = useState("")
-    const [venueList, setVenueList] = useState([])
     const [catogory, setCatogory] = useState("")
     const [distance, setDistance] = useState("5km")
-    const [searchLocation, setSearchLocation] = useState("")
     const [searchBy, setSearchBy] = useState("")
-    const [checkResultLength, setCheckResultLength] = useState(0)
-    const [callState, setCallState] = useState(false)
-
 
     // custom venues state
     const [lantitude, setLatitude] = useState()
@@ -215,7 +210,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const keyword = new RegExp(searchBy, 'i');
 
     // useSlector to get State from store
-    const { getCurrentLocation } = useSelector((state) => state?.shareSlice)
+
     const { getVenueListGoogle } = useSelector((state) => state?.createEventSlice)
     const addedVenueId = addedVenues?.map((venue) => {
         return venue?.id || venue?.place_id
@@ -298,7 +293,8 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
     }
 
-
+    // useEffect to get list of google venues with filter by 
+    // catogory or distance
     useEffect(() => {
         const data = {
             lat: lat || 40.730610,
@@ -388,13 +384,13 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
                                 />
                             </div>
-                            {/* <div className='feild'>
+                            <div className='feild'>
                                 <h3>CATEGORY</h3>
                                 <select name="category" id="category" className='select'>
                                     <option >Category</option>
                                     <option value="catogory one">one</option>
                                 </select>
-                            </div> */}
+                            </div>
                             <div className='feild'>
                                 <h3>SET TO PRIVATE</h3>
                                 <div className='checkbox_group'>
@@ -421,12 +417,22 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                                     </div>
                                 </div>
                             </div>
+
+
                             <div className='feild'>
                                 <div className='icon'>
                                     <img src={locationIcon} alt="" />
                                     <h3>EVENT ADDRESS</h3>
                                 </div>
                                 <div className='input_text_group'>
+                                    {/* <Autocomplete
+                                        apiKey={"AIzaSyAlEQnPxaoYwZXM4aKDtwa3N7tYNvkKFkQ"}
+                                        onPlaceSelected={(place) => {
+                                            console.log(place);
+                                        }}
+                                    /> */}
+
+
                                     <input type="text"
                                         name="city"
                                         id="city"
@@ -435,6 +441,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                                         value={city}
                                         onChange={(e) => setCity(e.target.value)}
                                     />
+
                                     <input
                                         type="text"
                                         name="Street"

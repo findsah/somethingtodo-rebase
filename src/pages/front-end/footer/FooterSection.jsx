@@ -10,7 +10,7 @@ import { Col, Row } from "react-bootstrap";
 
 const FooterSection = () => {
     return (
-        <div className="container-fluid p-0 position-relative">
+        <div className="container-fluid p-0 position-relative" >
             <div className="footer-bg">
                 <Row className="fot-con ">
                     <div className="col-12 col-sm-4 footer-col" style={{ textAlign: "center" }}>

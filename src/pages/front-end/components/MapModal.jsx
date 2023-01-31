@@ -69,7 +69,7 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
 
     useEffect(() => {
 
-        if (data?.data.length > 0 && data[0]?.location?.lat) {
+        if (data?.data?.length > 0 && data[0]?.location?.lat) {
             const setposition = [data[0]?.location?.lat, data[0]?.location?.lng]
             setPositionLocate(setposition)
             // mapRef?.current?.flyTo(setposition || [51.505, -0.09])

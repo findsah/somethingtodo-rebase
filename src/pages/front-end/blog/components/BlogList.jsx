@@ -158,7 +158,7 @@ export default function BlogList() {
                     </div>
                 </div>
                 <div className="col-1 text-center">
-                    <div class="vr vr-blurry " ></div>
+                    <div className="vr vr-blurry " ></div>
                 </div>
                 <div className="col-4 second-sec">
                     <div className="row justify-content-center ">

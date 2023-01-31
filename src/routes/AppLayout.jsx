@@ -5,9 +5,9 @@ import Header from '../pages/front-end/header/Header';
 
 const AppLayout = () => {
     return (
-        <div className='AppLayout'>
+        <div className='AppLayout' >
             <Header />
-            <main>
+            <main >
                 <Outlet />
             </main>
             <FooterSection />

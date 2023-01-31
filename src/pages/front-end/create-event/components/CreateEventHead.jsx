@@ -40,20 +40,20 @@ const CreateEventHead = ({ previewImage, descData, timeandpriceData, addedVenues
             // Render a countdown
             return <div className='countDownTimer'>
                 <div className='time'>
-                    <h4>{days}</h4>
+                    <h4>{days || "0"}</h4>
                     <p>Days</p>
 
                 </div>
                 <div className='time'>
-                    <h4>{hours}</h4>
+                    <h4>{hours || "0"}</h4>
                     <p>Hours</p>
                 </div>
                 <div className='time'>
-                    <h4>{minutes}</h4>
+                    <h4>{minutes || "0"}</h4>
                     <p>Minutes</p>
                 </div>
                 <div className='time'>
-                    <h4>{seconds}</h4>
+                    <h4>{seconds || "0"}</h4>
                     <p>Seconds</p>
                 </div>
 

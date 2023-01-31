@@ -23,7 +23,7 @@ const CustomEventSuccessPopup = (props) => {
 
             <DialogContent className="content_Wrapper_success">
                 <div className="icon_check">
-                    <i class="fa fa-check" aria-hidden="true"></i>
+                    <i className="fa fa-check" aria-hidden="true"></i>
                 </div>
                 <br />
                 <p> {success}  </p>
@@ -31,16 +31,16 @@ const CustomEventSuccessPopup = (props) => {
                     <p>Post your event on:</p>
                     <div className="social_icons">
                         <div className="social_icon">
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                            <i className="fa fa-twitter" aria-hidden="true"></i>
                         </div>
                         <div className="social_icon">
-                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                            <i className="fa fa-instagram" aria-hidden="true"></i>
                         </div>
                         <div className="social_icon">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            <i className="fa fa-facebook" aria-hidden="true"></i>
                         </div>
                         <div className="social_icon">
-                            <i class="fa fa-google" aria-hidden="true"></i>
+                            <i className="fa fa-google" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>

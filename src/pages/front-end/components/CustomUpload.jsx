@@ -30,7 +30,7 @@ const CustomUpload = ({ setFiles, setPreview }) => {
                         {/* a custom style */}
                         <div className='add_image'  >
                             <div className='icon_cirlce'>
-                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                <i className="fa fa-plus" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
