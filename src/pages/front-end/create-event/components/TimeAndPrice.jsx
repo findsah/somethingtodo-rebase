@@ -9,7 +9,12 @@ import clockIcon from '../../../../assets/icons/clock.svg'
 import CustomRangeSlider from '../../components/CustomRangeSlider'
 import TimePicker from 'rc-time-picker';
 import 'rc-time-picker/assets/index.css';
+import DatePicker from "react-datepicker";
+import moment from 'moment/moment';
+import "react-datepicker/dist/react-datepicker.css";
 const format = 'h:mm a';
+
+
 
 
 
@@ -27,6 +32,8 @@ const TimeAndPrice = ({
     // const current = new Date();
     // const today = `${current.getFullYear()}-${current.getMonth() + 1}-${current.getDate()}`;
 
+    console.log("eveentdata", eventDate)
+    const [date, setDate] = useState(new Date())
 
     var MyDate = new Date();
     var today;
@@ -48,9 +55,20 @@ const TimeAndPrice = ({
                         <input type="date"
                             min={today}
                             value={eventDate}
-                            readOnly
+                            // disabled
+
+
                             onChange={(e) => { setEventDate(e.target.value) }}
                         />
+                        {/* <DatePicker
+                            selected={date} onChange={(date) => {
+                                const formateDate = moment(date).format('YYYY-MM-DD');
+                                setEventDate(formateDate)
+                                setDate(date)
+
+                            }}
+
+                        /> */}
                     </div>
                 </div>
 

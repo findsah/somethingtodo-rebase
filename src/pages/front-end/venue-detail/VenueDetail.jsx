@@ -147,8 +147,10 @@ const VenueDetail = () => {
                                     <div className='map'>
                                         <SimpleMapLocation
                                             // latlng={[13.3, 73.0]}
-                                            latlng={[getVenueDetailByPlaceIdfordetail?.data?.geometry?.location?.lat,
-                                            getVenueDetailByPlaceIdfordetail?.data?.geometry?.location?.lng]}
+                                            latlng={
+                                                getVenueDetailByPlaceIdfordetail?.data?.geometry?.location?.lat ?
+                                                    [getVenueDetailByPlaceIdfordetail?.data?.geometry?.location?.lat,
+                                                    getVenueDetailByPlaceIdfordetail?.data?.geometry?.location?.lng] : [13.3, 73.0]}
                                         />
                                     </div>
                                     <div className='venue_detail_map_info'>

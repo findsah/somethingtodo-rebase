@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { Col, Row } from "react-bootstrap";
 import CustomButton from "../../../../components/form/CustomButton";
 const CFEvent = () => {
+    const navigate = useNavigate()
     useEffect(() => {
         Aos.init();
     }, []);
@@ -16,7 +17,9 @@ const CFEvent = () => {
                 <Col lg={6} md={12} sm={12} className="bg-img-2 " data-aos="fade-right" data-aos-duration="1000">
                     <h2>CREATE&nbsp;<span>AN EVENT</span></h2>
                     <p>Follow 5 simple steps to create your own event</p>
-                    <CustomButton text='Create Now' />
+                    <CustomButton
+                        onClick={() => navigate("/create-event")}
+                        text='Create Now' />
                 </Col>
                 <p className="circle" data-aos="zoom-in-up"
                     data-aos-duration="500">OR</p>

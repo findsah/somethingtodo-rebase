@@ -362,6 +362,24 @@ h6 {
   align-items: center;
   gap: 8px;
   outline: none;
+}
+
+.select_orange {
+  // color: #1F518B;
+  // background: linear-gradient(92.39deg, #FF9700 0%, #DE8300 91.96%);
+  padding: 6px 8px;
+  border: 1px solid #FF9700;
+  border-radius: 14px;
+  font-weight: 400;
+  font-size: 12px;
+  display: flex;
+  color: #FF9700;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  outline: none;
+
 
 }
 

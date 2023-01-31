@@ -32,18 +32,28 @@ const TopVanues = () => {
                     <div className="topVanueHighlight aos-init aos-animate" data-aos="fade-right" data-aos-duration="2000"></div>
                     <span> {getCurrentLocation}</span>
                 </p>
-                <Dropdown>
+                {/* <Dropdown style={{ zIndex: "99" }}>
                     <Dropdown.Toggle variant="outlined" className="dropdown-btn">
                         Change location
                     </Dropdown.Toggle>
-                    <Dropdown.Menu style={{ zIndex: "999" }}>
+                    <Dropdown.Menu >
                         <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                     </Dropdown.Menu>
-                </Dropdown>
+                </Dropdown> */}
+                <select name="location" id="location" className='select_orange' style={{ width: "189px" }}
+                    placeholder="Change Location"
+                >
+                    <option>Change Location</option>
+
+                    <option value="another">Action 1</option>
+                    <option value="Action 2">Action 2</option>
+                    <option value="Action 3">Action 3</option>
+                    {/* <option value="change location" >Change location</option> */}
+                </select>
             </Col>
 
             <Col xs={12} lg={4} className='mobile-screen'>

@@ -964,6 +964,10 @@ whatsapp: +923430048341
   }
 
   .event_date_calender {
+    .react-datepicker-popper {
+      z-index: 16;
+    }
+
     input {
       width: 65%;
       height: 36px;

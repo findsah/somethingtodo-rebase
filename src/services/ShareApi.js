@@ -14,7 +14,7 @@ const config = {
     },
 };
 
-const apiKey = "AIzaSyAlEQnPxaoYwZXM4aKDtwa3N7tYNvkKFkQ";
+const apiKey = "AIzaSyAzmR4YSzuWNY36bbxUuL_lvcKByJgVBYo";
 
 export const GetCurrentLocation = createAsyncThunk("sharedSection/getCurrentLocation", async (params) => {
 
