@@ -14,7 +14,7 @@ export const apiInstance = axios.create({
 });
 
 const responseSuccessHandler = (response) => {
-  document.getElementById("overlay").style.display = "none";
+  // document.getElementById("overlay").style.display = "none";
   return response;
 };
 

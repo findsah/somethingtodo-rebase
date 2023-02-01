@@ -1,17 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+
 import { toast } from "react-toastify";
 import apiInstance from "../../../../config/AxiosInstance";
 import { baseUrl } from "../../../../config/baseUrl";
 import { IsLoader } from "../../../../services/ShareSlice";
 
-const config = {
-    headers: {
-        Accept: "application/json",
-        Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjcwOTEzNzYwLCJleHAiOjE2NzM1MDU3NjB9.D0kJm8v16JDIz4_176FSy8_ZwVD6CyrTik-nnPTMxFw"
-        // "Content-Type": "multipart/form-data",
-    },
-};
+
 
 /*
 Author : Arman Ali
@@ -23,7 +17,7 @@ github: https://github.com/Arman-Arzoo
 //  get event list
 export const GetEventList = createAsyncThunk("createEventsSection/getEventList", async (params) => {
 
-    let response = await axios.get(`${baseUrl}all-events`, config).then((response) => {
+    let response = await apiInstance.get(`all-events`).then((response) => {
         return response
     }).catch((error) => {
         return error.response
@@ -51,7 +45,7 @@ export const GetEventListById = createAsyncThunk("createEventsSection/getEventLi
 export const CreateEvent = createAsyncThunk("createEventsSection/createEvent", async (params) => {
 
     // let response = await apiInstance.post('/all-events', params).then((response) => {})
-    let response = await axios.post(`${baseUrl}all-events`, params, config,).then((response) => {
+    let response = await apiInstance.post(`all-events`, params,).then((response) => {
         return response
     }).catch((error) => {
         return error.response
@@ -91,13 +85,12 @@ export const DeleteEventList = createAsyncThunk("createEventsSection/deleteEvent
 
 });
 
-
 // **************************  venues  *****************************
 //  get venue list from custom or google list
 export const GetVenueList = createAsyncThunk("createEventsSection/getVenueList", async (params) => {
 
     // let response = await  apiInstance.get(`${baseUrl}all-venues`).then((response) => {
-    let response = await axios.get(`${baseUrl}all-venues`, config).then((response) => {
+    let response = await apiInstance.get(`all-venues`).then((response) => {
         return response
     }).catch((error) => {
         return error.response
@@ -107,22 +100,16 @@ export const GetVenueList = createAsyncThunk("createEventsSection/getVenueList",
 
 });
 
-
 export const GetVenueListGoogle = createAsyncThunk("createEventsSection/getVenueListGoogle", async (params, { dispatch }) => {
 
-    // let response = await  apiInstance.get(`${baseUrl}all-venues`).then((response) => {
-
-    // google/40.730610/-73.935242 
     dispatch(IsLoader(true))
-    // let response = await axios.post(`${baseUrl}google/${params?.lat}/${params?.lng}`, { type: params?.catogory || "sports", radius: params?.radias }).then((response) => {
-    let response = await axios.get(`${baseUrl}google/${params?.lat}/${params?.lng}/${params?.catogory}/${params?.radias}`).then((response) => {
+    let response = await apiInstance.get(`google/${params?.lat}/${params?.lng}/${params?.catogory}/${params?.radias}`).then((response) => {
         dispatch(IsLoader(false))
         return response
     }).catch((error) => {
         dispatch(IsLoader(false))
         return error.response
     })
-
     const { data, status } = response;
     return { data, status }
 
@@ -130,8 +117,8 @@ export const GetVenueListGoogle = createAsyncThunk("createEventsSection/getVenue
 
 export const GetAllImages = createAsyncThunk("createEventsSection/getAllImages", async (params) => {
 
-    // let response = await  apiInstance.get(`${baseUrl}all-venues`).then((response) => {
-    let response = await axios.get(`${baseUrl}google/${params}`).then((response) => {
+    let response = await apiInstance.get(`${baseUrl}all-venues`).then((response) => {
+
         return response
     }).catch((error) => {
         return error.response
@@ -143,7 +130,7 @@ export const GetAllImages = createAsyncThunk("createEventsSection/getAllImages",
 
 export const GetVenueDetailByPlaceId = createAsyncThunk("createEventsSection/getVenueDetailByPlaceId", async (params) => {
 
-    let response = await axios.get(`${baseUrl}google/details/${params}`).then((response) => {
+    let response = await apiInstance.get(`google/details/${params}`).then((response) => {
         return response
     }).catch((error) => {
         return error.response
@@ -156,7 +143,7 @@ export const GetVenueDetailByPlaceId = createAsyncThunk("createEventsSection/get
 
 export const GetVenueDetailByPlaceIdfordetail = createAsyncThunk("createEventsSection/getVenueDetailByPlaceIdfordetail", async (params) => {
 
-    let response = await axios.get(`${baseUrl}google/details/${params}`).then((response) => {
+    let response = await apiInstance.get(`google/details/${params}`).then((response) => {
         return response
     }).catch((error) => {
         return error.response
@@ -169,12 +156,7 @@ export const GetVenueDetailByPlaceIdfordetail = createAsyncThunk("createEventsSe
 
 export const CreateCustomVenue = createAsyncThunk("createEventsSection/createCustomVenue", async (params) => {
 
-    // let response = await  apiInstance.get(`${baseUrl}all-venues`).then((response) => {
-
-    // google/40.730610/-73.935242 
-
-    let response = await axios.post(`${baseUrl}google/create-event`, params).then((response) => {
-        // let response = await axios.post(`${baseUrl}google/40.730610/-73.935242 `, { type: params?.catogory || "sports", radius: params?.radias }, config).then((response) => {
+    let response = await apiInstance.post(`google/create-event`, params).then((response) => {
         return response
     }).catch((error) => {
         return error.response
@@ -198,7 +180,6 @@ export const GetVenueListById = createAsyncThunk("createEventsSection/getVenueLi
     return { data, status }
 
 });
-
 
 //  Create  event
 export const CreateVenue = createAsyncThunk("createEventsSection/createVenue", async (params) => {
@@ -242,14 +223,12 @@ export const DeleteVenueList = createAsyncThunk("createEventsSection/deleteVenue
 
 });
 
-
-
 // **************** Friend *************//
 
 export const GetFriendList = createAsyncThunk("createEventsSection/getFriendList", async (params) => {
 
     // let response = await  apiInstance.get(`${baseUrl}all-venues`).then((response) => {
-    let response = await axios.get(`${baseUrl}friends`, config).then((response) => {
+    let response = await apiInstance.get(`friends`,).then((response) => {
         return response
     }).catch((error) => {
         return error.response
