@@ -11,14 +11,17 @@ import { settings } from '../../../../config/helper';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
+import { GetEventList, GetVenueDetailByPlaceIdfordetail } from '../../create-event/service/CreateEventApi';
 
 const TopVanues = () => {
     const dispatch = useDispatch()
 
     // useSlector to get State from store
     const { getCurrentLocation } = useSelector((state) => state?.shareSlice)
+    const { getEventList } = useSelector((state) => state?.createEventSlice)
     useEffect(() => {
         AOS.init({ duration: 3000 });
+        dispatch(GetEventList())
 
     }, [])
 
@@ -73,25 +76,27 @@ const TopVanues = () => {
             <Col xs={12} lg={12} className="mt-4">
                 <Slider {...settings} >
                     {
-                        [1, 2, 3, 4, 5, 6, 7].map(item => (
-                            <Link to="/vanue-detail" >
-                                <TopVanuesCard />
+                        getEventList?.map((item, index) => (
+                            <Link to="/venue-detail" onClick={() => {
+                                dispatch(GetVenueDetailByPlaceIdfordetail(item?.google_place_id))
+                            }} >
+                                <TopVanuesCard data={item} key={index} />
                             </Link>
                         ))
                     }
                 </Slider>
             </Col>
-            <Col xs={12} lg={12} >
+            {/* <Col xs={12} lg={12} >
                 <Slider {...settings} >
                     {
-                        [1, 2, 3, 4, 5, 6, 7].map(item => (
+                        getEventList.map(item => (
                             <Link to="/vanue-detail" >
-                                <TopVanuesCard />
+                                <TopVanuesCard data={item} />
                             </Link>
                         ))
                     }
                 </Slider>
-            </Col>
+            </Col> */}
 
         </Row>
     )

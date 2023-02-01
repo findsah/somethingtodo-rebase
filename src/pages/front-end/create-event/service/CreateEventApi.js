@@ -17,7 +17,7 @@ github: https://github.com/Arman-Arzoo
 //  get event list
 export const GetEventList = createAsyncThunk("createEventsSection/getEventList", async (params) => {
 
-    let response = await apiInstance.get(`all-events`).then((response) => {
+    let response = await apiInstance.get(`google`).then((response) => {
         return response
     }).catch((error) => {
         return error.response

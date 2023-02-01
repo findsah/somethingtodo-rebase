@@ -4,20 +4,21 @@ import vanueImg from '../../../assets/Rectangle 11.jpg'
 import { MdLocationPin } from 'react-icons/md'
 
 
-const TopVanuesCard = () => {
+const TopVanuesCard = ({ data }) => {
 
     return (
         <Card className='top-vanues-card-style'>
-            <Card.Img variant="top" src={vanueImg} />
+            <Card.Img variant="top" src={data?.image ? `data:image/png;base64,${data?.image}` : vanueImg} height="172px" />
             <div className='card-custom-Body'>
                 <Card.Body>
-                    <Card.Title>LOREM IPSUM DOLOR SIT AMET</Card.Title>
+                    <Card.Title>{data?.venue_name}</Card.Title>
                     <Card.Text className='desc'>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Nunc vulputate libero et velit interdum, ac aliquet odio mattis.
                     </Card.Text>
                     <Card.Text className='address'>
-                        <MdLocationPin className='loction-icon' />Address
+                        <MdLocationPin className='loction-icon' />
+                        {data?.description}
                     </Card.Text>
                 </Card.Body>
                 <div className='blue-side'>
