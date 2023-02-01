@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import apiInstance from "../../../../config/AxiosInstance";
 import { baseUrl } from "../../../../config/baseUrl";
+import { IsLoader } from "../../../../services/ShareSlice";
 
 const config = {
     headers: {
@@ -107,18 +108,18 @@ export const GetVenueList = createAsyncThunk("createEventsSection/getVenueList",
 });
 
 
-
-
-export const GetVenueListGoogle = createAsyncThunk("createEventsSection/getVenueListGoogle", async (params) => {
+export const GetVenueListGoogle = createAsyncThunk("createEventsSection/getVenueListGoogle", async (params, { dispatch }) => {
 
     // let response = await  apiInstance.get(`${baseUrl}all-venues`).then((response) => {
 
     // google/40.730610/-73.935242 
-
-    let response = await axios.post(`${baseUrl}google/${params?.lat}/${params?.lng}`, { type: params?.catogory || "sports", radius: params?.radias }).then((response) => {
-        // let response = await axios.post(`${baseUrl}google/40.730610/-73.935242 `, { type: params?.catogory || "sports", radius: params?.radias }).then((response) => {
+    dispatch(IsLoader(true))
+    // let response = await axios.post(`${baseUrl}google/${params?.lat}/${params?.lng}`, { type: params?.catogory || "sports", radius: params?.radias }).then((response) => {
+    let response = await axios.get(`${baseUrl}google/${params?.lat}/${params?.lng}/${params?.catogory}/${params?.radias}`).then((response) => {
+        dispatch(IsLoader(false))
         return response
     }).catch((error) => {
+        dispatch(IsLoader(false))
         return error.response
     })
 

@@ -13,8 +13,12 @@ const sharedSlice = createSlice({
     initialState: {
         getCurrentLocation: "",
         // getLocationList: []
+        isLoading: false
     },
     reducers: {
+        IsLoader(state, action) {
+            state.isLoading = action.payload
+        },
 
     },
     extraReducers: {
@@ -34,6 +38,6 @@ const sharedSlice = createSlice({
     }
 })
 
-export const { } = sharedSlice.actions;
+export const { IsLoader } = sharedSlice.actions;
 
 export default sharedSlice.reducer;

@@ -62,19 +62,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     //   handel custom venue funtion
     const handelCreateCustom = () => {
 
-        const createCustomVenueDB = {
 
-            venue_name: Title,
-            description,
-            image: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
-            location: { lat: lantitude, lng: longitude },
-            city,
-            street,
-            building,
-            phoneNumber,
-            website,
-            isPrivate: isPravite == "yes" ? true : false
-        }
         if (!Title || !description || !city || !street || !building || !phoneNumber || !website || images?.length == 0) {
             setOpenError(true)
             setErrorRes("Oops we missed something. Please ensure all fields are filled correctly")
@@ -96,7 +84,34 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                 return null
             }
 
-            dispatch(CreateCustomVenue(createCustomVenueDB)).then((res) => {
+            // const createCustomVenueDB = {
+
+            //     venue_name: Title,
+            //     description,
+            //     image: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
+            //     location: { lat: lantitude, lng: longitude },
+            //     city,
+            //     street,
+            //     building,
+            //     phoneNumber,
+            //     website,
+            //     isPrivate: isPravite == "yes" ? true : false
+            // }
+            const formData = new FormData();
+            formData.append("name", Title);
+            formData.append("description", description);
+            formData.append("image", images);
+            formData.append("location[lat]", lantitude);
+            formData.append("location[lng]", longitude);
+            formData.append("city", city);
+            formData.append("street", street);
+            formData.append("building", building);
+            formData.append("phoneNumber", phoneNumber);
+            formData.append("website", website);
+            formData.append("isPrivate", isPravite == "yes" ? true : false);
+
+
+            dispatch(CreateCustomVenue(formData)).then((res) => {
 
                 const createCustomVenueData = {
                     place_id: res?.payload?.google?._id,
@@ -426,7 +441,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                                 </div>
                                 <div className='input_text_group'>
                                     {/* <Autocomplete
-                                        apiKey={"AIzaSyAlEQnPxaoYwZXM4aKDtwa3N7tYNvkKFkQ"}
+                                        apiKey={"AIzaSyAzmR4YSzuWNY36bbxUuL_lvcKByJgVBYo"}
                                         onPlaceSelected={(place) => {
                                             console.log(place);
                                         }}
