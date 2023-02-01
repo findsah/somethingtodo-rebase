@@ -89,7 +89,7 @@ export const DeleteEventList = createAsyncThunk("createEventsSection/deleteEvent
 //  get venue list from custom or google list
 export const GetVenueList = createAsyncThunk("createEventsSection/getVenueList", async (params) => {
 
-    // let response = await  apiInstance.get(`${baseUrl}all-venues`).then((response) => {
+
     let response = await apiInstance.get(`all-venues`).then((response) => {
         return response
     }).catch((error) => {
@@ -117,7 +117,7 @@ export const GetVenueListGoogle = createAsyncThunk("createEventsSection/getVenue
 
 export const GetAllImages = createAsyncThunk("createEventsSection/getAllImages", async (params) => {
 
-    let response = await apiInstance.get(`${baseUrl}all-venues`).then((response) => {
+    let response = await apiInstance.get(`google/${params}`).then((response) => {
 
         return response
     }).catch((error) => {

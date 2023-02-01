@@ -84,7 +84,7 @@ const createEventSlice = createSlice({
             if (status >= 200 && status < 300) {
                 state.getVenueList = data
             } else if (status >= 400 && status < 500) {
-                toast("Something went wrong in getVenueList")
+                // toast("Something went wrong in getVenueList")
             }
         },
         ['createEventsSection/getVenueListGoogle/fulfilled']: (state, action) => {
@@ -104,7 +104,7 @@ const createEventSlice = createSlice({
             if (status >= 200 && status < 300) {
                 state.getAllImages = data
             } else if (status >= 400 && status < 500) {
-                toast("Something went wrong in getAllImages")
+                // toast("Something went wrong in getAllImages")
             }
         },
         ['createEventsSection/createCustomVenue/fulfilled']: (state, action) => {
