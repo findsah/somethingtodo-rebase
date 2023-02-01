@@ -9,6 +9,7 @@ import CustoModal from '../../components/CustomModal';
 import websiteIcon from '../../../../assets/icons/website.svg'
 import phoneIcon from '../../../../assets/icons/phone.svg'
 import locationIcon from '../../../../assets/icons/location.svg'
+import loactionNotFound from '../../../../assets/icons/locationnotfound.png'
 import MapModal from '../../components/MapModal';
 import Slider from 'react-slick';
 import CustomUpload from '../../components/CustomUpload';
@@ -673,8 +674,10 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                                         )
                                     })
                                 :
-                                <div className='d-flex justift-content-center align-items-center'>
-                                    No Data Found
+                                <div className='no_data_found'>
+                                    {/* No Data Found */}
+                                    <img src={loactionNotFound} alt="" width="200" height="250" />
+                                    <p>No Venues Found</p>
                                 </div>
                         }
                     </div>

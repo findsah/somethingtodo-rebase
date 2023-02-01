@@ -537,6 +537,24 @@ whatsapp: +923430048341
       overflow-y: scroll;
       overflow-x: hidden;
 
+      .no_data_found {
+        width: 570px;
+        height: 365px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        opacity: 0.4;
+
+
+        p {
+          color: #1F518B;
+          font-size: 18px;
+          font-weight: bold;
+        }
+      }
+
       &::-webkit-scrollbar {
         width: 0 !important
       }
