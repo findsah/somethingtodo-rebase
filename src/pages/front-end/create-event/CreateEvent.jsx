@@ -92,17 +92,17 @@ const CreateEvent = () => {
         }
     })
 
-
+    console.log(addedVenues)
 
     // whole onSubmit date for createEvent
     const createEventData = {
-        id: "1",
+        // id: "1",
         title: eventTitle,
         description: eventDescription,
-        location: "",
+        location: "demo",
+        isthisDate: isthisDate,
         time: eventTime,
         date: eventDate,
-        IsthisDate: isthisDate,
         TicketPrice: eventCost[1],
         locationings: addedVenues,
         peopleinformations: peopleInfo

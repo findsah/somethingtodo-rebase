@@ -16,10 +16,11 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
 
     // add venue
     const addVenueAction = (item) => {
+
         const data = {
             google_place_id: item?.google_google_place_id,
             images: "",
-            imageUrl: "",
+            imageUrl: "https://example.com/image.jpg",
             description: item?.description,
             name: item?.venue_name,
             location: {

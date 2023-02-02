@@ -21,6 +21,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
     setpeopleInfo
 }) => {
 
+    console.log(age)
     // hook importer
     const dispatch = useDispatch()
 
@@ -44,7 +45,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
             id: uuid(),
             number,
             gender,
-            age
+            age: age?.length ? { min: age[0], max: age[1] } : {}
         }
 
         if (age?.length && gender && number) {

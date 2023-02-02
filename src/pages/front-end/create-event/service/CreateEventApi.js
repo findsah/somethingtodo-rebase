@@ -45,7 +45,7 @@ export const GetEventListById = createAsyncThunk("createEventsSection/getEventLi
 export const CreateEvent = createAsyncThunk("createEventsSection/createEvent", async (params) => {
 
     // let response = await apiInstance.post('/all-events', params).then((response) => {})
-    let response = await apiInstance.post(`all-events`, params,).then((response) => {
+    let response = await apiInstance.post(`events`, params,).then((response) => {
         return response
     }).catch((error) => {
         return error.response

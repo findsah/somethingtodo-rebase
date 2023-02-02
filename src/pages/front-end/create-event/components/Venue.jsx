@@ -117,7 +117,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                 const createCustomVenueData = {
                     place_id: res?.payload?.google?._id,
                     images,
-                    imageUrl: null,
+                    imageUrl: "https://example.com/image.jpg",
                     description,
                     name: Title,
                     location: {
@@ -254,7 +254,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
         const data = {
             place_id: item?.google_place_id,
             images: item?.image,
-            imageUrl: "",
+            imageUrl: "https://example.com/image.jpg",
             description: item?.description,
             name: item?.venue_name,
             location: {
@@ -281,7 +281,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                 const data = {
                     place_id: id,
                     images: imageList?.payload?.data ? imageList?.payload?.data : "",
-                    imageUrl: "",
+                    imageUrl: "https://example.com/image.jpg",
                     description: res?.payload?.data?.data?.formatted_address,
                     name: res?.payload?.data?.data?.name,
                     location: {
