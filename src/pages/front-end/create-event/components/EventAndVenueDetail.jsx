@@ -37,6 +37,8 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData, addedVenueDetails 
         centerMode: true,
     }
 
+    console.log(addedVenueDetails)
+
     // useEffect(() => {
     //     addedVenues?.forEach(async (item) => {
     //         const res = await dispatch(GetVenueDetailByPlaceId(item?.place_id));
@@ -197,7 +199,7 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData, addedVenueDetails 
 
                                         {
                                             item?.images ?
-                                                <img src={`data:image/png;base64,${item?.images[0]?.data}`} alt="" width="464px" height="207px" /> :
+                                                <img src={`data:image/png;base64,${item?.images[0]}`} alt="" width="464px" height="207px" /> :
                                                 <img src={dummy} />
                                         }
 

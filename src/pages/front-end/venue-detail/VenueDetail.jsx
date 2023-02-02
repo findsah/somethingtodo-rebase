@@ -116,7 +116,7 @@ const VenueDetail = () => {
                             getAllImages?.map((item, key) => (
                                 <div className='image_design' key={key}>
                                     {/* <img src={dummy} alt="" /> */}
-                                    <img src={`data:image/png;base64,${item?.data}`} />
+                                    <img src={`data:image/png;base64,${item}`} />
                                 </div>
 
                             ))
@@ -147,6 +147,7 @@ const VenueDetail = () => {
                                     <div className='map'>
                                         <SimpleMapLocation
                                             // latlng={[13.3, 73.0]}
+                                            name={getVenueDetailByPlaceIdfordetail?.data?.name}
                                             latlng={
                                                 getVenueDetailByPlaceIdfordetail?.data?.geometry?.location?.lat ?
                                                     [getVenueDetailByPlaceIdfordetail?.data?.geometry?.location?.lat,

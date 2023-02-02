@@ -280,7 +280,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
                 const data = {
                     place_id: id,
-                    images: imageList?.payload?.data,
+                    images: imageList?.payload?.data ? imageList?.payload?.data : "",
                     imageUrl: "",
                     description: res?.payload?.data?.data?.formatted_address,
                     name: res?.payload?.data?.data?.name,

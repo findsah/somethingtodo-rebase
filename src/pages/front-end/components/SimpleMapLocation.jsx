@@ -7,7 +7,7 @@ import React, { createRef } from 'react'
 import { MapContainer, Marker, Popup, TileLayer, useMapEvent } from 'react-leaflet'
 
 
-const SimpleMapLocation = ({ latlng }) => {
+const SimpleMapLocation = ({ latlng, name }) => {
     const mapRef = createRef();
     function MultipleMarkers() {
         const map = useMapEvent({
@@ -15,6 +15,10 @@ const SimpleMapLocation = ({ latlng }) => {
                 map.locate();
             },
         });
+        if (latlng) {
+            map.flyTo(latlng, map.getZoom())
+        }
+
         {
             return (
                 <Marker
@@ -23,7 +27,7 @@ const SimpleMapLocation = ({ latlng }) => {
                     key={"1"}>
                     <Popup >
                         <div className=''>
-                            kjdlsjfldsk
+                            {name}
                         </div>
                     </Popup>
                 </Marker>

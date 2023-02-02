@@ -76,7 +76,7 @@ const TopVanues = () => {
             <Col xs={12} lg={12} className="mt-4">
                 <Slider {...settings} >
                     {
-                        getEventList?.map((item, index) => (
+                        [1, 2, 3]?.map((item, index) => (
                             <Link to="/venue-detail" onClick={() => {
                                 dispatch(GetVenueDetailByPlaceIdfordetail(item?.google_place_id))
                             }} >

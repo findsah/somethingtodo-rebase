@@ -115,12 +115,13 @@ export const GetVenueListGoogle = createAsyncThunk("createEventsSection/getVenue
 
 });
 
-export const GetAllImages = createAsyncThunk("createEventsSection/getAllImages", async (params) => {
-
+export const GetAllImages = createAsyncThunk("createEventsSection/getAllImages", async (params, { dispatch }) => {
+    dispatch(IsLoader(true))
     let response = await apiInstance.get(`google/${params}`).then((response) => {
-
+        dispatch(IsLoader(false))
         return response
     }).catch((error) => {
+        dispatch(IsLoader(false))
         return error.response
     })
     const { data, status } = response;
@@ -128,11 +129,13 @@ export const GetAllImages = createAsyncThunk("createEventsSection/getAllImages",
 
 });
 
-export const GetVenueDetailByPlaceId = createAsyncThunk("createEventsSection/getVenueDetailByPlaceId", async (params) => {
-
+export const GetVenueDetailByPlaceId = createAsyncThunk("createEventsSection/getVenueDetailByPlaceId", async (params, { dispatch }) => {
+    dispatch(IsLoader(true))
     let response = await apiInstance.get(`google/details/${params}`).then((response) => {
+        dispatch(IsLoader(false))
         return response
     }).catch((error) => {
+        dispatch(IsLoader(false))
         return error.response
     })
 
