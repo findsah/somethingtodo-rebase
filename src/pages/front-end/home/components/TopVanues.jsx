@@ -73,10 +73,10 @@ const TopVanues = () => {
                     <TopVanuesCard />
                 </Link>
             </Col>
-            <Col xs={12} lg={12} className="mt-4">
+            <Col xs={12} lg={12} className="mt-4 slider_event_home"   >
                 <Slider {...settings} >
                     {
-                        [1, 2, 3]?.map((item, index) => (
+                        getEventList?.map((item, index) => (
                             <Link to="/venue-detail" onClick={() => {
                                 dispatch(GetVenueDetailByPlaceIdfordetail(item?.google_place_id))
                             }} >

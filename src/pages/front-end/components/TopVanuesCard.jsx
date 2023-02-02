@@ -8,7 +8,7 @@ const TopVanuesCard = ({ data }) => {
 
     return (
         <Card className='top-vanues-card-style'>
-            <Card.Img variant="top" src={data?.image ? `data:image/png;base64,${data?.image}` : vanueImg} height="172px" />
+            <Card.Img variant="top" src={data?.image ? data?.image[0]?.url : vanueImg} height="172px" />
             <div className='card-custom-Body'>
                 <Card.Body>
                     <Card.Title>{data?.venue_name}</Card.Title>
