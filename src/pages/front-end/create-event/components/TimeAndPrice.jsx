@@ -12,6 +12,8 @@ import 'rc-time-picker/assets/index.css';
 import DatePicker from "react-datepicker";
 import moment from 'moment/moment';
 import "react-datepicker/dist/react-datepicker.css";
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 const format = 'h:mm a';
 
 
@@ -42,6 +44,21 @@ const TimeAndPrice = ({
     function onChange(value) {
         setEventTime(value && value.format(format))
     }
+
+    useEffect(() => {
+        console.log(eventDate)
+        console.log(today)
+        if (today && eventDate) {
+            const t = new Date(today)
+            const e = new Date(eventDate)
+            if (t.getTime() > e.getTime()) {
+                setEventDate("")
+                toast.warn("You Can't Select Past Date")
+            }
+        }
+
+
+    }, [eventDate])
     return (
 
         <div className="container create-event-time_and_price">
@@ -55,9 +72,8 @@ const TimeAndPrice = ({
                         <input type="date"
                             min={today}
                             value={eventDate}
+                            // readonly
                             // disabled
-
-
                             onChange={(e) => { setEventDate(e.target.value) }}
                         />
                         {/* <DatePicker
