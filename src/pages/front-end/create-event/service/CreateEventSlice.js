@@ -49,6 +49,15 @@ const createEventSlice = createSlice({
             state.addedVenueDetailsData = [...state.addedVenueDetailsData.filter(item => item?.place_id !== action.payload?.place_id)]
         },
 
+        ClearAddedVenuesData: (state) => {
+
+            state.addedVenuesData = [];
+        },
+        ClearAddedVenuesDetailData: (state) => {
+
+            state.addedVenueDetailsData = [];
+        },
+
     },
     extraReducers: {
 
@@ -209,6 +218,8 @@ const createEventSlice = createSlice({
     }
 })
 
-export const { SetAddedVenuesData, RemoveAddedVenuesData, SetAddedVenueDetailsData, RemoveAddedVenueDetailsData } = createEventSlice.actions;
+export const { SetAddedVenuesData, RemoveAddedVenuesData,
+    SetAddedVenueDetailsData, RemoveAddedVenueDetailsData,
+    ClearAddedVenuesData, ClearAddedVenuesDetailData } = createEventSlice.actions;
 
 export default createEventSlice.reducer;

@@ -5,12 +5,15 @@ whatsapp: +923430048341
 */
 import React, { useState } from 'react'
 import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import CreateEventHead from './components/CreateEventHead'
 import EventAndVenueDetail from './components/EventAndVenueDetail'
 import StepperForm from './components/StepperForm'
+import { ClearAddedVenuesData, ClearAddedVenuesDetailData } from './service/CreateEventSlice'
 
 const CreateEvent = () => {
+
+    const dispatch = useDispatch()
     // venue local state
     const [images, setImages] = useState([])
     const [previewImage, setPreviewImage] = useState([])
@@ -114,6 +117,8 @@ const CreateEvent = () => {
     const reset = () => {
         setAddedVenues([])
         setAddedVenueDetails([])
+        dispatch(ClearAddedVenuesData())
+        dispatch(ClearAddedVenuesDetailData())
         setEventTitle("")
         setEventDescription("")
         setIsthisDate(false)
