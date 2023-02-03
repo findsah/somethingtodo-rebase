@@ -28,8 +28,18 @@ const createEventSlice = createSlice({
         getVenueDetailByPlaceIdfordetail: {},
         getAllImages: [],
 
+        // local runtime state
+        addedVenues: [],
+        addedVenueDetails: []
+
     },
     reducers: {
+        SetAddedVenues: (state, action) => {
+            state.addedVenues = action.payload;
+        },
+        SetAddedVenueDetails: (state, action) => {
+            state.addedVenueDetails = action.payload;
+        },
 
     },
     extraReducers: {
@@ -191,6 +201,6 @@ const createEventSlice = createSlice({
     }
 })
 
-export const { } = createEventSlice.actions;
+export const { SetAddedVenues, SetAddedVenueDetails } = createEventSlice.actions;
 
 export default createEventSlice.reducer;
