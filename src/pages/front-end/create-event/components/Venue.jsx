@@ -251,10 +251,11 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
     // add venue
     const addVenueAction = (item) => {
+        console.log("itemmmmm", item)
         const data = {
             place_id: item?.google_place_id,
             images: item?.image,
-            imageUrl: "https://example.com/image.jpg",
+            imageUrl: item?.image || "https://example.com/image.jpg",
             description: item?.description,
             name: item?.venue_name,
             location: {
@@ -281,7 +282,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                 const data = {
                     place_id: id,
                     images: imageList?.payload?.data ? imageList?.payload?.data : "",
-                    imageUrl: "https://example.com/image.jpg",
+                    imageUrl: imageList?.payload?.data && imageList?.payload?.data[0] || "https://example.com/image.jpg",
                     description: res?.payload?.data?.data?.formatted_address,
                     name: res?.payload?.data?.data?.name,
                     location: {

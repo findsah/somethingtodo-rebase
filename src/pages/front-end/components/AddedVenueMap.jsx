@@ -59,7 +59,7 @@ const AddedVenueMap = ({ position, addedVenues }) => {
                             {/* {venue?.Title || venue?.name}
                              */}
                             {/* //need to check */}
-                            <img src={venue?.image ? venue?.image : venue?.previewImage.length > 0 ? venue?.previewImage[0] : dummy} alt="" />
+                            <img src={venue?.image ? `data:image/png;base64,${venue?.image}` : venue?.previewImage.length > 0 ? venue?.previewImage[0] : dummy} alt="" />
 
                             {/* <img src={venue?.photos?.length > 0 && typeof venue?.photos[0]?.getUrl === "function" ? venue?.photos[0]?.getUrl() : dummy} alt="" /> */}
 
