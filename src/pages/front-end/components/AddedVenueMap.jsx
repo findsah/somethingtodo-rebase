@@ -10,10 +10,11 @@ import { iconBlue, iconGreen } from '../../../assets/leftletIcon/icon'
 
 const AddedVenueMap = ({ position, addedVenues }) => {
 
+    console.log(addedVenues)
     const mapRef = createRef();
 
     const addedVenueId = addedVenues?.map((venue) => {
-        return venue?.id || venue?.google_place_id
+        return venue?.id || venue?.google_place_id || venue?.place_id
     })
 
 
@@ -52,7 +53,7 @@ const AddedVenueMap = ({ position, addedVenues }) => {
                     <Marker
                         // position={[venue?.geometry?.location?.lat(), venue?.geometry?.location?.lng()]}
                         position={[venue?.location?.lat, venue?.location?.lng]}
-                        icon={addedVenueId?.includes(venue?.id || venue?.google_place_id) ? iconGreen : iconBlue}
+                        icon={addedVenueId?.includes(venue?.id || venue?.google_place_id || venue?.place_id) ? iconGreen : iconBlue}
                         key={index}>
                         <Popup className='map_venue_list' >
                             {/* {venue?.Title || venue?.name}
@@ -63,7 +64,7 @@ const AddedVenueMap = ({ position, addedVenues }) => {
                             {/* <img src={venue?.photos?.length > 0 && typeof venue?.photos[0]?.getUrl === "function" ? venue?.photos[0]?.getUrl() : dummy} alt="" /> */}
 
 
-                            <h5 >{venue?.Title || venue?.venue_name}</h5>
+                            <h5 >{venue?.Title || venue?.name}</h5>
                             {/* <p className='p_gray_10 '>
                                 {
                                     venue?.Description?.length > 230 ?
@@ -75,10 +76,10 @@ const AddedVenueMap = ({ position, addedVenues }) => {
                             <div className='btn-container'>
                                 <button className='btn_secondary '
                                     style={{
-                                        background: addedVenueId?.includes(venue?.id || venue?.google_place_id) ? 'green' : '',
-                                        opacity: addedVenueId?.includes(venue?.id || venue?.google_place_id) ? '0.4' : ''
+                                        background: addedVenueId?.includes(venue?.id || venue?.google_place_id || venue?.place_id) ? 'green' : '',
+                                        opacity: addedVenueId?.includes(venue?.id || venue?.google_place_id || venue?.place_id) ? '0.4' : ''
                                     }}
-                                    disabled={addedVenueId?.includes(venue?.id || venue?.google_place_id)}
+                                    disabled={addedVenueId?.includes(venue?.id || venue?.google_place_id || venue?.place_id)}
                                 >
                                     <i className="fa fa-plus" aria-hidden="true"></i>
                                     ADD  VENUE
