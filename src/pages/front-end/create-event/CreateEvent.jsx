@@ -20,7 +20,7 @@ const CreateEvent = () => {
     const [addedVenues, setAddedVenues] = useState([])
     const [addedVenueDetails, setAddedVenueDetails] = useState([])
     const { addedVenuesData } = useSelector((state) => state?.createEventSlice)
-    const { addedVenueDetailsData } = useSelector((state) => state?.createEventSlice)
+    // const { addedVenueDetailsData } = useSelector((state) => state?.createEventSlice)
 
     // event discription local state
     const [eventTitle, setEventTitle] = useState("");
@@ -86,17 +86,17 @@ const CreateEvent = () => {
 
     }
     // modify createEventdata
-    const addVenues = addedVenuesData.map((item) => {
-        return {
-            place_id: item?.place_id,
-            imageUrl: item?.photos ? item?.photos[0]?.getUrl() : "",
-            name: item?.name,
+    // const addVenues = addedVenuesData?.map((item) => {
+    //     return {
+    //         place_id: item?.place_id,
+    //         imageUrl: item?.photos ? item?.photos[0]?.getUrl() : "",
+    //         name: item?.name,
 
-            description: item?.vicinity,
-            location: { lat: item?.geometry?.location?.lat(), lng: item?.geometry?.location?.lng() },
+    //         description: item?.vicinity,
+    //         location: { lat: item?.geometry?.location?.lat(), lng: item?.geometry?.location?.lng() },
 
-        }
-    })
+    //     }
+    // })
 
 
 
@@ -133,6 +133,7 @@ const CreateEvent = () => {
     }
     useEffect(() => {
         window.scrollTo(0, 0);
+
     }, []);
 
     return (
