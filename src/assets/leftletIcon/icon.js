@@ -24,4 +24,6 @@ var iconRed = new L.Icon({
     shadowSize: [41, 41]
 });
 
+
+
 export { iconBlue, iconGreen, iconRed };

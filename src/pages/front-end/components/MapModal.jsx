@@ -4,6 +4,7 @@ github: https://github.com/Arman-Arzoo
 whatsapp: +923430048341
 */
 import React, { createRef, useEffect, useState } from 'react'
+import { useRef } from 'react'
 import { MapContainer, Marker, Popup, TileLayer, useMapEvent, useMap, useMapEvents } from 'react-leaflet'
 import { useDispatch } from 'react-redux'
 import dummy from '../../../assets/dummy1.png'
@@ -16,6 +17,12 @@ const MapModal = ({ position, data, setAddedVenues, setAddedVenueDetails, addedV
     const dispatch = useDispatch()
     const [positionLocate, setPositionLocate] = useState([51.505, -0.09])
     const mapRef = createRef();
+
+
+    // iconRed.on('dragend', function (event) {
+    //     console.log(event.target._latlng);
+    // });
+
 
     // add venue
     const addVenueAction = (item) => {
@@ -120,6 +127,8 @@ const MapModal = ({ position, data, setAddedVenues, setAddedVenueDetails, addedV
 
 
 
+
+
     function MultipleMarkers() {
         const map = useMapEvent({
             click() {
@@ -163,7 +172,6 @@ const MapModal = ({ position, data, setAddedVenues, setAddedVenueDetails, addedV
                                     <button className='btn_secondary ' onClick={() => {
                                         addVenueAction(venue)
                                         addVenueActionDetail(venue?.google_place_id)
-
                                     }}
                                         style={{
                                             background: addedVenueId?.includes(venue?.id || venue?.google_place_id) ? 'green' : '',
@@ -175,8 +183,6 @@ const MapModal = ({ position, data, setAddedVenues, setAddedVenueDetails, addedV
                                         ADD  VENUE
                                     </button>
                                 </div>
-
-
                             </Popup>
                         </Marker>
                     )
@@ -200,7 +206,12 @@ const MapModal = ({ position, data, setAddedVenues, setAddedVenueDetails, addedV
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <MultipleMarkers />
-            <Marker key={"location"} position={position} icon={iconRed} draggable={true}>
+            <Marker key={"location"} position={position}
+                icon={iconRed}
+                draggable={true}
+
+                onDragEnd={(event) => { console.log("iiiiidfjdjfi", event.target._latlng) }}
+            >
                 <Popup>
                     Your Location is {position[0]} , {position[1]}
                 </Popup>
