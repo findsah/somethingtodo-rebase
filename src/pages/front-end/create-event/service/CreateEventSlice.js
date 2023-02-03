@@ -26,7 +26,8 @@ const createEventSlice = createSlice({
         createCustomVenue: {},
         getVenueDetailByPlaceId: {},
         getVenueDetailByPlaceIdfordetail: {},
-        getAllImages: []
+        getAllImages: [],
+
     },
     reducers: {
 

@@ -40,7 +40,7 @@ const AddedVenueMap = ({ position, addedVenues }) => {
 
         });
 
-        // map.flyTo(position, map.getZoom())
+        // map.flyTo(addedVenues[0]?.location?.lat ? [addedVenues[0]?.location?.lat, addedVenues[0]?.location?.lng] : [33, 73], map.getZoom())
         // mapRef?.current?.map.setZoom(zoom)
 
 

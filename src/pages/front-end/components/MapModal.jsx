@@ -36,7 +36,7 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
             previewImage: []
         }
 
-        // setAddedVenues((prevState) => [...prevState, item])
+
         setAddedVenues((prevState) => [...prevState, data])
     }
 

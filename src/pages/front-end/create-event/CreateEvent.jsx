@@ -56,14 +56,14 @@ const CreateEvent = () => {
         age,
         gender,
         number,
+        isthisDate,
+        whocanjoin,
+        peopleInfo,
         setAge,
         setGender,
         setNumber,
-        isthisDate,
         setIsthisDate,
-        whocanjoin,
         setWhocanjoin,
-        peopleInfo,
         setpeopleInfo
 
     }
@@ -108,6 +108,21 @@ const CreateEvent = () => {
         peopleinformations: peopleInfo
     }
 
+    const reset = () => {
+        setAddedVenues([])
+        setAddedVenueDetails([])
+        setEventTitle("")
+        setEventDescription("")
+        setIsthisDate(false)
+        setWhocanjoin("")
+        setpeopleInfo([])
+        setEventCost([0, 0])
+        setEventDate("")
+        setEventTime("")
+        setCostSplit("")
+
+
+    }
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -130,6 +145,7 @@ const CreateEvent = () => {
                     inviteData={inviteData}
                     timeandpriceData={timeandpriceData}
                     data={createEventData}
+                    reset={reset}
 
                 />
 

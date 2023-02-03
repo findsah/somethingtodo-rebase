@@ -12,7 +12,7 @@ import Invites from './Invites'
 import TimeAndPrice from './TimeAndPrice'
 import Venue from './Venue'
 
-const StepperForm = ({ data, venueData, descData, inviteData, timeandpriceData }) => {
+const StepperForm = ({ reset, data, venueData, descData, inviteData, timeandpriceData }) => {
     // usestate to control state locally
     const [activeStepper, setActiveSteper] = useState(1)
     const [openSuccess, setOpenSuccess] = useState(false)
@@ -29,6 +29,10 @@ const StepperForm = ({ data, venueData, descData, inviteData, timeandpriceData }
         // toast.success("your event is created")
         dispatch(CreateEvent(data))
         setOpenSuccess(true)
+        setActiveSteper(1)
+        console.log(data)
+        reset()
+
     }
     return (
         <>
