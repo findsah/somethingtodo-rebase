@@ -46,8 +46,7 @@ const TimeAndPrice = ({
     }
 
     useEffect(() => {
-        console.log(eventDate)
-        console.log(today)
+
         if (today && eventDate) {
             const t = new Date(today)
             const e = new Date(eventDate)
