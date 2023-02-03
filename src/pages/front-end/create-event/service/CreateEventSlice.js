@@ -93,6 +93,7 @@ const createEventSlice = createSlice({
             if (status >= 200 && status < 300) {
                 state.getVenueListGoogle = data
             } else if (status >= 400 && status < 500) {
+                state.getVenueListGoogle = {}
                 toast.error(data.error)
             }
         },
