@@ -702,6 +702,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                             keyword={keyword}
                             catogory={catogory}
                             distance={distance}
+                            setAddedVenueDetails={setAddedVenueDetails}
 
                         />
                     </div>

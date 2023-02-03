@@ -8,9 +8,10 @@ import { MapContainer, Marker, Popup, TileLayer, useMapEvent, useMap, useMapEven
 import { useDispatch } from 'react-redux'
 import dummy from '../../../assets/dummy1.png'
 import { iconBlue, iconGreen, iconRed } from '../../../assets/leftletIcon/icon'
-import { SetAddedVenuesData } from '../create-event/service/CreateEventSlice'
+import { GetAllImages, GetVenueDetailByPlaceId } from '../create-event/service/CreateEventApi'
+import { SetAddedVenueDetailsData, SetAddedVenuesData } from '../create-event/service/CreateEventSlice'
 
-const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogory, distance }) => {
+const MapModal = ({ position, data, setAddedVenues, setAddedVenueDetails, addedVenues, keyword, catogory, distance }) => {
 
     const dispatch = useDispatch()
     const [positionLocate, setPositionLocate] = useState([51.505, -0.09])
@@ -41,6 +42,43 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
 
         setAddedVenues((prevState) => [...prevState, data])
         dispatch(SetAddedVenuesData(data))
+    }
+    const addVenueActionDetail = (id) => {
+
+        dispatch(GetAllImages(id)).then(imageList => {
+
+            dispatch(GetVenueDetailByPlaceId(id)).then(res => {
+
+                const data = {
+                    place_id: id,
+                    images: imageList?.payload?.data ? imageList?.payload?.data : "",
+                    imageUrl: imageList?.payload?.data && imageList?.payload?.data[0] || "https://example.com/image.jpg",
+                    description: res?.payload?.data?.data?.formatted_address,
+                    name: res?.payload?.data?.data?.name,
+                    location: {
+                        lat: res?.payload?.data?.data?.location?.lat,
+                        lng: res?.payload?.data?.data?.location?.lng,
+                    },
+                    city: "",
+                    street: "",
+                    building: "",
+                    phoneNumber: res?.payload?.data?.data?.formatted_phone_number,
+                    website: res?.payload?.data?.data?.website,
+                    isPravite: "",
+                    previewImage: [],
+                    openingDay: res?.payload?.data?.data?.opening_hours ? res?.payload?.data?.data?.opening_hours?.weekday_text[0] : "",
+                    closingDay: res?.payload?.data?.data?.opening_hours ? res?.payload?.data?.data?.opening_hours?.weekday_text[6] : ""
+                }
+                setAddedVenueDetails((prevState) => [...prevState, data])
+                dispatch(SetAddedVenueDetailsData(data))
+
+
+
+            })
+        })
+
+
+
     }
 
     const addedVenueId = addedVenues?.map((venue) => {
@@ -124,6 +162,7 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
                                 <div className='btn-container'>
                                     <button className='btn_secondary ' onClick={() => {
                                         addVenueAction(venue)
+                                        addVenueActionDetail(venue?.google_place_id)
 
                                     }}
                                         style={{
