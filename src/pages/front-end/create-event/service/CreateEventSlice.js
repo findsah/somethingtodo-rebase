@@ -58,7 +58,7 @@ const createEventSlice = createSlice({
             if (status >= 200 && status < 300) {
                 state.createEvent = data?.data
             } else if (status >= 400 && status < 500) {
-                toast("Something went wrong in createEvent")
+                // toast("Something went wrong in createEvent")
             }
         },
         ['createEventsSection/updateEventList/fulfilled']: (state, action) => {
