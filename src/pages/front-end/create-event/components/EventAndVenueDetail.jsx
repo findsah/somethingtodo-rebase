@@ -37,7 +37,7 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData, addedVenueDetails 
         centerMode: true,
     }
 
-    console.log(addedVenueDetails)
+
 
     // useEffect(() => {
     //     addedVenues?.forEach(async (item) => {

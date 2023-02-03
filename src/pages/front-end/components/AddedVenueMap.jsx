@@ -10,7 +10,7 @@ import { iconBlue, iconGreen } from '../../../assets/leftletIcon/icon'
 
 const AddedVenueMap = ({ position, addedVenues }) => {
 
-    console.log(addedVenues)
+
     const mapRef = createRef();
 
     const addedVenueId = addedVenues?.map((venue) => {

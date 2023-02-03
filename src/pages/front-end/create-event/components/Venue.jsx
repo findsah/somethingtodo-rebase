@@ -251,7 +251,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
 
     // add venue
     const addVenueAction = (item) => {
-        console.log("itemmmmm", item)
+
         const data = {
             place_id: item?.google_place_id,
             images: item?.image,

@@ -34,7 +34,7 @@ const TimeAndPrice = ({
     // const current = new Date();
     // const today = `${current.getFullYear()}-${current.getMonth() + 1}-${current.getDate()}`;
 
-    console.log("eveentdata", eventDate)
+
     const [date, setDate] = useState(new Date())
 
     var MyDate = new Date();

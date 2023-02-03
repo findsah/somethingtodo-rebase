@@ -158,7 +158,7 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <MultipleMarkers />
-            <Marker key={"location"} position={position} icon={iconRed}>
+            <Marker key={"location"} position={position} icon={iconRed} draggable={true}>
                 <Popup>
                     Your Location is {position[0]} , {position[1]}
                 </Popup>

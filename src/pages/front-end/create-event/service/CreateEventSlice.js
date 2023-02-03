@@ -46,7 +46,7 @@ const createEventSlice = createSlice({
 
         ['createEventsSection/getEventList/fulfilled']: (state, action) => {
             const { data, status } = action.payload || {}
-            console.log(data)
+
             if (status >= 200 && status < 300) {
                 state.getEventList = data?.data
             } else if (status >= 400 && status < 500) {
@@ -132,7 +132,7 @@ const createEventSlice = createSlice({
 
         ['createEventsSection/getVenueDetailByPlaceIdfordetail/fulfilled']: (state, action) => {
             const { data, status } = action.payload || {}
-            console.log(data)
+
             if (status >= 200 && status < 300) {
                 state.getVenueDetailByPlaceIdfordetail = data
             } else if (status >= 400 && status < 500) {

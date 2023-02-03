@@ -92,7 +92,7 @@ const CreateEvent = () => {
         }
     })
 
-    console.log(addedVenues)
+
 
     // whole onSubmit date for createEvent
     const createEventData = {

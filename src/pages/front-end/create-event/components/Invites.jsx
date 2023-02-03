@@ -21,7 +21,7 @@ const Invites = ({ age, gender, number, setAge, setNumber, setGender, isthisDate
     setpeopleInfo
 }) => {
 
-    console.log(age)
+
     // hook importer
     const dispatch = useDispatch()
 
