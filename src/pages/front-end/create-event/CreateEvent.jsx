@@ -5,6 +5,7 @@ whatsapp: +923430048341
 */
 import React, { useState } from 'react'
 import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import CreateEventHead from './components/CreateEventHead'
 import EventAndVenueDetail from './components/EventAndVenueDetail'
 import StepperForm from './components/StepperForm'
@@ -15,6 +16,8 @@ const CreateEvent = () => {
     const [previewImage, setPreviewImage] = useState([])
     const [addedVenues, setAddedVenues] = useState([])
     const [addedVenueDetails, setAddedVenueDetails] = useState([])
+    const { addedVenuesData } = useSelector((state) => state?.createEventSlice)
+    const { addedVenueDetailsData } = useSelector((state) => state?.createEventSlice)
 
     // event discription local state
     const [eventTitle, setEventTitle] = useState("");
@@ -80,7 +83,7 @@ const CreateEvent = () => {
 
     }
     // modify createEventdata
-    const addVenues = addedVenues.map((item) => {
+    const addVenues = addedVenuesData.map((item) => {
         return {
             place_id: item?.place_id,
             imageUrl: item?.photos ? item?.photos[0]?.getUrl() : "",
@@ -104,7 +107,7 @@ const CreateEvent = () => {
         time: eventTime,
         date: eventDate,
         TicketPrice: eventCost[1],
-        locationings: addedVenues,
+        locationings: addedVenuesData,
         peopleinformations: peopleInfo
     }
 

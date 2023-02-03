@@ -2,9 +2,12 @@ import { useRef } from 'react'
 import { useDrag, useDrop } from 'react-dnd'
 import { ItemTypes } from '../../components/ItemTypes.js'
 import dummy from '../../../../assets/dummy1.png'
+import { useDispatch, useSelector } from 'react-redux'
+import { RemoveAddedVenueDetailsData, RemoveAddedVenuesData, } from '../service/CreateEventSlice.js'
 
 export const VenueCard = ({ id, data, index, moveCard, setAddedVenues, setAddedVenueDetails }) => {
-
+    const { addedVenues } = useSelector((state) => state?.createEventSlice)
+    const dispatch = useDispatch()
     // remove venue
     const RemoveVenueAction = (item) => {
 
@@ -21,6 +24,9 @@ export const VenueCard = ({ id, data, index, moveCard, setAddedVenues, setAddedV
             }
             )
         );
+
+        dispatch(RemoveAddedVenuesData(item))
+
         setAddedVenueDetails((current) =>
             current.filter((venue) => {
 
@@ -34,6 +40,7 @@ export const VenueCard = ({ id, data, index, moveCard, setAddedVenues, setAddedV
             }
             )
         );
+        dispatch(RemoveAddedVenueDetailsData(item))
     }
     const ref = useRef(null)
     const [{ handlerId }, drop] = useDrop({

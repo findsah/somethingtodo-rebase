@@ -5,12 +5,14 @@ whatsapp: +923430048341
 */
 import React, { createRef, useEffect, useState } from 'react'
 import { MapContainer, Marker, Popup, TileLayer, useMapEvent, useMap, useMapEvents } from 'react-leaflet'
+import { useDispatch } from 'react-redux'
 import dummy from '../../../assets/dummy1.png'
 import { iconBlue, iconGreen, iconRed } from '../../../assets/leftletIcon/icon'
+import { SetAddedVenuesData } from '../create-event/service/CreateEventSlice'
 
 const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogory, distance }) => {
 
-
+    const dispatch = useDispatch()
     const [positionLocate, setPositionLocate] = useState([51.505, -0.09])
     const mapRef = createRef();
 
@@ -38,6 +40,7 @@ const MapModal = ({ position, data, setAddedVenues, addedVenues, keyword, catogo
 
 
         setAddedVenues((prevState) => [...prevState, data])
+        dispatch(SetAddedVenuesData(data))
     }
 
     const addedVenueId = addedVenues?.map((venue) => {

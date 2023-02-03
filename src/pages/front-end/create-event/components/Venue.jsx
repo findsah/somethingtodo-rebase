@@ -22,6 +22,7 @@ import { AddedVenueSorting } from './AddedVenueSorting';
 import { toast } from 'react-toastify';
 import validator from 'validator'
 import Autocomplete from "react-google-autocomplete";
+import { SetAddedVenueDetailsData, SetAddedVenuesData } from '../service/CreateEventSlice';
 
 
 
@@ -34,6 +35,8 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     // hook importer
     const dispatch = useDispatch()
 
+    const { addedVenuesData } = useSelector((state) => state?.createEventSlice)
+    console.log(addedVenuesData)
     // usestate for local state
     const [mapOrCarView, setMapOrCardView] = useState("mapview");
     const [mapOrcardTap, setMapOrCardTap] = useState("mapTap");
@@ -136,6 +139,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                 toast.success("Custom Venue Add Successfully")
                 setOpen(false)
                 setAddedVenues((prevState) => [...prevState, createCustomVenueData])
+                dispatch(SetAddedVenuesData(createCustomVenueData))
             })
 
 
@@ -226,8 +230,8 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const keyword = new RegExp(searchBy, 'i');
 
     // useSlector to get State from store
-
     const { getVenueListGoogle } = useSelector((state) => state?.createEventSlice)
+
     const addedVenueId = addedVenues?.map((venue) => {
         return venue?.id || venue?.place_id
     })
@@ -271,6 +275,8 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             previewImage: []
         }
         setAddedVenues((prevState) => [...prevState, data])
+        dispatch(SetAddedVenuesData(data))
+
     }
     // add venue detail 
     const addVenueActionDetail = (id) => {
@@ -300,6 +306,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                     closingDay: res?.payload?.data?.data?.opening_hours ? res?.payload?.data?.data?.opening_hours?.weekday_text[6] : ""
                 }
                 setAddedVenueDetails((prevState) => [...prevState, data])
+                dispatch(SetAddedVenueDetailsData(data))
 
 
 
@@ -718,7 +725,8 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                 <h2 className='disable_desktop'>SEARCH VENUES:</h2>
                 <div className='venue_card_container'>
                     <AddedVenueSorting
-                        venueCard={addedVenues}
+                        // venueCard={addedVenues}
+                        venueCard={addedVenuesData}
                         setVenueCard={setAddedVenues}
                         setAddedVenueDetails={setAddedVenueDetails}
                     />

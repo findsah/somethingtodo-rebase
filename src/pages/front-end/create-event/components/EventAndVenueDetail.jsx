@@ -21,7 +21,7 @@ import Slider from 'react-slick'
 import dummy from '../../../../assets/dummy1.png'
 import AddedVenueMap from '../../components/AddedVenueMap'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { GetAllImages, GetVenueDetailByPlaceId, GetVenueDetailByPlaceIdfordetail } from '../service/CreateEventApi'
 import { useEffect } from 'react'
 
@@ -37,8 +37,9 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData, addedVenueDetails 
         centerMode: true,
     }
 
+    const { addedVenueDetailsData } = useSelector((state) => state?.createEventSlice)
 
-
+    console.log(addedVenueDetailsData)
     // useEffect(() => {
     //     addedVenues?.forEach(async (item) => {
     //         const res = await dispatch(GetVenueDetailByPlaceId(item?.place_id));
@@ -180,11 +181,11 @@ const EventAndVenueDetail = ({ addedVenues, timeandpriceData, addedVenueDetails 
                     <h2 >VENUE DETAILS</h2>
                     <div className="blue_line_bar"></div>
                     {
-                        addedVenueDetails?.length > 0 ?
+                        addedVenueDetailsData?.length > 0 ?
                             <Slider {...settings}>
 
 
-                                {addedVenueDetails.map((item, index) => (
+                                {addedVenueDetailsData.map((item, index) => (
                                     <div className='card' key={item?.place_id}>
                                         {/* <div>
                                             <Slider>

@@ -29,16 +29,24 @@ const createEventSlice = createSlice({
         getAllImages: [],
 
         // local runtime state
-        addedVenues: [],
-        addedVenueDetails: []
+        addedVenuesData: [],
+        addedVenueDetailsData: []
 
     },
     reducers: {
-        SetAddedVenues: (state, action) => {
-            state.addedVenues = action.payload;
+        SetAddedVenuesData: (state, action) => {
+
+            state.addedVenuesData = [...state.addedVenuesData, action.payload];
         },
-        SetAddedVenueDetails: (state, action) => {
-            state.addedVenueDetails = action.payload;
+        RemoveAddedVenuesData: (state, action) => {
+            console.log(action.payload)
+            state.addedVenuesData = [...state.addedVenuesData.filter(item => item?.place_id !== action.payload?.place_id)]
+        },
+        SetAddedVenueDetailsData: (state, action) => {
+            state.addedVenueDetailsData = [...state.addedVenueDetailsData, action.payload];
+        },
+        RemoveAddedVenueDetailsData: (state, action) => {
+            state.addedVenueDetailsData = [...state.addedVenueDetailsData.filter(item => item?.place_id !== action.payload?.place_id)]
         },
 
     },
@@ -201,6 +209,6 @@ const createEventSlice = createSlice({
     }
 })
 
-export const { SetAddedVenues, SetAddedVenueDetails } = createEventSlice.actions;
+export const { SetAddedVenuesData, RemoveAddedVenuesData, SetAddedVenueDetailsData, RemoveAddedVenueDetailsData } = createEventSlice.actions;
 
 export default createEventSlice.reducer;
