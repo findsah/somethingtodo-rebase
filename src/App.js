@@ -5,6 +5,7 @@ import { GetCurrentLocation } from "./services/ShareApi";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
 import FullPageLoader from "./pages/front-end/components/FullPageLoader";
+import { ChangeCurrentLocationlanlng } from "./pages/front-end/create-event/service/CreateEventSlice";
 
 
 
@@ -19,7 +20,7 @@ const App = () => {
 
   useEffect(() => {
     if ("geolocation" in navigator) {
-
+        
     } else {
 
     }
@@ -30,6 +31,7 @@ const App = () => {
         localStorage.setItem("lat", position.coords.latitude)
         localStorage.setItem("lag", position.coords.longitude)
         dispatch(GetCurrentLocation(position.coords))
+        dispatch(ChangeCurrentLocationlanlng([position.coords.latitude,position.coords.longitude]))
       }
       )
     }

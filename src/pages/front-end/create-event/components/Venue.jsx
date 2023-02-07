@@ -230,8 +230,9 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const keyword = new RegExp(searchBy, 'i');
 
     // useSlector to get State from store
-    const { getVenueListGoogle } = useSelector((state) => state?.createEventSlice)
+    const { getVenueListGoogle,currentLocationlanlng } = useSelector((state) => state?.createEventSlice)
 
+    console.log(currentLocationlanlng)
     const addedVenueId = addedVenues?.map((venue) => {
         return venue?.id || venue?.place_id
     })
@@ -321,13 +322,13 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     // catogory or distance
     useEffect(() => {
         const data = {
-            lat: lat || 40.730610,
-            lng: lag || -73.935242,
+            lat: currentLocationlanlng[0] || lat || 45.4215,
+            lng: currentLocationlanlng[1] || lag || 75.6972,
             catogory: catogory || 'sports',
             radias: distance?.replace('km', '') * 1000 || 5000
         }
         dispatch(GetVenueListGoogle(data))
-    }, [catogory, distance])
+    }, [catogory, distance, currentLocationlanlng])
 
     return (
         <div className='create_event_venue'>

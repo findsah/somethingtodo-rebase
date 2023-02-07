@@ -6,16 +6,17 @@ whatsapp: +923430048341
 import React, { createRef, useEffect, useState } from 'react'
 import { useRef } from 'react'
 import { MapContainer, Marker, Popup, TileLayer, useMapEvent, useMap, useMapEvents } from 'react-leaflet'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import dummy from '../../../assets/dummy1.png'
 import { iconBlue, iconGreen, iconRed } from '../../../assets/leftletIcon/icon'
 import { GetAllImages, GetVenueDetailByPlaceId } from '../create-event/service/CreateEventApi'
-import { SetAddedVenueDetailsData, SetAddedVenuesData } from '../create-event/service/CreateEventSlice'
+import { ChangeCurrentLocationlanlng, SetAddedVenueDetailsData, SetAddedVenuesData } from '../create-event/service/CreateEventSlice'
 
 const MapModal = ({ position, data, setAddedVenues, setAddedVenueDetails, addedVenues, keyword, catogory, distance }) => {
 
     const dispatch = useDispatch()
     const [positionLocate, setPositionLocate] = useState([51.505, -0.09])
+    const { currentLocationlanlng } = useSelector((state) => state?.createEventSlice)
     const mapRef = createRef();
 
 
@@ -118,8 +119,8 @@ const MapModal = ({ position, data, setAddedVenues, setAddedVenueDetails, addedV
 
     useEffect(() => {
 
-        if (data?.data?.length > 0 && data[0]?.location?.lat) {
-            const setposition = [data[0]?.location?.lat, data[0]?.location?.lng]
+        if (data?.data?.places?.length > 0 && data?.data?.places[0]?.location?.lat) {
+            const setposition = [data?.data?.places[0]?.location?.lat, data?.data?.places[0]?.location?.lng]
             setPositionLocate(setposition)
             // mapRef?.current?.flyTo(setposition || [51.505, -0.09])
         }
@@ -131,9 +132,12 @@ const MapModal = ({ position, data, setAddedVenues, setAddedVenueDetails, addedV
 
     function MultipleMarkers() {
         const map = useMapEvent({
-            click() {
+            click(e) {
                 map.locate();
-                // map.flyTo(positionLocate, map.getZoom())
+                dispatch(ChangeCurrentLocationlanlng([
+                    e.latlng.lat,
+                    e.latlng.lng
+                ]))
             },
 
 
@@ -145,7 +149,7 @@ const MapModal = ({ position, data, setAddedVenues, setAddedVenueDetails, addedV
 
 
         {
-            return data?.data?.filter(entry => Object?.values(entry)?.some(val => typeof val === "string" && val?.match(keyword)))
+            return data?.data?.places?.filter(entry => Object?.values(entry)?.some(val => typeof val === "string" && val?.match(keyword)))
                 ?.map((venue, index) => {
 
                     const checkposition = venue?.location?.lat ? [venue?.location?.lat, venue?.location?.lng] : position
@@ -206,7 +210,9 @@ const MapModal = ({ position, data, setAddedVenues, setAddedVenueDetails, addedV
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <MultipleMarkers />
-            <Marker key={"location"} position={position}
+    
+
+            <Marker key={"location"} position={currentLocationlanlng }
                 icon={iconRed}
                 draggable={true}
 
