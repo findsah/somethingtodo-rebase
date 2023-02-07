@@ -30,7 +30,8 @@ const createEventSlice = createSlice({
 
         // local runtime state
         addedVenuesData: [],
-        addedVenueDetailsData: []
+        addedVenueDetailsData: [],
+        currentLocationlanlng:[]
 
     },
     reducers: {
@@ -57,6 +58,9 @@ const createEventSlice = createSlice({
 
             state.addedVenueDetailsData = [];
         },
+        ChangeCurrentLocationlanlng:(state,action)=>{
+            state.currentLocationlanlng = action.payload
+        }
 
     },
     extraReducers: {
@@ -220,6 +224,6 @@ const createEventSlice = createSlice({
 
 export const { SetAddedVenuesData, RemoveAddedVenuesData,
     SetAddedVenueDetailsData, RemoveAddedVenueDetailsData,
-    ClearAddedVenuesData, ClearAddedVenuesDetailData } = createEventSlice.actions;
+    ClearAddedVenuesData, ClearAddedVenuesDetailData,ChangeCurrentLocationlanlng } = createEventSlice.actions;
 
 export default createEventSlice.reducer;
