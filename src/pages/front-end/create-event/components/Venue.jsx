@@ -27,6 +27,7 @@ import { SetAddedVenueDetailsData, SetAddedVenuesData } from '../service/CreateE
 
 
 
+
 const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, setPreviewImage,
     setAddedVenueDetails,
 
@@ -52,7 +53,8 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
     const [longitude, setLongitude] = useState()
     const [Title, setTitle] = useState()
     const [isPravite, setIsPravite] = useState("no")
-    const [city, setCity] = useState()
+    const [city, setCity] = useState();
+    const [customCatogory, setCustomCatogory]= useState("")
     const [street, setStreet] = useState()
     const [building, setBuilding] = useState()
     const [phoneNumber, setPhoneNumber] = useState()
@@ -108,6 +110,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
             formData.append("location[lat]", lantitude);
             formData.append("location[lng]", longitude);
             formData.append("city", city);
+            formData.append("category", customCatogory);
             formData.append("street", street);
             formData.append("building", building);
             formData.append("phoneNumber", phoneNumber);
@@ -411,9 +414,17 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
                             </div>
                             <div className='feild'>
                                 <h3>CATEGORY</h3>
-                                <select name="category" id="category" className='select'>
-                                    <option >Category</option>
-                                    <option value="catogory one">one</option>
+                                <select name="category" id="category" className='select'
+                                value={customCatogory}
+                                onChange={(e)=> setCustomCatogory(e.target.value)}
+                                >
+                                    {/* <option >Category</option> */}
+                                    {
+                            catogories?.map((item, index) =>
+                                <option key={index} value={item?.name}> {item?.name}</option>
+                            )
+
+                        }
                                 </select>
                             </div>
                             <div className='feild'>

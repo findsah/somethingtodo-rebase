@@ -31,7 +31,8 @@ const createEventSlice = createSlice({
         // local runtime state
         addedVenuesData: [],
         addedVenueDetailsData: [],
-        currentLocationlanlng:[]
+        currentLocationlanlng:[],
+        getVenuelocationName:{}
 
     },
     reducers: {
@@ -72,6 +73,16 @@ const createEventSlice = createSlice({
                 state.getEventList = data?.data
             } else if (status >= 400 && status < 500) {
                 toast("Something went wrong in getEventList")
+            }
+        },
+        
+        ['createEventsSection/getVenuelocationName/fulfilled']: (state, action) => {
+            const { data, status } = action.payload || {}
+
+            if (status >= 200 && status < 300) {
+                state.getVenuelocationName = data?.data
+            } else if (status >= 400 && status < 500) {
+                toast("Something went wrong in getVenuelocationName")
             }
         },
         ['createEventsSection/getEventListById/fulfilled']: (state, action) => {

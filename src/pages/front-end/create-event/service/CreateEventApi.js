@@ -170,6 +170,18 @@ export const CreateCustomVenue = createAsyncThunk("createEventsSection/createCus
 
 });
 
+export const GetVenuelocationName = createAsyncThunk("createEventsSection/getVenuelocationName", async (params) => {
+
+    let response = await apiInstance.get(`google/location/${params?.lat}/${params?.lng}`).then((response) => {
+
+        return response
+    }).catch((error) => {
+        return error.response
+    })
+    const { data, status } = response;
+    return { data, status }
+
+});
 //  get venue by id
 export const GetVenueListById = createAsyncThunk("createEventsSection/getVenueListById", async (params) => {
 
