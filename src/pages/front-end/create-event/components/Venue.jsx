@@ -324,7 +324,7 @@ const Venue = ({ images, setImages, addedVenues, setAddedVenues, previewImage, s
         const data = {
             lat: currentLocationlanlng[0] || lat || 45.4215,
             lng: currentLocationlanlng[1] || lag || 75.6972,
-            catogory: catogory || 'sports',
+            catogory: catogory || 'dining',
             radias: distance?.replace('km', '') * 1000 || 5000
         }
         dispatch(GetVenueListGoogle(data))
