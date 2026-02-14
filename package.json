@@ -15,7 +15,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
     "aos": "^2.3.4",
-    "axios": "^1.2.2",
+    "axios": "^1.13.5",
     "bootstrap": "^5.2.3",
     "immutability-helper": "^3.1.1",
     "include-media": "^1.4.10",
